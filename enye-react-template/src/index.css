@@ -12,7 +12,7 @@ body {
 }
 
 .backgroundImage {
-    background-image: url(storegirl.jpg);
+    background-image: url(img1.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 1350px 550px;
@@ -20,11 +20,11 @@ body {
     height: inherit;
 }
 .pix {
-    background-image: url(meee.PNG);
+    background-image: url(img2.PNG);
 }
 
 .footer {
-    background-image: url(meee.PNG)
+    background-image: url(img2.PNG);
 }
 
 .mr-sm-2 {

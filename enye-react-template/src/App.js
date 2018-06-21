@@ -1,17 +1,17 @@
 import React from 'react';
 import './index.css';
-import {DashBoard} from './Dashboard.js';
-import MyApp from './Topbar';
-import NaviApp from './constant.js';
+import AppTop from './Topbar';
+import {AppBody} from './Body.js';
+import AppButtom from './constant.js';
 
 
 class App extends React.Component {
   render() {
     return (
                <div>                                                           
-                      <MyApp />
-                     <DashBoard />
-                     <NaviApp />
+                      <AppTop />
+                      <AppBody />
+                      <AppButtom />
                </div>
     );
   }

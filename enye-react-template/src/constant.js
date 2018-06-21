@@ -4,7 +4,7 @@ import {
     Container,
     Row} from 'reactstrap';
 
-export default class NaviApp extends React.Component {
+export default class AppButtom extends React.Component {
   constructor(props) {
     super(props);
 

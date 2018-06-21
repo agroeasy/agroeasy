@@ -1,6 +1,6 @@
 import React from 'react' ;
 
-export const DashBoard = () => {
+export const AppBody = () => {
     
     return (
      <div>
