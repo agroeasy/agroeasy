@@ -31,7 +31,7 @@ class AnotherList extends React.Component {
                                        &nbsp;&nbsp;&nbsp;
                                      <div className="details">
                                          <p>
-                                             <b>Palm Oil (25ltrs)</b><br />Location: Owerri, Imo State<br />Name: My Store<br />#9,500 per gallon
+                                             <b>Palm Oil</b><br />Location: Owerri, Imo State<br />Name: My Store<br />#9,500 per gallon
                                          </p>
                                      </div>
                                  </Col>
