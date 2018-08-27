@@ -17,7 +17,7 @@ import './bootstrap.min.css';
                         <Row style ={{marginTop:'100px'}}>
                            <Col md="12">
                                 <h1> Welcome Guest</h1>
-                                <h4> Makes us your distributor and we will tell the world about your business.</h4>
+                                <h4> Make us your distributor and we will tell the world about your business.</h4>
                                 <p style={{textAlign: 'center'}}>
                                     <h4> Dear customer, we make sure you get a discount anytime you patronize us.
                                          Give us a try.

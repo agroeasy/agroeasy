@@ -15,7 +15,7 @@ export default class  Footer extends Component {
                             <br />
                                <Row>
                                    <Col md={12}>
-                                      <h6>All right reserved, Copyright © 2018 Agroeasy</h6>
+                                      <h6>All rights reserved, Copyright © 2018 Agroeasy</h6>
                                    </Col>
                                </Row>
                          </Container>
