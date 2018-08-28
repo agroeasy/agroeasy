@@ -25,21 +25,21 @@ export default class Navibar extends Component {
         return (
             <div>
                 <Navbar color="inverse" light expand="md" className = "nav-bar" >
-                    <NavbarBrand href="/">Our simple <br />logo here</NavbarBrand>
+                    <NavbarBrand href={Home}>Our simple <br />logo here</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar >
                             <NavItem >
-                            <NavLink href="/" className="navLink">Home</NavLink>
+                            <NavLink href={Home} className="navLink">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink /* href="/support/" */className="navLink">Support</NavLink>
+                                <NavLink  href={Support} className="navLink">Support</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink /* href="/show-goods/" */className="navLink">Goods</NavLink>
+                                <NavLink href={Goods} className="navLink">Goods</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink /* href="/contact-us/" */ className="navLink">Contact</NavLink>
+                                <NavLink href={Contact} className="navLink">Contact</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>

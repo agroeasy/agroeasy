@@ -15,7 +15,7 @@ class AnotherList extends React.Component {
            <div>
                 <Container>
                     <h5 style={{textAlign: 'center'}}>
-                        <Link to="/more-products/">Products Available</Link>
+                        <Link to={ProductsAvailable}>Products Available</Link>
                     </h5>
                    <Jumbotron className="show-products-available" style={{backgroundColor: 'white'}}>
                              <Row>
