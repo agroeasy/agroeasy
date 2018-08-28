@@ -8,6 +8,11 @@ import Navibar from './Navibar';
 import './home.css';
 import './bootstrap.min.css';
 
+
+/*
+this is the home page, where sub-components (the Navibar, AnotherList and footer components)
+are exported to and displayed
+*/
  class Home extends React.Component {
     render() {
         return (

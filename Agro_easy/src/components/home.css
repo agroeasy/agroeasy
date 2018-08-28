@@ -1,17 +1,6 @@
-/*this is for the homepage
-.Jumbotron {
-text-align: center;  margin-bottom: 2em;
-background-image: url(/images/brendan.jpg);
-background-repeat: no-repeat;
-background-position: center;
-background-size: 1350px 550px;
-width: inherit;
-height: inherit;
-
-}
-*/
-
-/* This be for the footer*/
+/*
+ This be for the footer
+ */
 .footer {
   text-align: center;  font-style: oblique;
   background-color: whitesmoke;
@@ -27,7 +16,10 @@ height: inherit;
   font-size: 13px;
   color: Grey;
 }
-/*This is for anotherlist*/
+
+/*
+This is for anotherlist
+*/
 .link-to-more {
   text-align: center;
   margin-bottom: -2em;
@@ -38,12 +30,18 @@ height: inherit;
   text-align: left;
 }
 
-/*this is for show-products-available */
+/*
+this is for show-products-available
+ */
 .show-products-available {
 margin-top: -2em;
 background-color: white;
 }
-/* this is for Navibar.js and homepage.js */
+
+/*
+ this is for Navibar.js and homepage.js
+  */
+
 .bg-img{
   background-image: linear-gradient( rgba(0, 0, 0, 0.336),rgba(0, 0, 0, 0.281)),
   url(/images/fpimg.jpg);

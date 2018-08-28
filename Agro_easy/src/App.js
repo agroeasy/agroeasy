@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import About from './components/about';
 import Home from './components/home';
 
-
+/*
+The principal component for housing sub-components (like home, about and 
+other pages) for easy navigation
+*/
 class App extends Component {
     render() {
         return (

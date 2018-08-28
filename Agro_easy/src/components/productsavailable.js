@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { Container, Col, Row } from 'reactstrap';
 import './home.css';
 
-
+/*
+List of items according to groups
+*/
 export default class ProductsAvailable extends Component {
        render() {
          return (

@@ -3,6 +3,11 @@ import { Col, Row, Container } from 'reactstrap';
 import './home.css';
 import ProductsAvailable from './productsavailable';
 
+
+/*
+This will contain the productsavailable components and other 
+neccessary info
+*/
 export default class  Footer extends Component {
   render () {
     return (

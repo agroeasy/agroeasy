@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Collapse } from 'reactstrap';
 import './home.css'
+import { Home, Support, Contact, Goods } from './constant';
 
+
+/*
+this is the the navigation bar at the top of the home page
+*/
 export default class Navibar extends Component {
     constructor(props) {
         super(props);
@@ -31,10 +36,10 @@ export default class Navibar extends Component {
                                 <NavLink /* href="/support/" */className="navLink">Support</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink /* href="/show-goods/" */className="navLink">Goods Available</NavLink>
+                                <NavLink /* href="/show-goods/" */className="navLink">Goods</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink /* href="/contact-us/" */ className="navLink">Our contact</NavLink>
+                                <NavLink /* href="/contact-us/" */ className="navLink">Contact</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>

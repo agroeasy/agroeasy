@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './home.css';
 
-/*this component will contain tmformation about the developter */
+/*
+this component will contain imformation about the developter
+ */
 export default class About extends Component {
     render() {
         return (

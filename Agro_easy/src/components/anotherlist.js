@@ -2,7 +2,13 @@ import React from 'react';
 import { Col, Row, Container, Jumbotron } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './home.css';
+import { ProductsAvailable } from './constant';
 
+
+/*
+This is a component of varieties of products appearing
+in no particular order
+*/
 class AnotherList extends React.Component {
   render() {
     return (
