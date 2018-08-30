@@ -1,6 +1,4 @@
-/*
- This be for the footer
- */
+/* footer.js */
 .footer {
   text-align: center;  font-style: oblique;
   background-color: whitesmoke;
@@ -17,9 +15,7 @@
   color: Grey;
 }
 
-/*
-This is for anotherlist
-*/
+/* AnotherList.js */
 .link-to-more {
   text-align: center;
   margin-bottom: -2em;
@@ -39,9 +35,8 @@ background-color: white;
 }
 
 /*
- this is for Navibar.js and homepage.js
+ this is for Navibar.js and home.js
   */
-
 .bg-img{
   background-image: linear-gradient( rgba(0, 0, 0, 0.336),rgba(0, 0, 0, 0.281)),
   url(/images/fpimg.jpg);
@@ -54,11 +49,19 @@ background-color: white;
 
 .navLink{
   color: #fff !important;
-
 }
+
 .nav-bar {
   margin-top: -4.5em;
 }
 .navLink:hover{
   color: red !important;
+}
+
+/*Support.js */
+.support {
+  text-align: center;
+  margin-top: 90px;
+  background-color: DimGrey;
+  color: whitesmoke;
 }

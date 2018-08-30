@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Collapse } from 'reactstrap';
-import './home.css'
+import { Navbar, NavbarToggler, NavbarBrand,
+       Nav, NavItem, NavLink, Collapse } from 'reactstrap';
 import { Home, Support, Contact, Goods } from './constant';
+import './home.css';
 
 
 /*

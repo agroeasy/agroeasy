@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import About from './components/about';
+import About from './components/support';
 import Home from './components/home';
 
 /*
-The principal component for housing sub-components (like home, about and 
+The principal component for housing sub-components (like home, about and
 other pages) for easy navigation
 */
 class App extends Component {

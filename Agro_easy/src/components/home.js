@@ -1,13 +1,12 @@
 import React from 'react';
+import './bootstrap.min.css';
 import { InputGroup, InputGroupAddon, Jumbotron, Col,
          Button, Input, Row, Container
 } from 'reactstrap';
-import Footer from './footer';
-import AnotherList from './anotherlist';
-import Navibar from './Navibar';
 import './home.css';
-import './bootstrap.min.css';
-
+import Footer from './footer';
+import Navibar from './Navibar';
+import AnotherList from './anotherlist';
 
 /*
 this is the home page, where sub-components (the Navibar, AnotherList and footer components)

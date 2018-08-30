@@ -34,7 +34,7 @@ class AnotherList extends React.Component {
                                       <div className="details">
                                            <img src='/images/Palm Oil.jpg' alt="#" style={{width: '150px'}} />
                                       </div>
-                                       &nbsp;&nbsp;&nbsp;
+                                                                        &nbsp;&nbsp;&nbsp;
                                      <div className="details">
                                          <p>
                                              <b>Palm Oil</b><br />Location: Owerri, Imo State<br />Name: My Store<br />#9,500 per gallon

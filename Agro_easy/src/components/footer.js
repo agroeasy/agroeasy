@@ -5,7 +5,7 @@ import ProductsAvailable from './productsavailable';
 
 
 /*
-This will contain the productsavailable components and other 
+This will contain the productsavailable components and other
 neccessary info
 */
 export default class  Footer extends Component {
