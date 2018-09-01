@@ -1,0 +1,67 @@
+/* footer.js */
+.footer {
+  text-align: center;  font-style: oblique;
+  background-color: whitesmoke;
+  margin-top: -17px;
+}
+.lower-footer {
+  background-color: DimGrey;
+  height: 50px; color: white;
+  text-align: center;
+}
+.details {
+  display: inline-block;
+  font-size: 13px;
+  color: Grey;
+}
+
+/* AnotherList.js */
+.link-to-more {
+  text-align: center;
+  margin-bottom: -2em;
+}
+.items {
+  font-style: normal;
+  color: black; background-color: whitesmoke;
+  text-align: left;
+}
+
+/*
+this is for show-products-available
+ */
+.show-products-available {
+margin-top: -2em;
+background-color: white;
+}
+
+/*
+ this is for Navibar.js and home.js
+  */
+.bg-img{
+  background-image: linear-gradient( rgba(0, 0, 0, 0.336),rgba(0, 0, 0, 0.281)),
+  url(/images/fpimg.jpg);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+.navLink{
+  color: #fff !important;
+}
+
+.nav-bar {
+  margin-top: -4.5em;
+}
+.navLink:hover{
+  color: red !important;
+}
+
+/*Support.js */
+.support {
+  text-align: center;
+  margin-top: 90px;
+  background-color: DimGrey;
+  color: whitesmoke;
+}
