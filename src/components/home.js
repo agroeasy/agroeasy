@@ -1,5 +1,4 @@
 import React from 'react';
-import './bootstrap.min.css';
 import { InputGroup, InputGroupAddon, Jumbotron, Col,
          Button, Input, Row, Container
 } from 'reactstrap';
