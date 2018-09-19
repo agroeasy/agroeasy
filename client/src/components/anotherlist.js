@@ -32,7 +32,7 @@ class AnotherList extends React.Component {
                                   </Col>
                                   <Col md={3}>
                                       <div className="details">
-                                           <img src='/images/Palm Oil.jpg' alt="#" style={{width: '150px'}} />
+                                           <img src='/images/PalmOil.jpg' alt="#" style={{width: '150px'}} />
                                       </div>
                                                                         &nbsp;&nbsp;&nbsp;
                                      <div className="details">
@@ -54,7 +54,7 @@ class AnotherList extends React.Component {
                                    </Col>
                                    <Col md={3}>
                                         <div className="details">
-                                            <img src='/images/Groundnut Oil.jpeg' alt="#" style={{width: '150px', height: '120px'}} />
+                                            <img src='/images/GroundnutOil.jpeg' alt="#" style={{width: '150px', height: '120px'}} />
                                         </div>
                                                                          &nbsp;&nbsp;&nbsp;
                                         <div className="details">
@@ -99,7 +99,7 @@ class AnotherList extends React.Component {
                                </Col>
                                <Col md={3}>
                                     <div className="details">
-                                         <img src='/images/Dry pepper.jpg'alt="#"  style={{width: '150px', height: '100px'}} />
+                                         <img src='/images/Drypepper.jpg'alt="#"  style={{width: '150px', height: '100px'}} />
                                     </div>
                                                                       &nbsp;&nbsp;&nbsp;
                                     <div className="details">
