@@ -1,70 +1,87 @@
-const Producer = require('../models/producer');
+const db = require('../helpers/db');
 
+const Producer = db.Producer;
 
-exports.producerCreate = function (req,res){
-    //post new producer to the database
-     const producer = new Producer();
-     //body parser lets us use the req.body
-     const {
-         firstName,
-         lastName,
-         phoneNumber,
-         country,
-         state,
-         localGovernment,
-         address,
-         typeOfProducts,
-         createdAt,
-         updatedAt,
-         deletedAt
-      } = req.body;
-      
-     producer.firstName = firstName;
-     producer.lastName = lastName;
-     producer.phoneNumber = phoneNumber;
-     producer.country = country;
-     producer.state = state;
-     producer.localGovernment = localGovernment;
-     producer.addresse = address;
-     producer.typeOfProducts = typeOfProducts;
-     producer.createdAt = createdAt;
-     producer.updatedAt = updatedAt;
-     producer.deletedAt = deletedAt;
-  
-     producer.save(err=> {
-       if (err) return res.json({success: false, error: err});
-       return res.json({ success: true, message: 'Producer successfully added!' });
-     });
-   };
+module.exports = {
+  producerCreate: async (req, res) => {
+    //  post new producer to the database
+    let producer = new Producer();
 
-//find producers by id
-exports.producerDetails = function(req,res){
-       Producer.findById(req.params.id, (err,producers)=>{
-           if(err) return res.json({success: false, error: err});
-           return res.json({success: true, data: producers});
-       });
-   }
+    //  body parser lets us use the req.body
+    const {
+      firstName,
+      lastName,
+      phoneNumber,
+      country,
+      state,
+      localGovernment,
+      address,
+      typeOfProducts,
+      createdAt,
+      updatedAt,
+      deletedAt
+    } = req.body;
 
-//finds all the producers in the database
-exports.allProducersDetails = function(req, res){
-    Producer.find((err,producers)=>{
-        if(err) return res.json({success: false, error:err});
-        return res.json({success: true, data: producers});
-    })
-};
+    producer = Object
+      .assign(producer, {
+        firstName,
+        lastName,
+        phoneNumber,
+        country,
+        state,
+        localGovernment,
+        address,
+        typeOfProducts,
+        createdAt,
+        updatedAt,
+        deletedAt
+      });
 
-// deletes producer using id
-exports.producerDelete = function(req, res){
-    Producer.findByIdAndRemove(req.params.id, (err)=>{
-      if (err) return res.json({success: false, error: err});
+    try {
+      await producer.save();
+      return res.json({ success: true, message: 'Producer successfully added!' });
+    } catch (err) {
+      res.send({ success: false, err });
+    }
+  },
+
+  // find producers by id
+  producerDetails: async (req, res) => {
+    try {
+      const data = await Producer.findById({ _id: req.params.id });
+      return res.json({ data, success: true });
+    } catch (err) {
+      res.send({ success: false, err });
+    }
+  },
+
+  // finds all the producers in the database
+  allProducersDetails: async (req, res) => {
+    try {
+      const data = await Producer.find();
+      return res.json({ success: true, data });
+    } catch (err) {
+      res.json({ success: false, err });
+    }
+  },
+
+  // deletes producer using id
+  producerDelete: async (req, res) => {
+    try {
+      await Producer.findOneAndRemove({ _id: req.params.id }, req.body);
       return res.json({ success: true, message: 'Producer successfully deleted!' });
-     });
+    } catch (err) {
+      res.send({ success: false, err });
     }
+  },
+  // updates producer using id
 
-// updates producer using id
-exports.producerUpdate = function(req, res){
-    Producer.findByIdAndUpdate(req.params.id, (err)=>{
-      if (err) return res.json({success: false, error: err});
-      return res.json({ success: true, message: 'Producer successfully updated!' });
-     });
+  producerUpdate: async (req, res) => {
+    try {
+      const data = await Producer.findOneAndUpdate({ _id: req.params.producersId }, req.body, { new: true });
+      return res.json({ data, success: true, message: 'Producer successfully updated!' });
+    } catch (err) {
+      res.send({ success: false, err });
     }
+  }
+};

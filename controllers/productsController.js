@@ -1,59 +1,78 @@
-const Product = require('../models/product');
+const db = require('../helpers/db');
 
-//Simple version, without validation or sanitation
-exports.productCreate = function (req,res){
-    //post new products to the database
-     const product = new Product();
-     //body parser lets us use the req.body
-     const {
-         name,
-         quantity, 
-         typeOfProduct, 
-         createdAt, 
-         updatedAt, 
-         deletedAt
-     } = req.body;
-     product.name = name;
-     product.quantity = quantity;
-     product.typeOfProduct = typeOfProduct;
-     product.createdAt = createdAt;
-     product.updatedAt = updatedAt;
-     product.deletedAt = deletedAt;
- 
-     product.save(err=> {
-       if (err) return res.json({success: false, error: err});
-       return res.json({ success: true, message: 'Product successfully added!' });
-     });
-   };
+const Product = db.Product;
 
-//finds only products in the db with given id
-exports.productDetails = function(req, res){
-        Product.findById(req.params.id, (err, products) => {
-          if (err) return res.json({ success: false, error: err });
-          return res.json({ success: true, data: products });
-        });
-   };
+module.exports = {
+  productCreate: async (req, res) => {
+  // post new products to the database
+    let product = new Product();
+    // body parser lets us use the req.body
+    const {
+      name,
+      quantity,
+      producerId,
+      typeOfProduct,
+      createdAt,
+      updatedAt,
+      deletedAt
+    } = req.body;
 
-//finds all products in the db
-exports.allProductsDetails = function(req, res){
-       Product.find((err,products)=>{
-           if(err) return res.json({success: false, error:err});
-           return res.json({success: true, data: products});
-       })
-};
+    product = Object.assign(product, {
+      name,
+      quantity,
+      producerId,
+      typeOfProduct,
+      createdAt,
+      updatedAt,
+      deletedAt
+    });
 
-//deletes products using id
-exports.productDelete = function(req, res){
-    Product.findByIdAndRemove(req.params.id, (err)=>{
-      if (err) return res.json({success: false, error: err});
+    try {
+      await product.save();
+      return res.json({ success: true, message: 'Product successfully added!' });
+    } catch (err) {
+      res.send({ success: false, err });
+    }
+  },
+
+  // finds only products in the db with given id
+  productDetails: async (req, res) => {
+    try {
+      const data = await Product.findById({ _id: req.params.id });
+      return res.json({ success: true, data });
+    } catch (err) {
+      res.send({ success: false, err });
+    }
+  },
+
+  // finds all products in the db
+  allProductsDetails: async (req, res) => {
+    try {
+      const data = await Product.find();
+      return res.json({ success: true, data });
+    } catch (err) {
+      return res.json({ success: false, error: err });
+    }
+  },
+
+  // deletes products using id
+  productDelete: async (req, res) => {
+    try {
+      await Product.findByIdAndRemove({ _id: req.params.id });
       return res.json({ success: true, message: 'Product successfully deleted!' });
-     });
+    } catch (err) {
+      res.send({ success: false, err });
     }
+  },
 
-// updates product using id
-exports.productUpdate = function(req, res){
-    Product.findByIdAndUpdate(req.params.id, (err)=>{
-      if (err) return res.json({success: false, error: err});
-      return res.json({ success: true, message: 'Product successfully updated!' });
-     });
+  // updates product using id
+  productUpdate: async (req, res) => {
+    try {
+      const data = await Product.findOneAndUpdate({ _id: req.params.productsId }, req.body, { new: true });
+      return res.json({ data, success: true, message: 'Product successfully updated' });
+    } catch (err) {
+      res.send({ success: false, err });
     }
+  }
+
+};
