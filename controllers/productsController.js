@@ -1,6 +1,4 @@
-const db = require('../helpers/db');
-
-const Product = db.Product;
+const Product = require('../models/product');
 
 module.exports = {
   productCreate: async (req, res) => {
@@ -65,7 +63,7 @@ module.exports = {
     }
   },
 
-  // updates product using id
+  // updates products using id
   productUpdate: async (req, res) => {
     try {
       const data = await Product.findOneAndUpdate({ _id: req.params.productsId }, req.body, { new: true });

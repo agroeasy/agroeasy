@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const product = require('./routes/productRoute'); // Imports routes for the products
 const producer = require('./routes/producerRoute'); // Imports routes for the producers
 const app = express();
+require('./helpers/db');
+
 /* const mongoose = require('mongoose');
 
 // Set up mongoose connection

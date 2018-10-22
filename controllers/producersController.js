@@ -1,6 +1,4 @@
-const db = require('../helpers/db');
-
-const Producer = db.Producer;
+const Producer = require('../models/producer');
 
 module.exports = {
   producerCreate: async (req, res) => {
