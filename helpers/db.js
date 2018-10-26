@@ -1,10 +1,15 @@
 'use strict';
-const { connectionString } = require('../config/config');
-
-// Set up mongoose connection
 const mongoose = require('mongoose');
-mongoose.connect(connectionString, { useNewUrlParser: true });
+
+const { MONGO_DB_URL } = require('../config/config');
+
 mongoose.Promise = global.Promise;
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// Set up mongoose connection
+const connectToDB = () => {
+    mongoose.connect(MONGO_DB_URL, { useNewUrlParser: true }, () =>
+        console.error.bind(console, 'MongoDB connection error:')
+    );
+};
+
+module.export = { connectToDB };
