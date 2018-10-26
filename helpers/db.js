@@ -1,9 +1,9 @@
 'use strict';
-const { connectionString } = require('../config/config');
+const { MONGO_DB_URL } = require('../config/config');
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
-mongoose.connect(connectionString, { useNewUrlParser: true });
+mongoose.connect(MONGO_DB_URL, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
