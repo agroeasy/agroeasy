@@ -1,3 +1,3 @@
 module.exports = {
-  connectionString: 'mongodb://localhost/agroeasyDB'
+  MONGO_DB_URL: 'mongodb://localhost/agroeasyDB'
 };
