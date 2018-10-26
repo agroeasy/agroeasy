@@ -9,7 +9,7 @@ const { connectToDB } = require('./helpers/db');
 
 const app = express();
 const server = http.createServer(app);
-const port = process.env.PORT || 4000;
+const { PORT = 4000 } = process.env;
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/products', product);
 app.use('/producers', producer);
 
-server.listen(port, async() => {
+server.listen(PORT, async() => {
   await connectToDB();
-  console.log(`Listening on port ${port}`);
+  console.log(`Listening on port ${PORT}`);
 });

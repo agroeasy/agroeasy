@@ -12,4 +12,4 @@ const connectToDB = () => {
     );
 };
 
-module.export = { connectToDB };
+module.exports = { connectToDB };
