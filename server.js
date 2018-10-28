@@ -12,6 +12,7 @@ const server = http.createServer(app);
 const { PORT = 4000 } = process.env;
 
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(__dirname));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

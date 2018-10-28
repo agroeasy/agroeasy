@@ -21,7 +21,7 @@ class AnotherList extends React.Component {
                              <Row>
                                   <Col md={3}>
                                        <div className="details">
-                                           <img src='../src/images/egg-crates.jpeg' alt="#" style={{width: '150px'}} />
+                                           <img src='./images/egg-crates.jpeg' alt="#" style={{width: '150px'}} />
                                        </div>
                                           &nbsp;&nbsp;&nbsp;
                                        <div className="details">
@@ -32,7 +32,7 @@ class AnotherList extends React.Component {
                                   </Col>
                                   <Col md={3}>
                                       <div className="details">
-                                           <img src='../src/images/PalmOil.jpg' alt="#" style={{width: '150px'}} />
+                                           <img src='./images/PalmOil.jpg' alt="#" style={{width: '150px'}} />
                                       </div>
                                                                         &nbsp;&nbsp;&nbsp;
                                      <div className="details">
@@ -43,7 +43,7 @@ class AnotherList extends React.Component {
                                  </Col>
                                  <Col md={3}>
                                       <div className="details">
-                                          <img src='../src/images/onion-bags.jpg' alt="#" style={{width: '150px', height: '120px'}} />
+                                          <img src='./images/onion-bags.jpg' alt="#" style={{width: '150px', height: '120px'}} />
                                       </div>
                                                                           &nbsp;&nbsp;&nbsp;
                                       <div className="details">
@@ -54,7 +54,7 @@ class AnotherList extends React.Component {
                                    </Col>
                                    <Col md={3}>
                                         <div className="details">
-                                            <img src='../src/images/GroundnutOil.jpeg' alt="#" style={{width: '150px', height: '120px'}} />
+                                            <img src='./images/GroundnutOil.jpeg' alt="#" style={{width: '150px', height: '120px'}} />
                                         </div>
                                                                          &nbsp;&nbsp;&nbsp;
                                         <div className="details">
@@ -68,7 +68,7 @@ class AnotherList extends React.Component {
                              <Row>
                                   <Col md={3}>
                                        <div className="details">
-                                           <img src='../src/images/poultry-chicken.jpg' alt="#" style={{width: '150px'}} />
+                                           <img src='./images/poultry-chicken.jpg' alt="#" style={{width: '150px'}} />
                                        </div>
                                                                         &nbsp;&nbsp;&nbsp;
                                        <div className="details">
@@ -79,7 +79,7 @@ class AnotherList extends React.Component {
                                  </Col>
                                  <Col md={3}>
                                      <div className="details">
-                                         <img src='../src/images/greenBanana.jpeg' alt="#" style={{width: '150px', height: '100px'}} />
+                                         <img src='./images/greenBanana.jpeg' alt="#" style={{width: '150px', height: '100px'}} />
                                      </div>
                                                                        &nbsp;&nbsp;&nbsp;
                                      <div className="details">
@@ -90,7 +90,7 @@ class AnotherList extends React.Component {
                                 </Col>
                                 <Col md={3}>
                                      <div className="details">
-                                         <img src='../src/images/bagsofrice.jpg' alt="#" style={{width: '150px', height: '100px'}} />
+                                         <img src='./images/bagsofrice.jpg' alt="#" style={{width: '150px', height: '100px'}} />
                                      </div>
                                                                       &nbsp;&nbsp;&nbsp;
                                      <div className="details">
@@ -99,7 +99,7 @@ class AnotherList extends React.Component {
                                </Col>
                                <Col md={3}>
                                     <div className="details">
-                                         <img src='../src/images/Drypepper.jpg'alt="#"  style={{width: '150px', height: '100px'}} />
+                                         <img src='./images/Drypepper.jpg'alt="#"  style={{width: '150px', height: '100px'}} />
                                     </div>
                                                                       &nbsp;&nbsp;&nbsp;
                                     <div className="details">
@@ -111,7 +111,7 @@ class AnotherList extends React.Component {
                          <Row>
                                <Col md={3}>
                                    <div className="details">
-                                       <img src='../src/images/lettuse.jpg' alt="#" style={{width: '150px'}} />
+                                       <img src='./images/lettuse.jpg' alt="#" style={{width: '150px'}} />
                                    </div>
                                                                          &nbsp;&nbsp;&nbsp;
                                    <div className="details">
@@ -120,7 +120,7 @@ class AnotherList extends React.Component {
                               </Col>
                               <Col md={3}>
                                    <div className="details">
-                                       <img src='../src/images/pigfarm.jpg' alt="#" style={{width: '155px', height: '115px'}} />
+                                       <img src='./images/pigfarm.jpg' alt="#" style={{width: '155px', height: '115px'}} />
                                     </div>
                                                                          &nbsp;&nbsp;&nbsp;
                                    <div className="details">
@@ -129,7 +129,7 @@ class AnotherList extends React.Component {
                              </Col>
                              <Col md={3}>
                                  <div className="details">
-                                      <img src='../src/images/carrot.jpg' alt="#" style={{width: '150px', height: '115px'}} />
+                                      <img src='./images/carrot.jpg' alt="#" style={{width: '150px', height: '115px'}} />
                                  </div>
                                                                        &nbsp;&nbsp;&nbsp;
                                  <div className="details">
@@ -138,7 +138,7 @@ class AnotherList extends React.Component {
                             </Col>
                             <Col md={3}>
                                  <div className="details">
-                                     <img src='../src/images/poultry.jpg' alt="#" style={{width: '150px', height: '100px'}} />
+                                     <img src='./images/poultry.jpg' alt="#" style={{width: '150px', height: '100px'}} />
                                  </div>
                                                                      &nbsp;&nbsp;&nbsp;
                                  <div className="details">
@@ -149,7 +149,7 @@ class AnotherList extends React.Component {
                       <Row>
                             <Col md={3}>
                                  <div className="details">
-                                     <img src='../src/images/tomtoes.jpg' alt="#" style={{width: '150px', height: '115px'}} />
+                                     <img src='./images/tomtoes.jpg' alt="#" style={{width: '150px', height: '115px'}} />
                                  </div>
                                                                    &nbsp;&nbsp;&nbsp;
                                  <div className="details">
@@ -158,7 +158,7 @@ class AnotherList extends React.Component {
                            </Col>
                            <Col md={3}>
                                 <div className="details">
-                                     <img src='../src/images/beans.jpg'alt="#"  style={{width: '155px', height: '115px'}} />
+                                     <img src='./images/beans.jpg'alt="#"  style={{width: '155px', height: '115px'}} />
                                 </div>
                                                                        &nbsp;&nbsp;&nbsp;
                                 <div className="details">
@@ -167,7 +167,7 @@ class AnotherList extends React.Component {
                            </Col>
                            <Col md={3}>
                                 <div className="details">
-                                     <img src='../src/images/ogbono.jpg' alt="#" style={{width: '150px', height: '115px'}} />
+                                     <img src='./images/ogbono.jpg' alt="#" style={{width: '150px', height: '115px'}} />
                                 </div>
                                                                       &nbsp;&nbsp;&nbsp;
                                 <div className="details">
@@ -176,7 +176,7 @@ class AnotherList extends React.Component {
                           </Col>
                           <Col md={3}>
                               <div className="details">
-                                    <img src='../src/images/ripeBanana.jpg' alt="banana" style={{width: '150px', height: '100px'}} />
+                                    <img src='./images/ripeBanana.jpg' alt="banana" style={{width: '150px', height: '100px'}} />
                               </div>
                                                                      &nbsp;&nbsp;&nbsp;
                               <div className="details">
