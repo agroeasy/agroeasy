@@ -1,7 +1,7 @@
 const Producer = require('../models/producer');
 
 module.exports = {
-  producerCreate: async (req, res) => {
+  producerCreate: async(req, res) => {
     //  post new producer to the database
     let producer = new Producer();
 
@@ -44,7 +44,7 @@ module.exports = {
   },
 
   // find producers by id
-  producerDetails: async (req, res) => {
+  producerDetails: async(req, res) => {
     try {
       const data = await Producer.findById({ _id: req.params.id });
       return res.json({ data, success: true });
@@ -54,7 +54,7 @@ module.exports = {
   },
 
   // finds all the producers in the database
-  allProducersDetails: async (req, res) => {
+  allProducersDetails: async(req, res) => {
     try {
       const data = await Producer.find();
       return res.json({ success: true, data });
@@ -64,7 +64,7 @@ module.exports = {
   },
 
   // deletes producer using id
-  producerDelete: async (req, res) => {
+  producerDelete: async(req, res) => {
     try {
       await Producer.findOneAndRemove({ _id: req.params.id }, req.body);
       return res.json({ success: true, message: 'Producer successfully deleted!' });
@@ -74,7 +74,7 @@ module.exports = {
   },
   // updates producer using id
 
-  producerUpdate: async (req, res) => {
+  producerUpdate: async(req, res) => {
     try {
       const data = await Producer.findOneAndUpdate({ _id: req.params.producersId }, req.body, { new: true });
       return res.json({ data, success: true, message: 'Producer successfully updated!' });

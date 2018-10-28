@@ -1,25 +1,24 @@
 const express = require('express');
 const router = express.Router();
 
-// Require the controllers WHICH WE DID NOT CREATE YET!!
-const productsController = require('../controllers/productsController');
-
-const { productCreate,
+const {
+  productCreate,
   productDetails,
   allProductsDetails,
   productDelete,
-  productUpdate } = productsController;
+  productUpdate,
+} = require('../controllers/productsController');
 
-// the end point to create product and save to database
-router.post('/create', productCreate);
+router.get('/', allProductsDetails);
 
 // the end point to find products saved in database
 router.get('/:id', productDetails);
 
-router.get('/', allProductsDetails);
-
-router.delete('/:id', productDelete);
+// the end point to create product and save to database
+router.post('/create', productCreate);
 
 router.put('/:productsId', productUpdate);
+
+router.delete('/:id', productDelete);
 
 module.exports = router;
