@@ -1,11 +1,10 @@
 import React from 'react';
-import { InputGroup, InputGroupAddon, Jumbotron, Col,
-         Button, Input, Row, Container
-} from 'reactstrap';
+import './bootstrap.min.css';
+import { InputGroup, InputGroupAddon, Jumbotron, Col, Input, Row, Button, Container } from 'reactstrap';
 import './home.css';
 import Footer from './footer';
 import Navibar from './Navibar';
-import AnotherList from './anotherlist';
+import ListItems from './anotherlist';
 
 /*
 this is the home page, where sub-components (the Navibar, AnotherList and footer components)
@@ -18,7 +17,7 @@ are exported to and displayed
                   <Jumbotron className="bg-img">
                             <Navibar />
                         <Row style ={{marginTop:'100px'}}>
-                           <Col md="12">
+                           <Col xs={12}>
                                 <h1> Welcome Guest</h1>
                                 <h4> Make us your distributor and we will tell the world about your business.</h4>
                                 <p style={{textAlign: 'center'}}>
@@ -28,17 +27,20 @@ are exported to and displayed
                                  </p>
                           </Col>
                        </Row>
-                       <br/><br/>
-                       <Container style={{width: '550px', textAlign: 'center'}}>
-                             <InputGroup>
+                       <br/>
+                       <Container style={{width: '355px', textAlign: 'center'}}>
+                          <Row>
+                              <Col xs={12}>
+                                <InputGroup>
                                   <InputGroupAddon addonType="prepend">@</InputGroupAddon>
                                   <Input placeholder="search" />
-                                  <Button onClick={this.search}>Ok</Button>
-                             </InputGroup>
+                                  <Button variant="contained" color="primary" onClick={this.search}>ok</Button>
+                               </InputGroup>
+                             </Col>
+                          </Row>
                        </Container>
                    </Jumbotron>
-                   <AnotherList />
-                   <hr />
+                   <ListItems />
                    <Footer />
             </div>
 

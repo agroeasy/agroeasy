@@ -14,19 +14,16 @@ export default class About extends Component {
            <Container className='support'>
                  <Row>
                       <Col>
-                                  <h1 className="display-3" style={{letterSpacing: '0.3em'}}>Coming soon!</h1>
-                                     <p className="lead">
-                                       <i>promises to be filled with information</i>
-                                    </p>
-                                      <hr />
-                                     <p>
-
-                                     </p>
-                                     <p className="lead"><Link to={Home}><Button color="primary">back</Button></Link></p>
+                            <h1 className="display-3" style={{letterSpacing: '0.3em'}}>Coming soon!</h1>
+                            <p className="lead">
+                              <i>promises to be filled with information</i>
+                           </p>
+                           <hr />          
+                          <p className="lead"><Link to={Home}><Button color="primary">back</Button></Link></p><br />
                       </Col>
                  </Row>
            </Container>
-
+             
           </div>
         );
     }

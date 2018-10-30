@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarToggler, NavbarBrand,
        Nav, NavItem, NavLink, Collapse } from 'reactstrap';
-import { Home, Support, Contact, Goods } from './constant';
+import { Home, Support, Goods } from './constant';
+import ContactUs from './contact-us';
 import './home.css';
 
 
@@ -23,24 +24,27 @@ export default class Navibar extends Component {
         });
     }
     render() {
+        const logo = {
+            src: "/images/Agroeasylogo.png"
+        }
         return (
             <div>
                 <Navbar color="inverse" light expand="md" className = "nav-bar" >
-                    <NavbarBrand href={Home}>Our simple <br />logo here</NavbarBrand>
+                    <NavbarBrand href={Home}><img src={logo.src} /></NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar >
                             <NavItem >
-                            <NavLink href={Home} className="navLink">Home</NavLink>
+                               <NavLink href={Home} className="navLink">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink  href={Support} className="navLink">Support</NavLink>
+                                <NavLink  href={Support} className= "navLink">Support</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href={Goods} className="navLink">Goods</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href={Contact} className="navLink">Contact</NavLink>
+                                <NavLink className="navLink"><ContactUs /></NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>

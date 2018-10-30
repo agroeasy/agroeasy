@@ -9,6 +9,7 @@ This will contain the productsavailable components and other
 neccessary info
 */
 export default class  Footer extends Component {
+  
   render () {
     return (
             <div className="footer">
@@ -18,8 +19,8 @@ export default class  Footer extends Component {
                      <div className='lower-footer'>
                           <Container>
                             <br />
-                               <Row>
-                                   <Col md={12}>
+                               <Row> 
+                                     <Col md={12}>  
                                       <h6>All rights reserved, Copyright © 2018 Agroeasy</h6>
                                    </Col>
                                </Row>
