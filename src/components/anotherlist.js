@@ -26,8 +26,7 @@ class ListItems extends React.Component {
                                   <InputGroupAddon addonType="prepend">
                                        <Button onClick={this.search}>ok</Button>
                                   </InputGroupAddon>
-                                  <Input placeholder="search products" />
-                                 
+                                  <Input placeholder="search products" />    
                             </InputGroup>
                       </div>
                        <br /><br />
@@ -42,22 +41,12 @@ class ListItems extends React.Component {
                           <Link to={ProductsAvailable}>Products Available</Link>
                         </h6>
                  </div>
-                       <br />
-                       <Row>
-                         <Row1 />
-                       </Row>
-                       <br />
-                       <Row>
-                         <Row2/>
-                       </Row>
-                       <br />
-                       <Row>
-                         <Row3 />
-                       </Row>
-                       <br />
-                       <Row>
-                         <Row4 />
-                       </Row>
+                 <div style={{marginTop: "35px"}}>
+                           <Row1 />
+                           <Row2 />
+                          <Row3 />
+                          <Row4 />
+                  </div>
                <div className="link-to-more">
                    <Link to='/more-products/'>
                        More

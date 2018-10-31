@@ -14,7 +14,7 @@ are exported to and displayed
     render() {
         return (
             <div>
-                  <Jumbotron className="bg-img">
+                  <div className="bg-img">
                             <Navibar />
                         <Row style ={{marginTop:'100px'}}>
                            <Col xs={12}>
@@ -27,19 +27,7 @@ are exported to and displayed
                                  </p>
                           </Col>
                        </Row>
-                       <br/>
-                       <Container style={{width: '355px', textAlign: 'center'}}>
-                          <Row>
-                              <Col xs={12}>
-                                <InputGroup>
-                                  <InputGroupAddon addonType="prepend">@</InputGroupAddon>
-                                  <Input placeholder="search" />
-                                  <Button variant="contained" color="primary" onClick={this.search}>ok</Button>
-                               </InputGroup>
-                             </Col>
-                          </Row>
-                       </Container>
-                   </Jumbotron>
+                   </div>
                    <ListItems />
                    <Footer />
             </div>

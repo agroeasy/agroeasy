@@ -5,8 +5,9 @@ import Home from './components/home';
 
 
 
-//The principal component for housing sub-components (like home, about and
-//other pages) for easy navigation
+/*The principal component for housing sub-components (like home, about and
+other pages) for easy navigation
+*/
 
 class App extends Component {
     render() {
