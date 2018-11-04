@@ -3,6 +3,7 @@ import { Navbar, NavbarToggler, NavbarBrand,
        Nav, NavItem, NavLink, Collapse } from 'reactstrap';
 import { Home, Support, Contact, Goods } from './constant';
 import './home.css';
+import logo from './logo/AgroeasyLogo.png';
 
 
 /*
@@ -26,7 +27,7 @@ export default class Navibar extends Component {
         return (
             <div>
                 <Navbar color="inverse" light expand="md" className = "nav-bar" >
-                    <NavbarBrand href={Home}>Our simple <br />logo here</NavbarBrand>
+                <NavbarBrand href={Home}><img src={logo} alt="logo"  style={{width: '200px', height: '100px'}}/></NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar >
@@ -42,6 +43,12 @@ export default class Navibar extends Component {
                             <NavItem>
                                 <NavLink href={Contact} className="navLink">Contact</NavLink>
                             </NavItem>
+                            <NavItem>
+                            <NavLink className="navLink" href='/Signup'> Signup </NavLink>
+                            </NavItem>
+                            <NavItem>
+                              <NavLink className="navLink" href='/Signin'>Signin</NavLink>
+                            </NavItem> 
                         </Nav>
                     </Collapse>
                 </Navbar>
