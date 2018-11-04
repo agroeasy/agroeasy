@@ -8,7 +8,7 @@ export default class GroupedItems extends Component {
 	render() {
 		return (
               <Container>
-                     <Row>
+                      <Row>
                         <Col className="groupedItems">
                            <ul>
                               <h6>{this.props.heading}</h6>
@@ -19,8 +19,9 @@ export default class GroupedItems extends Component {
                               <li><Link to={this.props.link5} style={{color: 'DarkGray'}}>{this.props.item5}</Link></li>
                            </ul>              
                         </Col>
-                     </Row>
-              </Container>
+                     </Row> 
+        
+              </Container> 
 			);
 	}
 }
