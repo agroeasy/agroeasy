@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'reactstrap';
 import './home.css'
 
-export default class Example extends React.Component {
+export default class ProductLocations extends React.Component {
   render() {
     return (
       <Table className="little-details" size="sm" secondary>

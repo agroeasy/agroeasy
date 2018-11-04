@@ -1,10 +1,9 @@
 import React from 'react';
-import './bootstrap.min.css';
-import { InputGroup, InputGroupAddon, Jumbotron, Col, Input, Row, Button, Container } from 'reactstrap';
-import './home.css';
-import Footer from './footer';
+import { Col, Row } from 'reactstrap';
+import Footer from './Footer';
 import Navibar from './Navibar';
-import ListItems from './anotherlist';
+import ListItems from './ListItems';
+import { HOME_STRINGS } from './constants';
 
 /*
 this is the home page, where sub-components (the Navibar, AnotherList and footer components)
@@ -14,19 +13,16 @@ are exported to and displayed
     render() {
         return (
             <div>
-                  <div className="bg-img">
+                  <div className={HOME_STRINGS.BG_IMG}>
                             <Navibar />
-                        <Row style ={{marginTop:'100px'}}>
-                           <Col xs={12}>
-                                <h1> Welcome Guest</h1>
-                                <h4> Make us your distributor and we will tell the world about your business.</h4>
-                                <p style={{textAlign: 'center'}}>
-                                    <h4> Dear customer, we make sure you get a discount anytime you patronize us.
-                                         Give us a try.
-                                    </h4>
-                                 </p>
+                        <Row className={HOME_STRINGS.SM_IMG}>
+                           <Col>
+                                <h1>{HOME_STRINGS.h1Text}</h1>
+                                <h4>{HOME_STRINGS.h4Text}</h4>
+                                <h5>{HOME_STRINGS.pText}</h5>
                           </Col>
                        </Row>
+                      
                    </div>
                    <ListItems />
                    <Footer />

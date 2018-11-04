@@ -1,11 +1,10 @@
 import React from 'react';
-import { Container, Row, Col, Button, Modal, ModalHeader, 
-         ModalBody, ModalFooter, Badge,ButtonGroup,ButtonToolbar 
+import { Container, Row, Col, Button, Modal, ModalHeader,
+         ModalBody, ModalFooter, Badge,ButtonGroup, ButtonToolbar 
 } from 'reactstrap';
 import { Image } from 'react-bootstrap';
-import '../home.css';
 
-//this omponent was reused for row(1 -4) 
+//this omponent was reused for row(1-4) 
 class Products extends React.Component {
   constructor(props) {
     super(props);
@@ -25,25 +24,21 @@ class Products extends React.Component {
   render() {
     return (
       <div>
-           <Image src={this.props.pix} alt="#" style={{width: '200px', height: '110px'}} onClick={this.toggle}  thumbnail/>
+           <Image src={this.props.pix} alt="#" className="product-image" onClick={this.toggle}  thumbnail/>
               <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                  <ModalHeader toggle={this.toggle}>{this.props.title}</ModalHeader>
-                  <ModalBody style={{width: "100%", height: "30%"}}>
+                  <ModalBody className="modal-body">
                       <Container>
                            <Row>
                                <Col className="details">
-                                   <Image src={this.props.pix} style={{maxWidth: '100%', height: 'auto', display: 'block'}} thumbnail/>
+                                   <Image src={this.props.pix} className="modal-image" thumbnail/>
                                    <br /><br /><hr />
-                                   <div>
-                                       <h6 style={{marginTop: '17px'}}><b>Location:</b>{this.props.location}</h6>
-                                       
-                                       <h6 style={{marginTop: '17px'}}><b>Cost:</b> &nbsp; {this.props.tag}</h6>
-                                       
-                                       <h6 style={{marginTop: '17px'}}><b>Quantity available:</b>{this.props.quantity}</h6>
-                                       
-                                       <h6 style={{marginTop: '17px'}}><b>Phone no:</b> {this.props.phone}</h6>
-                                       
-                                       <h6 style={{marginTop: '17px'}}><b>Email:</b> {this.props.email}</h6>
+                                   <div  className="modal-image-details">
+                                       <h6><b>Name:</b> {this.props.title}</h6>
+                                       <h6><b>Location:</b> {this.props.location}</h6> 
+                                       <h6><b>Cost:</b> &nbsp; {this.props.tag}</h6>
+                                       <h6><b>Quantity available:</b> {this.props.quantity}</h6>
+                                       <h6><b>Phone no:</b> {this.props.phone}</h6>
+                                       <h6><b>Email:</b> {this.props.email}</h6>
                                    </div>
                                </Col>
                            </Row>
@@ -55,11 +50,11 @@ class Products extends React.Component {
                  </ModalFooter>
               </Modal>
              <div className="details">
-                   <p style={{marginTop: '5px'}}>
+                   <p>
                       <h6>
                          {this.props.title}
                       <br />
-                         <Badge color="secondary" style={{marginTop: '5px'}}>{this.props.tag}</Badge>
+                         <Badge color="secondary" className="badge">{this.props.tag}</Badge>
                       </h6>
                       <ButtonToolbar>
                           <ButtonGroup>
@@ -73,5 +68,4 @@ class Products extends React.Component {
     );
   }
 }
-
 export default Products;

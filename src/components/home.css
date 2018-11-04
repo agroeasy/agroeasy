@@ -1,14 +1,20 @@
 /* footer.js */
 .footer {
   text-align: center;  font-style: oblique;
-  background-color: whitesmoke;
-  margin-top: -17px;
+  background-color:  #dcdcdc;
+  margin-top: -4px;
 }
+
 .lower-footer {
   background-color: DimGrey;
   height: 50px; color: whitesmoke;
   text-align: center;
 }
+
+.footer-content {
+  margin-bottom: -40%;
+}
+
 .details {
   display: inline-block;
   list-style: none;
@@ -21,6 +27,10 @@
   list-style: none;
   font-size: 14px;
   color: gray;
+}
+
+.small-div {
+  background-color: white;
 }
 
 .button {
@@ -36,10 +46,17 @@
   width: '150px';
 }
 
-/* AnotherList.js */
+/*productsAvailable */
+.productsAvailable {
+  margin-top: -2em;
+}
+
+
+
+/* ListItems.js */
 .link-to-more {
   text-align: center;
-  margin-bottom: -2em;
+  margin-top: 20px;
 }
 
 .items {
@@ -52,12 +69,14 @@
     list-style: none;
   }
 
-/*
-this is for show-products-available
- */
+  .row-items {
+    margin-top: -33px;
+  }
+
+/*this is for show-products-available*/
 .show-products-available {
-margin-top: -2em;
-background-color: white;
+background-color: #f5f5f5;
+margin-top: 2px;
 }
 
 /*
@@ -73,6 +92,14 @@ background-color: white;
   text-align: center;
 }
 
+.sm-img {
+  margin-top: 100px; 
+}
+
+.sm-img h4 {
+  text-align: center;
+}
+
 .wrapper {
   margin: 0; padding: 0;
   width: 100%;
@@ -83,7 +110,6 @@ background-color: white;
   font-family: cursive;
   display: table;
 }
-
 
 .nav {
   position: fixed;
@@ -120,6 +146,10 @@ img {
   color: #fff !important;
 }
 
+.row {
+  margin-top: 35px;
+}
+
 .nav-bar {
   margin-top: -0.7em;
 }
@@ -134,3 +164,46 @@ img {
   background-color: DimGrey;
   color: whitesmoke;
 }
+
+.support h1 {
+  word-spacing: 0.3em;
+}
+
+/*product file */
+.product-image {
+  max-width: 100%;  height: auto;
+   display: block;
+}
+
+.top-image {
+  width: 200px; 
+  height: 100px;
+}
+
+.modal-body {
+  width: 100%; height: 50%;
+  display: block;
+}
+
+.modal-image {
+  max-width: 100%;  height: auto;
+  display: block;
+}
+
+.modal-image-details h6  {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 200;
+  word-spacing: 1px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.modal-image-details h6 b {
+  font-weight: bold;
+}
+
+.details p {
+  margin-top: 5px;
+}
+.badge {
+  margin-top: 5px;
+} 

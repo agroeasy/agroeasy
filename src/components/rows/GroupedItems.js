@@ -9,7 +9,7 @@ export default class GroupedItems extends Component {
 		return (
               <Container>
                      <Row>
-                        <Col>
+                        <Col className="groupedItems">
                            <ul>
                               <h6>{this.props.heading}</h6>
                               <li><Link to={this.props.link1} style={{color: 'DarkGray'}}>{this.props.item1}</Link></li>
