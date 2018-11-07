@@ -5,6 +5,7 @@ import { Home, Support, Goods, LOGO, NAVIBAR_STRINGS } from './constants';
 import ContactUs from './ContactUs';
 
 
+const {navBar, mlAuto, navLink } = NAVIBAR_STRINGS;
 /*
 this is the the navigation bar at the top of the home page
 */
@@ -25,22 +26,22 @@ export default class Navibar extends Component {
     render() {
         return (
             <div>
-                <Navbar color="inverse" light expand="md" className = {NAVIBAR_STRINGS.navBar} >
+                <Navbar color="inverse" light expand="md" className={navBar} >
                     <NavbarBrand href={Home}><img src={LOGO.src} width={LOGO.width} /></NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className={NAVIBAR_STRINGS.mlAuto} navbar >
+                        <Nav className={mlAuto} navbar >
                             <NavItem >
-                               <NavLink href={Home} className={NAVIBAR_STRINGS.navLink}>Home</NavLink>
+                               <NavLink href={Home} className={navLink}>Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink  href={Support} className={NAVIBAR_STRINGS.navLink}>Support</NavLink>
+                                <NavLink  href={Support} className={navLink}>Support</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href={Goods} className={NAVIBAR_STRINGS.navLink}>Goods</NavLink>
+                                <NavLink href={Goods} className={navLink}>Goods</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className={NAVIBAR_STRINGS.navLink}><ContactUs /></NavLink>
+                                <NavLink className={navLink}><ContactUs /></NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>

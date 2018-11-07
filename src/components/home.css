@@ -48,7 +48,7 @@
 
 /*productsAvailable */
 .productsAvailable {
-  margin-top: -2em;
+  margin-top: -35px;
 }
 
 
@@ -75,7 +75,7 @@
 
 /*this is for show-products-available*/
 .show-products-available {
-background-color: #f5f5f5;
+background-color: whitesmoke;
 margin-top: 2px;
 }
 
@@ -207,3 +207,7 @@ img {
 .badge {
   margin-top: 5px;
 } 
+
+.list {
+ color: darkGrey;
+}

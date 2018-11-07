@@ -5,6 +5,8 @@ import Navibar from './Navibar';
 import ListItems from './ListItems';
 import { HOME_STRINGS } from './constants';
 
+
+const {BG_IMG, SM_IMG, h1Text, h4Text, pText } = HOME_STRINGS;
 /*
 this is the home page, where sub-components (the Navibar, AnotherList and footer components)
 are exported to and displayed
@@ -13,13 +15,13 @@ are exported to and displayed
     render() {
         return (
             <div>
-                  <div className={HOME_STRINGS.BG_IMG}>
+                  <div className={BG_IMG}>
                             <Navibar />
-                        <Row className={HOME_STRINGS.SM_IMG}>
+                        <Row className={SM_IMG}>
                            <Col>
-                                <h1>{HOME_STRINGS.h1Text}</h1>
-                                <h4>{HOME_STRINGS.h4Text}</h4>
-                                <h5>{HOME_STRINGS.pText}</h5>
+                                <h1>{h1Text}</h1>
+                                <h4>{h4Text}</h4>
+                                <h5>{pText}</h5>
                           </Col>
                        </Row>
                       
