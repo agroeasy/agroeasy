@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import About from './components/support';
 import Home from './components/home';
 import  Signup from './components/signup/signup';
-import  Signin from './components/login/signin';
+import  Signin from './components/signin/signin';
 /*
 The principal component for housing sub-components (like home, about and
 other pages) for easy navigation

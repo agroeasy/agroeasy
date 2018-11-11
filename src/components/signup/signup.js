@@ -1,61 +1,87 @@
 import React from 'react';
-import { FormField, TextInput, Label, InlineAlert, Button, Pane, Text } from 'evergreen-ui';
-import Box from 'ui-box';
-import logo from '../logo/AgroeasyLogo.png';
-import '../home.css';
+import { FormField, TextInputField, Button } from 'evergreen-ui';
+import './style.css';
+import { Title, Have_Account, Required, Create_Account, Sign_in } from './constant';
+
 
 export default class Signup extends React.Component {
   render() {
     return (
-        <FormField display="flex" alignItems="center" justifyContent="center" style={{marginTop:'70px'}}>
-        <div>
-            <span style={{fontWeight: 'bold', fontSize: '20pt', margin: '500px auto'}}>AgroEasy</span>
-            <img src={logo} alt="logo"  style={{width: '60px', height: '30px'}}/>
-            <p style={{fontSize: '20pt'}}>Sign in to your account</p>
-
-            <div>
-                <Text style={{fontSize: '10pt', marginBottom: '70px'}}>* required field</Text>
-                <Box>
-                    <Box marginBottom={15}>
-                        <Label size={500} display="block" marginBottom={8}>
-                            First name *
-                        </Label>
-                        <TextInput height={45} width={300} />
-                    </Box>
-                    <Box marginBottom={15}>
-                        <Label size={500} display="block" marginBottom={8}>
-                            Last name *
-                        </Label>
-                        <TextInput  height={45} width={300} />
-                    </Box>
-                    <Box marginBottom={15}>
-                        <Label size={500} display="block" marginBottom={8}>
-                            Location *
-                        </Label>
-                        <TextInput height={45} width={300} />
-                    </Box>
-                    <Box marginBottom={15}>
-                        <Label size={500} display="block" marginBottom={8}>
-                            Email address *
-                        </Label>
-                        <TextInput height={45} width={300} />
-                    </Box>
-                    <Box marginBottom={15}>
-                        <Label size={500} display="block" marginBottom={8}>
-                            Password *
-                        </Label>
-                        <TextInput height={45} width={300} marginBottom={2} />
-                    </Box>
-                </Box>
+       
         
-                <div> 
-                    <Button marginRight={12} marginBottom={8} appearance="primary" intent="success">Create Account</Button>   
-                    <p>Already have an account</p>
-                    <Button marginRight={12} appearance="default">Sign in</Button>
-                    
-                </div>
-            </div>
+        <FormField       
+        alignItems="center"
+        justifyContent="center"
+        className="form">
+         <div>            
+            <img src="./images/AgroeasyLogo.png" alt="logo" className="logo"/>
+            <div className="header">{Title}</div>
+            <div className="asterik">{Required}</div>
+            
+            <TextInputField
+              tabIndex={0}
+              required
+              appearance="neutral"
+              type="name"
+              label="First name"
+              inputHeight={38}
+              inputWidth={300}
+            />         
+            <TextInputField
+              tabIndex={1}
+              required
+              appearance="neutral"
+              type="name"
+              label="Last name"
+              inputHeight={38}
+              inputWidth={300}
+            />  
+            <TextInputField
+              tabIndex={2}
+              required
+              appearance="neutral"
+              type="name"
+              label="Location"
+              inputHeight={38}
+              inputWidth={300}
+            />               
+            <TextInputField
+              tabIndex={3}
+              required
+              appearance="neutral"
+              type="email"
+              label="Email address"
+              inputHeight={38}
+              inputWidth={300}
+            />         
+            <TextInputField
+              tabIndex={4}
+              required
+              appearance="neutral"
+              type="password"
+              label="Password"
+              inputHeight={38}
+              inputWidth={300}
+            />              
+                   
+            <Button
+              appearance="primary"
+              intent='success'
+              className="green-button">
+                {Create_Account}
+            </Button>
+                
+            <div className="account">{Have_Account}</div>
+
+            <Button
+              className="default_button">
+                <a href='../signin'>
+                  {Sign_in}
+                </a>
+            </Button>
+                
         </div>
+        
       </FormField>
     );
   }
