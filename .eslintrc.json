@@ -22,5 +22,10 @@
             "arrays": "only-multiline",
             "objects": "only-multiline"
         }]
+    },
+    "settings": {
+        "react": {
+            "version": "latest"
+        }
     }
 }

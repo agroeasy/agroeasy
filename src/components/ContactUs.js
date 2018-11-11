@@ -1,6 +1,17 @@
 import React from 'react';
-import { Form, FormGroup, Input,Label, Button,
-Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import PropTypes from 'prop-types';
+import {
+    Button,
+    Form,
+    FormGroup,
+    Input,
+    Label,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader
+} from 'reactstrap';
+
 import { navLink, href, TEXTS } from './constants';
 
 const {text1, text2, text3, text4, botton1, botton2} = TEXTS;
@@ -52,4 +63,10 @@ class ContactUs extends React.Component {
     );
   }
 }
+
+ContactUs.propTypes = {
+    buttonLabel: PropTypes.string,
+    className: PropTypes.string,
+};
+
 export default ContactUs;

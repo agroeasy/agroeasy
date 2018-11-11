@@ -5,8 +5,6 @@ export const Goods = "/show-goods/";
 export const Contact = "/contact-us/";
 export const ProductsAvailable = "/more-products/";
 
-
-
 //app logo
 export const LOGO = {
     src:  "/images/Agroeasylogo.png",
@@ -14,8 +12,6 @@ export const LOGO = {
 };
 
 export const ShowProductsAvailbie ="show-products-available";
-
-
 export const BottonText = "ok";
 export const More = "/more-products/";
 

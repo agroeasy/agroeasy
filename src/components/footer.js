@@ -9,24 +9,20 @@ This will contain the productsavailable components and other
 neccessary info
 */
 export default class  Footer extends Component {
-  render () {
-    return (
+    render () {
+        return (
             <div className={footer}>
-                <div>
-                   <ProductsAvailable />  
-                </div>
-                <div>
-                   <Container fluid className={lowerFooter}>
-                      <Row> 
-                         <Col>  
+                <ProductsAvailable />
+                <Container fluid className={lowerFooter}>
+                    <Row>
+                        <Col>
                             <h6 className={footerContent}>
-                              {footerText}
+                                {footerText}
                             </h6>
-                         </Col>
-                      </Row>
-                   </Container>
-                </div>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
-         );
+        );
     }
 }

@@ -8,20 +8,21 @@ import { ROW_ITEMS_2 } from './constants';
 export default class Row1 extends Component {
 	render() {
 		return (
-        <Container fluid>
-            <Row>
-              {
-               ROW_ITEMS_2.map(item => (
-                    <Col key={item.name}>
-                        <Products
-                            title={item.name} pix={item.pix}
-                            tag={item.cost} key={item.name}    
-                         />
-                     </Col>
-                 ))
-              }
-           </Row>
-        </Container>
+			<Container fluid>
+				<Row>
+					{
+						ROW_ITEMS_2.map(item =>
+							<Col key={item.name}>
+								<Products
+									title={item.name}
+									pix={item.pix}
+									tag={item.cost}
+								/>
+							</Col>
+						)
+					}
+				</Row>
+			</Container>
 		);
 	}
 }

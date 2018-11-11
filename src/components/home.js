@@ -15,21 +15,19 @@ are exported to and displayed
     render() {
         return (
             <div>
-                  <div className={BG_IMG}>
-                            <Navibar />
-                        <Row className={SM_IMG}>
-                           <Col>
-                                <h1>{h1Text}</h1>
-                                <h4>{h4Text}</h4>
-                                <h5>{pText}</h5>
-                          </Col>
-                       </Row>
-                      
-                   </div>
-                   <ListItems />
-                   <Footer />
+                <div className={BG_IMG}>
+                    <Navibar />
+                    <Row className={SM_IMG}>
+                        <Col>
+                            <h1>{h1Text}</h1>
+                            <h4>{h4Text}</h4>
+                            <h5>{pText}</h5>
+                        </Col>
+                    </Row>
+                </div>
+                <ListItems />
+                <Footer />
             </div>
-
         );
     }
 }

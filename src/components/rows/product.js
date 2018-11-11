@@ -1,10 +1,20 @@
 import React from 'react';
-import { Container, Row, Col, Button, Modal, ModalHeader,
-         ModalBody, ModalFooter, Badge,ButtonGroup, ButtonToolbar 
+import PropTypes from 'prop-types';
+import {
+    Badge,
+    Button,
+    ButtonGroup,
+    ButtonToolbar,
+    Col,
+    Container,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    Row
 } from 'reactstrap';
 import { Image } from 'react-bootstrap';
 
-//this omponent was reused for row(1-4) 
+//this omponent was reused for row(1-4)
 class Products extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +23,7 @@ class Products extends React.Component {
     };
 
     this.toggle = this.toggle.bind(this);
-  }       
+  }
 
   toggle() {
     this.setState({
@@ -34,7 +44,7 @@ class Products extends React.Component {
                                    <br /><br /><hr />
                                    <div  className="modal-image-details">
                                        <h6><b>Name:</b> {this.props.title}</h6>
-                                       <h6><b>Location:</b> {this.props.location}</h6> 
+                                       <h6><b>Location:</b> {this.props.location}</h6>
                                        <h6><b>Cost:</b> &nbsp; {this.props.tag}</h6>
                                        <h6><b>Quantity available:</b> {this.props.quantity}</h6>
                                        <h6><b>Phone no:</b> {this.props.phone}</h6>
@@ -68,4 +78,16 @@ class Products extends React.Component {
     );
   }
 }
+
+Products.propTypes = {
+    className: PropTypes.string,
+    email: PropTypes.string,
+    location: PropTypes.string,
+    quantity: PropTypes.number,
+    phone: PropTypes.string,
+    pix: PropTypes.string,
+    tag: PropTypes.string,
+    title: PropTypes.string,
+};
+
 export default Products;
