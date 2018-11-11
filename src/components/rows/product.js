@@ -60,19 +60,17 @@ class Products extends React.Component {
                     </ModalFooter>
                 </Modal>
                 <div className="details">
-                    <p>
-                        <h6>
-                            {this.props.title}
-                            <br />
-                            <Badge color="secondary" className="badge">{this.props.tag}</Badge>
-                        </h6>
-                        <ButtonToolbar>
-                            <ButtonGroup>
-                                <Button className="button" color="success" size="sm" active>Buy Now</Button>{' '}
-                                <Button className="button" color="light" size="sm" onClick={this.toggle}>More Info</Button>{' '}
-                            </ButtonGroup>
-                        </ButtonToolbar>
-                    </p>
+                    <h6>
+                        {this.props.title}
+                        <br />
+                        <Badge color="secondary" className="badge">{this.props.tag}</Badge>
+                    </h6>
+                    <ButtonToolbar>
+                        <ButtonGroup>
+                            <Button className="button" color="success" size="sm" active>Buy Now</Button>{' '}
+                            <Button className="button" color="light" size="sm" onClick={this.toggle}>More Info</Button>{' '}
+                        </ButtonGroup>
+                    </ButtonToolbar>
                 </div>
             </div>
         );

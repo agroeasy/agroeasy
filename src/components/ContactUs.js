@@ -12,7 +12,7 @@ import {
     ModalHeader
 } from 'reactstrap';
 
-import { navLink, href, TEXTS } from './constants';
+import { navLink, TEXTS } from './constants';
 
 const { text1, text2, text3, text4, botton1, botton2 } = TEXTS;
 /*component for contact-us */
@@ -35,7 +35,7 @@ class ContactUs extends React.Component {
     render() {
         return (
             <div>
-                <a to={href} className={navLink} color="danger" onClick={this.toggle}>{text1}{this.props.buttonLabel}</a>
+                <div className={navLink} color="danger" onClick={this.toggle}>{text1}{this.props.buttonLabel}</div>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>{text1}</ModalHeader>
                     <ModalBody>
