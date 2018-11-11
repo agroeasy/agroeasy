@@ -40,11 +40,11 @@ export const NAVIBAR_STRINGS = {
 
 //strings from Home.js
 export const HOME_STRINGS = {
-  h1Text: " Welcome Guest",
-  h4Text: "Make us your distributor and we will tell the world about your business.",
-  pText:  "Dear customer, we make sure you get a discount anytime you patronize us. Give us a try.",
-  BG_IMG: 'bg-img',
-  SM_IMG: "sm-img"
+    h1Text: " Welcome Guest",
+    h4Text: "Make us your distributor and we will tell the world about your business.",
+    pText:  "Dear customer, we make sure you get a discount anytime you patronize us. Give us a try.",
+    BG_IMG: 'bg-img',
+    SM_IMG: "sm-img"
 };
 
 // strings from Footer.js

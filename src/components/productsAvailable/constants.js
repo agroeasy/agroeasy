@@ -20,10 +20,10 @@ export const FOODSITEMS = [
 /*poultry & Livestock from ProductsAvailable */
 export const LIVESTOCK = [
     {
-      name: 'Fishes', link: '/fishes/',
+        name: 'Fishes', link: '/fishes/',
     },
     {
-      name: 'Eggs', link: "/eggs/",
+        name: 'Eggs', link: "/eggs/",
     },
     {
         name: 'Cattle', link: '/cattle/',
@@ -39,10 +39,10 @@ export const LIVESTOCK = [
 /* Fruits & vegetables  from ProductsAvailable*/
 export const FRUITS_VEGETABLES = [
     {
-      name: 'Cabbage', link: '/cabbage/',
+        name: 'Cabbage', link: '/cabbage/',
     },
     {
-      name: 'Lettuse', link: "/lettuse/",
+        name: 'Lettuse', link: "/lettuse/",
     },
     {
         name: 'Tomatoes', link: '/tomatoes/',
@@ -58,10 +58,10 @@ export const FRUITS_VEGETABLES = [
 /* spices from ProductsAvailable */
 export const SPICES = [
     {
-      name: 'Onions', link: '/onions/',
+        name: 'Onions', link: '/onions/',
     },
     {
-      name: 'Ginger', link: "/ginger/",
+        name: 'Ginger', link: "/ginger/",
     },
     {
         name: 'Garlic', link: '/garlic/',

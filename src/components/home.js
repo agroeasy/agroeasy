@@ -10,7 +10,7 @@ const { BG_IMG, SM_IMG, h1Text, h4Text, pText } = HOME_STRINGS;
 this is the home page, where sub-components (the Navibar, AnotherList and footer components)
 are exported to and displayed
 */
- class Home extends React.Component {
+class Home extends React.Component {
     render() {
         return (
             <div>

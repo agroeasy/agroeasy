@@ -30,7 +30,7 @@ export default class Navibar extends Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className={mlAuto} navbar >
                             <NavItem >
-                               <NavLink href={Home} className={navLink}>Home</NavLink>
+                                <NavLink href={Home} className={navLink}>Home</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink  href={Support} className={navLink}>Support</NavLink>
@@ -44,7 +44,7 @@ export default class Navibar extends Component {
                         </Nav>
                     </Collapse>
                 </Navbar>
-                </div>
-                );
-            }
-        }
+            </div>
+        );
+    }
+}

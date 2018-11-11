@@ -24,7 +24,8 @@
         }],
         "object-curly-spacing": ["error", "always"],
         "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
-        "eol-last": ["error", "always"]
+        "eol-last": ["error", "always"],
+         "indent": ["error", 4]
     },
     "settings": {
         "react": {
