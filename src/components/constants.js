@@ -11,9 +11,9 @@ export const ProductsAvailable = "/more-products/";
 export const LOGO = {
     src:  "/images/Agroeasylogo.png",
     width: "100px"
-}
+};
 
-export const ShowProductsAvailbie ="show-products-available"
+export const ShowProductsAvailbie ="show-products-available";
 
 
 export const BottonText = "ok";
@@ -25,7 +25,7 @@ export const href = " ";
 export const TEXTS = {
     text1: "Contact Us", text2: "Name", text3: "Email",
     text4: "Message", botton1: "Submit", botton2: "Cancel"
-} 
+};
 
 //strings from ListItems.js
 export const ListItem_stings = {
@@ -33,14 +33,14 @@ export const ListItem_stings = {
     smallDiv: "small-div",
     rowItems: "row-items",
     More: "link-to-more"
-}
+};
 
 //strings from Navibar.js
 export const NAVIBAR_STRINGS = {
     navLink: "navLink",
     navBar: "nav-bar",
     mlAuto: "ml-auto"
-}
+};
 
 //strings from Home.js
 export const HOME_STRINGS = {
@@ -49,7 +49,7 @@ export const HOME_STRINGS = {
   pText:  "Dear customer, we make sure you get a discount anytime you patronize us. Give us a try.",
   BG_IMG: 'bg-img',
   SM_IMG: "sm-img"
-}
+};
 
 // strings from Footer.js
 export const FOOTER_STRINGS = {
@@ -57,7 +57,7 @@ export const FOOTER_STRINGS = {
     lowerFooter: "lower-footer",
     footerContent: "footer-content",
     footerText: "All rights reserved, Copyright © 2018 Agroeasy"
-}
+};
 
 //Texts from Support.js
 export const SUPPORT_STRINGS = {
@@ -67,5 +67,4 @@ export const SUPPORT_STRINGS = {
     className1: "support",
     className2: "display-3",
     className3: "lead"
-}
-                                        
+};
