@@ -3,7 +3,6 @@ import { Col, Row, Container } from 'reactstrap';
 import Products from './Product';
 import { ROW_ITEMS_3 } from './constants';
 
-
 /*this the third on component anotherlist.js */
 export default class Row1 extends Component {
 	render() {

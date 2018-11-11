@@ -3,7 +3,6 @@ import { Collapse, Nav, Navbar, NavbarToggler, NavbarBrand, NavItem, NavLink } f
 import { Home, Support, Goods, LOGO, NAVIBAR_STRINGS } from './constants';
 import ContactUs from './ContactUs';
 
-
 const { navBar, mlAuto, navLink } = NAVIBAR_STRINGS;
 /*
 this is the the navigation bar at the top of the home page

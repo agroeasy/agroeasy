@@ -8,7 +8,6 @@ import Row2 from './rows/row2';
 import Row1 from './rows/row1';
 import ProductLocation from './Locations';
 
-
 const { className1, smallDiv, rowItems, More } = ListItem_stings;
 /*
 This is a component of varieties of products appearing
@@ -52,7 +51,5 @@ class ListItems extends React.Component {
     );
   }
 }
-
-
 
 export default ListItems;

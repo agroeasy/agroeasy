@@ -4,7 +4,6 @@ import About from './components/support';
 import Home from './components/Home';
 import './components/home.css';
 
-
 /*The principal component for housing sub-components (like home, about and
 other pages) for easy navigation
 */
@@ -14,7 +13,7 @@ class App extends Component {
             <Router>
                 <div className="App">
                    <Route path='/' exact strict component={Home} />
-                   <Route path='/about/' exact strict component={About} />     
+                   <Route path='/about/' exact strict component={About} />
                 </div>
             </Router>
         );
