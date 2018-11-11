@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
-import {SUPPORT_STRINGS, Home } from './constants';
+import { SUPPORT_STRINGS, Home } from './constants';
 import { Button } from 'evergreen-ui';
 
 
-const { h1, pTexts, bottonText, className1, className2, className3} = SUPPORT_STRINGS;
+const { h1, pTexts, bottonText, className1, className2, className3 } = SUPPORT_STRINGS;
 //this component will contain imformation about the developter
 export default class About extends Component {
     render() {

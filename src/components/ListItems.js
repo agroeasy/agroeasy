@@ -9,7 +9,7 @@ import Row1 from './rows/row1';
 import ProductLocation from './Locations';
 
 
-const {className1, smallDiv, rowItems, More } = ListItem_stings;
+const { className1, smallDiv, rowItems, More } = ListItem_stings;
 /*
 This is a component of varieties of products appearing
 in no particular order
@@ -26,7 +26,7 @@ class ListItems extends React.Component {
                                   <InputGroupAddon addonType="prepend">
                                        <Button onClick={this.search}>{BottonText}</Button>
                                   </InputGroupAddon>
-                                  <Input placeholder="search products" />   
+                                  <Input placeholder="search products" />
                             </InputGroup>
                       </div>
                        <br />
@@ -34,7 +34,7 @@ class ListItems extends React.Component {
                              <ProductLocation />
                       </div>
                     </div>
-                </Col> 
+                </Col>
                 <Col md={7} className={smallDiv} >
                   <div className={rowItems}>
                          <Row1 />

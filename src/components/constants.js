@@ -64,3 +64,15 @@ export const SUPPORT_STRINGS = {
     className2: "display-3",
     className3: "lead"
 };
+
+export const PLACES = [
+    { name: 'Imo', link: '/imo/' },
+    { name: 'Ogun', link: '/ogun/' },
+    { name: "Niger (Bida, Gurara)", link: '/niger/' },
+    { name: 'Eboyin', link: '/eboyin/' },
+    { name: 'Kaduna (Zaria)', link: '/zaria/' },
+    { name: 'Lagos', link: '/lagos/' },
+    { name: "Ondo (ore)", link: '/ore/' },
+    { name: "Delta", link: '/delta/' },
+    { name: 'Ogun (Agbara)', link: '/agbara/' }
+];

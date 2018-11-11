@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Col, Row, Container } from 'reactstrap';
 import ProductsAvailable from './productsAvailable/ProductsAvailable';
-import {FOOTER_STRINGS} from './constants';
+import { FOOTER_STRINGS } from './constants';
 
-const {lowerFooter, footer, footerContent, footerText} = FOOTER_STRINGS;
+const { lowerFooter, footer, footerContent, footerText } = FOOTER_STRINGS;
 /*
 This will contain the productsavailable components and other
 neccessary info

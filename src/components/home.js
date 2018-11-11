@@ -6,7 +6,7 @@ import ListItems from './ListItems';
 import { HOME_STRINGS } from './constants';
 
 
-const {BG_IMG, SM_IMG, h1Text, h4Text, pText } = HOME_STRINGS;
+const { BG_IMG, SM_IMG, h1Text, h4Text, pText } = HOME_STRINGS;
 /*
 this is the home page, where sub-components (the Navibar, AnotherList and footer components)
 are exported to and displayed

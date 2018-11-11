@@ -21,7 +21,8 @@
         "comma-dangle": ["error", {
             "arrays": "only-multiline",
             "objects": "only-multiline"
-        }]
+        }],
+        "object-curly-spacing": ["error", "always"]
     },
     "settings": {
         "react": {

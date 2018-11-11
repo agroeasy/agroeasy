@@ -14,7 +14,7 @@ import {
 
 import { navLink, href, TEXTS } from './constants';
 
-const {text1, text2, text3, text4, botton1, botton2} = TEXTS;
+const { text1, text2, text3, text4, botton1, botton2 } = TEXTS;
 /*component for contact-us */
 class ContactUs extends React.Component {
   constructor(props) {

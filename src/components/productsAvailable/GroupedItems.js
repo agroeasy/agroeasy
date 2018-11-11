@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Container, Col, Row } from 'reactstrap';
-import {strings} from './constants';
 
-const {className1, className2} = strings;
+import { strings } from './constants';
+
+const { className1, className2 } = strings;
 //This component encapsulates items on productsavailable.js
 class GroupedItems extends React.Component {
 	render() {
