@@ -21,6 +21,15 @@
         "comma-dangle": ["error", {
             "arrays": "only-multiline",
             "objects": "only-multiline"
-        }]
+        }],
+        "object-curly-spacing": ["error", "always"],
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+        "eol-last": ["error", "always"],
+        "indent": ["error", 4]
+    },
+    "settings": {
+        "react": {
+            "version": "latest"
+        }
     }
 }
