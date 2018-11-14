@@ -164,13 +164,6 @@ img {
   background-color: DimGrey;
   color: whitesmoke;
 }
-<<<<<<< HEAD
- 
-/* Navibar logo */
-.logo {
-  width: 100px;
-  height: 50px;
-=======
 
 .support h1 {
   word-spacing: 0.3em;
@@ -217,5 +210,4 @@ img {
 
 .list {
  color: darkGrey;
->>>>>>> f8056ddac569d10418358f27ec1bccae43f938f7
 }

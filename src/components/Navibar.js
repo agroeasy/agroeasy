@@ -24,13 +24,8 @@ export default class Navibar extends Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
-                <Navbar color="inverse" light expand="md" className = "nav-bar" >
-                <NavbarBrand href={Home}><img src='./images/AgroeasyLogo.png' alt="logo"  className="logo"/></NavbarBrand>
-=======
                 <Navbar color="inverse" light expand="md" className={navBar} >
                     <NavbarBrand href={Home}><img src={LOGO.src} width={LOGO.width} /></NavbarBrand>
->>>>>>> f8056ddac569d10418358f27ec1bccae43f938f7
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className={mlAuto} navbar >
@@ -47,10 +42,10 @@ export default class Navibar extends Component {
                                 <NavLink className={navLink}><ContactUs /></NavLink>
                             </NavItem>
                             <NavItem>
-                            <NavLink className="navLink" href='./signup'> Signup </NavLink>
+                                <NavLink className="navLink" href='./signup'> Signup </NavLink>
                             </NavItem>
                             <NavItem>
-                              <NavLink className="navLink" href='./signin'>Signin</NavLink>
+                                <NavLink className="navLink" href='./signin'>Signin</NavLink>
                             </NavItem> 
                         </Nav>
                     </Collapse>
