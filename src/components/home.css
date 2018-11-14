@@ -1,37 +1,82 @@
 /* footer.js */
 .footer {
   text-align: center;  font-style: oblique;
-  background-color: whitesmoke;
-  margin-top: -17px;
+  background-color:  #dcdcdc;
+  margin-top: -4px;
 }
+
 .lower-footer {
   background-color: DimGrey;
-  height: 50px; color: white;
+  height: 50px; color: whitesmoke;
   text-align: center;
 }
+
+.footer-content {
+  margin-bottom: -40%;
+}
+
 .details {
   display: inline-block;
-  font-size: 13px;
+  list-style: none;
+  font-size: 15px;
   color: Grey;
 }
 
-/* AnotherList.js */
+ ul li {
+  display: block;
+  list-style: none;
+  font-size: 14px;
+  color: gray;
+}
+
+.small-div {
+  background-color: white;
+}
+
+.button {
+  height: 30px;
+  width: 72px;
+  margin-top: 5px;
+}
+
+.details Button {
+  font-size: "0.9em";
+  line-height: '15px';
+  background-color: 'darkslateblue';
+  width: '150px';
+}
+
+/*productsAvailable */
+.productsAvailable {
+  margin-top: -35px;
+}
+
+
+
+/* ListItems.js */
 .link-to-more {
   text-align: center;
-  margin-bottom: -2em;
+  margin-top: 20px;
 }
+
 .items {
   font-style: normal;
   color: black; background-color: whitesmoke;
   text-align: left;
-}
+  }
 
-/*
-this is for show-products-available
- */
+  li {
+    list-style: none;
+  }
+
+  .row-items {
+    margin-top: -33px;
+  }
+
+/*this is for show-products-available*/
 .show-products-available {
-margin-top: -2em;
-background-color: white;
+background-color: whitesmoke;
+margin-top: 2px;
 }
 
 /*
@@ -39,7 +84,7 @@ background-color: white;
   */
 .bg-img{
   background-image: linear-gradient( rgba(0, 0, 0, 0.336),rgba(0, 0, 0, 0.281)),
-  url("../../images/fpimg.jpg");
+  url(/images/fpimg.jpg);
   width: 100%;
   height: 100vh;
   background-size: cover;
@@ -47,12 +92,66 @@ background-color: white;
   text-align: center;
 }
 
-.navLink{
+.sm-img {
+  margin-top: 100px; 
+}
+
+.sm-img h4 {
+  text-align: center;
+}
+
+.wrapper {
+  margin: 0; padding: 0;
+  width: 100%;
+  height: 100vh;
+  background: DimGrey;
+  background-size: cover;
+  font-weight: bolder;
+  font-family: cursive;
+  display: table;
+}
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; margin: 0;
+  padding: 0; width: 100%;
+  height: 80px;
+}
+
+img {  
+  margin-right: 50px;
+}
+
+.right {
+  float: right;
+  text-align: right;
+}
+
+.right ul {
+  list-style: none;
+  padding: 1em 3em;
+}
+
+.right ul li {
+  display: inline-block;
+}
+
+.right ul li a {
+  color: white !important;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navLink {
   color: #fff !important;
 }
 
+.row {
+  margin-top: 35px;
+}
+
 .nav-bar {
-  margin-top: -4.5em;
+  margin-top: -0.7em;
 }
 .navLink:hover{
   color: red !important;
@@ -65,9 +164,58 @@ background-color: white;
   background-color: DimGrey;
   color: whitesmoke;
 }
+<<<<<<< HEAD
  
 /* Navibar logo */
 .logo {
   width: 100px;
   height: 50px;
+=======
+
+.support h1 {
+  word-spacing: 0.3em;
+}
+
+/*product file */
+.product-image {
+  max-width: 100%;  height: auto;
+   display: block;
+}
+
+.top-image {
+  width: 200px; 
+  height: 100px;
+}
+
+.modal-body {
+  width: 100%; height: 50%;
+  display: block;
+}
+
+.modal-image {
+  max-width: 100%;  height: auto;
+  display: block;
+}
+
+.modal-image-details h6  {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 200;
+  word-spacing: 1px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.modal-image-details h6 b {
+  font-weight: bold;
+}
+
+.details p {
+  margin-top: 5px;
+}
+.badge {
+  margin-top: 5px;
+} 
+
+.list {
+ color: darkGrey;
+>>>>>>> f8056ddac569d10418358f27ec1bccae43f938f7
 }

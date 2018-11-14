@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormField, Button, TextInputField, DialogManager, Dialog, Pane } from 'evergreen-ui';
+import { FormField, Button, TextInputField } from 'evergreen-ui';
 import './style.css';
 import { Title, Create_Account, Sign_in, No_Account } from './constant';
 
@@ -7,15 +7,7 @@ import { Title, Create_Account, Sign_in, No_Account } from './constant';
 export default class Signin extends React.Component {
   render() {
     return (
-      <DialogManager initialState={{ isShown: false }}>
-  {({ state, setState }) => (
-    <Pane>
-      <Dialog
-        isShown={state.isShown}
-        title="Dialog title"
-        onCloseComplete={() => setState({ isShown: false })}
-        confirmLabel="Custom Label"
-      >
+        
         <FormField       
         alignItems="center"
         justifyContent="center"
@@ -66,12 +58,6 @@ export default class Signin extends React.Component {
             
         </div>
       </FormField>
-      </Dialog>
-
-      <Button onClick={() => setState({ isShown: true })}>signin</Button>
-    </Pane>
-  )}
-</DialogManager> 
      
     );
   }
