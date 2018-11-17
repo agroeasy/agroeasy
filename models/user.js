@@ -14,10 +14,10 @@ const UserSchema = new Schema({
         type: String,
     },
 
-   },
+},
 
-   { 
-       versionKey:false 
-    });
+{ 
+    versionKey:false 
+});
 
 module.exports = mongoose.model('User', UserSchema);
