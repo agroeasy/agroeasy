@@ -66,7 +66,9 @@ module.exports = {
     // deletes producer using id
     producerDelete: async(req, res) => {
         try {
-            await Producer.findOneAndRemove({ _id: req.params.id }, req.body);
+            const { body, params: { id: _id } } = req; 
+            await Producer.findOneAndRemove(_id, body);
+            
             return res.json({ success: true, message: 'Producer successfully deleted!' });
         } catch (err) {
             res.send({ success: false, err });
@@ -76,7 +78,9 @@ module.exports = {
 
     producerUpdate: async(req, res) => {
         try {
-            const data = await Producer.findOneAndUpdate({ _id: req.params.producersId }, req.body, { new: true });
+            const{ body, params:{ producersId: _id } } = req;
+            const data = await Producer.findOneAndUpdate( _id, body, { new: true });
+
             return res.json({ data, success: true, message: 'Producer successfully updated!' });
         } catch (err) {
             res.send({ success: false, err });

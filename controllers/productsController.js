@@ -56,7 +56,8 @@ module.exports = {
     // deletes products using id
     productDelete: async (req, res) => {
         try {
-            await Product.findByIdAndRemove({ _id: req.params.id });
+            const { body, params: { id: _id } } =  req;
+            await Product.findByIdAndRemove(_id, body);
             return res.json({ success: true, message: 'Product successfully deleted!' });
         } catch (err) {
             res.send({ success: false, err });
@@ -66,8 +67,11 @@ module.exports = {
     // updates products using id
     productUpdate: async (req, res) => {
         try {
-            const data = await Product.findOneAndUpdate({ _id: req.params.productsId }, req.body, { new: true });
-            return res.json({ data, success: true, message: 'Product successfully updated' });
+            /*  const data = await Product.findOneAndUpdate({ _id: req.params.productsId }, req.body, { new: true });
+ */         const { body, params:{ productsId: _id } } = req;
+            const data = await Product.findOneAndUpdate(_id, body, { new: true } );
+
+            return res.json ({ data, success: true, message: 'Product successfully updated' });
         } catch (err) {
             res.send({ success: false, err });
         }

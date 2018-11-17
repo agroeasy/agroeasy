@@ -6,9 +6,7 @@ module.exports = {
     signInUser: (req, res) => {
 
         const { body } = req;
-
         const { password } = body;
-
         let { email } = body;
 
         if (!email || !password) {
@@ -21,10 +19,7 @@ module.exports = {
         email = email.toLowerCase();
         email = email.trim();
 
-        User.find({
-            email,
-            password
-        }, (err, users) => {
+        User.find({ email, password }, (err, users) => {
             if (err) {
                 return res.send({
                     success: false,

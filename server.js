@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //Cross-Origin Resource Sharing CORS
 //To enable access of resources from our server
 
-if(process.env.NODE_ENV === 'development'){
+if(process.env.NODE_ENV !== 'production'){
     app.use(cors());
 }
 
