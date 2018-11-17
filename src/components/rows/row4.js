@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import { Col, Row, Container } from 'reactstrap';
-import Products from './Product';
+import { Col, Row } from 'antd';
 import { ROW_ITEMS_4 } from './constants';
+import Product from './Product';
 
-/*this the fourth on component anotherlist.js */
+/*
+this the 4th on component anotherlist.js
+The css file is imported from Home.js
+*/
 export default class Row1 extends Component {
     render() {
         return (
-            <Container fluid>
-                <Row>
+            <div>
+                <Row type="flex" justify="center">
                     {
                         ROW_ITEMS_4.map(item =>
-                            <Col key={item.name}>
-                                <Products
+                            <Col span={5} className="row-Item" key={item.name}>
+                                <Product
                                     title={item.name}
                                     pix={item.pix}
                                     tag={item.cost}
@@ -21,7 +24,7 @@ export default class Row1 extends Component {
                         )
                     }
                 </Row>
-            </Container>
+            </div>
         );
     }
 }

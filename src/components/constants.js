@@ -19,8 +19,11 @@ export const More = "/more-products/";
 export const navLink = "navLink";
 export const href = " ";
 export const TEXTS = {
-    text1: "Contact Us", text2: "Name", text3: "Email",
-    text4: "Message", botton1: "Submit", botton2: "Cancel"
+    text1: "Contact Us", text2: "Name",
+    text3: "Email", text4: "Message", 
+    submit: "Submit", cancel: "Cancel",
+    primary: "primary", small: "small", 
+    back: "back"
 };
 
 //strings from ListItems.js
@@ -52,17 +55,20 @@ export const FOOTER_STRINGS = {
     footer: "footer",
     lowerFooter: "lower-footer",
     footerContent: "footer-content",
-    footerText: "All rights reserved, Copyright © 2018 Agroeasy"
+    footerText: "All rights reserved, Copyright © 2018 Agroeasy."
 };
 
 //Texts from Support.js
 export const SUPPORT_STRINGS = {
     h1: "Comming soon!",
-    pTexts: "promises to be filled with information",
+    pTexts: "...Your satisfaction, our priority",
     bottonText: "back" ,
-    className1: "support",
+    support: "support",
     className2: "display-3",
-    className3: "lead"
+    lead: "lead",
+    small: 'small',
+    danger: 'danger',
+    flex: 'flex', center: 'center'
 };
 
 export const PLACES = [

@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Col, Row } from 'reactstrap';
-import Footer from './Footer';
+import Foot from './Footer';
 import Navibar from './Navibar';
 import ListItems from './ListItems';
 import { HOME_STRINGS } from './constants';
@@ -25,9 +26,14 @@ class Home extends React.Component {
                     </Row>
                 </div>
                 <ListItems />
-                <Footer />
+                <Foot />
             </div>
         );
     }
 }
+
+Home.propTypes = {
+    className: PropTypes.string,
+    headings: PropTypes.string
+};
 export default Home;

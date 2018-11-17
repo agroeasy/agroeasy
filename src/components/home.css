@@ -46,29 +46,11 @@
   width: '150px';
 }
 
-/*productsAvailable */
-.productsAvailable {
-  margin-top: -35px;
-}
-
-
-
 /* ListItems.js */
 .link-to-more {
   text-align: center;
   margin-top: 20px;
 }
-
-.items {
-  font-style: normal;
-  color: black; background-color: whitesmoke;
-  text-align: left;
-  }
-
-  li {
-    list-style: none;
-  }
-
   .row-items {
     margin-top: -33px;
   }
@@ -170,11 +152,6 @@ img {
 }
 
 /*product file */
-.product-image {
-  max-width: 100%;  height: auto;
-   display: block;
-}
-
 .top-image {
   width: 200px; 
   height: 100px;
@@ -185,29 +162,8 @@ img {
   display: block;
 }
 
-.modal-image {
-  max-width: 100%;  height: auto;
-  display: block;
-}
 
-.modal-image-details h6  {
-  margin-top: 12px;
-  font-size: 15px;
-  font-weight: 200;
-  word-spacing: 1px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.modal-image-details h6 b {
-  font-weight: bold;
-}
 
 .details p {
   margin-top: 5px;
-}
-.badge {
-  margin-top: 5px;
-} 
-
-.list {
- color: darkGrey;
 }

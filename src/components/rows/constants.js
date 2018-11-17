@@ -129,7 +129,7 @@ export const ROW_ITEMS_4 = [
         quantity: "500  baskets",
         location: "benue state",
         email: "myemail@example.com",
-        pix: "/images/tomtoes.jpg"
+        pix: "/images/tomatoes.jpg"
     },
     {
         name: "Bag of beans",
@@ -141,21 +141,40 @@ export const ROW_ITEMS_4 = [
         pix: "/images/beans.jpg"
     },
     {
-        name: "Ogbono (Docanut)",
+        name: "Prawn",
         cost: "#2,000",
         phone: " ",
         quantity: "30bags",
         location: "Imo state",
         email: "myemail@example.com",
-        pix: "/images/ogbono.jpg"
+        pix: "/images/prawn.jpg"
     },
     {
-        name: "Ripe banana",
+        name: "Jamal's fruit store",
         cost: "#500",
         phone: " ",
-        quantity: "200 bunches",
+        quantity: " ",
         location: "Ore, ondo state",
         email: "myemail@example.com",
-        pix: "/images/ripeBanana.jpg"
+        pix: "/images/fruits.jpg"
     }
 ];
+
+export const PRODUCT_STRINGS = {
+    //classNames
+    biggestDiv: 'biggest-div',
+    product_image: 'product-image',
+    modalImageDetails: "modal-image-details",
+    details: 'details',
+    
+    //customized styles.css
+    small: 'small',
+    Buy: 'Buy Now',
+    More: 'More Info',
+    Cancel: 'Cancel',
+    primary: 'primary',
+    dashed: 'dashed',
+    flex: 'flex',
+    center: 'center',
+    justify: 'justify'
+}

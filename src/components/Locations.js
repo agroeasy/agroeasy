@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { strings } from './productsAvailable/constants';
-
 import { PLACES } from './constants';
 
-export default class ProductLocations extends React.Component {
+class ProductLocations extends React.Component {
     render() {
         return (
             <div>
@@ -24,3 +24,11 @@ export default class ProductLocations extends React.Component {
         );
     }
 }
+
+ProductLocations.PropTypes = {
+    className: PropTypes.string,
+    key: PropTypes.string,
+    link: PropTypes.string,
+};
+
+export default ProductLocations;

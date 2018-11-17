@@ -1,0 +1,41 @@
+.row-Item {
+ margin-left: 14px; margin-right: 14px;
+ margin-top: 50px; margin-bottom: 5px;
+}
+
+.row-Items {
+ margin-left: 14px; margin-right: 14px;
+ margin-top: 20px; margin-bottom: 5px;
+}
+
+.baadge {
+ background-color: whitesmoke; color: darkgrey; 
+ box-shadow: 0 0 0 1px #d9d9d9 inset;
+} 
+
+.details {
+ display: inline-block;
+ list-style: none;
+ font-size: 15px;
+ color: Grey;
+}
+
+/*Product.js */
+.biggest-div {
+  margin: -10px;
+}
+.product-image {
+    max-width: 100%;  height: auto;
+     display: block;
+  }
+ 
+.modal-image-details h6  {
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 200;
+    word-spacing: 1px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .modal-image-details h6 b {
+    font-weight: bold; 
+  }

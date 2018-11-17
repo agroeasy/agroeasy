@@ -76,6 +76,6 @@ export const SPICES = [
 
 //strings
 export const strings = {
-    className1: 'groupedItems',
-    className2: 'list'
+    groupedItems: 'groupedItems',
+    list: 'list'
 };

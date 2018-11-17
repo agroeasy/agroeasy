@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Col, Row, Container } from 'reactstrap';
+import PropTypes from 'prop-types';
+import { Col, Row } from 'antd';
 import ProductsAvailable from './productsAvailable/ProductsAvailable';
 import { FOOTER_STRINGS } from './constants';
 
@@ -8,12 +9,12 @@ const { lowerFooter, footer, footerContent, footerText } = FOOTER_STRINGS;
 This will contain the productsavailable components and other
 neccessary info
 */
-export default class  Footer extends Component {
+class  Foot extends Component {
     render () {
         return (
             <div className={footer}>
                 <ProductsAvailable />
-                <Container fluid className={lowerFooter}>
+                <div className={lowerFooter}>
                     <Row>
                         <Col>
                             <h6 className={footerContent}>
@@ -21,8 +22,14 @@ export default class  Footer extends Component {
                             </h6>
                         </Col>
                     </Row>
-                </Container>
+                </div>
             </div>
         );
     }
 }
+
+Foot.PropTypes = {
+    className: PropTypes.string,
+};
+
+export default Foot;
