@@ -2,9 +2,14 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const http = require('http');
 const path = require('path');
+const cors = require('cors');
 
 const product = require('./routes/productRoute'); // Imports routes for the products
 const producer = require('./routes/producerRoute'); // Imports routes for the producers
+
+const  logoutAndSignin  = require('./routes/SignInAndOutRout');
+const signUpUser  = require('./routes/signUpRoute'); 
+
 const { connectToDB } = require('./helpers/db');
 
 const app = express();
@@ -17,10 +22,19 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//Cross-Origin Resource Sharing CORS
+//To enable access of resources from our server
+
+if(process.env.NODE_ENV === 'development'){
+    app.use(cors());
+}
+
 app.use('/products', product);
 app.use('/producers', producer);
+app.use('/account', logoutAndSignin);
+app.use('/account', signUpUser); 
 
 server.listen(PORT, async() => {
-  await connectToDB();
-  console.log(`Listening on port ${PORT}`);
+    await connectToDB();
+    console.log(`Listening on port ${PORT}`);
 });

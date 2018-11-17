@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  productCreate,
-  productDetails,
-  allProductsDetails,
-  productDelete,
-  productUpdate,
+    productCreate,
+    productDetails,
+    allProductsDetails,
+    productDelete,
+    productUpdate,
 } = require('../controllers/productsController');
 
 router.get('/', allProductsDetails);
