@@ -1,8 +1,6 @@
 /* Form Strings*/
-export const Title = "Sign in to your account";
+export const Title = "Sign in";
 export const No_Account = "Don't have an account?";
-
-
-/*Buttons*/
-export const Create_Account = "Create Account";
-export const Sign_in = "Sign in";
+export const Reminder = "Remember me";
+export const Forgot_Pass = "Forgot password?";
+export const Create_Account = "Sign up now!";

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Collapse, Nav, Navbar, NavbarToggler, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 import { Home, Support, Goods, LOGO, NAVIBAR_STRINGS } from './constants';
 import ContactUs from './ContactUs';
+import Signin from './signin/Signin';
+import Signup from './signup/Signup';
 
 const { navBar, mlAuto, navLink } = NAVIBAR_STRINGS;
 /*
@@ -42,11 +44,11 @@ export default class Navibar extends Component {
                                 <NavLink className={navLink}><ContactUs /></NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="navLink" href='./signup'> Signup </NavLink>
+                                <NavLink className={navLink}><Signin /></NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="navLink" href='./signin'>Signin</NavLink>
-                            </NavItem> 
+                                <NavLink className={navLink}><Signup /></NavLink>
+                            </NavItem>
                         </Nav>
                     </Collapse>
                 </Navbar>

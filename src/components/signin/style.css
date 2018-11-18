@@ -1,31 +1,4 @@
-FormField {
-    display: flex;
-}
-
-/* image */
-
-.logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;   
-    width: 100px;
-    height: 50px; 
-}
-
-.form {
-    display:flex;
-}
-
-/* form title */
-
-.header {
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-/* sign up question */
+/* Don't have an account question */
 
 .account {
     font-size: 15px;
@@ -36,23 +9,17 @@ FormField {
     word-spacing: 5px;
 }
 
-/* buttons */
 
-.default_button {
+/* Form footer */
+
+.login-form-forgot {
+    float: right;
+  }
+
+ .login-form-button {
     display: block;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
-    size: 40pt;
-    font-size: 15px;
-    font-weight: bold;  
-}
-
-.green-button {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    size: 40pt;
-    font-size: 15px;
-    font-weight: bold;
-    color: white;
-}
+    margin-top: 10px;
+  }
