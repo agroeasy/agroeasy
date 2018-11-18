@@ -162,19 +162,21 @@ export const ROW_ITEMS_4 = [
 
 export const PRODUCT_STRINGS = {
     //classNames
+    details: 'details',
+    rowItem: 'row-Item',
+    rowItems: 'row-Items',
     biggestDiv: 'biggest-div',
     product_image: 'product-image',
     modalImageDetails: "modal-image-details",
-    details: 'details',
     
     //customized styles.css
+    flex: 'flex',
     small: 'small',
     Buy: 'Buy Now',
-    More: 'More Info',
     Cancel: 'Cancel',
-    primary: 'primary',
     dashed: 'dashed',
-    flex: 'flex',
     center: 'center',
+    More: 'More Info',
+    primary: 'primary',
     justify: 'justify'
-}
+};

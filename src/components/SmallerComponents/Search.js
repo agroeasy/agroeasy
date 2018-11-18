@@ -1,6 +1,5 @@
 import React from 'react';
 import { Input } from 'antd';
-import PropTypes from 'prop-types';
 
 const Search = Input.Search;
 //this is the search component
@@ -16,9 +15,5 @@ class SearchItems extends React.Component {
         );
     }
 }
-
-SearchItems.PropTypes ={
-    value: PropTypes.string,
-};
 
 export default SearchItems;

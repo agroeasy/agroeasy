@@ -1,19 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { strings } from './productsAvailable/constants';
+import { Link } from 'react-router-dom';
 import { PLACES } from './constants';
 
 class ProductLocations extends React.Component {
     render() {
         return (
-            <div>
+            <div className="bg-div">
                 <ul>
-                    <h6><u>Find Goods Near You</u></h6>
+                    <h6>Find Goods Near You</h6>
                     {
                         PLACES.map(row =>
                             <li key={row.name}>
-                                <Link to={row.link} className={strings.className2}>
+                                <Link to={row.link} className="linkItems">
                                     {row.name}
                                 </Link>
                             </li>

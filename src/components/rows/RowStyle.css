@@ -1,17 +1,14 @@
+/*Row1 */
 .row-Item {
  margin-left: 14px; margin-right: 14px;
- margin-top: 50px; margin-bottom: 5px;
+ margin-top: 55px; margin-bottom: 5px;
 }
 
+/* Rows 2 to 4 */
 .row-Items {
  margin-left: 14px; margin-right: 14px;
- margin-top: 20px; margin-bottom: 5px;
+ margin-top: 25px; margin-bottom: 5px;
 }
-
-.baadge {
- background-color: whitesmoke; color: darkgrey; 
- box-shadow: 0 0 0 1px #d9d9d9 inset;
-} 
 
 .details {
  display: inline-block;
