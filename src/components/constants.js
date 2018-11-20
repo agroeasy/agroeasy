@@ -24,8 +24,7 @@ export const TEXTS = {
     small: "small",
     email: "Email",
     submit: "Submit",
-    cancel: "Cancel",
-     
+    cancel: "Cancel", 
     primary: "primary", 
     message: "Message",
     contactUs: "Contact Us"
@@ -34,9 +33,9 @@ export const TEXTS = {
 //strings from ListItems.js
 export const ListItem_stings = {
     left: "left",
-    large: "large",
     flex: "flex",
     sider: "sider",
+    large: "large",
     center: "center",
     header: "header",
     More: "link-to-more",

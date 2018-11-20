@@ -17,7 +17,11 @@ class Row1 extends Component {
                                 title={item.name}
                                 pix={item.pix}
                                 tag={item.cost}
-                            />
+                                email={item.email}
+                                quantity={item.quantity}
+                                location={item.location}
+                                phone={item.phone}
+                            /> 
                         </Col>
                     )
                 }

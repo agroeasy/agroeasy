@@ -21,13 +21,13 @@ export default class ContactUs extends Component {
   }
 
   render() {
-    const { visible, loading } = this.state;
+    const { visible } = this.state;
     return (
       <div>
         <div onClick={this.showModal} className={navLink} >{contactUs}</div>
         <Modal visible={visible} title={contactUs} onOk={this.handleOk} onCancel={this.handleCancel}
             footer={[
-              <Button key={submit} type={primary} size={small} loading={loading} onClick={this.handleOk}>
+              <Button key={submit} type={primary} size={small} onClick={this.handleOk}>
                 {submit}
               </Button>,
               <Button key={back} size={small} onClick={this.handleCancel}>{cancel}</Button>, ]} >

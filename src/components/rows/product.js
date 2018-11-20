@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button, Row, Col, Tag } from 'antd';
-import { Image } from 'react-bootstrap';
 import { PRODUCT_STRINGS } from './constants';
+import MoreInfo from './MoreInfo';
 
 
-const { product_image, modalImageDetails, details, small, Buy, Cancel, More, primary, dashed, flex, center, biggestDiv } = PRODUCT_STRINGS;
+const { product_image, details, small, Buy, Cancel, More, primary, dashed, flex, center, biggestDiv } = PRODUCT_STRINGS;
 const ButtonGroup = Button.Group
 
 //this is a child component, re-used for row(1-4)
@@ -25,13 +25,13 @@ const ButtonGroup = Button.Group
   }
 
   render() {
-    const { visible, loading } = this.state;
+    const { visible } = this.state;
     return (
              <div  className={biggestDiv}>
                 <img src={this.props.pix} alt="#" className={product_image} onClick={this.showModal} />
                 <Modal title={this.props.title} centered visible={visible} onOk={this.handleOk} onCancel={this.handleCancel}
                   footer={[
-                    <Button key="submit" size={small} type={primary} loading={loading} onClick={this.handleOk}>{Buy}</Button>,
+                    <Button key="submit" size={small} type={primary} onClick={this.handleOk}>{Buy}</Button>,
                      <Button key="back" size={small} type={dashed} onClick={this.handleCancel}>{Cancel}</Button>,
                      ]} >
 
@@ -39,16 +39,16 @@ const ButtonGroup = Button.Group
 
                     <Row type={flex} justify={center}>
                        <Col className={details}>
-                         <Image src={this.props.pix} thumbnail/>
-                         <br />
-                        <div  className={modalImageDetails}>
-                          <h6><b>Name:</b> {this.props.title}</h6>
-                          <h6><b>Location:</b> {this.props.location}</h6>
-                          <h6><b>Cost:</b> &nbsp; {this.props.tag}</h6>
-                          <h6><b>Quantity available:</b> {this.props.quantity}</h6>
-                          <h6><b>Phone no:</b> {this.props.phone}</h6>
-                          <h6><b>Email:</b> {this.props.email}</h6>
-                       </div>
+                         <MoreInfo 
+                         name={this.props.title}
+                         tag={this.props.tag}
+                         pix={this.props.pix}
+                         email={this.props.email}
+                         quantity={this.props.quantity}
+                         location={this.props.location}
+                         phone={this.props.phone}
+
+                      />
                      </Col>
                    </Row>
              </Modal>
@@ -58,7 +58,7 @@ const ButtonGroup = Button.Group
                  <Tag color="gold">{this.props.tag}</Tag>
                </h6> 
                <ButtonGroup>               
-                 <Button size={small} type={primary} loading={loading} onClick={this.handleOk} >{Buy}</Button>
+                 <Button size={small} type={primary} onClick={this.handleOk} >{Buy}</Button>
                  <Button size={small} type={dashed} onClick={this.showModal}>{More}</Button>
                </ButtonGroup>
              </div>
