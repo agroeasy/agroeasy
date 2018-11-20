@@ -5,15 +5,12 @@ import { Image } from 'react-bootstrap';
 import { PRODUCT_STRINGS } from './constants';
 
 
-const { product_image, modalImageDetails, details, small, Buy,
-        Cancel, More, primary, dashed, flex, center, biggestDiv
-} = PRODUCT_STRINGS;
+const { product_image, modalImageDetails, details, small, Buy, Cancel, More, primary, dashed, flex, center, biggestDiv } = PRODUCT_STRINGS;
 const ButtonGroup = Button.Group
 
 //this is a child component, re-used for row(1-4)
  class Product extends Component {
   state = {
-    loading: false,
     visible: false,
   }
 
@@ -21,13 +18,6 @@ const ButtonGroup = Button.Group
     this.setState({
       visible: true,
     });
-  }
-
-  handleOk = () => {
-    this.setState({ loading: true });
-    setTimeout(() => {
-      this.setState({ loading: false, visible: false });
-    }, 5000);
   }
 
   handleCancel = () => {

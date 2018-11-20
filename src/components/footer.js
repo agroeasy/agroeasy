@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row, Layout } from 'antd';
+import { Col, Layout, Row } from 'antd';
 import { FOOTER_STRINGS } from './constants';
 import ProductsAvailable from './productsAvailable/ProductsAvailable';
 
-const { lowerFooter, footer, footerContent, footerText, flex, center } = FOOTER_STRINGS;
-const { Footer, Content } = Layout;
+const { center, footer, footerContent, footerText, flex, lowerFooter } = FOOTER_STRINGS;
+const { Content, Footer } = Layout;
 //This contains the productsavailable component
-class  Foot extends Component {
+class  AppFoot extends Component {
     render () {
         return (
             <Layout>
@@ -28,8 +28,8 @@ class  Foot extends Component {
     }
 }
 
-Foot.PropTypes = {
+AppFoot.PropTypes = {
     className: PropTypes.string,
 };
 
-export default Foot;
+export default AppFoot;

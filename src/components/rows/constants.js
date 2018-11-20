@@ -92,7 +92,7 @@ export const ROW_ITEMS_3 = [
         pix: "/images/lettuse.jpg"
     },
     {
-        name: "Fresh tomatoes",
+        name: "Fresh Farm",
         cost: "#5000",
         phone: " ",
         quantity: "150",

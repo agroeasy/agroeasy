@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'antd';
 import Products from './Product';
-import { ROW_ITEMS_1, PRODUCT_STRINGS } from './constants';
+import { PRODUCT_STRINGS,  ROW_ITEMS_1 } from './constants';
 
-const { rowItem , flex, center } = PRODUCT_STRINGS;
+const { center, flex, rowItem } = PRODUCT_STRINGS;
 /*this the first on component anotherlist.js */
 class Row1 extends Component {
     render() {

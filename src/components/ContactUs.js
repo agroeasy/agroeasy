@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Modal, Button } from 'antd';
+import PropTypes from 'prop-types';
+import { Button, Modal } from 'antd';
+import { FormGroup, Form, Input, Label } from 'reactstrap';
 import { navLink, TEXTS } from './constants';
-import FillForm from './SmallerComponents/Form';
 
-const { text1, submit, cancel, small, primary, back } = TEXTS;
+const { back, cancel, contactUs, email, message, name, primary, small, submit } = TEXTS;
 export default class ContactUs extends Component {
   state = {
-    loading: false,
     visible: false,
   }
 
@@ -14,13 +14,6 @@ export default class ContactUs extends Component {
     this.setState({
       visible: true,
     });
-  }
-
-  handleOk = () => {
-    this.setState({ loading: true });
-    setTimeout(() => {
-      this.setState({ loading: false, visible: false });
-    }, 3000);
   }
 
   handleCancel = () => {
@@ -31,16 +24,36 @@ export default class ContactUs extends Component {
     const { visible, loading } = this.state;
     return (
       <div>
-        <div onClick={this.showModal} className={navLink} >{text1}</div>
-        <Modal visible={visible} title={text1} onOk={this.handleOk} onCancel={this.handleCancel}
+        <div onClick={this.showModal} className={navLink} >{contactUs}</div>
+        <Modal visible={visible} title={contactUs} onOk={this.handleOk} onCancel={this.handleCancel}
             footer={[
               <Button key={submit} type={primary} size={small} loading={loading} onClick={this.handleOk}>
                 {submit}
               </Button>,
-             <Button key={back} size={small} onClick={this.handleCancel}>{cancel}</Button>, ]} >
-           <FillForm />
+              <Button key={back} size={small} onClick={this.handleCancel}>{cancel}</Button>, ]} >
+              <Form>
+                <FormGroup>
+                    <Label for="Name">{name}</Label>
+                    <Input type="text" name="name" id="Name" placeholder="name here" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="Email">{email}</Label>
+                    <Input type="email" name="email" id="Email" placeholder="email@josh.com" />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="Message">{message}</Label>
+                    <Input type="textarea" name="message" id="Message" placeholder="text here" />
+                </FormGroup>
+            </Form>
         </Modal>
       </div>
     );
   }
 }
+
+
+ContactUs.PropTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  message: PropTypes.string,
+};

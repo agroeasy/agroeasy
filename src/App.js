@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import About from './components/Support';
 import Home from './components/Home';
 import './components/Home.css';
-import './components/productsAvailable/Styles.css';
-import './components/rows/RowStyle.css';
+import './components/productsAvailable/styles.css';
+import './components/rows/style.css';
 
 /*The Top-most component for housing sub-components (like home, about and
 other pages) for easy navigation

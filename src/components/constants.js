@@ -19,16 +19,22 @@ export const ShowProductsAvailbie ="show-products-available";
 export const navLink = "navLink";
 export const href = " ";
 export const TEXTS = {
+    name: "Name",
     back: "back",
-    text1: "Contact Us", text2: "Name",
-    text3: "Email", text4: "Message", 
-    submit: "Submit", cancel: "Cancel",
-    primary: "primary", small: "small"
+    small: "small",
+    email: "Email",
+    submit: "Submit",
+    cancel: "Cancel",
+     
+    primary: "primary", 
+    message: "Message",
+    contactUs: "Contact Us"
 };
 
 //strings from ListItems.js
 export const ListItem_stings = {
     left: "left",
+    large: "large",
     flex: "flex",
     sider: "sider",
     center: "center",
@@ -37,7 +43,8 @@ export const ListItem_stings = {
     rowItems: "row-items",
     smallDiv: "small-div",
     stepForward: "step-forward",
-    moreProducts: "more products"
+    moreProducts: "more products",
+    searchProducts: "search products..."
 };
 
 //strings from Navibar.js
@@ -49,6 +56,7 @@ export const NAVIBAR_STRINGS = {
 
 //strings from Home.js
 export const HOME_STRINGS = {
+    search: "search",
     BG_IMG: 'bg-img',
     SM_IMG: "sm-img",
     h1Text: " Welcome Guest",
@@ -69,27 +77,58 @@ export const FOOTER_STRINGS = {
 //Texts from Support.js
 export const SUPPORT_STRINGS = {
     h1: "Comming soon!",
-    pTexts: "...Your satisfaction, our priority",
+    flex: 'flex', 
+    center: 'center',
     lead: "lead",
     small: 'small',
     danger: 'danger',
     bottonText: "back" ,
     support: "support",
-    className2: "display-3",
-    flex: 'flex', center: 'center'
+    display: "display-3",
+    headerText: "Find Goods Near You",
+    pTexts: "...Your satisfaction, our priority",
+  
+    //classNames
+    bigDiv: "main-div",
+    linkItems: "linkItems"
 };
 
 export const PLACES = [
-    { name: 'Imo', link: '/imo/' },
-    { name: 'Ogun', link: '/ogun/' },
-    { name: 'Eboyin', link: '/eboyin/' },
-    { name: 'Lagos', link: '/lagos/' },
-    { name: "Delta", link: '/delta/' },
-    { name: "Ondo (ore)", link: '/ore/' },
-    { name: 'Ogun (Agbara)', link: '/agbara/' },
-    { name: 'Kaduna (Zaria)', link: '/zaria/' },
-    { name: "Niger (Bida, Gurara)", link: '/niger/' }
+    { 
+        name: 'Imo', 
+        link: '/imo/' 
+    },
+    { 
+        name: 'Ogun', 
+        link: '/ogun/' 
+    },
+    { 
+        name: 'Eboyin', 
+        link: '/eboyin/' 
+    },
+    { 
+        name: 'Lagos', 
+        link: '/lagos/' 
+    },
+    { 
+        name: "Delta", 
+        link: '/delta/' 
+    },
+    { 
+        name: "Ondo (ore)", 
+        link: '/ore/' 
+    },
+    { 
+        name: 'Ogun (Agbara)', 
+        link: '/agbara/' 
+    },
+    { 
+        name: 'Kaduna (Zaria)', 
+        link: '/zaria/' 
+    },
+    { 
+        name: "Niger (Bida, Gurara)", 
+        link: '/niger/' 
+    }
 ];
-
-//Locations.js
 

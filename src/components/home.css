@@ -179,7 +179,7 @@ img {
 }
 
 /* Location.js */
-.bg-div {
+.main-div {
   margin-Top: 20px;
   margin-left: -20px;
 }
@@ -191,4 +191,8 @@ img {
 .linkItems {
   color: grey !important;
   font-size: 13px;
+}
+/** search.js */
+.search {
+  margin-top: 70px;
 }

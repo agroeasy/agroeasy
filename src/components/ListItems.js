@@ -1,19 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Layout, Row, Col, Icon } from 'antd';
+import { Col, Icon, Layout, Row } from 'antd';
 import { ListItem_stings } from './constants';
-import SearchItems from './SmallerComponents/Search';
 import ProductLocation from './Locations';
 import Row4 from './rows/Row4';
 import Row3 from './rows/Row3';
 import Row2 from './rows/Row2';
 import Row1 from './rows/Row1';
 
-const { flex, center, left, smallDiv, rowItems, More, header, sider, 
-    stepForward, moreProducts
-} = ListItem_stings;
-const { Header, Sider, Content } = Layout;
+const { center, flex, header, left, smallDiv, More, moreProducts, rowItems, sider, stepForward } = ListItem_stings;
+const { Header, Content, Sider } = Layout;
 //contains components SearchItems, ProductsLocation and Rows
 class ListItems extends React.Component {
     render() {
@@ -21,10 +18,7 @@ class ListItems extends React.Component {
             <Layout>
                 <Header className={header}>
                     <Row type={flex} justify={center}>
-                        <Col span={5}>
-                            <div>
-                                <SearchItems />
-                            </div> 
+                        <Col span={5}> 
                         </Col>
                     </Row>
                 </Header>
