@@ -73,7 +73,7 @@ module.exports = {
             $set: {
                 isDeleted:true
             }
-        }, null, (err) => {
+        }, null, err => {
             if (err) {
                 return res.send({
                     success: false,
