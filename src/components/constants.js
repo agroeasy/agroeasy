@@ -48,9 +48,12 @@ export const ListItem_stings = {
 
 //strings from Navibar.js
 export const NAVIBAR_STRINGS = {
+    home: "Home",
+    goods: "Goods",
+    support: "Support",
     navBar: "nav-bar",
     mlAuto: "ml-auto",
-    navLink: "navLink",
+    navLink: "navLink"
 };
 
 //strings from Home.js

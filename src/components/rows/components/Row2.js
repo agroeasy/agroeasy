@@ -12,7 +12,7 @@ class Row2 extends Component {
             <Row type={flex} justify={center}>
                 {
                     ROW_ITEMS_2.map(item =>
-                        <Col span={5} className={rowItems} key={item.name}>
+                        (<Col span={5} className={rowItems} key={item.name}>
                             <Products
                                 title={item.name}
                                 pix={item.pix}
@@ -22,7 +22,7 @@ class Row2 extends Component {
                                 location={item.location}
                                 phone={item.phone}
                             />
-                        </Col>
+                        </Col>)
                     )
                 }
             </Row>

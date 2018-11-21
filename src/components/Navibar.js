@@ -3,7 +3,7 @@ import { Collapse, Nav, Navbar, NavbarToggler, NavbarBrand, NavItem, NavLink } f
 import { Goods, Home, LOGO, NAVIBAR_STRINGS, Support } from './constants';
 import ContactUs from './ContactUs';
 
-const { mlAuto, navBar, navLink } = NAVIBAR_STRINGS;
+const { goods, home, mlAuto, navBar, navLink, support } = NAVIBAR_STRINGS;
 /*
 this is the the navigation bar at the top of the home page
 */
@@ -30,13 +30,13 @@ export default class Navibar extends Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className={mlAuto} navbar >
                             <NavItem >
-                                <NavLink href={Home} className={navLink}>Home</NavLink>
+                                <NavLink href={Home} className={navLink}>{home}</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink  href={Support} className={navLink}>Support</NavLink>
+                                <NavLink  href={Support} className={navLink}>{support}</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href={Goods} className={navLink}>Goods</NavLink>
+                                <NavLink href={Goods} className={navLink}>{goods}</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className={navLink}><ContactUs /></NavLink>

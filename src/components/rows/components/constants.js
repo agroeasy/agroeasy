@@ -178,5 +178,15 @@ export const PRODUCT_STRINGS = {
     center: 'center',
     More: 'More Info',
     primary: 'primary',
-    justify: 'justify'
+    justify: 'justify',
+
+    //strings
+    
+    Name: "Name:",
+    Cost: "Cost:",
+    Phone: "phone no:",
+    Quantity: "Quantity Available:",
+    Location: "Location:",
+    Email: "Email:",
+    Pix: "Pix"
 };
