@@ -3,8 +3,6 @@ const { ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } = require('./constants');
 
 module.exports = {
     productCreate: async (req, res) => {
-        // post new products to the database
-        // body parser lets us use the req.body
         const {
             name,
             quantity,
@@ -15,7 +13,7 @@ module.exports = {
             deletedAt
         } = req.body;
 
-        const product = Object.assign( new Product, {
+        const product = Object.assign( new Product(), {
             name,
             quantity,
             producerId,
@@ -67,8 +65,7 @@ module.exports = {
     // updates products using id
     productUpdate: async (req, res) => {
         try {
-            /*  const data = await Product.findOneAndUpdate({ _id: req.params.productsId }, req.body, { new: true });
- */         const { body, params:{ productsId: _id } } = req;
+            const { body, params:{ productsId: _id } } = req;
             const data = await Product.findOneAndUpdate(_id, body, { new: true } );
 
             return res.json ({ data, success: true, message: UPDATE_PRODUCT });

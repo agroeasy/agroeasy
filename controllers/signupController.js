@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const { NO_EMAIL_PASSWORD, USER_EXIST, SIGNED_UP  } = require('./constants');
 
 module.exports = {
     signUpUser: async (req, res) => {
@@ -14,7 +15,7 @@ module.exports = {
         });
 
         if(!email || !password){
-            return res.send({ success: false, message: 'email or password cannot be blank' });
+            return res.send({ success: false, message: NO_EMAIL_PASSWORD });
         }
 
         try{
@@ -22,7 +23,7 @@ module.exports = {
             if(previousUsers){
                 return res.send({
                     success: false,
-                    message: 'Error: Account already exist.'
+                    message: USER_EXIST
                 });
             }
         } catch(err){
@@ -34,7 +35,7 @@ module.exports = {
             await user.save();
             return res.send({
                 success: true,
-                message: 'Signed up'
+                message: SIGNED_UP
             });
         } catch(err){
             res.send({ success: false, err });

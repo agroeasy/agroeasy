@@ -1,8 +1,12 @@
 const User = require('../models/user');
 const UserSession = require('../models/userSession');
+const { 
+    NO_EMAIL_PASSWORD, 
+    USER_NOT_FOUND, 
+    SUCCESSFUL_SIGNIN, 
+    LOGOUT } = require('./constants');
 
 module.exports = {
-    
     signInUser: async (req, res) => {
         const { body } = req;
         const { password } = body;
@@ -11,7 +15,7 @@ module.exports = {
         if (!email || !password) {
             return res.send({
                 success: false,
-                message: 'Error: Email or Password cannot be blank.'
+                message: NO_EMAIL_PASSWORD
             });
         }
 
@@ -23,11 +27,11 @@ module.exports = {
             if(!users){
                 return res.send({
                     success: false,
-                    message: 'Cannnot find any user with the email  or password'
+                    message: USER_NOT_FOUND
                 });
             } 
         } catch(err){
-            res.send({ success: false, err });
+            return res.send({ success: false, err });
         }
        
         // Otherwise correct user
@@ -38,11 +42,11 @@ module.exports = {
             const doc = await userSession.save();
             return res.send({
                 success: true,
-                message: 'Valid sign in',
+                message: SUCCESSFUL_SIGNIN,
                 token: doc._id
             });
         } catch(err){
-            res.send({ success: false, err });
+            return res.send({ success: false, err });
         }
     },
      
@@ -60,8 +64,6 @@ module.exports = {
         // Get the token
         const { query } = req;
         const { token } = query;
-        // ?token=test
-        // Verify the token is one of a kind and it's not deleted.
         try{
             await UserSession.findOneAndUpdate(
                 { 
@@ -75,7 +77,7 @@ module.exports = {
                 
             return res.send({
                 success: true,
-                message: 'Logged out'
+                message: LOGOUT
             });
         } catch(err){
             res.send({ success: false, err });

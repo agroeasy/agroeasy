@@ -3,8 +3,6 @@ const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = require('./constants'
 
 module.exports = {
     producerCreate: async(req, res) => {
-    //  post new producer to the database
-        //  body parser lets us use the req.body
         const {
             firstName,
             lastName,
@@ -20,7 +18,7 @@ module.exports = {
         } = req.body;
 
         const producer = Object
-            .assign(new Producer, {
+            .assign(new Producer(), {
                 firstName,
                 lastName,
                 phoneNumber,
