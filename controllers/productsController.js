@@ -4,7 +4,6 @@ const { ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } = require('./constants');
 module.exports = {
     productCreate: async (req, res) => {
         // post new products to the database
-        let product = new Product();
         // body parser lets us use the req.body
         const {
             name,
@@ -16,7 +15,7 @@ module.exports = {
             deletedAt
         } = req.body;
 
-        product = Object.assign(product, {
+        const product = Object.assign( new Product, {
             name,
             quantity,
             producerId,

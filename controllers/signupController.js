@@ -7,8 +7,7 @@ module.exports = {
             username,
             password
         } = req.body;
-        let user = new User();
-        user = Object.assign(user, {
+        const user = Object.assign(new User(), {
             email,
             username,
             password
@@ -19,14 +18,14 @@ module.exports = {
         }
 
         try{
-            const users = await User.findOne({ email  });
-            if(users){
+            const previousUsers = await User.findOne({ email  });
+            if(previousUsers){
                 return res.send({
                     success: false,
                     message: 'Error: Account already exist.'
                 });
             }
-        }catch(err){
+        } catch(err){
             res.send({ err });
         }
 
@@ -37,7 +36,7 @@ module.exports = {
                 success: true,
                 message: 'Signed up'
             });
-        }catch(err){
+        } catch(err){
             res.send({ success: false, err });
         }
     }, //end of signup end point.
