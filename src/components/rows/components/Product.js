@@ -49,7 +49,7 @@ const ButtonGroup = Button.Group
                          phone={this.props.phone}
 
                       />
-                     </Col>
+                     </Col> 
                    </Row>
              </Modal>
              <div className={details}>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Layout, Row } from 'antd';
 import { FOOTER_STRINGS } from './constants';
-import ProductsAvailable from './productsAvailable/ProductsAvailable';
+import ProductsAvailable from './productsAvailable/components/ProductsAvailable';
 
 const { center, footer, footerContent, footerText, flex, lowerFooter } = FOOTER_STRINGS;
 const { Content, Footer } = Layout;
