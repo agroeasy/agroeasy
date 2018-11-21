@@ -64,6 +64,12 @@
         "rest-spread-spacing": ["error", "never"],
         "template-curly-spacing": "error",
         "yield-star-spacing": ["error", "after"],
+        "prefer-spread": "error",
+        "generator-star-spacing": ["error", {
+            "before": false,
+            "after": true
+        }],
+        "symbol-description": "error",
 
         "react/no-danger": "error",
         "react/jsx-pascal-case": "error",
