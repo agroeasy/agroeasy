@@ -1,3 +1,3 @@
-import Signin from './Signin';
+import components from './components';
 
-export { Signin };
+export default { components };

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Collapse, Nav, Navbar, NavbarToggler, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 import { Home, Support, Goods, LOGO, NAVIBAR_STRINGS } from './constants';
 import ContactUs from './ContactUs';
-import Signin from './signin/Signin';
-import Signup from './signup/Signup';
+import Signin from './signin/components/Signin';
+import Signup from './signup/components/Signup';
 
 const { navBar, mlAuto, navLink } = NAVIBAR_STRINGS;
 /*

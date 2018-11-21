@@ -1,60 +1,64 @@
 import React, { Component } from 'react';
 import './style.css';
-import Signup from '../signup/Signup';
+
 import { 
   Button,
-  Modal,
+  Checkbox,
   Form,
-  Input,
   Icon,
-  Checkbox
+  Input,
+  Modal
 } from 'antd';
 
 import {
   Create_Account,
-  Title,
+  Forgot_Pass,
+  Message_1,
   No_Account,
+  Placeholder_1,
+  Placeholder_2,
   Reminder,
-  Forgot_Pass
-} from './constant';
-
+  Title
+} from '../constant';
 
 const FormItem = Form.Item;
 
-const CollectionCreateForm = Form.create()(
+const SigninForm = Form.create()(
   class extends React.Component {
     render() {
-      const { visible, onCancel, onCreate, form } = this.props;
+
+      const {form, visible, onCancel, onCreate } = this.props;
       const { getFieldDecorator } = form;
+
       return (
         <Modal
           visible={visible}
           title={Title}
-          okText="Create"
           onCancel={onCancel}
           onOk={onCreate}
         >
-          <Form layout="vertical">
-
+          <Form 
+            layout="vertical"
+          >
               <FormItem>
                 {getFieldDecorator('title', {
-                  rules: [{ required: true, message: 'You have to input your username' }],
+                  rules: [{ required: true, message: { Message_1 } }],
                 })(
                   <Input
-                      placeholder="Enter your username"
-                      prefix={<Icon type="user"/>}
+                    placeholder= { Placeholder_1 }
+                    prefix={<Icon type="user"/>}
                   />
                 )}
               </FormItem>
-
               <FormItem>
-                {getFieldDecorator('description')(<Input
-                             placeholder="Enter your password"
-                             prefix={<Icon type="lock"/>}
-                             type="password"
-                         />)}
+                {getFieldDecorator('description')
+                  (<Input
+                    placeholder= {Placeholder_2}
+                    prefix={<Icon type="lock"/>}
+                    type="password"
+                    />
+                )}
               </FormItem>
-
               <FormItem>
                 {getFieldDecorator('remember', {
                   valuePropName: 'checked',
@@ -66,16 +70,17 @@ const CollectionCreateForm = Form.create()(
                 <a className="login-form-forgot" href="">{Forgot_Pass}</a>
 
                 <Button 
-                type="primary" 
-                htmlType="submit" 
-                shape="circle" 
-                className="login-form-button">
-                  {Title}
+                  type="primary" 
+                  htmlType="submit" 
+                  shape="circle" 
+                  className="login-form-button"
+                >
+                    {Title}
                 </Button>
 
                 <p className="account">{No_Account}</p>
 
-                <a href={<Signup/>}>{Create_Account}</a>
+                <a href="">{Create_Account}</a>
 
               </FormItem>
           </Form>
@@ -89,12 +94,15 @@ export default class Signin extends Component {
   state = {
     visible: false,
   };
+
   showModal = () => {
-    this.setState({ visible: true });
+    this.setState({
+      visible: true });
   }
 
   handleCancel = () => {
-    this.setState({ visible: false });
+    this.setState({
+      visible: false });
   }
 
   handleCreate = () => {
@@ -106,7 +114,7 @@ export default class Signin extends Component {
 
       console.log('Received values of form: ', values);
       form.resetFields();
-      this.setState({ visible: false });
+      this.setState({ visible: true });
     });
   }
 
@@ -118,7 +126,7 @@ export default class Signin extends Component {
     return (
       <div>
         <h6 type="primary" onClick={this.showModal}>{Title}</h6>
-        <CollectionCreateForm
+        <SigninForm
           wrappedComponentRef={this.saveFormRef}
           visible={this.state.visible}
           onCancel={this.handleCancel}
