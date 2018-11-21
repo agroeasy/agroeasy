@@ -1,4 +1,5 @@
 const Product = require('../models/product');
+const { ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } = require('./constants');
 
 module.exports = {
     productCreate: async (req, res) => {
@@ -27,7 +28,7 @@ module.exports = {
 
         try {
             await product.save();
-            return res.json({ success: true, message: 'Product successfully added!' });
+            return res.json({ success: true, message: ADD_PRODUCT });
         } catch (err) {
             res.send({ success: false, err });
         }
@@ -58,7 +59,7 @@ module.exports = {
         try {
             const { body, params: { id: _id } } =  req;
             await Product.findByIdAndRemove(_id, body);
-            return res.json({ success: true, message: 'Product successfully deleted!' });
+            return res.json({ success: true, message: DELETE_PRODUCT });
         } catch (err) {
             res.send({ success: false, err });
         }
@@ -71,7 +72,7 @@ module.exports = {
  */         const { body, params:{ productsId: _id } } = req;
             const data = await Product.findOneAndUpdate(_id, body, { new: true } );
 
-            return res.json ({ data, success: true, message: 'Product successfully updated' });
+            return res.json ({ data, success: true, message: UPDATE_PRODUCT });
         } catch (err) {
             res.send({ success: false, err });
         }

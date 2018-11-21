@@ -2,15 +2,12 @@ const User = require('../models/user');
 
 module.exports = {
     signUpUser: async (req, res) => {
-
-        let user = new User();
-
         const {
             email,
             username,
             password
         } = req.body;
-
+        let user = new User();
         user = Object.assign(user, {
             email,
             username,
@@ -20,26 +17,18 @@ module.exports = {
         if(!email || !password){
             return res.send({ success: false, message: 'email or password cannot be blank' });
         }
-        /* 
-         email = email.toLowerCase();
-         email = email.trim();
- */
-        // 1. Verify email doesn't exist
-        User.find({
-            email: email
-        }, (err, previousUsers) => {
-            if (err) {
-                return res.send({
-                    success: false,
-                    message: 'Error: Server error'
-                });
-            } else if (previousUsers.length > 0) {
+
+        try{
+            const users = await User.findOne({ email  });
+            if(users){
                 return res.send({
                     success: false,
                     message: 'Error: Account already exist.'
                 });
             }
-        });
+        }catch(err){
+            res.send({ err });
+        }
 
         // Save the new user
         try {

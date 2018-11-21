@@ -1,4 +1,5 @@
 const Producer = require('../models/producer');
+const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = require('./constants');
 
 module.exports = {
     producerCreate: async(req, res) => {
@@ -37,7 +38,7 @@ module.exports = {
 
         try {
             await producer.save();
-            return res.json({ success: true, message: 'Producer successfully added!' });
+            return res.json({ success: true, message: ADD_PRODUCER });
         } catch (err) {
             res.send({ success: false, err });
         }
@@ -69,7 +70,7 @@ module.exports = {
             const { body, params: { id: _id } } = req; 
             await Producer.findOneAndRemove(_id, body);
             
-            return res.json({ success: true, message: 'Producer successfully deleted!' });
+            return res.json({ success: true, message: DELETE_PRODUCER });
         } catch (err) {
             res.send({ success: false, err });
         }
@@ -81,7 +82,7 @@ module.exports = {
             const{ body, params:{ producersId: _id } } = req;
             const data = await Producer.findOneAndUpdate( _id, body, { new: true });
 
-            return res.json({ data, success: true, message: 'Producer successfully updated!' });
+            return res.json({ data, success: true, message: UPDATE_PRODUCER });
         } catch (err) {
             res.send({ success: false, err });
         }

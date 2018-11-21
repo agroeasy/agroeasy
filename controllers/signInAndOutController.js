@@ -3,8 +3,7 @@ const UserSession = require('../models/userSession');
 
 module.exports = {
     
-    signInUser: (req, res) => {
-
+    signInUser: async (req, res) => {
         const { body } = req;
         const { password } = body;
         let { email } = body;
@@ -16,37 +15,24 @@ module.exports = {
             });
         }
 
-        email = email.toLowerCase();
-        email = email.trim();
-
-        User.find({ email, password }, (err, users) => {
+        email = email.toLowerCase().trim();
+        
+        User.findOne({ email, password }, (err, users) => {
             if (err) {
                 return res.send({
                     success: false,
                     message: 'Error: server error'
                 });
             }
-
-            if (users.length != 1) {
+            if (!users) {
                 return res.send({
                     success: false,
                     message: 'Cannnot find any user with the email  or password'
                 });
             }
-          
-            const user = users[0];
-            /*   console.log(users);
-          let userLoginDetails = users.map(user=>({email: user.email, password: user.password}));
-
-         if(userLoginDetails[0].email !== email || userLoginDetails[0].password !== password){
-           return res.send({
-             message: 'email or password is incorrect'
-           });
-         } */
-
             // Otherwise correct user
             const userSession = new UserSession();
-            userSession.userId = user._id;
+            userSession.userId = users._id;
 
             userSession.save((err, doc) => {
                 if (err) {
@@ -70,7 +56,7 @@ module.exports = {
             const data = await User.find();
             return res.json({ success: true, data });
         } catch (err) {
-            return res.json({ success: false, error: err });
+            return res.json({ success: false, err });
         }
     },
 
