@@ -69,6 +69,7 @@
             "before": false,
             "after": true
         }],
+        "symbol-description": "error",
 
         "react/no-danger": "error",
         "react/jsx-pascal-case": "error",
