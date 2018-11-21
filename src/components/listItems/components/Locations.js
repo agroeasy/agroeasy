@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { PLACES, SUPPORT_STRINGS } from './constants';
+import { PLACES, SUPPORT_STRINGS } from '../../constants';
 
 const { bigDiv, headerText, linkItems } = SUPPORT_STRINGS;
 class ProductLocations extends React.Component {

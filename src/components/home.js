@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Col, Row } from 'antd';
 import AppFoot from './Footer';
 import Navibar from './Navibar';
-import ListItems from './ListItems';
+import ListItems from './listItems/components/ListItems';
 import SearchItems from './Search';
 import { HOME_STRINGS } from './constants';
 
