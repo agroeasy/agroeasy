@@ -12,11 +12,11 @@ export default class ProductLocations extends React.Component {
                     <h6><u>Find Goods Near You</u></h6>
                     {
                         PLACES.map(row =>
-                            <li key={row.name}>
+                            (<li key={row.name}>
                                 <Link to={row.link} className={strings.className2}>
                                     {row.name}
                                 </Link>
-                            </li>
+                            </li>)
                         )
                     }
                 </ul>
