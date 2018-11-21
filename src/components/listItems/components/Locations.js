@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { PLACES, SUPPORT_STRINGS } from '../../constants';
+import { PLACES, SUPPORT_STRINGS } from './constants';
 
 const { bigDiv, headerText, linkItems } = SUPPORT_STRINGS;
 class ProductLocations extends React.Component {
@@ -12,11 +12,11 @@ class ProductLocations extends React.Component {
                     <h6>{headerText}</h6>
                     {
                         PLACES.map(row =>
-                            <li key={row.name}>
+                            (<li key={row.name}>
                                 <Link to={row.link} className={linkItems}>
                                     {row.name}
                                 </Link>
-                            </li>
+                            </li>)
                         )
                     }
                 </ul>

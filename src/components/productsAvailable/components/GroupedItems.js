@@ -15,11 +15,11 @@ class GroupedItems extends React.Component {
                         <h6>{this.props.heading}</h6>
                         {
                             this.props.items.map(item =>
-                                <li key={item.name}>
+                                (<li key={item.name}>
                                     <Link to={item.link} className={list}>
                                         {item.name}
                                     </Link>
-                                </li>
+                                </li>)
                             )
                         }
                     </ul>
