@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const {
-  producerCreate,
-  producerDetails,
-  allProducersDetails,
-  producerDelete,
-  producerUpdate
+    producerCreate,
+    producerDetails,
+    allProducersDetails,
+    producerDelete,
+    producerUpdate
 } = require('../controllers/producersController');
 
 router.get('/', allProducersDetails); // find all
