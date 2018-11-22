@@ -29,7 +29,7 @@ MoreInfo.PropTypes = {
     location: PropTypes.string,
     quantity: PropTypes.number,
     phone: PropTypes.string,
-    pix: PropTypes.string,
+    pix: PropTypes.Image,
     tag: PropTypes.string,
     title: PropTypes.string,
 

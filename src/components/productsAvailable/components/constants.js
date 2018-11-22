@@ -102,5 +102,6 @@ export const strings = {
     foodItems: 'Food Items',
     groupedItems: 'groupedItems',
     livestocksPoultry: "Livestock & Poultry",
+    productsAvailable: "productsAvailable",
     fruitsVegetables: "Fruits & Vegetables"
 };
