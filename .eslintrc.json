@@ -23,9 +23,63 @@
             "objects": "only-multiline"
         }],
         "object-curly-spacing": ["error", "always"],
-        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+        "no-multiple-empty-lines": ["error", {
+            "max": 1,
+            "maxEOF": 1
+        }],
         "eol-last": ["error", "always"],
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "no-param-reassign": ["warn"],
+        "arrow-body-style": ["error", "as-needed"],
+        "arrow-parens": ["warn", "as-needed", {
+            "requireForBlockBody": false
+        }],
+        "arrow-spacing": ["error", {
+            "before": true,
+            "after": true
+        }],
+        "constructor-super": "error",
+        "no-const-assign": "error",
+        "no-dupe-class-members": "error",
+        "no-duplicate-imports": "error",
+        "no-new-symbol": "error",
+        "no-this-before-super": "error",
+        "no-useless-computed-key": "error",
+        "no-useless-constructor": "warn",
+        "no-useless-rename": ["error", {
+            "ignoreDestructuring": false,
+            "ignoreImport": false,
+            "ignoreExport": false
+        }],
+        "no-var": "warn",
+        "prefer-arrow-callback": ["warn", {
+            "allowUnboundThis": true
+        }],
+        "prefer-const": ["error", {
+            "destructuring": "all",
+            "ignoreReadBeforeAssign": true
+        }],
+        "prefer-template": "error",
+        "require-yield": "error",
+        "rest-spread-spacing": ["error", "never"],
+        "template-curly-spacing": "error",
+        "yield-star-spacing": ["error", "after"],
+        "prefer-spread": "error",
+        "generator-star-spacing": ["error", {
+            "before": false,
+            "after": true
+        }],
+        "symbol-description": "error",
+
+        "react/no-danger": "error",
+        "react/jsx-pascal-case": "error",
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-closing-bracket-location": "error",
+        "react/void-dom-elements-no-children": "error",
+        "react/jsx-tag-spacing": "error",
+        "react/jsx-no-literals": "error",
+        "react/jsx-wrap-multilines": "error",
+        "react/jsx-no-comment-textnodes": "error"
     },
     "settings": {
         "react": {
