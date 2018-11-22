@@ -19,7 +19,7 @@ import {
   Placeholder_2,
   Reminder,
   Title
-} from '../constant';
+} from './constant';
 
 const FormItem = Form.Item;
 
@@ -112,7 +112,6 @@ export default class Signin extends Component {
         return;
       }
 
-      console.log('Received values of form: ', values);
       form.resetFields();
       this.setState({ visible: true });
     });

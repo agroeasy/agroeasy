@@ -29,7 +29,7 @@ import {
   Login,
   Read,
   Title
-} from '../constant';
+} from './constant';
 
 const FormItem = Form.Item;
 
@@ -207,7 +207,6 @@ export default class Signup extends Component {
         return;
       }
 
-      console.log('Received values of form: ', values);
       form.resetFields();
       this.setState({ visible: false });
     });
@@ -216,7 +215,7 @@ export default class Signup extends Component {
   saveFormRef = (formRef) => {
     this.formRef = formRef;
   }
-
+ 
   render() {
     return (
       <div>
