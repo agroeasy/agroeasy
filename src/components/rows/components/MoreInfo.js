@@ -36,9 +36,9 @@ class MoreInfo extends React.Component {
 MoreInfo.propTypes = {
     email: PropTypes.string,
     location: PropTypes.string,
-    quantity: PropTypes.string,
     phone: PropTypes.string,
     pix: PropTypes.string,
+    quantity: PropTypes.string,
     tag: PropTypes.string,
     title: PropTypes.string,
 };

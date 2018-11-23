@@ -16,39 +16,39 @@ export const PRODUCTION_LOCATIONS = {
 
 export const PLACES = [
     {
-        name: 'Imo',
         link: '/imo/',
+        name: 'Imo',
     },
     {
-        name: 'Ogun',
         link: '/ogun/',
+        name: 'Ogun',
     },
     {
-        name: 'Eboyin',
         link: '/eboyin/',
+        name: 'Eboyin',
     },
     {
-        name: 'Lagos',
         link: '/lagos/',
+        name: 'Lagos',
     },
     {
-        name: "Delta",
         link: '/delta/',
+        name: "Delta",
     },
     {
-        name: "Ondo (ore)",
         link: '/ore/',
+        name: "Ondo (ore)",
     },
     {
-        name: 'Ogun (Agbara)',
         link: '/agbara/',
+        name: 'Ogun (Agbara)',
     },
     {
-        name: 'Kaduna (Zaria)',
         link: '/zaria/',
+        name: 'Kaduna (Zaria)',
     },
     {
-        name: "Niger (Bida, Gurara)",
         link: '/niger/',
+        name: "Niger (Bida, Gurara)",
     },
 ];

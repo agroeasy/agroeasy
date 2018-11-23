@@ -10,20 +10,20 @@ module.exports = {
         } = req.body;
         const user = Object.assign(new User(), {
             email,
-            username,
             password,
+            username,
         });
 
         if(!email || !password){
-            return res.send({ success: false, message: NO_EMAIL_PASSWORD });
+            return res.send({ message: NO_EMAIL_PASSWORD, success: false });
         }
 
         try{
             const previousUsers = await User.findOne({ email  });
             if(previousUsers){
                 return res.send({
-                    success: false,
                     message: USER_EXIST,
+                    success: false,
                 });
             }
         } catch(err){
@@ -34,11 +34,11 @@ module.exports = {
         try {
             await user.save();
             return res.send({
-                success: true,
                 message: SIGNED_UP,
+                success: true,
             });
-        } catch(err){
-            res.send({ success: false, err });
+        } catch(err) {
+            res.send({ err, success: false });
         }
     }, //end of signup end point.
     //This does not log the user in, but does create an account via API.

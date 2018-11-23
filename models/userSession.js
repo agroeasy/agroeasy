@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
 const UserSessionSchema = new mongoose.Schema({
-    userId: {
-        type: String,
-        default: '',
+    isDeleted: {
+        default: false,
+        type: Boolean,
     },
     timestamp: {
-        type: Date,
         default: Date.now(),
+        type: Date,
     },
-    isDeleted: {
-        type: Boolean,
-        default: false,
+    userId: {
+        default: '',
+        type: String,
     },
 });
 module.exports = mongoose.model('UserSession', UserSessionSchema);
