@@ -1,4 +1,4 @@
 import ListItems from './ListItems';
-import './home.css';
+import './styles.css';
 
 export  { ListItems };

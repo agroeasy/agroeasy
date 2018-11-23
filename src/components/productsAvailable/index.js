@@ -1,4 +1,3 @@
-import './styles.css';
-import Components from './components';
+import components from './components';
 
-export  { Components };
+export  { components };
