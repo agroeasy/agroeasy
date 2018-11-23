@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import About from './components/support';
+import About from './components/Support';
 import Home from './components/Home';
-import './components/home.css';
+import './components/styles.css';
+import './components/productsAvailable/components/styles.css';
+import './components/rows/components/styles.css';
 
-/*The principal component for housing sub-components (like home, about and
+/*The Top-most component for housing sub-components (like home, about and
 other pages) for easy navigation
 */
-class App extends Component {
+export default class App extends React.Component {
     render() {
         return (
             <Router>
@@ -19,5 +21,3 @@ class App extends Component {
         );
     }
 }
-
-export default App;

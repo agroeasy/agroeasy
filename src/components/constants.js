@@ -7,72 +7,130 @@ export const ProductsAvailable = "/more-products/";
 
 //app logo
 export const LOGO = {
-    src:  "/images/Agroeasylogo.png",
-    width: "100px"
+    width: "100px",
+    src:  "/images/Agroeasylogo.png"
 };
 
-export const ShowProductsAvailbie ="show-products-available";
 export const BottonText = "ok";
 export const More = "/more-products/";
+export const ShowProductsAvailbie ="show-products-available";
 
 //string & texts from ContactUs.js
 export const navLink = "navLink";
 export const href = " ";
 export const TEXTS = {
-    text1: "Contact Us", text2: "Name", text3: "Email",
-    text4: "Message", botton1: "Submit", botton2: "Cancel"
+    name: "Name",
+    back: "back",
+    small: "small",
+    email: "Email",
+    submit: "Submit",
+    cancel: "Cancel", 
+    primary: "primary", 
+    message: "Message",
+    contactUs: "Contact Us"
 };
 
 //strings from ListItems.js
 export const ListItem_stings = {
-    className1: "show-products-available",
-    smallDiv: "small-div",
+    left: "left",
+    flex: "flex",
+    sider: "sider",
+    large: "large",
+    center: "center",
+    header: "header",
+    More: "link-to-more",
     rowItems: "row-items",
-    More: "link-to-more"
+    smallDiv: "small-div",
+    stepForward: "step-forward",
+    moreProducts: "more products",
+    searchProducts: "search products..."
 };
 
 //strings from Navibar.js
 export const NAVIBAR_STRINGS = {
-    navLink: "navLink",
+    home: "Home",
+    goods: "Goods",
+    support: "Support",
     navBar: "nav-bar",
-    mlAuto: "ml-auto"
+    mlAuto: "ml-auto",
+    navLink: "navLink"
 };
 
 //strings from Home.js
 export const HOME_STRINGS = {
+    search: "search",
+    BG_IMG: 'bg-img',
+    SM_IMG: "sm-img",
     h1Text: " Welcome Guest",
     h4Text: "Make us your distributor and we will tell the world about your business.",
-    pText:  "Dear customer, we make sure you get a discount anytime you patronize us. Give us a try.",
-    BG_IMG: 'bg-img',
-    SM_IMG: "sm-img"
+    pText:  "Dear customer, we make sure you get a discount anytime you patronize us. Give us a try."
 };
 
 // strings from Footer.js
 export const FOOTER_STRINGS = {
+    flex: "flex",
+    center: "center",
     footer: "footer",
     lowerFooter: "lower-footer",
     footerContent: "footer-content",
-    footerText: "All rights reserved, Copyright © 2018 Agroeasy"
+    footerText: "All rights reserved, Copyright © 2018 Agroeasy."
 };
 
 //Texts from Support.js
 export const SUPPORT_STRINGS = {
     h1: "Comming soon!",
-    pTexts: "promises to be filled with information",
+    flex: 'flex', 
+    center: 'center',
+    lead: "lead",
+    small: 'small',
+    danger: 'danger',
     bottonText: "back" ,
-    className1: "support",
-    className2: "display-3",
-    className3: "lead"
+    support: "support",
+    display: "display-3",
+    headerText: "Find Goods Near You",
+    pTexts: "...Your satisfaction, our priority",
+  
+    //classNames
+    bigDiv: "main-div",
+    linkItems: "linkItems"
 };
 
 export const PLACES = [
-    { name: 'Imo', link: '/imo/' },
-    { name: 'Ogun', link: '/ogun/' },
-    { name: "Niger (Bida, Gurara)", link: '/niger/' },
-    { name: 'Eboyin', link: '/eboyin/' },
-    { name: 'Kaduna (Zaria)', link: '/zaria/' },
-    { name: 'Lagos', link: '/lagos/' },
-    { name: "Ondo (ore)", link: '/ore/' },
-    { name: "Delta", link: '/delta/' },
-    { name: 'Ogun (Agbara)', link: '/agbara/' }
+    { 
+        name: 'Imo', 
+        link: '/imo/' 
+    },
+    { 
+        name: 'Ogun', 
+        link: '/ogun/' 
+    },
+    { 
+        name: 'Eboyin', 
+        link: '/eboyin/' 
+    },
+    { 
+        name: 'Lagos', 
+        link: '/lagos/' 
+    },
+    { 
+        name: "Delta", 
+        link: '/delta/' 
+    },
+    { 
+        name: "Ondo (ore)", 
+        link: '/ore/' 
+    },
+    { 
+        name: 'Ogun (Agbara)', 
+        link: '/agbara/' 
+    },
+    { 
+        name: 'Kaduna (Zaria)', 
+        link: '/zaria/' 
+    },
+    { 
+        name: "Niger (Bida, Gurara)", 
+        link: '/niger/' 
+    }
 ];
+
