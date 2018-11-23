@@ -30,7 +30,7 @@ export default class Row4 extends Component {
     }
 }
 
-Row4.PropTypes = {
+Row4.propTypes = {
     className: PropTypes.string,
     title: PropTypes.string,
     pix: PropTypes.string,

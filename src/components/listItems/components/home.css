@@ -18,13 +18,6 @@
   background-color: white;
 }
 
-
-/*this is for show-products-available*/
-.show-products-available {
-background-color: whitesmoke;
-margin-top: 2px;
-}
-
 /* Location.js */
 .main-div {
   margin-Top: 20px;
@@ -38,8 +31,4 @@ margin-top: 2px;
 .linkItems {
   color: grey !important;
   font-size: 13px;
-}
-/** search.js */
-.search {
-  margin-top: 70px;
 }

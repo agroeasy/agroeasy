@@ -52,7 +52,7 @@ export default class ContactUs extends Component {
 }
 
 
-ContactUs.PropTypes = {
+ContactUs.ropTypes = {
   name: PropTypes.string,
   email: PropTypes.string,
   message: PropTypes.string,

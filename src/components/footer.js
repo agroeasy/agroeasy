@@ -28,7 +28,7 @@ class  AppFoot extends Component {
     }
 }
 
-AppFoot.PropTypes = {
+AppFoot.propTypes = {
     className: PropTypes.string,
 };
 

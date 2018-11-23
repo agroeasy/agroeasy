@@ -12,7 +12,7 @@ class MoreInfo extends React.Component {
                 <Image src={ this.props.pix } thumbnail />
                 <div>
                     <h6><b>{Name}</b> {this.props.title}</h6>
-                    <h6><b>{Location}</b> {this.props.locations}</h6>
+                    <h6><b>{Location}</b> {this.props.location}</h6>
                     <h6><b>{Cost}</b> &nbsp; {this.props.tag}</h6>
                     <h6><b>{Quantity}</b> {this.props.quantity}</h6>
                     <h6><b>{Phone}</b> {this.props.phone}</h6>
@@ -23,16 +23,15 @@ class MoreInfo extends React.Component {
     }
 }
 
-MoreInfo.PropTypes = {
+MoreInfo.propTypes = {
     className: PropTypes.string,
     email: PropTypes.string,
     location: PropTypes.string,
-    quantity: PropTypes.number,
+    quantity: PropTypes.string,
     phone: PropTypes.string,
+    tag: PropTypes.number,
     pix: PropTypes.string,
-    tag: PropTypes.string,
     title: PropTypes.string,
-
 };
 
 export default MoreInfo;

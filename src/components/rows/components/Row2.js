@@ -30,7 +30,7 @@ class Row2 extends Component {
     }
 }
 
-Row2.PropTypes = {
+Row2.propTypes = {
     className: PropTypes.string,
     title: PropTypes.string,
     pix: PropTypes.string,
