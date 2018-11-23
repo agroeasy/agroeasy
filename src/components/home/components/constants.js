@@ -2,17 +2,12 @@
 export const HOME = "/";
 export const SUPPORT = "/about/";
 export const GOODS = "/show-goods/";
-// export const ProductsAvailable = "/more-products/";
 
 //app logo
 export const LOGO = {
     SOURCE:  "/images/Agroeasylogo.png",
     WIDTH: "100px",
 };
-
-// export const BottonText = "ok";
-// export const More = "/more-products/";
-// export const ShowProductsAvailbie ="show-products-available";
 
 //string & texts from ContactUs.js
 export const NAV_LINKS = "navLink";
