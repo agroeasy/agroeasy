@@ -160,33 +160,30 @@ export const ROW_ITEMS_4 = [
     }
 ];
 
-export const PRODUCT_STRINGS = {
-    //classNames
-    details: 'details',
-    rowItem: 'row-Item',
-    rowItems: 'row-Items',
-    biggestDiv: 'biggest-div',
-    product_image: 'product-image',
-    modalImageDetails: "modal-image-details",
-    
-    //customized styles.css
-    flex: 'flex',
-    small: 'small',
-    Buy: 'Buy Now',
-    Cancel: 'Cancel',
-    dashed: 'dashed',
-    center: 'center',
-    More: 'More Info',
-    primary: 'primary',
-    justify: 'justify',
-
-    //strings
-    
-    Name: "Name:",
-    Cost: "Cost:",
-    Phone: "phone no:",
-    Quantity: "Quantity Available:",
-    Location: "Location:",
-    Email: "Email:",
-    Pix: "Pix"
+export const PRODUCT = {
+    BUY: 'Buy Now',
+    CANCEL: 'Cancel',
+    CLASSNAMES: {
+        DETAILS: 'details',
+        ROW_ITEM: 'row-Item',
+        ROW_ITEMS: 'row-Items',
+        BIGGEST_DIV: 'biggest-div',
+        MODAL_IMAGE_DETAILS: "modal-image-details",
+        PRODUCT_IMAGE: 'product-image',
+    },
+    COST: "Cost:",
+    EMAIL: "Email:",
+    LOCATION: "Location:",
+    MORE: 'More Info',
+    NAME: "Name:",
+    PHONE: "phone no:",
+    QUANTITY: "Quantity Available:",
+    STYLES: {
+        CENTER: 'center',
+        DASHED: 'dashed',
+        FLEX: 'flex',
+        PRIMARY: 'primary',
+        SMALL: 'small',
+        justify: 'justify',
+    },
 };

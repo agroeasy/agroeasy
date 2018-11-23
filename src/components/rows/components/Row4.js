@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'antd';
 import Products from './Product';
-import { PRODUCT_STRINGS,  ROW_ITEMS_4 } from './constants';
+import { PRODUCT,  ROW_ITEMS_4 } from './constants';
 
-const { center, flex, rowItems } = PRODUCT_STRINGS;
+const { STYLES: { CENTER, FLEX }, CLASSNAMES: { ROW_ITEMS } } = PRODUCT;
+
 /*this the fourth on component anotherlist.js */
 export default class Row4 extends Component {
     render() {
         return (
-            <Row type={flex} justify={center}>
+            <Row type={FLEX} justify={CENTER}>
                 {
                     ROW_ITEMS_4.map(item =>
-                        (<Col span={5} className={rowItems} key={item.name}>
+                        (<Col span={5} className={ROW_ITEMS} key={item.name}>
                             <Products
                                 title={item.name}
                                 pix={item.pix}
