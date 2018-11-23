@@ -5,4 +5,4 @@ import Row4 from './Row4';
 
 import './styles.css';
 
-export { Row1, Row2, Row3, Row4 };
+export default { Row1, Row2, Row3, Row4 };
