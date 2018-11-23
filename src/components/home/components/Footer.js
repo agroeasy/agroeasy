@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Col, Layout, Row } from 'antd';
+
 import { FOOTER_STRINGS } from './constants';
 import { components } from '../../productsAvailable';
 
 const { ProductsAvailable } = components;
-const { center, footer, footerContent, footerText, flex, lowerFooter } = FOOTER_STRINGS;
 const { Content, Footer } = Layout;
+const { CENTER, FLEX, FOOTER, FOOTER_CONTENT, FOOTER_TEXT, LOWER_FOOTER } = FOOTER_STRINGS;
+
 //This contains the productsavailable component
-class  AppFoot extends Component {
+class  AppFoot extends React.Component {
     render () {
         return (
             <Layout>
-                <Content className={footer} >
+                <Content className={FOOTER} >
                     <ProductsAvailable />
                 </Content>
-                <Footer className={lowerFooter}>
-                    <Row type={flex} justify={center}>
+                <Footer className={LOWER_FOOTER}>
+                    <Row type={FLEX} justify={CENTER}>
                         <Col span={8}>
-                            <h6 className={footerContent}>
-                                {footerText}
+                            <h6 className={FOOTER_CONTENT}>
+                                {FOOTER_TEXT}
                             </h6>
                         </Col>
                     </Row>

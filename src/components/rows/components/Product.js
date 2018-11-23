@@ -39,7 +39,7 @@ const ButtonGroup = Button.Group
 
                     <Row type={flex} justify={center}>
                        <Col className={details}>
-                         <MoreInfo 
+                         <MoreInfo
                          name={this.props.title}
                          tag={this.props.tag}
                          pix={this.props.pix}
@@ -49,15 +49,15 @@ const ButtonGroup = Button.Group
                          phone={this.props.phone}
 
                       />
-                     </Col> 
+                     </Col>
                    </Row>
              </Modal>
              <div className={details}>
                <h6> {this.props.title}
                  <br />
                  <Tag color="gold">{this.props.tag}</Tag>
-               </h6> 
-               <ButtonGroup>               
+               </h6>
+               <ButtonGroup>
                  <Button size={small} type={primary} onClick={this.handleOk} >{Buy}</Button>
                  <Button size={small} type={dashed} onClick={this.showModal}>{More}</Button>
                </ButtonGroup>
@@ -71,7 +71,7 @@ Product.propTypes = {
   className: PropTypes.string,
   email: PropTypes.string,
   location: PropTypes.string,
-  quantity: PropTypes.number,
+  quantity: PropTypes.string,
   phone: PropTypes.string,
   pix: PropTypes.string,
   tag: PropTypes.string,

@@ -4,12 +4,13 @@ import { Col, Row } from 'antd';
 
 import AppFoot from './Footer';
 import Navibar from './Navibar';
-import SearchItems from './Search';
+import Search from './Search';
 import { components } from '../../listItems';
 import { HOME_STRINGS } from './constants';
 
 const { ListItems } = components;
-const { BG_IMG, h1Text, h4Text, pText, search, SM_IMG } = HOME_STRINGS;
+const { BG_IMG, SEARCH, SM_IMG, WELCOME_TEXT_1, WELCOME_TEXT_2, WELCOME_TEXT_3 } = HOME_STRINGS;
+
 //this is the home page, containing sub-components ( Navibar, ListItems and Foot components)
 class Home extends React.Component {
     render() {
@@ -19,12 +20,12 @@ class Home extends React.Component {
                     <Navibar />
                     <Row>
                         <Col className={SM_IMG}>
-                            <h1>{h1Text}</h1>
-                            <h4>{h4Text}</h4>
-                            <h5>{pText}</h5>
+                            <h1>{WELCOME_TEXT_1}</h1>
+                            <h4>{WELCOME_TEXT_2}</h4>
+                            <h5>{WELCOME_TEXT_3}</h5>
                         </Col>
-                        <Col className={search}>
-                            <SearchItems />
+                        <Col className={SEARCH}>
+                            <Search />
                         </Col>
                     </Row>
                 </div>

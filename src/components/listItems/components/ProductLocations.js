@@ -25,7 +25,7 @@ class ProductLocations extends React.Component {
     }
 }
 
-ProductLocations.PropTypes = {
+ProductLocations.propTypes = {
     className: PropTypes.string,
     key: PropTypes.string,
     link: PropTypes.string,

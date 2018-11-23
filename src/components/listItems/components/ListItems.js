@@ -1,14 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Col, Icon, Layout, Row } from 'antd';
-import { ListItem_stings } from './constants';
-import ProductLocation from './Locations';
+import React from 'react';
+import { Col, Layout, Row } from 'antd';
+
 import { components } from '../../rows';
+import { ListItem_stings } from './constants';
 
 const { Row1, Row2, Row3, Row4 } = components;
-const { center, flex, header, left, smallDiv, More, moreProducts, rowItems, sider, stepForward } = ListItem_stings;
-const { Header, Content, Sider } = Layout;
+const { center, flex, header, smallDiv, rowItems } = ListItem_stings;
+const { Header, Content } = Layout;
+
 //contains components SearchItems, ProductsLocation and Rows
 class ListItems extends React.Component {
     render() {
@@ -16,20 +16,11 @@ class ListItems extends React.Component {
             <Layout>
                 <Header className={header}>
                     <Row type={flex} justify={center}>
-                        <Col span={5}> 
+                        <Col span={5}>
                         </Col>
                     </Row>
                 </Header>
                 <Layout>
-                    <Sider className={sider}>
-                        <Row type={flex} justify={left}>
-                            <Col span={22}>
-                                <div className={smallDiv}>
-                                    <ProductLocation />
-                                </div>
-                            </Col>
-                        </Row>
-                    </Sider>
                     <Content>
                         <Row type={flex} justify={center}>
                             <Col span={18}  className={smallDiv}>
@@ -38,11 +29,6 @@ class ListItems extends React.Component {
                                     <Row2 />
                                     <Row3 />
                                     <Row4 />
-                                </div>
-                                <div className={More}>
-                                    <Link to={More}>
-                                        <Icon type={stepForward} title={moreProducts} />
-                                    </Link>
                                 </div>
                             </Col>
                         </Row>
@@ -53,7 +39,7 @@ class ListItems extends React.Component {
     }
 }
 
-ListItems.PropTypes = {
+ListItems.propTypes = {
     className: PropTypes.string,
 };
 

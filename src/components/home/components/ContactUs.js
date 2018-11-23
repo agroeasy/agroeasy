@@ -1,57 +1,65 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Button, Modal } from 'antd';
 import { FormGroup, Form, Input, Label } from 'reactstrap';
-import { navLink, TEXTS } from './constants';
 
-const { back, cancel, contactUs, email, message, name, primary, small, submit } = TEXTS;
-export default class ContactUs extends Component {
-  state = {
-    visible: false,
-  }
+import { NAV_LINKS, CONTACT_US } from './constants';
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  }
+const { BACK, CANCEL, EMAIL, MESSAGE, NAME, PRIMARY, SMALL, SUBMIT, TITLE } = CONTACT_US;
 
-  handleCancel = () => {
-    this.setState({ visible: false });
-  }
+export default class ContactUs extends React.Component {
+    state = {
+        visible: false,
+    }
 
-  render() {
-    const { visible } = this.state;
-    return (
-             <div>
-                <div onClick={this.showModal} className={navLink} >{contactUs}</div>
-                <Modal visible={visible} title={contactUs} onOk={this.handleOk} onCancel={this.handleCancel}
-                  footer={[
-                    <Button key={submit} type={primary} size={small} onClick={this.handleOk}>{submit}</Button>,
-                    <Button key={back} size={small} onClick={this.handleCancel}>{cancel}</Button>, ]} >
-                      <Form>
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    }
+
+    handleCancel = () => {
+        this.setState({ visible: false });
+    }
+
+    render() {
+        const { visible } = this.state;
+        const footer = [
+            <Button key={SUBMIT} type={PRIMARY} size={SMALL} onClick={this.handleOk}>{SUBMIT}</Button>,
+            <Button key={BACK} size={SMALL} onClick={this.handleCancel}>{CANCEL}</Button>
+        ];
+        return (
+            <div>
+                <div onClick={this.showModal} className={NAV_LINKS} >{TITLE}</div>
+                <Modal
+                    visible={visible}
+                    title={TITLE}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                    footer={footer}
+                >
+                    <Form>
                         <FormGroup>
-                          <Label for="Name">{name}</Label>
-                          <Input type="text" name="name" id="Name" placeholder="name here" />
+                            <Label for="Name">{NAME}</Label>
+                            <Input type="text" name="name" id="Name" placeholder="name here" />
                         </FormGroup>
                         <FormGroup>
-                          <Label for="Email">{email}</Label>
-                          <Input type="email" name="email" id="Email" placeholder="email@josh.com" />
+                            <Label for="Email">{EMAIL}</Label>
+                            <Input type="email" name="email" id="Email" placeholder="email@josh.com" />
                         </FormGroup>
                         <FormGroup>
-                          <Label for="Message">{message}</Label>
-                          <Input type="textarea" name="message" id="Message" placeholder="text here" />
+                            <Label for="Message">{MESSAGE}</Label>
+                            <Input type="textarea" name="message" id="Message" placeholder="text here" />
                         </FormGroup>
-                      </Form>
+                    </Form>
                 </Modal>
-             </div>
-    );
-  }
+            </div>
+        );
+    }
 }
 
-
 ContactUs.ropTypes = {
-  name: PropTypes.string,
-  email: PropTypes.string,
-  message: PropTypes.string,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    message: PropTypes.string,
 };

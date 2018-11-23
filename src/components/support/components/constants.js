@@ -1,20 +1,16 @@
-export const Home = "/";
+export const HOME = "/";
 
 //Texts from Support.js
 export const SUPPORT_STRINGS = {
-    h1: "Comming soon!",
-    flex: 'flex',
-    center: 'center',
-    lead: "lead",
-    small: 'small',
-    danger: 'danger',
-    bottonText: "back" ,
-    support: "support",
-    display: "display-3",
-    headerText: "Find Goods Near You",
-    pTexts: "...Your satisfaction, our priority",
-
-    //classNames
-    bigDiv: "main-div",
-    linkItems: "linkItems"
+    BOTTON_TEXT: "back",
+    CENTER: 'center',
+    DANGER: 'danger',
+    DISPLAY: "display-3",
+    DISPLAY_TEXT: "Comming soon!",
+    FLEX: 'flex',
+    HEADER_TEXT: "Find Goods Near You",
+    LEAD: "lead",
+    LEAD_TEXT: "...Your satisfaction, our priority",
+    SMALL: 'small',
+    SUPPORT: "support",
 };

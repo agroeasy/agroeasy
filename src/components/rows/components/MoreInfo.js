@@ -29,7 +29,7 @@ MoreInfo.propTypes = {
     location: PropTypes.string,
     quantity: PropTypes.string,
     phone: PropTypes.string,
-    tag: PropTypes.number,
+    tag: PropTypes.string,
     pix: PropTypes.string,
     title: PropTypes.string,
 };

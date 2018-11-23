@@ -1,96 +1,68 @@
 /* links of Navibar */
-export const Home = "/";
-export const Support = "/about/";
-export const Goods = "/show-goods/";
-export const Contact = "/contact-us/";
-export const ProductsAvailable = "/more-products/";
+export const HOME = "/";
+export const SUPPORT = "/about/";
+export const GOODS = "/show-goods/";
+// export const ProductsAvailable = "/more-products/";
 
 //app logo
 export const LOGO = {
-    width: "100px",
-    src:  "/images/Agroeasylogo.png"
+    SOURCE:  "/images/Agroeasylogo.png",
+    WIDTH: "100px",
 };
 
-export const BottonText = "ok";
-export const More = "/more-products/";
-export const ShowProductsAvailbie ="show-products-available";
+// export const BottonText = "ok";
+// export const More = "/more-products/";
+// export const ShowProductsAvailbie ="show-products-available";
 
 //string & texts from ContactUs.js
-export const navLink = "navLink";
-export const href = " ";
-export const TEXTS = {
-    name: "Name",
-    back: "back",
-    small: "small",
-    email: "Email",
-    submit: "Submit",
-    cancel: "Cancel",
-    primary: "primary",
-    message: "Message",
-    contactUs: "Contact Us"
+export const NAV_LINKS = "navLink";
+
+export const CONTACT_US = {
+    BACK: "back",
+    CANCEL: "Cancel",
+    EMAIL: "Email",
+    MESSAGE: "Message",
+    NAME: "Name",
+    PRIMARY: "primary",
+    SMALL: "small",
+    SUBMIT: "Submit",
+    TITLE: "Contact Us",
 };
 
 //strings from ListItems.js
-export const ListItem_stings = {
-    left: "left",
-    flex: "flex",
-    sider: "sider",
-    large: "large",
-    center: "center",
-    header: "header",
-    More: "link-to-more",
-    rowItems: "row-items",
-    smallDiv: "small-div",
-    stepForward: "step-forward",
-    moreProducts: "more products",
-    searchProducts: "search products..."
+export const SEARCH = {
+    CENTER: "center",
+    FLEX: "flex",
+    LARGE: "large",
+    SEARCH_PRODUCTS: "search products...",
 };
 
 //strings from Navibar.js
-export const NAVIBAR_STRINGS = {
-    home: "Home",
-    goods: "Goods",
-    support: "Support",
-    navBar: "nav-bar",
-    mlAuto: "ml-auto",
-    navLink: "navLink"
+export const NAVIBAR = {
+    GOODS_TEXT: "Goods",
+    HOME_TEXT: "Home",
+    ML_AUTO: "ml-auto",
+    NAV_BAR: "nav-bar",
+    NAV_LINK: "navLink",
+    SUPPORT_TEXT: "Support",
 };
 
 //strings from Home.js
 export const HOME_STRINGS = {
-    search: "search",
     BG_IMG: 'bg-img',
+    SEARCH: "search",
     SM_IMG: "sm-img",
-    h1Text: " Welcome Guest",
-    h4Text: "Make us your distributor and we will tell the world about your business.",
-    pText:  "Dear customer, we make sure you get a discount anytime you patronize us. Give us a try."
+    WELCOME_TEXT_1: "Welcome Guest",
+    WELCOME_TEXT_2: "Make us your distributor and we will tell the world about your business.",
+    WELCOME_TEXT_3: "Dear customer, we make sure you get a discount anytime you patronize us. Give us a try."
 };
 
 // strings from Footer.js
 export const FOOTER_STRINGS = {
-    flex: "flex",
-    center: "center",
-    footer: "footer",
-    lowerFooter: "lower-footer",
-    footerContent: "footer-content",
-    footerText: "All rights reserved, Copyright © 2018 Agroeasy."
-};
-
-//Texts from Support.js
-export const SUPPORT_STRINGS = {
-    h1: "Comming soon!",
-    flex: 'flex',
-    center: 'center',
-    lead: "lead",
-    small: 'small',
-    danger: 'danger',
-    bottonText: "back" ,
-    support: "support",
-    display: "display-3",
-    headerText: "Find Goods Near You",
-    pTexts: "...Your satisfaction, our priority",
-
-    //classNames
-    bigDiv: "main-div",
-    linkItems: "linkItems"
+    CENTER: "center",
+    FLEX: "flex",
+    FOOTER: "footer",
+    FOOTER_CONTENT: "footer-content",
+    FOOTER_TEXT: "All rights reserved, Copyright © 2018 Agroeasy.",
+    LOWER_FOOTER: "lower-footer",
 };
