@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Modal } from 'antd';
 import { FormGroup, Form, Input, Label } from 'reactstrap';
@@ -72,9 +71,3 @@ export default class ContactUs extends React.Component {
         );
     }
 }
-
-ContactUs.ropTypes = {
-    name: PropTypes.string,
-    email: PropTypes.string,
-    message: PropTypes.string,
-};

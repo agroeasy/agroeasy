@@ -86,18 +86,14 @@ class Product extends Component {
 }
 
 Product.propTypes = {
-    className: PropTypes.string,
     email: PropTypes.string,
+    key: PropTypes.string,
     location: PropTypes.string,
     quantity: PropTypes.string,
     phone: PropTypes.string,
     pix: PropTypes.string,
     tag: PropTypes.string,
     title: PropTypes.string,
-    type: PropTypes.string,
-    size: PropTypes.string,
-    key: PropTypes.string,
-    color: PropTypes.string,
 };
 
 export default Product;

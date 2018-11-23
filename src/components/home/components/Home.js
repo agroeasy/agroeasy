@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Row } from 'antd';
 
@@ -34,8 +33,4 @@ class Home extends React.Component {
     }
 }
 
-Home.propTypes = {
-    className: PropTypes.string,
-    headings: PropTypes.string,
-};
 export default Home;

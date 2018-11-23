@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Layout } from 'antd';
 
@@ -21,9 +20,5 @@ class ListItems extends React.Component {
         );
     }
 }
-
-ListItems.propTypes = {
-    className: PropTypes.string,
-};
 
 export default ListItems;

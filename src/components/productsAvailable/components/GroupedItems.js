@@ -25,7 +25,6 @@ class GroupedItems extends React.Component {
 }
 
 GroupedItems.propTypes = {
-    className: PropTypes.string,
     heading: PropTypes.string,
     items: PropTypes.array,
 };

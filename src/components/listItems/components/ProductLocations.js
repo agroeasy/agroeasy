@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { PLACES, PRODUCTION_LOCATIONS } from './constants';
 
@@ -25,11 +24,5 @@ class ProductLocations extends React.Component {
         );
     }
 }
-
-ProductLocations.propTypes = {
-    className: PropTypes.string,
-    key: PropTypes.string,
-    link: PropTypes.string,
-};
 
 export default ProductLocations;

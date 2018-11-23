@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Col, Row } from 'antd';
+
 import Products from './Product';
 import { PRODUCT,  ROW_ITEMS_4 } from './constants';
 
 const { STYLES: { CENTER, FLEX }, CLASSNAMES: { ROW_ITEMS } } = PRODUCT;
 
 /*this the fourth on component anotherlist.js */
-export default class Row4 extends Component {
+export default class Row4 extends React.Component {
     render() {
         return (
             <Row type={FLEX} justify={CENTER}>
@@ -30,10 +30,3 @@ export default class Row4 extends Component {
         );
     }
 }
-
-Row4.propTypes = {
-    className: PropTypes.string,
-    title: PropTypes.string,
-    pix: PropTypes.string,
-    tag: PropTypes.string,
-};

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Layout, Row } from 'antd';
 
@@ -30,9 +29,5 @@ class  AppFoot extends React.Component {
         );
     }
 }
-
-AppFoot.propTypes = {
-    className: PropTypes.string,
-};
 
 export default AppFoot;
