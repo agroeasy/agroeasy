@@ -24,9 +24,7 @@ class Home extends React.Component {
                             <h4>{WELCOME_TEXT_2}</h4>
                             <h5>{WELCOME_TEXT_3}</h5>
                         </Col>
-                        <Col className={SEARCH}>
-                            <Search />
-                        </Col>
+                        <Col className={SEARCH}><Search /></Col>
                     </Row>
                 </div>
                 <ListItems />
