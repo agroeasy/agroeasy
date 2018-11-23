@@ -38,7 +38,10 @@ export default class Navibar extends React.Component {
                                 <NavLink href={HOME} className={NAV_LINK}>{HOME_TEXT}</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink  href={SUPPORT} className={NAV_LINK}>{SUPPORT_TEXT}</NavLink>
+                                <NavLink
+                                    href={SUPPORT}
+                                    className={NAV_LINK}
+                                >{SUPPORT_TEXT}</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href={GOODS} className={NAV_LINK}>{GOODS_TEXT}</NavLink>

@@ -71,6 +71,7 @@
             "after": true
         }],
         "symbol-description": "error",
+        "max-len": ["error", { "code": 100 }],
 
         "react/no-danger": "error",
         "react/jsx-pascal-case": "error",

@@ -25,7 +25,12 @@ export default class ContactUs extends React.Component {
     render() {
         const { visible } = this.state;
         const footer = [
-            <Button key={SUBMIT} type={PRIMARY} size={SMALL} onClick={this.handleOk}>{SUBMIT}</Button>,
+            <Button
+                key={SUBMIT}
+                type={PRIMARY}
+                size={SMALL}
+                onClick={this.handleOk}
+            >{SUBMIT}</Button>,
             <Button key={BACK} size={SMALL} onClick={this.handleCancel}>{CANCEL}</Button>,
         ];
         return (
@@ -45,11 +50,21 @@ export default class ContactUs extends React.Component {
                         </FormGroup>
                         <FormGroup>
                             <Label for="Email">{EMAIL}</Label>
-                            <Input type="email" name="email" id="Email" placeholder="email@josh.com" />
+                            <Input
+                                type="email"
+                                name="email"
+                                id="Email"
+                                placeholder="email@josh.com"
+                            />
                         </FormGroup>
                         <FormGroup>
                             <Label for="Message">{MESSAGE}</Label>
-                            <Input type="textarea" name="message" id="Message" placeholder="text here" />
+                            <Input
+                                type="textarea"
+                                name="message"
+                                id="Message"
+                                placeholder="text here"
+                            />
                         </FormGroup>
                     </Form>
                 </Modal>
