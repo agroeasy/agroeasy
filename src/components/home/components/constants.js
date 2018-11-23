@@ -24,8 +24,8 @@ export const TEXTS = {
     small: "small",
     email: "Email",
     submit: "Submit",
-    cancel: "Cancel", 
-    primary: "primary", 
+    cancel: "Cancel",
+    primary: "primary",
     message: "Message",
     contactUs: "Contact Us"
 };
@@ -79,7 +79,7 @@ export const FOOTER_STRINGS = {
 //Texts from Support.js
 export const SUPPORT_STRINGS = {
     h1: "Comming soon!",
-    flex: 'flex', 
+    flex: 'flex',
     center: 'center',
     lead: "lead",
     small: 'small',
@@ -89,48 +89,8 @@ export const SUPPORT_STRINGS = {
     display: "display-3",
     headerText: "Find Goods Near You",
     pTexts: "...Your satisfaction, our priority",
-  
+
     //classNames
     bigDiv: "main-div",
     linkItems: "linkItems"
 };
-
-export const PLACES = [
-    { 
-        name: 'Imo', 
-        link: '/imo/' 
-    },
-    { 
-        name: 'Ogun', 
-        link: '/ogun/' 
-    },
-    { 
-        name: 'Eboyin', 
-        link: '/eboyin/' 
-    },
-    { 
-        name: 'Lagos', 
-        link: '/lagos/' 
-    },
-    { 
-        name: "Delta", 
-        link: '/delta/' 
-    },
-    { 
-        name: "Ondo (ore)", 
-        link: '/ore/' 
-    },
-    { 
-        name: 'Ogun (Agbara)', 
-        link: '/agbara/' 
-    },
-    { 
-        name: 'Kaduna (Zaria)', 
-        link: '/zaria/' 
-    },
-    { 
-        name: "Niger (Bida, Gurara)", 
-        link: '/niger/' 
-    }
-];
-

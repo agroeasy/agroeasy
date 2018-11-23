@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Col, Row } from 'antd';
 import { Home, SUPPORT_STRINGS } from './constants';
 
 const { bottonText, center, danger, display, flex, lead, h1, pTexts, small, support } = SUPPORT_STRINGS;
 //this component will contain imformation about the developter
-export default class About extends Component {
+export default class About extends React.Component {
     render() {
         return (
             <Row type={flex} justify={center}>

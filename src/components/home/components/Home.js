@@ -1,14 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Col, Row } from 'antd';
+
 import AppFoot from './Footer';
 import Navibar from './Navibar';
-import ListItems from './listItems/components/ListItems';
 import SearchItems from './Search';
+import { components } from '../../listItems';
 import { HOME_STRINGS } from './constants';
 
-import './styles.css';
-
+const { ListItems } = components;
 const { BG_IMG, h1Text, h4Text, pText, search, SM_IMG } = HOME_STRINGS;
 //this is the home page, containing sub-components ( Navibar, ListItems and Foot components)
 class Home extends React.Component {
@@ -26,7 +26,7 @@ class Home extends React.Component {
                         <Col className={search}>
                             <SearchItems />
                         </Col>
-                    </Row>                                                           
+                    </Row>
                 </div>
                 <ListItems />
                 <AppFoot />
