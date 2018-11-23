@@ -2,9 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import About from './components/Support';
 import Home from './components/Home';
-import './components/styles.css';
-import './components/productsAvailable/components/styles.css';
-import './components/rows/components/styles.css';
 
 /*The Top-most component for housing sub-components (like home, about and
 other pages) for easy navigation

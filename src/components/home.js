@@ -7,6 +7,8 @@ import ListItems from './listItems/components/ListItems';
 import SearchItems from './Search';
 import { HOME_STRINGS } from './constants';
 
+import './styles.css';
+
 const { BG_IMG, h1Text, h4Text, pText, search, SM_IMG } = HOME_STRINGS;
 //this is the home page, containing sub-components ( Navibar, ListItems and Foot components)
 class Home extends React.Component {
