@@ -6,12 +6,12 @@ module.exports = {
         const {
             email,
             username,
-            password
+            password,
         } = req.body;
         const user = Object.assign(new User(), {
             email,
             username,
-            password
+            password,
         });
 
         if(!email || !password){
@@ -23,7 +23,7 @@ module.exports = {
             if(previousUsers){
                 return res.send({
                     success: false,
-                    message: USER_EXIST
+                    message: USER_EXIST,
                 });
             }
         } catch(err){
@@ -35,7 +35,7 @@ module.exports = {
             await user.save();
             return res.send({
                 success: true,
-                message: SIGNED_UP
+                message: SIGNED_UP,
             });
         } catch(err){
             res.send({ success: false, err });

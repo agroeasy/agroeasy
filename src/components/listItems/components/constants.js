@@ -17,38 +17,38 @@ export const PRODUCTION_LOCATIONS = {
 export const PLACES = [
     {
         name: 'Imo',
-        link: '/imo/'
+        link: '/imo/',
     },
     {
         name: 'Ogun',
-        link: '/ogun/'
+        link: '/ogun/',
     },
     {
         name: 'Eboyin',
-        link: '/eboyin/'
+        link: '/eboyin/',
     },
     {
         name: 'Lagos',
-        link: '/lagos/'
+        link: '/lagos/',
     },
     {
         name: "Delta",
-        link: '/delta/'
+        link: '/delta/',
     },
     {
         name: "Ondo (ore)",
-        link: '/ore/'
+        link: '/ore/',
     },
     {
         name: 'Ogun (Agbara)',
-        link: '/agbara/'
+        link: '/agbara/',
     },
     {
         name: 'Kaduna (Zaria)',
-        link: '/zaria/'
+        link: '/zaria/',
     },
     {
         name: "Niger (Bida, Gurara)",
-        link: '/niger/'
-    }
+        link: '/niger/',
+    },
 ];

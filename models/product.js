@@ -12,7 +12,7 @@ const ProductsSchema = new Schema({
     typeOfProduct: { type: String, required: true },
     createdAt: { type: Date },
     updatedAt: { type: Date },
-    deletedAt: { type: Date }
+    deletedAt: { type: Date },
 }, { versionKey: false });
 
 // export our module to use in server.js

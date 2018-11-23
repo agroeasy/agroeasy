@@ -18,8 +18,8 @@ export const FOODSITEMS = [
     },
     {
         name: "Cassava flour (fufu)",
-        link: "/fufu/"
-    }
+        link: "/fufu/",
+    },
 ];
 
 /*poultry & Livestock from ProductsAvailable */
@@ -42,8 +42,8 @@ export const LIVESTOCK = [
     },
     {
         name: 'Ram',
-        link: '/ram/'
-    }
+        link: '/ram/',
+    },
 ];
 
 /* Fruits & vegetables  from ProductsAvailable*/
@@ -66,8 +66,8 @@ export const FRUITS_VEGETABLES = [
     },
     {
         name: 'Plantain',
-        link: '/plantain/'
-    }
+        link: '/plantain/',
+    },
 ];
 
 /* spices from ProductsAvailable */
@@ -90,8 +90,8 @@ export const SPICES = [
     },
     {
         name: 'Pepper',
-        link: '/pepper/'
-    }
+        link: '/pepper/',
+    },
 ];
 
 //strings

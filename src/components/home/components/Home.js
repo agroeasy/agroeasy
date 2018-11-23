@@ -38,6 +38,6 @@ class Home extends React.Component {
 
 Home.propTypes = {
     className: PropTypes.string,
-    headings: PropTypes.string
+    headings: PropTypes.string,
 };
 export default Home;

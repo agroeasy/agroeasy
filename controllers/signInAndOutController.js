@@ -15,7 +15,7 @@ module.exports = {
         if (!email || !password) {
             return res.send({
                 success: false,
-                message: NO_EMAIL_PASSWORD
+                message: NO_EMAIL_PASSWORD,
             });
         }
 
@@ -27,7 +27,7 @@ module.exports = {
             if(!users){
                 return res.send({
                     success: false,
-                    message: USER_NOT_FOUND
+                    message: USER_NOT_FOUND,
                 });
             } 
         } catch(err){
@@ -43,7 +43,7 @@ module.exports = {
             return res.send({
                 success: true,
                 message: SUCCESSFUL_SIGNIN,
-                token: doc._id
+                token: doc._id,
             });
         } catch(err){
             return res.send({ success: false, err });
@@ -68,20 +68,20 @@ module.exports = {
             await UserSession.findOneAndUpdate(
                 { 
                     _id: token,
-                    isDeleted: false 
+                    isDeleted: false, 
                 }, 
                 { $set: {
-                    isDeleted:true 
-                } 
+                    isDeleted:true, 
+                }, 
                 }, null);
                 
             return res.send({
                 success: true,
-                message: LOGOUT
+                message: LOGOUT,
             });
         } catch(err){
             res.send({ success: false, err });
         }
 
-    }
+    },
 };

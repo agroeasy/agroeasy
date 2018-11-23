@@ -7,7 +7,7 @@ export const ROW_ITEMS_1 = [
         quantity: "1000",
         location: "Owerri Imo State",
         email: " ",
-        pix: "/images/egg-crates.jpeg"
+        pix: "/images/egg-crates.jpeg",
     },
     {
         name: "Palm oil",
@@ -16,7 +16,7 @@ export const ROW_ITEMS_1 = [
         quantity: "500 gallons",
         location: " Ondo state",
         email: " ",
-        pix: "/images/palmOil.jpg"
+        pix: "/images/palmOil.jpg",
 
     },
     {
@@ -26,7 +26,7 @@ export const ROW_ITEMS_1 = [
         quantity: "100",
         location: "Zaria, Kaduna state",
         email: " ",
-        pix: "/images/onion-bags.jpg"
+        pix: "/images/onion-bags.jpg",
 
     },
     {
@@ -36,8 +36,8 @@ export const ROW_ITEMS_1 = [
         quantity: "600",
         location: "Shoprite, Owerri, Imo state",
         email: " ",
-        pix: "/images/GroundnutOil.jpeg"
-    }
+        pix: "/images/GroundnutOil.jpeg",
+    },
 ];
 
 //an array of objects for items on row2
@@ -49,7 +49,7 @@ export const ROW_ITEMS_2 = [
         quantity : "1000",
         location : "Niger state",
         email : "myemail@example.com",
-        pix: "/images/poultry-chicken.jpg"
+        pix: "/images/poultry-chicken.jpg",
     },
     {
         name: "Green banana",
@@ -58,7 +58,7 @@ export const ROW_ITEMS_2 = [
         quantity: "400 bunches",
         location: "Edo state",
         email: "myemail@example.com",
-        pix: "/images/greenBanana.jpeg"
+        pix: "/images/greenBanana.jpeg",
     },
     {
         name: "Bags of rice",
@@ -67,7 +67,7 @@ export const ROW_ITEMS_2 = [
         quantity: "87",
         location: "Gurara, Niger state",
         email: "myemail@example.com",
-        pix: "/images/bagsofrice.jpg"
+        pix: "/images/bagsofrice.jpg",
     },
     {
         name: "Dry pepper",
@@ -76,8 +76,8 @@ export const ROW_ITEMS_2 = [
         quantity: "50",
         location: "",
         email: "myemail@example.com",
-        pix: "/images/Drypepper.jpg"
-    }
+        pix: "/images/Drypepper.jpg",
+    },
 ];
 
 //array of objects for row3 items
@@ -89,7 +89,7 @@ export const ROW_ITEMS_3 = [
         quantity: "550",
         location: "",
         email: "myemail@example.com",
-        pix: "/images/lettuse.jpg"
+        pix: "/images/lettuse.jpg",
     },
     {
         name: "Fresh Farm",
@@ -98,7 +98,7 @@ export const ROW_ITEMS_3 = [
         quantity: "150",
         location: "",
         email: "myemail@example.com",
-        pix: "/images/freshfarm.jpg"
+        pix: "/images/freshfarm.jpg",
     },
     {
         name: "Carrot",
@@ -107,7 +107,7 @@ export const ROW_ITEMS_3 = [
         quantity: "3000",
         location: "",
         email: "myemail@example.com",
-        pix: "/images/carrot.jpg"
+        pix: "/images/carrot.jpg",
     },
     {
         name: "Poultry",
@@ -116,8 +116,8 @@ export const ROW_ITEMS_3 = [
         quantity: "2500",
         location: "",
         email: "myemail@example.com",
-        pix: "/images/poultry.jpg"
-    }
+        pix: "/images/poultry.jpg",
+    },
 ];
 
 //array of objects for row4 items
@@ -129,7 +129,7 @@ export const ROW_ITEMS_4 = [
         quantity: "500  baskets",
         location: "benue state",
         email: "myemail@example.com",
-        pix: "/images/tomatoes.jpg"
+        pix: "/images/tomatoes.jpg",
     },
     {
         name: "Bag of beans",
@@ -138,7 +138,7 @@ export const ROW_ITEMS_4 = [
         quantity: "150 bags",
         location: "Niger state",
         email: "myemail@example.com",
-        pix: "/images/beans.jpg"
+        pix: "/images/beans.jpg",
     },
     {
         name: "Prawn",
@@ -147,7 +147,7 @@ export const ROW_ITEMS_4 = [
         quantity: "30bags",
         location: "Imo state",
         email: "myemail@example.com",
-        pix: "/images/prawn.jpg"
+        pix: "/images/prawn.jpg",
     },
     {
         name: "Jamal's fruit store",
@@ -156,8 +156,8 @@ export const ROW_ITEMS_4 = [
         quantity: " ",
         location: "Ore, ondo state",
         email: "myemail@example.com",
-        pix: "/images/fruits.jpg"
-    }
+        pix: "/images/fruits.jpg",
+    },
 ];
 
 export const PRODUCT = {

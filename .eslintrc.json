@@ -20,8 +20,8 @@
     "rules": {
         "semi": ["error", "always"],
         "comma-dangle": ["error", {
-            "arrays": "only-multiline",
-            "objects": "only-multiline"
+            "arrays": "always-multiline",
+            "objects": "always-multiline"
         }],
         "object-curly-spacing": ["error", "always"],
         "no-multiple-empty-lines": ["error", {

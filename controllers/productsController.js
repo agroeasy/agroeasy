@@ -10,7 +10,7 @@ module.exports = {
             typeOfProduct,
             createdAt,
             updatedAt,
-            deletedAt
+            deletedAt,
         } = req.body;
 
         const product = Object.assign( new Product(), {
@@ -20,7 +20,7 @@ module.exports = {
             typeOfProduct,
             createdAt,
             updatedAt,
-            deletedAt
+            deletedAt,
         });
 
         try {
@@ -72,6 +72,6 @@ module.exports = {
         } catch (err) {
             res.send({ success: false, err });
         }
-    }
+    },
 
 };

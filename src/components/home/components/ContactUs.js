@@ -26,7 +26,7 @@ export default class ContactUs extends React.Component {
         const { visible } = this.state;
         const footer = [
             <Button key={SUBMIT} type={PRIMARY} size={SMALL} onClick={this.handleOk}>{SUBMIT}</Button>,
-            <Button key={BACK} size={SMALL} onClick={this.handleCancel}>{CANCEL}</Button>
+            <Button key={BACK} size={SMALL} onClick={this.handleCancel}>{CANCEL}</Button>,
         ];
         return (
             <div>

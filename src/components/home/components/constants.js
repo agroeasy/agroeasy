@@ -54,7 +54,7 @@ export const HOME_STRINGS = {
     SM_IMG: "sm-img",
     WELCOME_TEXT_1: "Welcome Guest",
     WELCOME_TEXT_2: "Make us your distributor and we will tell the world about your business.",
-    WELCOME_TEXT_3: "Dear customer, we make sure you get a discount anytime you patronize us. Give us a try."
+    WELCOME_TEXT_3: "Dear customer, we make sure you get a discount anytime you patronize us. Give us a try.",
 };
 
 // strings from Footer.js

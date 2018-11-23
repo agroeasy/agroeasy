@@ -14,7 +14,7 @@ module.exports = {
             typeOfProducts,
             createdAt,
             updatedAt,
-            deletedAt
+            deletedAt,
         } = req.body;
 
         const producer = Object
@@ -29,7 +29,7 @@ module.exports = {
                 typeOfProducts,
                 createdAt,
                 updatedAt,
-                deletedAt
+                deletedAt,
             });
 
         try {
@@ -82,5 +82,5 @@ module.exports = {
         } catch (err) {
             res.send({ success: false, err });
         }
-    }
+    },
 };

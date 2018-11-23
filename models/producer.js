@@ -16,7 +16,7 @@ const ProducersSchema = new Schema({
     typeOfProducts: { type: Array },
     createdAt: { type: Date },
     updatedAt: { type: Date },
-    deletedAt: { type: Date }
+    deletedAt: { type: Date },
 
 }, { versionKey: false });
 
