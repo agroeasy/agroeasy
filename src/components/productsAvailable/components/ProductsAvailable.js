@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'antd';
 import GroupedItems from './GroupedItems';
-import { FOODSITEMS, FRUITS_VEGETABLES, LIVESTOCK, SPICES, strings } from './constants';
+import { FOODSITEMS, FRUITS_VEGETABLES, LIVESTOCK, SPICES, PRODUCTS_AVAILABLE } from './constants';
 
-const { foodItems, fruitsVegetables, items, livestocksPoultry, productsAvailable, spices } = strings;
+const {
+    AVAILABLE,
+    FOOD_ITEM_TEXT,
+    FRUITS_TEXT, ITEMS,
+    LIVE_STOCK_TEXT,
+    SPICES_TEXT,
+} = PRODUCTS_AVAILABLE;
+
 //List of items according to groups
 export default class ProductsAvailable extends Component {
     render() {
         return (
-            
-            <Row className={productsAvailable}>
-                <Col className={items} span={6}>
-                    <GroupedItems items={FOODSITEMS} heading={foodItems} />
+
+            <Row className={AVAILABLE}>
+                <Col className={ITEMS} span={6}>
+                    <GroupedItems items={FOODSITEMS} heading={FOOD_ITEM_TEXT} />
                 </Col>
-                <Col className={items} span={6}>
-                    <GroupedItems items={LIVESTOCK} heading={livestocksPoultry} />
+                <Col className={ITEMS} span={6}>
+                    <GroupedItems items={LIVESTOCK} heading={LIVE_STOCK_TEXT} />
                 </Col>
-                <Col className={items} span={6}>
-                    <GroupedItems items={FRUITS_VEGETABLES} heading={fruitsVegetables} />
+                <Col className={ITEMS} span={6}>
+                    <GroupedItems items={FRUITS_VEGETABLES} heading={FRUITS_TEXT} />
                 </Col>
-                <Col className={items} span={6}>
-                    <GroupedItems items={SPICES} heading={spices} />
+                <Col className={ITEMS} span={6}>
+                    <GroupedItems items={SPICES} heading={SPICES_TEXT} />
                 </Col>
             </Row>
-            
+
         );
     }
 }

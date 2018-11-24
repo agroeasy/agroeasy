@@ -1,16 +1,18 @@
 import React from 'react';
 import  { Col, Input, Row } from 'antd';
-import { ListItem_stings } from './constants'; 
 
-const { center, flex, large, searchProducts } = ListItem_stings;
+import { SEARCH } from './constants';
+
 const Search = Input.Search;
+const { CENTER, FLEX, LARGE, SEARCH_PRODUCTS } = SEARCH;
+
 //this is the search component
 class SearchItems extends React.Component {
     render() {
         return(
-            <Row type={flex} justify={center}>
+            <Row type={FLEX} justify={CENTER}>
                 <Col span={11}>
-                    <Search placeholder={searchProducts} size={large} enterButton  />
+                    <Search placeholder={SEARCH_PRODUCTS} size={LARGE} enterButton  />
                 </Col>
             </Row>
         );

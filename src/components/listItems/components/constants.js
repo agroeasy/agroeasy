@@ -1,74 +1,54 @@
-//strings from ListItems.js
-export const ListItem_stings = {
-    left: "left",
-    flex: "flex",
-    sider: "sider",
-    large: "large",
-    center: "center",
-    header: "header",
-    More: "link-to-more",
-    rowItems: "row-items",
-    smallDiv: "small-div",
-    stepForward: "step-forward",
-    moreProducts: "more products",
-    searchProducts: "search products..."
+//strings for ListItems.js
+export const LIST_ITEMS = {
+    CENTER: "center",
+    FLEX: "flex",
+    HEADER: "header",
+    ROW_ITEMS: "row-items",
+    SMALL_DIV: "small-div",
 };
 
-//Texts from Support.js
-export const SUPPORT_STRINGS = {
-    h1: "Comming soon!",
-    flex: 'flex', 
-    center: 'center',
-    lead: "lead",
-    small: 'small',
-    danger: 'danger',
-    bottonText: "back" ,
-    support: "support",
-    display: "display-3",
-    headerText: "Find Goods Near You",
-    pTexts: "...Your satisfaction, our priority",
-  
-    //classNames
-    bigDiv: "main-div",
-    linkItems: "linkItems"
+//Texts for ProductLocations.js
+export const PRODUCTION_LOCATIONS = {
+    BIG_DIV: "main-div",
+    HEADER_TEXT: "Find Goods Near You",
+    LINK_ITEMS: "linkItems",
 };
 
 export const PLACES = [
-    { 
-        name: 'Imo', 
-        link: '/imo/' 
+    {
+        link: '/imo/',
+        name: 'Imo',
     },
-    { 
-        name: 'Ogun', 
-        link: '/ogun/' 
+    {
+        link: '/ogun/',
+        name: 'Ogun',
     },
-    { 
-        name: 'Eboyin', 
-        link: '/eboyin/' 
+    {
+        link: '/eboyin/',
+        name: 'Eboyin',
     },
-    { 
-        name: 'Lagos', 
-        link: '/lagos/' 
+    {
+        link: '/lagos/',
+        name: 'Lagos',
     },
-    { 
-        name: "Delta", 
-        link: '/delta/' 
+    {
+        link: '/delta/',
+        name: "Delta",
     },
-    { 
-        name: "Ondo (ore)", 
-        link: '/ore/' 
+    {
+        link: '/ore/',
+        name: "Ondo (ore)",
     },
-    { 
-        name: 'Ogun (Agbara)', 
-        link: '/agbara/' 
+    {
+        link: '/agbara/',
+        name: 'Ogun (Agbara)',
     },
-    { 
-        name: 'Kaduna (Zaria)', 
-        link: '/zaria/' 
+    {
+        link: '/zaria/',
+        name: 'Kaduna (Zaria)',
     },
-    { 
-        name: "Niger (Bida, Gurara)", 
-        link: '/niger/' 
-    }
+    {
+        link: '/niger/',
+        name: "Niger (Bida, Gurara)",
+    },
 ];
-

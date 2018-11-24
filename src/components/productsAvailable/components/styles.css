@@ -4,25 +4,24 @@
     font-size: 13px;
     color: dimgrey;
     font-weight: 700;
-  
 }
 
 
 .list {
     color: darkGrey !important;
-   }
-   
+}
+
 /*productsAvailable */
 .productsAvailable {
     margin-top: -35px;
-  }
- 
-.items {
-  font-style: normal;
-  color: black; background-color: whitesmoke;
-  text-align: left;
-  }
+}
 
-  li {
+.items {
+    font-style: normal;
+    color: black; background-color: whitesmoke;
+    text-align: left;
+}
+
+li {
     list-style: none;
-  }
+}

@@ -2,6 +2,15 @@ const Producer = require('../models/producer');
 const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = require('./constants');
 
 module.exports = {
+    // finds all the producers in the database
+    allProducersDetails: async(req, res) => {
+        try {
+            const data = await Producer.find();
+            return res.json({ data, success: true });
+        } catch (err) {
+            res.json({ err, success: false });
+        }
+    },
     producerCreate: async(req, res) => {
         const {
             firstName,
@@ -14,29 +23,41 @@ module.exports = {
             typeOfProducts,
             createdAt,
             updatedAt,
-            deletedAt
+            deletedAt,
         } = req.body;
 
         const producer = Object
             .assign(new Producer(), {
+                address,
+                country,
+                createdAt,
+                deletedAt,
                 firstName,
                 lastName,
-                phoneNumber,
-                country,
-                state,
                 localGovernment,
-                address,
+                phoneNumber,
+                state,
                 typeOfProducts,
-                createdAt,
                 updatedAt,
-                deletedAt
             });
 
         try {
             await producer.save();
-            return res.json({ success: true, message: ADD_PRODUCER });
+            return res.json({ message: ADD_PRODUCER, success: true });
         } catch (err) {
-            res.send({ success: false, err });
+            res.send({ err, success: false });
+        }
+    },
+
+    // deletes producer using id
+    producerDelete: async(req, res) => {
+        try {
+            const { body, params: { id: _id } } = req;
+            await Producer.findOneAndRemove(_id, body);
+
+            return res.json({ message: DELETE_PRODUCER, success: true });
+        } catch (err) {
+            res.send({ err, success: false });
         }
     },
 
@@ -46,41 +67,19 @@ module.exports = {
             const data = await Producer.findById({ _id: req.params.id });
             return res.json({ data, success: true });
         } catch (err) {
-            res.send({ success: false, err });
+            res.send({ err, success: false });
         }
     },
 
-    // finds all the producers in the database
-    allProducersDetails: async(req, res) => {
-        try {
-            const data = await Producer.find();
-            return res.json({ success: true, data });
-        } catch (err) {
-            res.json({ success: false, err });
-        }
-    },
-
-    // deletes producer using id
-    producerDelete: async(req, res) => {
-        try {
-            const { body, params: { id: _id } } = req; 
-            await Producer.findOneAndRemove(_id, body);
-            
-            return res.json({ success: true, message: DELETE_PRODUCER });
-        } catch (err) {
-            res.send({ success: false, err });
-        }
-    },
     // updates producer using id
-
     producerUpdate: async(req, res) => {
         try {
             const{ body, params:{ producersId: _id } } = req;
             const data = await Producer.findOneAndUpdate( _id, body, { new: true });
 
-            return res.json({ data, success: true, message: UPDATE_PRODUCER });
+            return res.json({ data,  message: UPDATE_PRODUCER, success: true });
         } catch (err) {
-            res.send({ success: false, err });
+            res.send({ err, success: false });
         }
-    }
+    },
 };
