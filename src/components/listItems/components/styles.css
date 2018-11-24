@@ -1,0 +1,34 @@
+/* ListItems.js */
+.link-to-more {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 45px;
+}
+  .row-items {
+    margin-top: -33px;
+  }
+
+  .header {
+    background-color: grey;
+  }
+
+  
+.sider {
+  border-right: 1px solid grey;
+  background-color: white;
+}
+
+/* Location.js */
+.main-div {
+  margin-Top: 20px;
+  margin-left: -20px;
+}
+
+.bg-div ul h6 {
+  font-size: 13px;
+  font-weight: 600;
+}
+.linkItems {
+  color: grey !important;
+  font-size: 13px;
+}

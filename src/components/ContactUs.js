@@ -1,72 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-    Button,
-    Form,
-    FormGroup,
-    Input,
-    Label,
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalHeader
-} from 'reactstrap';
-
+import { Button, Modal } from 'antd';
+import { FormGroup, Form, Input, Label } from 'reactstrap';
 import { navLink, TEXTS } from './constants';
 
-const { text1, text2, text3, text4, botton1, botton2 } = TEXTS;
-/*component for contact-us */
-class ContactUs extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            modal: false
-        };
+const { back, cancel, contactUs, email, message, name, primary, small, submit } = TEXTS;
+export default class ContactUs extends Component {
+  state = {
+    visible: false,
+  }
 
-        this.toggle = this.toggle.bind(this);
-    }
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  }
 
-    toggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
+  handleCancel = () => {
+    this.setState({ visible: false });
+  }
 
-    render() {
-        return (
-            <div>
-                <div className={navLink} color="danger" onClick={this.toggle}>{text1}{this.props.buttonLabel}</div>
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>{text1}</ModalHeader>
-                    <ModalBody>
-                        <Form>
-                            <FormGroup>
-                                <Label for="exampleName">{text2}</Label>
-                                <Input type="text" name="name" id="exampleName" placeholder="name here" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="exampleEmail">{text3}</Label>
-                                <Input type="email" name="email" id="exampleEmail" placeholder="email@example.com" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="exampleMessage">{text4}</Label>
-                                <Input type="textarea" name="message" id="exampleMessage" placeholder="text here" />
-                            </FormGroup>
-                        </Form>
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="danger" onClick={this.toggle} email="exampleEmail.com">{botton1}</Button>{' '}
-                        <Button color="secondary" onClick={this.toggle}>{botton2}</Button>
-                    </ModalFooter>
+  render() {
+    const { visible } = this.state;
+    return (
+             <div>
+                <div onClick={this.showModal} className={navLink} >{contactUs}</div>
+                <Modal visible={visible} title={contactUs} onOk={this.handleOk} onCancel={this.handleCancel}
+                  footer={[
+                    <Button key={submit} type={primary} size={small} onClick={this.handleOk}>{submit}</Button>,
+                    <Button key={back} size={small} onClick={this.handleCancel}>{cancel}</Button>, ]} >
+                      <Form>
+                        <FormGroup>
+                          <Label for="Name">{name}</Label>
+                          <Input type="text" name="name" id="Name" placeholder="name here" />
+                        </FormGroup>
+                        <FormGroup>
+                          <Label for="Email">{email}</Label>
+                          <Input type="email" name="email" id="Email" placeholder="email@josh.com" />
+                        </FormGroup>
+                        <FormGroup>
+                          <Label for="Message">{message}</Label>
+                          <Input type="textarea" name="message" id="Message" placeholder="text here" />
+                        </FormGroup>
+                      </Form>
                 </Modal>
-            </div>
-        );
-    }
+             </div>
+    );
+  }
 }
 
-ContactUs.propTypes = {
-    buttonLabel: PropTypes.string,
-    className: PropTypes.string,
-};
 
-export default ContactUs;
+ContactUs.ropTypes = {
+  name: PropTypes.string,
+  email: PropTypes.string,
+  message: PropTypes.string,
+};

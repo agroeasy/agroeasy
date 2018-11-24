@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import { Col, Row, Container } from 'reactstrap';
-import ProductsAvailable from './productsAvailable/ProductsAvailable';
+import PropTypes from 'prop-types';
+import { Col, Layout, Row } from 'antd';
 import { FOOTER_STRINGS } from './constants';
+import { components } from './productsAvailable';
 
-const { lowerFooter, footer, footerContent, footerText } = FOOTER_STRINGS;
-/*
-This will contain the productsavailable components and other
-neccessary info
-*/
-export default class  Footer extends Component {
+const { ProductsAvailable } = components;
+const { center, footer, footerContent, footerText, flex, lowerFooter } = FOOTER_STRINGS;
+const { Content, Footer } = Layout;
+//This contains the productsavailable component
+class  AppFoot extends Component {
     render () {
         return (
-            <div className={footer}>
-                <ProductsAvailable />
-                <Container fluid className={lowerFooter}>
-                    <Row>
-                        <Col>
+            <Layout>
+                <Content className={footer} >
+                    <ProductsAvailable />
+                </Content>
+                <Footer className={lowerFooter}>
+                    <Row type={flex} justify={center}>
+                        <Col span={8}>
                             <h6 className={footerContent}>
                                 {footerText}
                             </h6>
                         </Col>
                     </Row>
-                </Container>
-            </div>
+                </Footer>
+            </Layout>
         );
     }
 }
+
+AppFoot.propTypes = {
+    className: PropTypes.string,
+};
+
+export default AppFoot;
