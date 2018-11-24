@@ -184,6 +184,5 @@ export const PRODUCT = {
         FLEX: 'flex',
         PRIMARY: 'primary',
         SMALL: 'small',
-        justify: 'justify',
     },
 };
