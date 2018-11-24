@@ -91,11 +91,9 @@ const SigninForm = Form.create()(
 );
 
 export default class Signin extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        visible: false
-    };
+  state = {
+    visible: false,
+  };
 
   showModal = () => {
     this.setState({
