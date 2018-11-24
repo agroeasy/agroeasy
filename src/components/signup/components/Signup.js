@@ -188,9 +188,11 @@ const SignupForm = Form.create()(
 );
 
 export default class Signup extends Component {
-  state = {
-    visible: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+        visible: false
+    };
 
   showModal = () => {
     this.setState({ visible: true });
