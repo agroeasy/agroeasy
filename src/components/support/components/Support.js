@@ -11,7 +11,10 @@ const {
     DISPLAY,
     DISPLAY_TEXT,
     FLEX,
-    LEAD, LEAD_TEXT, SMALL, SUPPORT,
+    LEAD,
+    LEAD_TEXT,
+    SMALL,
+    SUPPORT,
 } = SUPPORT_STRINGS;
 
 //this component will contain imformation about the developter
