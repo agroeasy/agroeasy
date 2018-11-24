@@ -6,7 +6,7 @@ const {
     producerDetails,
     allProducersDetails,
     producerDelete,
-    producerUpdate
+    producerUpdate,
 } = require('../controllers/producersController');
 
 router.get('/', allProducersDetails); // find all

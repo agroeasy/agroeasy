@@ -1,19 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { PLACES, SUPPORT_STRINGS } from './constants';
+import { PLACES, PRODUCTION_LOCATIONS } from './constants';
 
-const { bigDiv, headerText, linkItems } = SUPPORT_STRINGS;
+const { BIG_DIV, HEADER_TEXT, LINK_ITEMS } = PRODUCTION_LOCATIONS;
+
 class ProductLocations extends React.Component {
     render() {
         return (
-            <div className={bigDiv}>
+            <div className={BIG_DIV}>
                 <ul>
-                    <h6>{headerText}</h6>
+                    <h6>{HEADER_TEXT}</h6>
                     {
                         PLACES.map(row =>
                             (<li key={row.name}>
-                                <Link to={row.link} className={linkItems}>
+                                <Link to={row.link} className={LINK_ITEMS}>
                                     {row.name}
                                 </Link>
                             </li>)
@@ -24,11 +24,5 @@ class ProductLocations extends React.Component {
         );
     }
 }
-
-ProductLocations.PropTypes = {
-    className: PropTypes.string,
-    key: PropTypes.string,
-    link: PropTypes.string,
-};
 
 export default ProductLocations;

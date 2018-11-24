@@ -1,4 +1,4 @@
 import Signup from './Signup';
-import './style.css'; 
+import './style.css';
 
-export { Signup };
+export default { Signup };

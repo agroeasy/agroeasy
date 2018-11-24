@@ -1,27 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Col, Row } from 'antd';
-import { strings } from './constants';
+import { PRODUCTS_AVAILABLE } from './constants';
 
-const { groupedItems, list } = strings;
+const { GROUPED_ITEMS, LIST } = PRODUCTS_AVAILABLE;
+
 //This component encapsulates items on productsavailable.js
 class GroupedItems extends React.Component {
     render() {
+        const items = this.props.items.map(item =>
+            (<li key={item.name} className={LIST}> {item.name}</li>));
+
         return (
             <Row>
-                <Col className={groupedItems} span={12} offset={6}>
+                <Col className={GROUPED_ITEMS} span={12} offset={6}>
                     <ul>
                         <h6>{this.props.heading}</h6>
-                        {
-                            this.props.items.map(item =>
-                                (<li key={item.name}>
-                                    <Link to={item.link} className={list}>
-                                        {item.name}
-                                    </Link>
-                                </li>)
-                            )
-                        }
+                        {items}
                     </ul>
                 </Col>
             </Row>
@@ -30,7 +25,6 @@ class GroupedItems extends React.Component {
 }
 
 GroupedItems.propTypes = {
-    className: PropTypes.string,
     heading: PropTypes.string,
     items: PropTypes.array,
 };
