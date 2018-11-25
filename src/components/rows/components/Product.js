@@ -58,7 +58,7 @@ class Product extends Component {
                     footer={footer}
                 >
                     <Row type={FLEX} justify={CENTER}>
-                        <Col className={DETAILS}>
+                        <Col span={24} className={DETAILS}>
                             <MoreInfo
                                 name={this.props.title}
                                 tag={this.props.tag}
@@ -72,7 +72,7 @@ class Product extends Component {
                     </Row>
                 </Modal>
                 <div className={DETAILS}>
-                    <h6> {this.props.title}
+                    <h6> {this.props.title} &nbsp;
                         <Tag color="gold">{this.props.tag}</Tag>
                     </h6>
                     <ButtonGroup>

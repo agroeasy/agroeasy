@@ -6,7 +6,7 @@ export const GOODS = "/show-goods/";
 //app logo
 export const LOGO = {
     SOURCE:  "/images/Agroeasylogo.png",
-    WIDTH: "100px",
+    WIDTH: "80px",
 };
 
 //string & texts from ContactUs.js
@@ -34,11 +34,13 @@ export const SEARCH = {
 
 //strings from Navibar.js
 export const NAVIBAR = {
+    FLOAT_NAV: "link-position",
     GOODS_TEXT: "Goods",
     HOME_TEXT: "Home",
-    ML_AUTO: "ml-auto",
     NAV_BAR: "nav-bar",
     NAV_LINK: "navLink",
+    NAV_MODE: "horizontal",
+    NAV_THEME: "dark",
     SUPPORT_TEXT: "Support",
 };
 

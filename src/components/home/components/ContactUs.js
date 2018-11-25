@@ -53,7 +53,7 @@ export default class ContactUs extends React.Component {
                                 type="email"
                                 name="email"
                                 id="Email"
-                                placeholder="email@josh.com"
+                                placeholder="email here"
                             />
                         </FormGroup>
                         <FormGroup>

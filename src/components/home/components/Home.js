@@ -15,8 +15,9 @@ class Home extends React.Component {
     render() {
         return (
             <div>
+                <Navibar />
                 <div className={BG_IMG}>
-                    <Navibar />
+                    
                     <Row>
                         <Col className={SM_IMG}>
                             <h1>{WELCOME_TEXT_1}</h1>
