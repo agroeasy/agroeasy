@@ -9,8 +9,9 @@
         "es6": true,
         "node": true
     },
+    "parser": "babel-eslint",
     "parserOptions":{
-        "ecmaVersion": 9,
+        "ecmaVersion": 10,
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
@@ -19,8 +20,8 @@
     "rules": {
         "semi": ["error", "always"],
         "comma-dangle": ["error", {
-            "arrays": "only-multiline",
-            "objects": "only-multiline"
+            "arrays": "always-multiline",
+            "objects": "always-multiline"
         }],
         "object-curly-spacing": ["error", "always"],
         "no-multiple-empty-lines": ["error", {
@@ -70,6 +71,8 @@
             "after": true
         }],
         "symbol-description": "error",
+        "max-len": ["error", { "code": 100 }],
+        "sort-keys": ["error", "asc"],
 
         "react/no-danger": "error",
         "react/jsx-pascal-case": "error",

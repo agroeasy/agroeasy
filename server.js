@@ -8,7 +8,7 @@ const product = require('./routes/productRoute'); // Imports routes for the prod
 const producer = require('./routes/producerRoute'); // Imports routes for the producers
 
 const  logoutAndSignin  = require('./routes/SignInAndOutRout');
-const signUpUser  = require('./routes/signUpRoute'); 
+const signUpUser  = require('./routes/signUpRoute');
 
 const { connectToDB } = require('./helpers/db');
 
@@ -32,9 +32,9 @@ if(process.env.NODE_ENV !== 'production'){
 app.use('/products', product);
 app.use('/producers', producer);
 app.use('/account', logoutAndSignin);
-app.use('/account', signUpUser); 
+app.use('/account', signUpUser);
 
 server.listen(PORT, async() => {
     await connectToDB();
-    console.log(`Listening on port ${PORT}`);
+    console.log(`Listening on port ${PORT}`); // eslint-disable-line no-console
 });
