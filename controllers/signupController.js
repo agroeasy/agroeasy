@@ -1,5 +1,7 @@
 const User = require('../models/user');
 const { NO_EMAIL_PASSWORD, USER_EXIST, SIGNED_UP  } = require('./constants');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 module.exports = {
     signUpUser: async (req, res) => {
@@ -8,12 +10,20 @@ module.exports = {
             username,
             password
         } = req.body;
+        
+        const hashedPassword = await new Promise((resolve, reject) => {
+            bcrypt.hash(password, saltRounds, (err, hash) => {
+                if (err) reject(err);
+                resolve(hash);
+            });
+        });
+
         const user = Object.assign(new User(), {
             email,
             username,
-            password
+            password: hashedPassword
         });
-
+        
         if(!email || !password){
             return res.send({ success: false, message: NO_EMAIL_PASSWORD });
         }
@@ -29,7 +39,7 @@ module.exports = {
         } catch(err){
             res.send({ err });
         }
-
+        
         // Save the new user
         try {
             await user.save();
