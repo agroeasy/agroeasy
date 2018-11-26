@@ -11,19 +11,6 @@ module.exports = {
             password,
         } = req.body;
         
-        const hashedPassword = await new Promise((resolve, reject) => {
-            bcrypt.hash(password, saltRounds, (err, hash) => {
-                if (err) reject(err);
-                resolve(hash);
-            });
-        });
-
-        const user = Object.assign(new User(), {
-            email,
-            password: hashedPassword,
-            username,
-        });
-        
         if(!email || !password){
             return res.send({ message: NO_EMAIL_PASSWORD, success: false });
         }
@@ -41,7 +28,7 @@ module.exports = {
         }
         
         // Save the new user
-        try {
+        /* try {
             await user.save();
             return res.send({
                 message: SIGNED_UP,
@@ -49,7 +36,23 @@ module.exports = {
             });
         } catch(err) {
             res.send({ err, success: false });
-        }
+        } */
+        try {
+            const hashedPassword = await bcrypt.hash(password, saltRounds);
+            const user = Object.assign(new User(), {
+                email,
+                password: hashedPassword,
+                username,
+            });
+            await user.save();
+            return res.send({
+                message: SIGNED_UP,
+                success: true,
+            });
+        }catch(err) {
+            res.send({ err, success: false });
+        }  
+
     }, //end of signup end point.
     //This does not log the user in, but does create an account via API.
 };
