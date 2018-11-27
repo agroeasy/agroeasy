@@ -1,7 +1,6 @@
 const User = require('../models/user');
 const { NO_EMAIL_PASSWORD, USER_EXIST, SIGNED_UP  } = require('./constants');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+const bcrypt = require('bcrypt-nodejs');
 
 module.exports = {
     signUpUser: async (req, res) => {
@@ -26,30 +25,23 @@ module.exports = {
         } catch(err){
             res.send({ err });
         }
-        
-        // Save the new user
-        /* try {
+         
+        try { 
+            await bcrypt.hash(password, null, null, (err, hash) => {
+                user.password = hash;
+            });
+
+            const user = Object.assign(new User(), {
+                email,
+                username,
+            });
+            
             await user.save();
             return res.send({
                 message: SIGNED_UP,
                 success: true,
             });
         } catch(err) {
-            res.send({ err, success: false });
-        } */
-        try {
-            const hashedPassword = await bcrypt.hash(password, saltRounds);
-            const user = Object.assign(new User(), {
-                email,
-                password: hashedPassword,
-                username,
-            });
-            await user.save();
-            return res.send({
-                message: SIGNED_UP,
-                success: true,
-            });
-        }catch(err) {
             res.send({ err, success: false });
         }  
 

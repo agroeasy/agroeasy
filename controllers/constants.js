@@ -3,6 +3,7 @@ module.exports = {
     ADD_PRODUCT: 'Product successfully added!',
     DELETE_PRODUCER: 'Producer successfully deleted!',
     DELETE_PRODUCT: 'Product successfully deleted!',
+    INVALID_SIGNIN: "invalid password, login unsuccessful",
     LOGOUT: 'logged out successfully',
     NO_EMAIL_PASSWORD: 'Error: Email or Password cannot be blank.',
     SIGNED_UP: 'Signed up successfully',
