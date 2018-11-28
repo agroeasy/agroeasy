@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Image } from 'react-bootstrap';
 
 import { PRODUCT } from './constants';
 

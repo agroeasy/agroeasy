@@ -3,6 +3,7 @@ import { Col, Layout, Row } from 'antd';
 
 import { FOOTER_STRINGS } from './constants';
 import { components } from '../../productsAvailable';
+import FormContent from './FormContent';
 
 const { ProductsAvailable } = components;
 const { Content, Footer } = Layout;
@@ -25,6 +26,7 @@ class  AppFoot extends React.Component {
                         </Col>
                     </Row>
                 </Footer>
+                <FormContent />
             </Layout>
         );
     }

@@ -42,7 +42,7 @@ export default class ContactUs extends React.Component {
                     onCancel={this.handleCancel}
                     footer={footer}
                 >
-                    <Form>
+                    <Form style={{  height: "200px", width: "100px" }}>
                         <FormGroup>
                             <Label for="Name">{NAME}</Label>
                             <Input type="text" name="name" id="Name" placeholder="name here" />
