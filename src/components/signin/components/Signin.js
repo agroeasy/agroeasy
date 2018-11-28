@@ -12,11 +12,13 @@ import {
 
 import {
     FORGOT_PASS,
+    LOCK,
     MESSAGE_1,
     PLACEHOLDER_1,
-    PLACEHOLDER_2,
+    PLACEHOLDER_2,    
     REMINDER,
-    TITLE
+    TITLE,
+    TITLE_1,
 } from './constant';
 
 const FormItem = Form.Item;
@@ -37,7 +39,7 @@ const SigninForm = Form.create()(
                         layout="vertical"
                     >
                         <FormItem>
-                            {getFieldDecorator('title', {
+                            {getFieldDecorator("title", {
                                 rules: [{ message: { MESSAGE_1 }, required: true }],
                             })(
                                 <Input
@@ -50,15 +52,15 @@ const SigninForm = Form.create()(
                             {getFieldDecorator('description')(
                                 <Input
                                     placeholder= {PLACEHOLDER_2}
-                                    prefix={<Icon type="lock" />}
-                                    type="password"
+                                    prefix={<Icon type= "lock" />}
+                                    type= "password"
                                 />
                             )}
                         </FormItem>
                         <FormItem>
                             {getFieldDecorator('remember', {
                                 initialValue: true,
-                                valuePropName: 'checked',
+                                valuePropName: "checked",
                             })(
                                 <Checkbox>{REMINDER}</Checkbox>
                             )}
