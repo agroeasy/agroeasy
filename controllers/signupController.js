@@ -1,6 +1,6 @@
+const bcrypt = require('bcrypt-nodejs');
 const User = require('../models/user');
 const { NO_EMAIL_PASSWORD, USER_EXIST, SIGNED_UP  } = require('./constants');
-const bcrypt = require('bcrypt-nodejs');
 
 module.exports = {
     signUpUser: async (req, res) => {
