@@ -1,11 +1,12 @@
+const bcrypt = require('bcrypt-nodejs');
 const User = require('../models/user');
 const UserSession = require('../models/userSession');
-const bcrypt = require('bcrypt-nodejs');
 const {
     NO_EMAIL_PASSWORD,
     USER_NOT_FOUND,
     SUCCESSFUL_SIGNIN,
-    LOGOUT,INVALID_SIGNIN } = require('./constants');
+    LOGOUT,
+    INVALID_SIGNIN } = require('./constants');
 
 module.exports = {
     // finds all users in the db
