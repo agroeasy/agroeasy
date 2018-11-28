@@ -1,6 +1,6 @@
 {
   "name": "agroeasy",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --mode development --config webpack.base.config.js --open --hot --history-api-fallback",
     "build": "webpack --mode production --config webpack.prod.config.js --env.NODE_ENV=production --progress",
     "start": "node server",
-    "lint":"eslint src controllers server.js routes models"
+    "lint": "eslint src controllers server.js routes models"
   },
   "repository": {
     "type": "git",
@@ -46,6 +46,7 @@
     "@babel/plugin-proposal-function-sent": "^7.1.0",
     "@babel/plugin-proposal-json-strings": "^7.0.0",
     "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
