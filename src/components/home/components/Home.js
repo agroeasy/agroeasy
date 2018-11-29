@@ -4,10 +4,10 @@ import { Col, Row } from 'antd';
 import AppFoot from './Footer';
 import Navibar from './Navibar';
 import Search from './Search';
-import { components } from '../../listItems';
+import { components } from '../../productList';
 import { HOME_STRINGS } from './constants';
 
-const { ListItems } = components;
+const { ProductList } = components;
 const { BG_IMG, SEARCH, SM_IMG, WELCOME_TEXT_1, WELCOME_TEXT_2, WELCOME_TEXT_3 } = HOME_STRINGS;
 
 //this is the home page, containing sub-components ( Navibar, ListItems and Foot components)
@@ -27,7 +27,7 @@ class Home extends React.Component {
                         <Col className={SEARCH}><Search /></Col>
                     </Row>
                 </div>
-                <ListItems />
+                <ProductList />
                 <AppFoot />
             </div>
         );
