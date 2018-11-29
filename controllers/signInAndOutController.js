@@ -1,10 +1,13 @@
+const bcrypt = require('bcrypt-nodejs');
 const User = require('../models/user');
 const UserSession = require('../models/userSession');
 const {
     NO_EMAIL_PASSWORD,
     USER_NOT_FOUND,
     SUCCESSFUL_SIGNIN,
-    LOGOUT } = require('./constants');
+    LOGOUT,
+    INVALID_SIGNIN,
+} = require('./constants');
 
 module.exports = {
     // finds all users in the db
@@ -16,6 +19,7 @@ module.exports = {
             return res.json({ err, success: false });
         }
     },
+
     logout: async (req, res) => {
         // Get the token
         const { query } = req;
@@ -39,6 +43,7 @@ module.exports = {
             res.send({ err, success: false });
         }
     },
+
     signInUser: async (req, res) => {
         const { body } = req;
         const { password } = body;
@@ -55,7 +60,7 @@ module.exports = {
         let users;
 
         try {
-            users = await User.findOne({ email, password });
+            users = await User.findOne({ email });
             if(!users){
                 return res.send({
                     message: USER_NOT_FOUND,
@@ -69,14 +74,19 @@ module.exports = {
         // Otherwise correct user
         const userSession = new UserSession();
         userSession.userId = users._id;
-
         try {
             const doc = await userSession.save();
-            return res.send({
-                message: SUCCESSFUL_SIGNIN,
-                success: true,
-                token: doc._id,
-            });
+            await bcrypt.compare(password, users.password, ( err, result ) => {
+                if(result){
+                    return res.send({
+                        message: SUCCESSFUL_SIGNIN,
+                        success: true,
+                        token: doc._id,
+                    });
+                } else{
+                    return res.send({ err, message: INVALID_SIGNIN });
+                }
+            });           
         } catch(err) {
             return res.send({ err, success: false });
         }

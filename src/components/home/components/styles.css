@@ -80,8 +80,10 @@
  this is for Navibar.js and home.js
   */
 .bg-img{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.336),rgba(0, 0, 0, 0.281)),
-    url(/images/fpimg.jpg);
+    background-image:
+        linear-gradient( rgba(0, 0, 0, 0.336),
+        rgba(0, 0, 0, 0.281)),
+        url(/fpimg.jpg);
     width: 100%;
     height: 100vh;
     background-size: cover;
