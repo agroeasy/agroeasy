@@ -44,7 +44,6 @@ module.exports = {
         } catch(err) {
             res.send({ err, success: false });
         }  
-
     }, //end of signup end point.
     //This does not log the user in, but does create an account via API.
 };

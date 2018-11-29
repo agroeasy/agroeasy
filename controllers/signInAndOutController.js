@@ -6,7 +6,8 @@ const {
     USER_NOT_FOUND,
     SUCCESSFUL_SIGNIN,
     LOGOUT,
-    INVALID_SIGNIN } = require('./constants');
+    INVALID_SIGNIN,
+} = require('./constants');
 
 module.exports = {
     // finds all users in the db
