@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { SIGNIN_STRINGS } from './constants';
 
 import { 
-    Button,
     Checkbox,
     Form,
     Icon,
@@ -9,20 +10,14 @@ import {
     Modal
 } from 'antd';
 
-import { SIGNIN_STRINGS } from './constants';
-
 const {
-    CIRCLE,
     CHECKBOX_REMINDER,
-    CLASSNAME_LOGIN,
     ICON_LOCK,
     ICON_USER,
     MESSAGE_1,
     PASSWORD,
     PLACEHOLDER_1,
     PLACEHOLDER_2,
-    PRIMARY,    
-    SUBMIT,
     TITLE,
 } = SIGNIN_STRINGS;
 
@@ -31,12 +26,14 @@ const FormItem = Form.Item;
 const SigninForm = Form.create()(
     class SigninForm extends React.Component {
         render() {
+            // eslint-disable-next-line react/prop-types
             const { form, visible, onCancel, onCreate } = this.props;
             const { getFieldDecorator } = form;
             return (
                 <Modal
                     visible={visible}
                     title={TITLE}
+                    okText={TITLE}
                     onCancel={onCancel}
                     onOk={onCreate}
                 >
@@ -67,15 +64,6 @@ const SigninForm = Form.create()(
                             })(
                                 <Checkbox>{CHECKBOX_REMINDER}</Checkbox>
                             )}
-
-                            <Button 
-                                type={PRIMARY} 
-                                htmlType={SUBMIT} 
-                                shape={CIRCLE} 
-                                className={CLASSNAME_LOGIN}
-                            >
-                                {TITLE}
-                            </Button>
                         </FormItem>
                     </Form>
                 </Modal>
@@ -84,48 +72,10 @@ const SigninForm = Form.create()(
     }
 );
 
-export default class Signin extends Component {
-  state = {
-      visible: false,
-  };
+SigninForm.propTypes = {
+    onCancel: PropTypes.func,
+    onCreate: PropTypes.func,
+    visible: PropTypes.bool,
+};
 
-  showModal = () => {
-      this.setState({
-          visible: true });
-  }
-
-  handleCancel = () => {
-      this.setState({
-          visible: false });
-  }
-
-  handleCreate = () => {
-      const form = this.formRef.props.form;
-      form.validateFields(err => {
-          if (err) {
-              return;
-          }
-
-          form.resetFields();
-          this.setState({ visible: true });
-      });
-  }
-
-  saveFormRef = formRef => {
-      this.formRef = formRef;
-  }
-
-  render() {
-      return (
-          <div>
-              <h6 type={PRIMARY} onClick={this.showModal}>{TITLE}</h6>
-              <SigninForm
-                  wrappedComponentRef={this.saveFormRef}
-                  visible={this.state.visible}
-                  onCancel={this.handleCancel}
-                  onCreate={this.handleCreate}
-              />
-          </div>
-      );
-  }
-}
+export default SigninForm;

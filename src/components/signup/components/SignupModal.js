@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { SIGNUP_STRINGS } from './constants';
 
 import { 
-    Button,
     Checkbox,
     Form,
     Icon,
@@ -10,15 +11,11 @@ import {
     Tooltip
 } from 'antd';
 
-import { SIGNUP_STRINGS } from './constants';
-
 const {
     AGREEMENT,
-    CIRCLE,
     CLASSNAME_AGREEMENT,
     CLASSNAME_FORM,
     CLASSNAME_SCROLLBAR,
-    CLASSNAME_SIGNUP,
     EMAIL,
     ICON,
     LABEL_1,
@@ -36,10 +33,9 @@ const {
     MESSAGE_8,
     MESSAGE_9,
     PASSWORD,
-    PRIMARY,
     READ,
-    SUBMIT,
     TITLE,
+    USERNAME,
     VERTICLE,
 } = SIGNUP_STRINGS;
 
@@ -66,6 +62,7 @@ const SignupForm = Form.create()(
                 <Modal
                     visible={visible}
                     title={TITLE}
+                    okText={TITLE}
                     onCancel={onCancel}
                     onOk={onCreate}
                     className= {CLASSNAME_SCROLLBAR}
@@ -111,9 +108,10 @@ const SignupForm = Form.create()(
                         <FormItem
                             {...formItemLayout}
                             label={(
-                                <span>Username&nbsp;<Tooltip title={MESSAGE_5}>
-                                    <Icon type={ICON} />
-                                </Tooltip>
+                                <span>
+                                    {USERNAME}&nbsp;<Tooltip title={MESSAGE_5}>
+                                        <Icon type={ICON} />
+                                    </Tooltip>
                                 </span>
                             )}
                         >
@@ -175,16 +173,6 @@ const SignupForm = Form.create()(
                                 </Checkbox>
                             )}
                         </FormItem>
-                        <FormItem>
-                            <Button
-                                type={PRIMARY}
-                                htmlType={SUBMIT}
-                                shape={CIRCLE}
-                                className={CLASSNAME_SIGNUP}
-                            > 
-                                {TITLE}
-                            </Button>
-                        </FormItem>
                     </Form>
                 </Modal>
             );
@@ -192,46 +180,10 @@ const SignupForm = Form.create()(
     }
 );
 
-export default class Signup extends Component {
-  state = {
-      visible: false,
-  };
+SignupForm.propTypes = {
+    onCancel: PropTypes.func,
+    onCreate: PropTypes.func,
+    visible: PropTypes.bool,
+};
 
-  showModal = () => {
-      this.setState({ visible: true });
-  }
-
-  handleCancel = () => {
-      this.setState({ visible: false });
-  }
-
-  handleCreate = () => {
-      const form = this.formRef.props.form;
-      form.validateFields(err => {
-          if (err) {
-              return;
-          }
-
-          form.resetFields();
-          this.setState({ visible: false });
-      });
-  }
-
-  saveFormRef = formRef => {
-      this.formRef = formRef;
-  }
- 
-  render() {
-      return (
-          <div>
-              <h6 type={PRIMARY} onClick={this.showModal}>{TITLE}</h6>
-              <SignupForm
-                  wrappedComponentRef={this.saveFormRef}
-                  visible={this.state.visible}
-                  onCancel={this.handleCancel}
-                  onCreate={this.handleCreate}
-              />
-          </div>
-      );
-  }
-}
+export default SignupForm;

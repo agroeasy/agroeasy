@@ -8,14 +8,3 @@
     letter-spacing:3px;
     word-spacing: 5px;
 }
-
-
-/* Form footer */
-
- .login-form-button {
-    display: block;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-  }

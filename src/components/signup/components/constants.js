@@ -1,12 +1,10 @@
-/* Form Strings*/
+/* Signup Form Strings*/
 export const SIGNUP_STRINGS = {
     AGREEMENT: "agreement",
     CHECKED: "checked",
-    CIRCLE: "circle",
     CLASSNAME_AGREEMENT: "agreement_quote",
     CLASSNAME_FORM: "signup_form",
     CLASSNAME_SCROLLBAR: "scrollbar",
-    CLASSNAME_SIGNUP: "signup-form-button",
     CONFIRM: "confirm",
     EMAIL: "email",
     FIRSTNAME: "firstname",
@@ -29,9 +27,8 @@ export const SIGNUP_STRINGS = {
     PASSWORD: "password",
     PRIMARY: "primary",
     READ: "I have read the ",
-    SUBMIT: "submit",
     TITLE: "Sign up",
     TITLE_1: "title",
-    USERNAME: "username",
+    USERNAME: "Username",
     VERTICLE: "verticle",
 };

@@ -14,16 +14,6 @@
     word-spacing: 5px;
 }
 
-/* sign up button */
-
-.signup-form-button {
-    display: block;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-  }
-
   /* I have read the agreement quote */
 
   .agreement_quote {
