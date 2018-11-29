@@ -6,7 +6,7 @@ export const ROW_ITEMS_1 = [
         location: "Owerri Imo State",
         name: "Egg crates",
         phone: " ",
-        pix: "/images/egg-crates.jpeg",
+        pix: "/egg-crates.jpeg",
         quantity: "1000",
     },
     {
@@ -15,7 +15,7 @@ export const ROW_ITEMS_1 = [
         location: " Ondo state",
         name: "Palm oil",
         phone: " ",
-        pix: "/images/palmOil.jpg",
+        pix: "/PalmOil.JPG",
         quantity: "500 gallons",
 
     },
@@ -25,7 +25,7 @@ export const ROW_ITEMS_1 = [
         location: "Zaria, Kaduna state",
         name: "Onion bags",
         phone: " ",
-        pix: "/images/onion-bags.jpg",
+        pix: "/onion-bags.jpg",
         quantity: "100",
 
     },
@@ -35,7 +35,7 @@ export const ROW_ITEMS_1 = [
         location: "Shoprite, Owerri, Imo state",
         name: "Vegetable Oil ",
         phone: " ",
-        pix: "/images/GroundnutOil.jpeg",
+        pix: "/GroundnutOil.jpeg",
         quantity: "600",
     },
 ];
@@ -48,7 +48,7 @@ export const ROW_ITEMS_2 = [
         location : "Niger state",
         name : "Abu's farm",
         phone : " ",
-        pix: "/images/poultry-chicken.jpg",
+        pix: "/poultry-chicken.jpg",
         quantity : "1000",
     },
     {
@@ -57,7 +57,7 @@ export const ROW_ITEMS_2 = [
         location: "Edo state",
         name: "Green banana",
         phone: " ",
-        pix: "/images/greenBanana.jpeg",
+        pix: "/greenBanana.jpeg",
         quantity: "400 bunches",
     },
     {
@@ -66,7 +66,7 @@ export const ROW_ITEMS_2 = [
         location: "Gurara, Niger state",
         name: "Bags of rice",
         phone: " ",
-        pix: "/images/bagsofrice.jpg",
+        pix: "/bagsofrice.jpg",
         quantity: "87",
     },
     {
@@ -75,7 +75,7 @@ export const ROW_ITEMS_2 = [
         location: "",
         name: "Dry pepper",
         phone: " ",
-        pix: "/images/Drypepper.jpg",
+        pix: "/Drypepper.jpg",
         quantity: "50",
     },
 ];
@@ -88,7 +88,7 @@ export const ROW_ITEMS_3 = [
         location: "",
         name: "Lettuses",
         phone: " ",
-        pix: "/images/lettuse.jpg",
+        pix: "/lettuse.jpg",
         quantity: "550",
     },
     {
@@ -97,7 +97,7 @@ export const ROW_ITEMS_3 = [
         location: "",
         name: "Fresh Farm",
         phone: " ",
-        pix: "/images/freshfarm.jpg",
+        pix: "/freshfarm.JPG",
         quantity: "150",
     },
     {
@@ -106,7 +106,7 @@ export const ROW_ITEMS_3 = [
         location: "",
         name: "Carrot",
         phone: " ",
-        pix: "/images/carrot.jpg",
+        pix: "/carrot.jpg",
         quantity: "3000",
     },
     {
@@ -115,7 +115,7 @@ export const ROW_ITEMS_3 = [
         location: "",
         name: "Poultry",
         phone: " ",
-        pix: "/images/poultry.jpg",
+        pix: "/poultry.jpg",
         quantity: "2500",
     },
 ];
@@ -128,7 +128,7 @@ export const ROW_ITEMS_4 = [
         location: "benue state",
         name: "Tomatoes",
         phone: " ",
-        pix: "/images/tomatoes.jpg",
+        pix: "/tomatoes.jpg",
         quantity: "500  baskets",
     },
     {
@@ -137,7 +137,7 @@ export const ROW_ITEMS_4 = [
         location: "Niger state",
         name: "Bag of beans",
         phone: " ",
-        pix: "/images/beans.jpg",
+        pix: "/beans.jpg",
         quantity: "150 bags",
     },
     {
@@ -146,7 +146,7 @@ export const ROW_ITEMS_4 = [
         location: "Imo state",
         name: "Prawn",
         phone: " ",
-        pix: "/images/prawn.jpg",
+        pix: "/prawn.jpg",
         quantity: "30bags",
     },
     {
@@ -155,7 +155,7 @@ export const ROW_ITEMS_4 = [
         location: "Ore, ondo state",
         name: "Jamal's fruit store",
         phone: " ",
-        pix: "/images/fruits.jpg",
+        pix: "/Fruits.jpg",
         quantity: " ",
     },
 ];
