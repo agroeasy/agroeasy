@@ -17,6 +17,11 @@
     color: Grey;
 }
 
+.details h6 {
+    color: grey;
+    font-size: 13px;
+    margin-top: 7px;
+}
 /*Product.js */
 .biggest-div {
     margin: -10px;
@@ -28,6 +33,7 @@
 }
 
 .modal-image-details h6  {
+    color: grey;
     margin-top: 10px;
     font-size: 15px;
     font-weight: 200;

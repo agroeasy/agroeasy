@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Image } from 'react-bootstrap';
 
 import { PRODUCT } from './constants';
 
@@ -18,8 +17,8 @@ const {
 class MoreInfo extends React.Component {
     render() {
         return(
-            <div className={MODAL_IMAGE_DETAILS}>
-                <Image src={ this.props.pix } thumbnail />
+            <div className={MODAL_IMAGE_DETAILS} >
+                <img src={ this.props.pix } width={473} height={285} />
                 <div>
                     <h6><b>{NAME}</b> {this.props.title}</h6>
                     <h6><b>{LOCATION}</b> {this.props.location}</h6>
