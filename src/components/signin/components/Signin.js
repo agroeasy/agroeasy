@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './style.css';
 
 import { 
     Button,
@@ -10,7 +9,9 @@ import {
     Modal
 } from 'antd';
 
-import {
+import { SIGNIN_STRINGS } from './constants';
+
+const {
     CIRCLE,
     CHECKBOX_REMINDER,
     CLASSNAME_LOGIN,
@@ -22,8 +23,8 @@ import {
     PLACEHOLDER_2,
     PRIMARY,    
     SUBMIT,
-    TITLE
-} from './constant';
+    TITLE,
+} = SIGNIN_STRINGS;
 
 const FormItem = Form.Item;
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './style.css';
 
 import { 
     Button,
@@ -11,7 +10,9 @@ import {
     Tooltip
 } from 'antd';
 
-import {
+import { SIGNUP_STRINGS } from './constants';
+
+const {
     AGREEMENT,
     CIRCLE,
     CLASSNAME_AGREEMENT,
@@ -20,6 +21,11 @@ import {
     CLASSNAME_SIGNUP,
     EMAIL,
     ICON,
+    LABEL_1,
+    LABEL_2,
+    LABEL_3,
+    LABEL_4,
+    LABEL_5,
     MESSAGE_1,
     MESSAGE_2,
     MESSAGE_3,
@@ -29,18 +35,13 @@ import {
     MESSAGE_7,
     MESSAGE_8,
     MESSAGE_9,
-    LABEL_1,
-    LABEL_2,
-    LABEL_3,
-    LABEL_4,
-    LABEL_5,
     PASSWORD,
     PRIMARY,
     READ,
     SUBMIT,
     TITLE,
-    VERTICLE
-} from './constant';
+    VERTICLE,
+} = SIGNUP_STRINGS;
 
 const FormItem = Form.Item;
 
