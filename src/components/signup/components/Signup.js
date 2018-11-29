@@ -25,6 +25,9 @@ import {
     LABEL_1,
     LABEL_2,
     LABEL_3,
+    LABEL_4,
+    LABEL_5,
+    PASSWORD,
     READ,
     TITLE
 } from './constant';
@@ -54,6 +57,7 @@ const SignupForm = Form.create()(
                     title={TITLE}
                     onCancel={onCancel}
                     onOk={onCreate}
+                    className= "scrollbar"
                 >
                     <Form 
                         layout="verticle"
@@ -63,9 +67,9 @@ const SignupForm = Form.create()(
                             {...formItemLayout}
                             label={LABEL_1}
                         >
-                            {getFieldDecorator('email', {
+                            {getFieldDecorator("email", {
                                 rules: [{
-                                    message: { MESSAGE_1 }, type: 'email',
+                                    message: { MESSAGE_1 }, type: "email",
                                 }, {
                                     message: { MESSAGE_2 }, required: true,
                                 }],
@@ -77,7 +81,7 @@ const SignupForm = Form.create()(
                             {...formItemLayout}
                             label={LABEL_2}
                         > 
-                            {getFieldDecorator('firstname', {
+                            {getFieldDecorator("firstname", {
                                 rules: [{ message: { MESSAGE_3 }, required: true }],
                             })(
                                 <Input />
@@ -87,7 +91,7 @@ const SignupForm = Form.create()(
                             {...formItemLayout}
                             label={LABEL_3}
                         >
-                            {getFieldDecorator('lastname', {
+                            {getFieldDecorator("lastname", {
                                 rules: [{ message: { MESSAGE_4 }, required: true }],
                             })(
                                 <Input />
@@ -96,15 +100,13 @@ const SignupForm = Form.create()(
                         <FormItem
                             {...formItemLayout}
                             label={(
-                                <span>
-                                    Username&nbsp;
-                                    <Tooltip title={MESSAGE_5}>
-                                        <Icon type="question-circle-o" />
-                                    </Tooltip>
+                                <span>Username&nbsp;<Tooltip title={MESSAGE_5}>
+                                    <Icon type="question-circle-o" />
+                                </Tooltip>
                                 </span>
                             )}
                         >
-                            {getFieldDecorator('username', {
+                            {getFieldDecorator("username", {
                                 rules: [{ message: { MESSAGE_6 }, required: true  }],
                             })(
                                 <Input />
@@ -112,9 +114,9 @@ const SignupForm = Form.create()(
                         </FormItem>
                         <FormItem
                             {...formItemLayout}
-                            label="Location"
+                            label={LABEL_4}
                         >
-                            {getFieldDecorator('title', {
+                            {getFieldDecorator("title", {
                                 rules: [{ message: { MESSAGE_7 }, required: true }],
                             })(
                                 <Input />
@@ -122,9 +124,9 @@ const SignupForm = Form.create()(
                         </FormItem>
                         <FormItem
                             {...formItemLayout}
-                            label="Password"
+                            label={PASSWORD}
                         >
-                            {getFieldDecorator('password', {
+                            {getFieldDecorator("password", {
                                 rules: [{
                                     message: { MESSAGE_8 }, required: true,
                                 }, {
@@ -136,9 +138,9 @@ const SignupForm = Form.create()(
                         </FormItem>
                         <FormItem
                             {...formItemLayout}
-                            label="Confirm Password"
+                            label= {LABEL_5}
                         >
-                            {getFieldDecorator('confirm', {
+                            {getFieldDecorator("confirm", {
                                 rules: [{
                                     message: { MESSAGE_9 }, required: true,
                                 }, {
@@ -151,8 +153,8 @@ const SignupForm = Form.create()(
                         <FormItem 
                             className="agreement_quote"
                         >
-                            {getFieldDecorator('agreement', {
-                                valuePropName: 'checked',
+                            {getFieldDecorator("agreement", {
+                                valuePropName: "checked",
                             })(
                                 <Checkbox>
                                     {READ} 

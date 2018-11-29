@@ -11,14 +11,11 @@ import {
 } from 'antd';
 
 import {
-    FORGOT_PASS,
-    LOCK,
     MESSAGE_1,
     PLACEHOLDER_1,
     PLACEHOLDER_2,    
     REMINDER,
-    TITLE,
-    TITLE_1,
+    TITLE
 } from './constant';
 
 const FormItem = Form.Item;
@@ -35,9 +32,7 @@ const SigninForm = Form.create()(
                     onCancel={onCancel}
                     onOk={onCreate}
                 >
-                    <Form 
-                        layout="vertical"
-                    >
+                    <Form>
                         <FormItem>
                             {getFieldDecorator("title", {
                                 rules: [{ message: { MESSAGE_1 }, required: true }],
@@ -49,7 +44,7 @@ const SigninForm = Form.create()(
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('description')(
+                            {getFieldDecorator("description")(
                                 <Input
                                     placeholder= {PLACEHOLDER_2}
                                     prefix={<Icon type= "lock" />}
@@ -58,14 +53,12 @@ const SigninForm = Form.create()(
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('remember', {
+                            {getFieldDecorator("remember", {
                                 initialValue: true,
                                 valuePropName: "checked",
                             })(
                                 <Checkbox>{REMINDER}</Checkbox>
                             )}
-
-                            <a className="login-form-forgot" href="">{FORGOT_PASS}</a>
 
                             <Button 
                                 type="primary" 
