@@ -13,6 +13,13 @@ import {
 
 import {
     AGREEMENT,
+    CIRCLE,
+    CLASSNAME_AGREEMENT,
+    CLASSNAME_FORM,
+    CLASSNAME_SCROLLBAR,
+    CLASSNAME_SIGNUP,
+    EMAIL,
+    ICON,
     MESSAGE_1,
     MESSAGE_2,
     MESSAGE_3,
@@ -28,8 +35,11 @@ import {
     LABEL_4,
     LABEL_5,
     PASSWORD,
+    PRIMARY,
     READ,
-    TITLE
+    SUBMIT,
+    TITLE,
+    VERTICLE
 } from './constant';
 
 const FormItem = Form.Item;
@@ -57,11 +67,11 @@ const SignupForm = Form.create()(
                     title={TITLE}
                     onCancel={onCancel}
                     onOk={onCreate}
-                    className= "scrollbar"
+                    className= {CLASSNAME_SCROLLBAR}
                 >
                     <Form 
-                        layout="verticle"
-                        className="signup_form"
+                        layout={VERTICLE}
+                        className={CLASSNAME_FORM}
                     >
                         <FormItem
                             {...formItemLayout}
@@ -69,7 +79,7 @@ const SignupForm = Form.create()(
                         >
                             {getFieldDecorator("email", {
                                 rules: [{
-                                    message: { MESSAGE_1 }, type: "email",
+                                    message: { MESSAGE_1 }, type: { EMAIL },
                                 }, {
                                     message: { MESSAGE_2 }, required: true,
                                 }],
@@ -101,7 +111,7 @@ const SignupForm = Form.create()(
                             {...formItemLayout}
                             label={(
                                 <span>Username&nbsp;<Tooltip title={MESSAGE_5}>
-                                    <Icon type="question-circle-o" />
+                                    <Icon type={ICON} />
                                 </Tooltip>
                                 </span>
                             )}
@@ -133,7 +143,7 @@ const SignupForm = Form.create()(
                                     validator: this.validateToNextPassword,
                                 }],
                             })(
-                                <Input type="password" />
+                                <Input type={PASSWORD} />
                             )}
                         </FormItem>
                         <FormItem
@@ -147,11 +157,11 @@ const SignupForm = Form.create()(
                                     validator: this.compareToFirstPassword,
                                 }],
                             })(
-                                <Input type="password" onBlur={this.handleConfirmBlur} />
+                                <Input type={PASSWORD} onBlur={this.handleConfirmBlur} />
                             )}
                         </FormItem>
                         <FormItem 
-                            className="agreement_quote"
+                            className={CLASSNAME_AGREEMENT}
                         >
                             {getFieldDecorator("agreement", {
                                 valuePropName: "checked",
@@ -166,10 +176,10 @@ const SignupForm = Form.create()(
                         </FormItem>
                         <FormItem>
                             <Button
-                                type="primary"
-                                htmlType="submit"
-                                shape="circle"
-                                className="signup-form-button"
+                                type={PRIMARY}
+                                htmlType={SUBMIT}
+                                shape={CIRCLE}
+                                className={CLASSNAME_SIGNUP}
                             > 
                                 {TITLE}
                             </Button>
@@ -213,7 +223,7 @@ export default class Signup extends Component {
   render() {
       return (
           <div>
-              <h6 type="primary" onClick={this.showModal}>{TITLE}</h6>
+              <h6 type={PRIMARY} onClick={this.showModal}>{TITLE}</h6>
               <SignupForm
                   wrappedComponentRef={this.saveFormRef}
                   visible={this.state.visible}

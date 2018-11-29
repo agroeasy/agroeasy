@@ -11,10 +11,17 @@ import {
 } from 'antd';
 
 import {
+    CIRCLE,
+    CHECKBOX_REMINDER,
+    CLASSNAME_LOGIN,
+    ICON_LOCK,
+    ICON_USER,
     MESSAGE_1,
+    PASSWORD,
     PLACEHOLDER_1,
-    PLACEHOLDER_2,    
-    REMINDER,
+    PLACEHOLDER_2,
+    PRIMARY,    
+    SUBMIT,
     TITLE
 } from './constant';
 
@@ -39,7 +46,7 @@ const SigninForm = Form.create()(
                             })(
                                 <Input
                                     placeholder= { PLACEHOLDER_1 }
-                                    prefix={<Icon type="user" />}
+                                    prefix={<Icon type={ICON_USER} />}
                                 />
                             )}
                         </FormItem>
@@ -47,8 +54,8 @@ const SigninForm = Form.create()(
                             {getFieldDecorator("description")(
                                 <Input
                                     placeholder= {PLACEHOLDER_2}
-                                    prefix={<Icon type= "lock" />}
-                                    type= "password"
+                                    prefix={<Icon type= {ICON_LOCK} />}
+                                    type= {PASSWORD}
                                 />
                             )}
                         </FormItem>
@@ -57,14 +64,14 @@ const SigninForm = Form.create()(
                                 initialValue: true,
                                 valuePropName: "checked",
                             })(
-                                <Checkbox>{REMINDER}</Checkbox>
+                                <Checkbox>{CHECKBOX_REMINDER}</Checkbox>
                             )}
 
                             <Button 
-                                type="primary" 
-                                htmlType="submit" 
-                                shape="circle" 
-                                className="login-form-button"
+                                type={PRIMARY} 
+                                htmlType={SUBMIT} 
+                                shape={CIRCLE} 
+                                className={CLASSNAME_LOGIN}
                             >
                                 {TITLE}
                             </Button>
@@ -110,7 +117,7 @@ export default class Signin extends Component {
   render() {
       return (
           <div>
-              <h6 type="primary" onClick={this.showModal}>{TITLE}</h6>
+              <h6 type={PRIMARY} onClick={this.showModal}>{TITLE}</h6>
               <SigninForm
                   wrappedComponentRef={this.saveFormRef}
                   visible={this.state.visible}
