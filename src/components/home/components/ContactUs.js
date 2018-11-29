@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Modal } from 'antd';
-import { FormGroup, Form, Input, Label } from 'reactstrap';
 
 import { NAV_LINKS, CONTACT_US } from './constants';
+import FormContent from './FormContent';
 
-const { BACK, CANCEL, EMAIL, MESSAGE, NAME, PRIMARY, SMALL, SUBMIT, TITLE } = CONTACT_US;
+const { BACK, CANCEL, PRIMARY, SMALL, SUBMIT, TITLE } = CONTACT_US;
 
 export default class ContactUs extends React.Component {
     state = {
@@ -35,13 +35,15 @@ export default class ContactUs extends React.Component {
         return (
             <div>
                 <div onClick={this.showModal} className={NAV_LINKS} >{TITLE}</div>
-                <Modal
+                <Modal 
+                    width={600}
                     visible={visible}
                     title={TITLE}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                     footer={footer}
                 >
+<<<<<<< HEAD
                     <Form style={{  height: "200px", width: "100px" }}>
                         <FormGroup>
                             <Label for="Name">{NAME}</Label>
@@ -66,6 +68,9 @@ export default class ContactUs extends React.Component {
                             />
                         </FormGroup>
                     </Form>
+=======
+                    <FormContent />
+>>>>>>> b0fa6727c03e2232be9487d32273ce643602d828
                 </Modal>
             </div>
         );
