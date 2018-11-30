@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SignupForm from './SignupModal';
+import SignupModal from './SignupModal';
 import { SIGNUP_STRINGS } from './constants';
 const {
     PRIMARY,    
@@ -38,8 +38,8 @@ export default class Signup extends Component {
     render() {
         return (
             <div>
-                <h6 type={PRIMARY} onClick={this.showModal}>{TITLE}</h6>
-                <SignupForm
+                <span type={PRIMARY} onClick={this.showModal}>{TITLE}</span>
+                <SignupModal
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}
                     onCancel={this.handleCancel}

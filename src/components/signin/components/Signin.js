@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import SigninForm from './SigninModal';
-import { SIGNIN_STRINGS } from './constants';
-const {
-    PRIMARY,    
-    TITLE,
-} = SIGNIN_STRINGS;
+import React from 'react';
 
-export default class Signin extends Component {
+import SigninForm from './SigninForm';
+import { SIGNIN_STRINGS } from './constants';
+
+const { PRIMARY, TITLE } = SIGNIN_STRINGS;
+
+export default class Signin extends React.Component {
     state = {
         visible: false,
     };
@@ -38,7 +37,7 @@ export default class Signin extends Component {
     render() {
         return (
             <div>
-                <h6 type={PRIMARY} onClick={this.showModal}>{TITLE}</h6>
+                <span type={PRIMARY} onClick={this.showModal}>{TITLE}</span>
                 <SigninForm
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}

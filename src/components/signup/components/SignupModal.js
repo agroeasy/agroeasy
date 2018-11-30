@@ -68,7 +68,6 @@ const SignupForm = Form.create()(
                     className= {CLASSNAME_SCROLLBAR}
                 >
                     <Form 
-                        layout={VERTICLE}
                         className={CLASSNAME_FORM}
                     >
                         <FormItem
@@ -77,9 +76,9 @@ const SignupForm = Form.create()(
                         >
                             {getFieldDecorator("email", {
                                 rules: [{
-                                    message: { MESSAGE_1 }, type: { EMAIL },
+                                    message: MESSAGE_1, type: EMAIL,
                                 }, {
-                                    message: { MESSAGE_2 }, required: true,
+                                    message: MESSAGE_2, required: true,
                                 }],
                             })(
                                 <Input />
@@ -90,7 +89,7 @@ const SignupForm = Form.create()(
                             label={LABEL_2}
                         > 
                             {getFieldDecorator("firstname", {
-                                rules: [{ message: { MESSAGE_3 }, required: true }],
+                                rules: [{ message: MESSAGE_3, required: true }],
                             })(
                                 <Input />
                             )}
@@ -100,7 +99,7 @@ const SignupForm = Form.create()(
                             label={LABEL_3}
                         >
                             {getFieldDecorator("lastname", {
-                                rules: [{ message: { MESSAGE_4 }, required: true }],
+                                rules: [{ message: MESSAGE_4, required: true }],
                             })(
                                 <Input />
                             )}
@@ -116,7 +115,7 @@ const SignupForm = Form.create()(
                             )}
                         >
                             {getFieldDecorator("username", {
-                                rules: [{ message: { MESSAGE_6 }, required: true  }],
+                                rules: [{ message: MESSAGE_6, required: true  }],
                             })(
                                 <Input />
                             )}
@@ -126,7 +125,7 @@ const SignupForm = Form.create()(
                             label={LABEL_4}
                         >
                             {getFieldDecorator("title", {
-                                rules: [{ message: { MESSAGE_7 }, required: true }],
+                                rules: [{ message: MESSAGE_7, required: true }],
                             })(
                                 <Input />
                             )}
@@ -137,7 +136,7 @@ const SignupForm = Form.create()(
                         >
                             {getFieldDecorator("password", {
                                 rules: [{
-                                    message: { MESSAGE_8 }, required: true,
+                                    message: MESSAGE_8, required: true,
                                 }, {
                                     validator: this.validateToNextPassword,
                                 }],
@@ -151,7 +150,7 @@ const SignupForm = Form.create()(
                         >
                             {getFieldDecorator("confirm", {
                                 rules: [{
-                                    message: { MESSAGE_9 }, required: true,
+                                    message: MESSAGE_9, required: true,
                                 }, {
                                     validator: this.compareToFirstPassword,
                                 }],
