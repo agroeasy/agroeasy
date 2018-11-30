@@ -43,34 +43,7 @@ export default class ContactUs extends React.Component {
                     onCancel={this.handleCancel}
                     footer={footer}
                 >
-<<<<<<< HEAD
-                    <Form style={{  height: "200px", width: "100px" }}>
-                        <FormGroup>
-                            <Label for="Name">{NAME}</Label>
-                            <Input type="text" name="name" id="Name" placeholder="name here" />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="Email">{EMAIL}</Label>
-                            <Input
-                                type="email"
-                                name="email"
-                                id="Email"
-                                placeholder="email here"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="Message">{MESSAGE}</Label>
-                            <Input
-                                type="textarea"
-                                name="message"
-                                id="Message"
-                                placeholder="text here"
-                            />
-                        </FormGroup>
-                    </Form>
-=======
                     <FormContent />
->>>>>>> b0fa6727c03e2232be9487d32273ce643602d828
                 </Modal>
             </div>
         );
