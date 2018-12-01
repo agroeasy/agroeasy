@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt-nodejs');
-const User = require('../models/user');
-const UserSession = require('../models/userSession');
+const User = require('../../db/models/user');
+const UserSession = require('../../db/models/userSession');
 const {
     NO_EMAIL_PASSWORD,
     USER_NOT_FOUND,

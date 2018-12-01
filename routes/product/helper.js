@@ -1,4 +1,4 @@
-const Product = require('../models/product');
+const Product = require('../../db/models/product');
 const { ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } = require('./constants');
 
 module.exports = {

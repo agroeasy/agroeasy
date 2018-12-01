@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const router = require("../router");
 
 const {
     producerCreate,
@@ -7,7 +6,7 @@ const {
     allProducersDetails,
     producerDelete,
     producerUpdate,
-} = require('../controllers/producersController');
+} = require('./helper');
 
 router.get('/', allProducersDetails); // find all
 
