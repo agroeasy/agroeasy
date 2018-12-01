@@ -4,9 +4,8 @@ const http = require('http');
 const path = require('path');
 const cors = require('cors');
 
-const router = require('./routes');
-
 const { connectToDB } = require('./db/db');
+const router = require('./routes');
 
 const app = express();
 const server = http.createServer(app);
