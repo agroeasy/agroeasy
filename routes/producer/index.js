@@ -8,7 +8,7 @@ const {
     producerUpdate,
 } = require('./helper');
 
-router.get('/', allProducersDetails); // find all
+router.get('/findAll', allProducersDetails); // find all
 
 // the end point to find producers saved in database using id
 router.get('/:id', producerDetails);

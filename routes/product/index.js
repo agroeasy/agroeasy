@@ -8,7 +8,7 @@ const {
     productUpdate,
 } = require('./helper');
 
-router.get('/', allProductsDetails);
+router.get('/findAll', allProductsDetails);
 
 // the end point to find products saved in database
 router.get('/:id', productDetails);
