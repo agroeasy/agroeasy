@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import SignupModal from './SignupModal';
+import React from 'react';
+import SignupForm from './SignupForm';
 import { SIGNUP_STRINGS } from './constants';
 const {
     PRIMARY,    
     TITLE,
 } = SIGNUP_STRINGS;
 
-export default class Signup extends Component {
+export default class Signup extends React.Component {
     state = {
         visible: false,
     };
@@ -39,7 +39,7 @@ export default class Signup extends Component {
         return (
             <div>
                 <span type={PRIMARY} onClick={this.showModal}>{TITLE}</span>
-                <SignupModal
+                <SignupForm
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}
                     onCancel={this.handleCancel}

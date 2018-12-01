@@ -35,7 +35,7 @@ class SigninModal extends React.Component {
     render() {
         const { form, visible, onCancel, onCreate } = this.props;
         const { getFieldDecorator } = form;
-        
+
         return (
             <Modal
                 visible={visible}

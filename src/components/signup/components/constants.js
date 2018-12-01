@@ -1,34 +1,74 @@
 /* Signup Form Strings*/
 export const SIGNUP_STRINGS = {
     AGREEMENT: "agreement",
-    CHECKED: "checked",
     CLASSNAME_AGREEMENT: "agreement_quote",
     CLASSNAME_FORM: "signup_form",
     CLASSNAME_SCROLLBAR: "scrollbar",
-    CONFIRM: "confirm",
-    EMAIL: "email",
-    FIRSTNAME: "firstname",
-    ICON: "question-circle-o",
-    LABEL_1: "E-mail",
-    LABEL_2: "First name",
-    LABEL_3: "Last name",
-    LABEL_4: "Location",
-    LABEL_5: "Confirm Password",
-    LASTNAME: "lastname",
-    MESSAGE_1: "The input is not valid E-mail!",
-    MESSAGE_2: "Please input your E-mail!",
-    MESSAGE_3: "Please input your first name!",
-    MESSAGE_4: "Please input your last name!",
-    MESSAGE_5: "What do you want users to call you?",
-    MESSAGE_6: "Please input your username!",
-    MESSAGE_7: "Please input your location!",
-    MESSAGE_8: "Please input your password!",
-    MESSAGE_9: "Please confirm your password!",
-    PASSWORD: "password",
     PRIMARY: "primary",
     READ: "I have read the ",
     TITLE: "Sign up",
-    TITLE_1: "title",
-    USERNAME: "Username",
-    VERTICLE: "verticle",
 };
+
+export const formItemLayout = {
+    labelCol: {
+        sm: { span: 8 },
+        xs: { span: 20 },
+    },
+    wrapperCol: {
+        sm: { span: 16 },
+        xs: { span: 20 },
+    },
+};
+
+export const INPUTS = [
+    {
+        field: "email",
+        label: "E-mail",
+        rules: [{
+            message: "The input is not valid E-mail!", type: "email",
+        }, {
+            message: "Please input your E-mail!", required: true,
+        }],
+    },
+    {
+        field: "firstname",
+        label: "First name",
+        rules: [{ message: "Please input your first name!", required: true }],
+    },
+    {
+        field: "lastname",
+        label: "Last name",
+        rules: [{ message: "Please input your last name!", required: true }],
+    },
+    {
+        field: "username",
+        label: "Username",
+        rules: [{ message: "Please input your username!", required: true  }],
+    },
+    {
+        field: "location",
+        label: "Location",
+        rules: [{ message: "Please input your location!", required: true }],
+    },
+    {
+        field: 'password',
+        inputType: "password",
+        label: "Password",
+        rules: [{
+            message: "Please input your password!", required: true,
+        }, {
+            validator: this.validateToNextPassword,
+        }],
+    },
+    {
+        blur: this.handleConfirmBlur,
+        field: 'confirm',
+        inputType: "password",
+        label: "Confirm password",
+        rules: [{
+            message: "Please confirm your password!", required: true,
+        }, {
+            validator: this.validateToNextPassword,
+        }],
+    },
+];
