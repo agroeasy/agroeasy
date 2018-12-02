@@ -13,6 +13,9 @@
 
 .footer-content {
     margin-bottom: -40%;
+    color: white;
+    font-size: 15px;
+    font-style: italic;
 }
 
 .details {
@@ -77,8 +80,10 @@
  this is for Navibar.js and home.js
   */
 .bg-img{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.336),rgba(0, 0, 0, 0.281)),
-    url(/images/fpimg.jpg);
+    background-image:
+        linear-gradient( rgba(0, 0, 0, 0.336),
+        rgba(0, 0, 0, 0.281)),
+        url(/fpimg.jpg);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -90,8 +95,20 @@
     margin-top: 100px;
 }
 
+.sm-img h1 {
+    color: #dcdcdc;
+    font-size: 43px;
+}
+
 .sm-img h4 {
     text-align: center;
+    color: #dcdcdc;
+    font-size: 21px;
+}
+.sm-img h5 {
+    color: #dcdcdc;
+    font-size: 17px;
+    font-style: italic;
 }
 
 .wrapper {
@@ -138,17 +155,24 @@ img {
 
 .navLink {
     color: #fff !important;
+    font-weight: 400;
 }
 
 .row {
     margin-top: 35px;
 }
 
-.nav-bar {
-    margin-top: -0.7em;
-}
+/*.nav-bar {
+*  margin-top: -0.7em;
+} 
+*/
 .navLink:hover{
-    color: red !important;
+    color: green !important;
+}
+
+.link-position {
+    float: right;
+    margin-top: 4px;
 }
 
 /*Support.js */

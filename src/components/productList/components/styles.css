@@ -1,0 +1,10 @@
+.product-list {
+    padding-top: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.card-image {
+    width: 240;
+    height: 300px;
+}
