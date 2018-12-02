@@ -54,21 +54,12 @@ export const INPUTS = [
         field: 'password',
         inputType: "password",
         label: "Password",
-        rules: [{
-            message: "Please input your password!", required: true,
-        }, {
-            validator: this.validateToNextPassword,
-        }],
+        rules: [{ message: "Please input your password!", required: true } ],
     },
     {
-        blur: this.handleConfirmBlur,
         field: 'confirm',
         inputType: "password",
         label: "Confirm password",
-        rules: [{
-            message: "Please confirm your password!", required: true,
-        }, {
-            validator: this.validateToNextPassword,
-        }],
+        rules: [{ message: "Please confirm your password!", required: true }],
     },
 ];

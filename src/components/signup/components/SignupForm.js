@@ -13,23 +13,21 @@ const {
     TITLE,
 } = SIGNUP_STRINGS;
 
-function generateFormItems(decorator) {
+function generateSignupInputs(decorator) {
     return INPUTS.map(input => {
+        const { field, inputType, label, rules } = input;
 
-        const { blur, field, inputType, label, rules } = input;
         return (
             <FormItem
                 key={field}
                 {...formItemLayout}
-                { ...label }
+                label={label}
             >
                 {
                     decorator(field, {
                         rules,
                     })(
-                        <Input
-                            type={inputType} onBlur={blur}
-                        />
+                        <Input type={inputType} />
                     )
                 }
             </FormItem>
@@ -51,7 +49,7 @@ class SignupModal extends React.Component {
                 className= {CLASSNAME_SCROLLBAR}
             >
                 <Form>
-                    {generateFormItems(getFieldDecorator)}
+                    {generateSignupInputs(getFieldDecorator)}
                     <FormItem 
                         className={CLASSNAME_AGREEMENT}
                     >

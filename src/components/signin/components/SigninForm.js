@@ -7,7 +7,7 @@ import { INPUTS, SIGNIN_STRINGS } from './constants';
 const FormItem = Form.Item;
 const { CHECKBOX_REMINDER, TITLE } = SIGNIN_STRINGS;
 
-function generateFormItems(decorator) {
+function generateSiginInputs(decorator) {
     return INPUTS.map(input => {
         const { field, iconType, placeholder, rules, type } = input;
 
@@ -45,7 +45,7 @@ class SigninModal extends React.Component {
                 onOk={onCreate}
             >
                 <Form>
-                    {generateFormItems(getFieldDecorator)}
+                    {generateSiginInputs(getFieldDecorator)}
                     <FormItem>
                         {getFieldDecorator("remember", {
                             initialValue: true,
