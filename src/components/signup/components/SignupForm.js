@@ -8,7 +8,6 @@ const FormItem = Form.Item;
 const {
     AGREEMENT,
     CLASSNAME_AGREEMENT,
-    CLASSNAME_FORM,
     CLASSNAME_SCROLLBAR,
     READ,
     TITLE,
@@ -22,7 +21,7 @@ function generateFormItems(decorator) {
             <FormItem
                 key={field}
                 {...formItemLayout}
-                { label }
+                { ...label }
             >
                 {
                     decorator(field, {
@@ -51,9 +50,7 @@ class SignupModal extends React.Component {
                 onOk={onCreate}
                 className= {CLASSNAME_SCROLLBAR}
             >
-                <Form 
-                    className={CLASSNAME_FORM}
-                >
+                <Form>
                     {generateFormItems(getFieldDecorator)}
                     <FormItem 
                         className={CLASSNAME_AGREEMENT}
@@ -77,6 +74,7 @@ class SignupModal extends React.Component {
 const SignupForm = Form.create()(SignupModal);
 
 SignupModal.propTypes = {
+    form: PropTypes.object,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
     visible: PropTypes.bool,

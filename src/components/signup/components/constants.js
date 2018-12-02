@@ -1,9 +1,9 @@
 /* Signup Form Strings*/
 export const SIGNUP_STRINGS = {
     AGREEMENT: "agreement",
-    CLASSNAME_AGREEMENT: "agreement_quote",
-    CLASSNAME_FORM: "signup_form",
-    CLASSNAME_SCROLLBAR: "scrollbar",
+    CLASSNAME_AGREEMENT: "agreementQuote",
+    CLASSNAME_FORM: "signupForm",
+    CLASSNAME_SCROLLBAR: "scrollBar",
     PRIMARY: "primary",
     READ: "I have read the ",
     TITLE: "Sign up",

@@ -1,22 +1,9 @@
-.scrollbar {
+.scrollBar {
     overflow-y:auto;
     max-height:85%;
 }
 
-/* Already have an account question */
-
-.account {
-    font-size: 15px;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 0;
-    letter-spacing:3px;
-    word-spacing: 5px;
-}
-
-  /* I have read the agreement quote */
-
-  .agreement_quote {
+  .agreementQuote {
     font-size: 15px;
     margin-left: 24px;
     margin-top: 5px;
