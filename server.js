@@ -1,8 +1,10 @@
 const bodyParser = require('body-parser');
+const compression = require('compression');
+const cors = require('cors');
 const express = require('express');
+const expressStaticGzip = require('express-static-gzip');
 const http = require('http');
 const path = require('path');
-const cors = require('cors');
 
 const { connectToDB } = require('./db/db');
 const router = require('./routes');
@@ -11,8 +13,12 @@ const app = express();
 const server = http.createServer(app);
 const { PORT = 4000 } = process.env;
 
-app.use(express.static(path.join(__dirname, 'dist')));
-app.use(express.static(__dirname));
+// Add compression logic and handle compressed files
+app.use(compression());
+app.use('/', expressStaticGzip(path.join(__dirname, 'dist'), {
+    enableBrotli: true,
+    orderPreference: ['br', 'gz'],
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
