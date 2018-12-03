@@ -1,5 +1,5 @@
-const Producer = require("../../db/models/producer");
 const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = require('./constants');
+const { Producer } = require('../../db/models');
 
 module.exports = {
     // finds all the producers in the database

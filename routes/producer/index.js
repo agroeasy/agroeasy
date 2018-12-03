@@ -1,12 +1,11 @@
-const router = require("../router");
-
 const {
+    allProducersDetails,
     producerCreate,
     producerDetails,
-    allProducersDetails,
     producerDelete,
     producerUpdate,
 } = require('./helper');
+const router = require("../router");
 
 router.get('/findAll', allProducersDetails); // find all
 // the end point to find producers saved in database using id

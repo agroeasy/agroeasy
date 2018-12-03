@@ -1,12 +1,11 @@
-const router = require('../router');
-
 const {
+    allProductsDetails,
     productCreate,
     productDetails,
-    allProductsDetails,
     productDelete,
     productUpdate,
 } = require('./helper');
+const router = require('../router');
 
 router.get('/findAll', allProductsDetails);
 // the end point to find products saved in database

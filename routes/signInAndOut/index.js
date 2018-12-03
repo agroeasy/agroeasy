@@ -1,6 +1,6 @@
 const router = require('../router');
 
-const { signInUser, logout, allUsers } = require('./helper');
+const { allUsers, logout, signInUser } = require('./helper');
 
 router.post('/signin', signInUser);
 router.get('/logout', logout);

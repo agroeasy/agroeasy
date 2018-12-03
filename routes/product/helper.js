@@ -1,5 +1,5 @@
-const Product = require('../../db/models/product');
 const { ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } = require('./constants');
+const { Product } = require('../../db/models/');
 
 module.exports = {
     // finds all products in the db

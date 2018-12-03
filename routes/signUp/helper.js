@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt-nodejs');
-const User = require('../../db/models/user');
+const { User } = require('../../db/models/');
 const { NO_EMAIL_PASSWORD, USER_EXIST, SIGNED_UP  } = require('./constants');
 
 module.exports = {
