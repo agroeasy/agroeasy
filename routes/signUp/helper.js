@@ -1,13 +1,24 @@
 const bcrypt = require('bcrypt-nodejs');
-const { User } = require('../../db/models/');
+const { Producer, User } = require('../../db/models/');
 const { NO_EMAIL_PASSWORD, USER_EXIST, SIGNED_UP  } = require('./constants');
 
 module.exports = {
     signUpUser: async (req, res) => {
         const {
+            address,
+            country,
+            createdAt,
+            deletedAt,
             email,
-            username,
+            firstName,
+            lastName,
+            localGovernment,
             password,
+            phoneNumber,
+            typeOfProducts,
+            state,
+            updatedAt,
+            username,
         } = req.body;
         
         if(!email || !password){
@@ -32,10 +43,30 @@ module.exports = {
             });
 
             const user = Object.assign(new User(), {
+                address,
+                country,
+                createdAt,
+                deletedAt,
                 email,
+                firstName,
+                lastName,
+                localGovernment,
+                password,
+                phoneNumber,
+                state,
+                updatedAt,
                 username,
             });
-            
+
+            const producer = Object.assign( new Producer(), {
+                typeOfProducts,
+                userID: user._id,
+            });
+
+            /* if(isProducer){
+                await producer.save();
+            } */
+            await producer.save();
             await user.save();
             return res.send({
                 message: SIGNED_UP,
