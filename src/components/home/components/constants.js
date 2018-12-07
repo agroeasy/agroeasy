@@ -5,7 +5,7 @@ export const GOODS = "/show-goods/";
 
 //app logo
 export const LOGO = {
-    SOURCE:  "../../../../images/Agroeasylogo.png",
+    SOURCE:  "./images/Agroeasylogo.png",
     WIDTH: "80px",
 };
 

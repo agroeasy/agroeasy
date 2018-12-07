@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 // the shape of your database entries.
 const ProducersSchema = new Schema({
     typeOfProducts: {  type: Array },
-    userID: { type: String },
+    userId: { type: String },
 }, { versionKey: false });
 
 // export our module to use in server.js

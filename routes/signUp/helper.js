@@ -6,13 +6,13 @@ module.exports = {
     signUpUser: async (req, res) => {
         const {
             address,
+            city,
             country,
             createdAt,
             deletedAt,
             email,
             firstName,
             lastName,
-            localGovernment,
             password,
             phoneNumber,
             typeOfProducts,
@@ -44,13 +44,13 @@ module.exports = {
 
             const user = Object.assign(new User(), {
                 address,
+                city,
                 country,
                 createdAt,
                 deletedAt,
                 email,
                 firstName,
                 lastName,
-                localGovernment,
                 password,
                 phoneNumber,
                 state,
@@ -60,7 +60,7 @@ module.exports = {
 
             const producer = Object.assign( new Producer(), {
                 typeOfProducts,
-                userID: user._id,
+                userId: user._id,
             });
 
             /* if(isProducer){
