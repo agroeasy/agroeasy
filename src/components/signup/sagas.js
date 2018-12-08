@@ -5,11 +5,11 @@ const { REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS } = userConstants;
 // The url derived from our .env file
 const signupUrl = 'http://localhost:4000/account/signup';
 
-function signupApi (email, password) {
+const signupApi = user => {
     // call to the "fetch".  this is a "native" function for browsers
     // that's conveniently polyfilled in create-react-app if not available
-    return fetch(signupUrl, {
-        body: JSON.stringify({ email, password }),
+    fetch(signupUrl, {
+        body: JSON.stringify(user),
         headers: {
             'Content-Type': 'application/json',
         },
@@ -18,18 +18,17 @@ function signupApi (email, password) {
         .then(response => response.json())
         .then(json => json)
         .catch(error => { throw error; });
-}
-
+};
 // This will be run when the SIGNUP_REQUESTING
 // Action is found by the watcher
 function* signupFlow (action) {
     try {
-        const { email, password } = action;
+        const { user } = action;
 
         // pulls "calls" to our signupApi with our email and password
         // from our dispatched signup action, and will PAUSE
         // here until the API async function, is complete!
-        const response = yield call(signupApi, email, password);
+        const response = yield call(signupApi, user);
 
         // when the above api call has completed it will "put",
         // or dispatch, an action of type SIGNUP_SUCCESS with

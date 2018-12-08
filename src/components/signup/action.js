@@ -1,10 +1,9 @@
 import { userConstants } from './actionTypes';
 const { REGISTER_REQUEST } = userConstants;
 
-const signupRequest = ({ email, password }) => ({
-    email,
-    password,
+const signupRequest = user => ({
     type: REGISTER_REQUEST,
+    user,
 });
 
 export default signupRequest;

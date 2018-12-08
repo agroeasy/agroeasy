@@ -6,6 +6,7 @@ export const SIGNUP_STRINGS = {
     CLASSNAME_SCROLLBAR: "scrollBar",
     PRIMARY: "primary",
     READ: "I have read the ",
+    REGISTER: "Register",
     TITLE: "Sign up",
 };
 
