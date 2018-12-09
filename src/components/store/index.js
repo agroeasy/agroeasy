@@ -1,4 +1,4 @@
-import configureStore from './configureStore';
+import configureStore from './configStore';
 import rootSaga from '../sagas';
 
 const store = configureStore();

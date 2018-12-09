@@ -9,7 +9,7 @@ const initialState = {
     registering:false,
 };
   
-const signupReducer  = (state = initialState, action) => {
+const signUpReducer  = (state = initialState, action) => {
     switch (action.type) {
     case REGISTER_REQUEST:
         return {
@@ -54,4 +54,4 @@ const signupReducer  = (state = initialState, action) => {
     }
 };
   
-export default signupReducer;
+export default signUpReducer;

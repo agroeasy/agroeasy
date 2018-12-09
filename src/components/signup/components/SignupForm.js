@@ -56,7 +56,6 @@ class SignupModal extends React.Component {
             },
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     componentDidMount() {
@@ -119,10 +118,10 @@ class SignupModal extends React.Component {
 const SignupForm = Form.create()(SignupModal);
 
 SignupModal.propTypes = {
-    dispatch: PropTypes.func,
     form: PropTypes.object,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
+    registering: PropTypes.bool,
     visible: PropTypes.bool,
 };
 
