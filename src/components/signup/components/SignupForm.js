@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {  Button, Form, Input, Modal } from 'antd';
+import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
 
 import { formItemLayout, INPUTS, SIGNUP_STRINGS } from './constants';
 import signupRequest from '../action';
@@ -41,14 +43,20 @@ class SignupModal extends React.Component {
         this.state = {
             submitted: false,
             user: {
+                address: '',
+                city: '',
+                country: '',
+                email: '',
                 firstName: '',
                 lastName: '',
                 password: '',
+                phoneNumber: '',
+                state: '',
                 username: '',
             },
         };
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     componentDidMount() {
@@ -58,17 +66,17 @@ class SignupModal extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        this.setState({ submitted: true });
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values.firstname);
-                this.setState({ submitted: true });
                 const { dispatch } = this.props;
                 const { user } = this.state;
                 this.setState({
                     user: {
                         ...user,
-                        firstName: values.firstname,
-                        lastName: values.lastname,
+                        firstName: values.firstName,
+                        lastName: values.lastName,
                         password: values.password,
                         username: values.username,
                     },
@@ -81,6 +89,7 @@ class SignupModal extends React.Component {
     render() {
         const { form, onCancel, onCreate, visible } = this.props;
         const { getFieldDecorator } = form;
+        const { registering } = this.props;
 
         return (
             <Modal
@@ -100,6 +109,9 @@ class SignupModal extends React.Component {
                 <Form id = "myForm" onSubmit={this.handleSubmit}>
                     {generateSignupInputs(getFieldDecorator)}
                 </Form>
+                { registering && 
+                <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                }
             </Modal>
         );
     }
@@ -107,10 +119,29 @@ class SignupModal extends React.Component {
 const SignupForm = Form.create()(SignupModal);
 
 SignupModal.propTypes = {
+    dispatch: PropTypes.func,
     form: PropTypes.object,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
     visible: PropTypes.bool,
 };
+
+/* function mapStateToProps(state) {
+    const { registering } = state.registration;
+    return {
+        registering
+    };
+} */
+const mapStateToProps = state => { 
+    const { registering } = state;
+    return{
+        registering,
+    };
+};
+
+/* const mapDispatchToProps = dispatch =>
+    bindActionCreators({ signupRequest }, dispatch); */
+
+connect(mapStateToProps)(SignupForm); 
 
 export default SignupForm;

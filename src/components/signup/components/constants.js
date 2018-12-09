@@ -47,9 +47,9 @@ export const INPUTS = [
         rules: [{ message: "Please input your username!", required: true  }],
     },
     {
-        field: "location",
-        label: "Location",
-        rules: [{ message: "Please input your location!", required: true }],
+        field: "city",
+        label: "City",
+        rules: [{ message: "Please input your city#/!", required: true }],
     },
     {
         field: 'password',
