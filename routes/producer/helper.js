@@ -13,32 +13,12 @@ module.exports = {
     },
     producerCreate: async(req, res) => {
         const {
-            firstName,
-            lastName,
-            phoneNumber,
-            country,
-            state,
-            localGovernment,
-            address,
             typeOfProducts,
-            createdAt,
-            updatedAt,
-            deletedAt,
         } = req.body;
 
         const producer = Object
             .assign(new Producer(), {
-                address,
-                country,
-                createdAt,
-                deletedAt,
-                firstName,
-                lastName,
-                localGovernment,
-                phoneNumber,
-                state,
                 typeOfProducts,
-                updatedAt,
             });
 
         try {
