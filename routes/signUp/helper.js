@@ -63,9 +63,9 @@ module.exports = {
                 userId: user._id,
             });
 
-            /* if(isProducer){
+            if(isProducer){
                 await producer.save();
-            } */
+            } 
             await producer.save();
             await user.save();
             return res.send({
