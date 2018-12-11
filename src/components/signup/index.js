@@ -1,6 +1,6 @@
-import action from './action';
-import components from './components';
-import signUpreducer from './reducer';
-import signupSagas from'./sagas';
+import * as actions from './actions';
+import * as components from './components';
+import reducers from './reducers';
+import sagas from './sagas';
 
-export { action, components, signUpreducer, signupSagas };
+export default { actions, components, reducers, sagas };

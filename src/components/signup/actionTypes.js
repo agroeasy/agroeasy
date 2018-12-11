@@ -1,6 +1,3 @@
-const userConstants = {
-    REGISTER_FAILURE: 'REGISTER_FAILURE', 
-    REGISTER_REQUEST:'REGISTER_REQUEST', 
-    REGISTER_SUCCESS: 'REGISTER_SUCCESS',
-};
-module.exports = { userConstants };
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST'; 
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';

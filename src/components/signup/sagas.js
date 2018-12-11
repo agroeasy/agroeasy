@@ -1,11 +1,10 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
-import { userConstants } from './actionTypes';
-const { REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS } = userConstants;
-
+import { effects } from 'redux-saga';
+import { SIGNUP_FAILURE, SIGNUP_REQUEST, SIGNUP_SUCCESS } from './actionTypes';
+import { SIGNUP_URL } from './constants';
+import { signupSuccess, signupFailure } from './actions';
 // The url derived from our .env file
-const signupUrl = 'http://localhost:4000/account/signup';
 
-const signupApi = user => {
+/* const signupApi = user => {
     // call to the "fetch".  this is a "native" function for browsers
     // that's conveniently polyfilled in create-react-app if not available
     fetch(signupUrl, {
@@ -18,38 +17,40 @@ const signupApi = user => {
         .then(response => response.json())
         .then(json => json)
         .catch(error => { throw error; });
-};
-// This will be run when the SIGNUP_REQUESTING
-// Action is found by the watcher
-function* signupFlow (action) {
+}; */
+
+function* signupUser(action) {
     try {
         const { user } = action;
+        const response = yield fetch(SIGNUP_URL, {
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'POST',
+        });
 
-        // pulls "calls" to our signupApi with our email and password
-        // from our dispatched signup action, and will PAUSE
-        // here until the API async function, is complete!
-        const response = yield call(signupApi, user);
-
-        // when the above api call has completed it will "put",
-        // or dispatch, an action of type SIGNUP_SUCCESS with
-        // the successful response.
-        yield put({ response, type: REGISTER_SUCCESS });
+        if(response.ok){
+            const data = yield response.json();
+            console.log(data);
+            yield effects.put(signupSuccess(data));
+        }
     } catch (error) {
-    // if the api call fails, it will "put" the SIGNUP_ERROR
-    // into the dispatch along with the error.
-        yield put({ error, type: REGISTER_FAILURE });
+        console.log(error);
+        yield effects.put(signupFailure(error));
+    } 
+}
+
+function* watchSignupUser() {
+    try {
+        yield effects.takeEvery(SIGNUP_REQUEST, signupUser);
+    } catch (error) {
+        console.log(error);
     }
 }
 
-// Watches for the SIGNUP_REQUESTING action type
-// When it gets it, it will call signupFlow()
-// WITH the action we dispatched
-function* signupWatcher () {
-    // takeLatest() takes the LATEST call of that action and runs it
-    // if we we're to use takeEvery, it would take every single
-    // one of the actions and kick off a new task to handle it
-    // CONCURRENTLY!!!
-    yield takeLatest(REGISTER_REQUEST, signupFlow);
+export default function* () {
+    yield effects.all([
+        watchSignupUser(),
+    ]);
 }
-
-export default signupWatcher;

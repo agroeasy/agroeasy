@@ -1,5 +1,4 @@
-import { userConstants } from './actionTypes';
-const { REGISTER_FAILURE, REGISTER_REQUEST, REGISTER_SUCCESS } = userConstants;
+import { SIGNUP_FAILURE, SIGNUP_SUCCESS } from './actionTypes';
 
 const initialState = {
     /*  errors: [],
@@ -7,23 +6,13 @@ const initialState = {
     messages: [],
     successful: false, */
     registering:false,
+    
 };
   
 const signUpReducer  = (state = initialState, action) => {
     switch (action.type) {
-    case REGISTER_REQUEST:
-        return {
-            registering: true,
-            /* errors: [],
-            isLoading: true,
-            messages: [{ body: 'Signing up...' }],
-            successful: false, */
-        };
-
-        // reset the state and add a body message of success!
-        // remember our successful returned payload will be:
-        // {"email": "of the new user", "id": "of the user"}
-    case REGISTER_SUCCESS:
+   
+    case SIGNUP_SUCCESS:
         return {
             /* errors: [],
             isLoading: false,
@@ -32,13 +21,14 @@ const signUpReducer  = (state = initialState, action) => {
                 time: new Date(),
             }],
             successful: true, */
+            registering:true,
         };
         
         // reset the state but with errors!
         // the error payload returned is actually far
         // more detailed, but we'll just stick with
         // the base message for now
-    case REGISTER_FAILURE:
+    case SIGNUP_FAILURE:
         return {
             /* errors: state.errors.concat([{
                 body: action.error.toString(),
