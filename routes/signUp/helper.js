@@ -66,7 +66,6 @@ module.exports = {
             if(isProducer){
                 await producer.save();
             } 
-            await producer.save();
             await user.save();
             return res.send({
                 message: SIGNED_UP,
