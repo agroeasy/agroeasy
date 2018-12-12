@@ -1,4 +1,4 @@
-const router = require("./router");
+const router = require('./router');
 
 router.use('/account', require('./signInAndOut'));
 router.use('/account', require('./signUp'));
