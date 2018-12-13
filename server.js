@@ -6,13 +6,8 @@ const expressStaticGzip = require('express-static-gzip');
 const http = require('http');
 const path = require('path');
 
-const product = require('./routes/productRoute'); // Imports routes for the products
-const producer = require('./routes/producerRoute'); // Imports routes for the producers
-
-const logoutAndSignin  = require('./routes/SignInAndOutRout');
-const signUpUser  = require('./routes/signUpRoute');
-
-const { connectToDB } = require('./helpers/db');
+const { connectToDB } = require('./db/db');
+const router = require('./routes');
 
 const app = express();
 const server = http.createServer(app);
@@ -35,10 +30,7 @@ if(process.env.NODE_ENV !== 'production'){
     app.use(cors());
 }
 
-app.use('/products', product);
-app.use('/producers', producer);
-app.use('/account', logoutAndSignin);
-app.use('/account', signUpUser);
+app.use('/', router);
 
 server.listen(PORT, async() => {
     await connectToDB();
