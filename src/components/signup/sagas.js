@@ -1,5 +1,5 @@
 import { effects } from 'redux-saga';
-import { SIGNUP_FAILURE, SIGNUP_REQUEST, SIGNUP_SUCCESS } from './actionTypes';
+import {  SIGNUP_REQUEST } from './actionTypes';
 import { SIGNUP_URL } from './constants';
 import { signupSuccess, signupFailure } from './actions';
 // The url derived from our .env file

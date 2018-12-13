@@ -69,11 +69,6 @@ class SignupModal extends React.Component {
                 onCancel={onCancel}
                 onOk = {onCreate}
                 className= {CLASSNAME_SCROLLBAR}
-                /*   footer={[
-                    <Button form="myForm" key="submit" htmlType="submit">
-                        { REGISTER }
-                    </Button>,
-                ]}  */
             >
             
                 <Form  >
@@ -92,14 +87,5 @@ SignupModal.propTypes = {
     visible: PropTypes.bool,
 };
 
-/* const mapStateToProps = state => ({ 
-    signupState: state.signup,
-});
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(signupActions, dispatch),
-});
-
-export default connect(mapStateToProps,mapDispatchToProps)(SignupForm);  */
 export default SignupForm;
 

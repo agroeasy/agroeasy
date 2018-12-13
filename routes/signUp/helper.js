@@ -33,8 +33,8 @@ module.exports = {
                     success: false,
                 });
             }
-        } catch(err){
-            res.send({ err });
+        } catch(error){
+            res.send({ error });
         }
          
         try { 
@@ -65,15 +65,15 @@ module.exports = {
 
             /* if(isProducer){
                 await producer.save();
-            } */
+            }  */
             await producer.save();
             await user.save();
             return res.send({
                 message: SIGNED_UP,
                 success: true,
             });
-        } catch(err) {
-            res.send({ err, success: false });
+        } catch(error) {
+            res.send({ error, success: false });
         }  
     }, //end of signup end point.
     //This does not log the user in, but does create an account via API.

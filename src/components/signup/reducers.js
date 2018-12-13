@@ -1,42 +1,33 @@
-import { SIGNUP_FAILURE, SIGNUP_SUCCESS } from './actionTypes';
+import { SIGNUP_FAILURE, SIGNUP_SUCCESS, SIGNUP_REQUEST } from './actionTypes';
 
 const initialState = {
-    /*  errors: [],
-    isLoading: false,
-    messages: [],
-    successful: false, */
-    registering:false,
-    
+    data: [],
+    error: null,
+    registered:false, 
 };
   
 const signUpReducer  = (state = initialState, action) => {
     switch (action.type) {
-   
+    case SIGNUP_REQUEST:
+        return{
+            ...state,
+            data: [],
+            error: null,
+            registered: false,
+        };
+
     case SIGNUP_SUCCESS:
         return {
-            /* errors: [],
-            isLoading: false,
-            messages: [{
-                body: `Successfully created account for ${action.response.email}`,
-                time: new Date(),
-            }],
-            successful: true, */
-            registering:true,
+            ...state,
+            data: action.data,
+            registered: true,
         };
-        
-        // reset the state but with errors!
-        // the error payload returned is actually far
-        // more detailed, but we'll just stick with
-        // the base message for now
+           
     case SIGNUP_FAILURE:
         return {
-            /* errors: state.errors.concat([{
-                body: action.error.toString(),
-                time: new Date(),
-            }]),
-            isLoading: false,
-            messages: [],
-            successful: false, */
+            ...state,
+            data:[],
+            error: action.error,
         };
   
     default:

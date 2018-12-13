@@ -10,8 +10,6 @@ import { SIGNUP_STRINGS } from '../constants';
 const { PRIMARY, TITLE } = SIGNUP_STRINGS;
 class Signup extends React.Component {
     state = {
-        password: '',
-        username: '',
         visible: false,
     };
   
@@ -46,8 +44,6 @@ class Signup extends React.Component {
             };
             signupRequest(user);
             this.setState({ 
-                password: user.password, 
-                username: user.username,
                 visible: false, 
             });
         });
