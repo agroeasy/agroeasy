@@ -3,6 +3,7 @@ import { SIGNUP_FAILURE, SIGNUP_SUCCESS, SIGNUP_REQUEST } from './actionTypes';
 const initialState = {
     data: [],
     error: null,
+    isLoading: false,
     registered:false, 
 };
   
@@ -13,6 +14,7 @@ const signUpReducer  = (state = initialState, action) => {
             ...state,
             data: [],
             error: null,
+            isLoading: true,
             registered: false,
         };
 
@@ -20,6 +22,7 @@ const signUpReducer  = (state = initialState, action) => {
         return {
             ...state,
             data: action.data,
+            isLoading: false,
             registered: true,
         };
            
