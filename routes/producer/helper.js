@@ -1,9 +1,9 @@
-const Producer = require('../models/producer');
 const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = require('./constants');
+const { Producer } = require('../../db/models');
 
 module.exports = {
     // finds all the producers in the database
-    allProducersDetails: async(req, res) => {
+    allProducersDetails: async (req, res) => {
         try {
             const data = await Producer.find();
             return res.json({ data, success: true });
@@ -13,32 +13,12 @@ module.exports = {
     },
     producerCreate: async(req, res) => {
         const {
-            firstName,
-            lastName,
-            phoneNumber,
-            country,
-            state,
-            localGovernment,
-            address,
             typeOfProducts,
-            createdAt,
-            updatedAt,
-            deletedAt,
         } = req.body;
 
         const producer = Object
             .assign(new Producer(), {
-                address,
-                country,
-                createdAt,
-                deletedAt,
-                firstName,
-                lastName,
-                localGovernment,
-                phoneNumber,
-                state,
                 typeOfProducts,
-                updatedAt,
             });
 
         try {

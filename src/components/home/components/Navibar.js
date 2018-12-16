@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 
 import ContactUs from './ContactUs';
+import { components as SigninComponents } from '../../signin';
+import { components as SignupComponents } from '../../signup/';
 import { GOODS, HOME, LOGO, NAVIBAR, SUPPORT } from './constants';
 
 const { GOODS_TEXT, HOME_TEXT, FLOAT_NAV, NAV_LINK, NAV_MODE, NAV_THEME, SUPPORT_TEXT } = NAVIBAR;
 const { SOURCE, WIDTH } = LOGO;
 const { Header } = Layout;
+const { Signin } = SigninComponents;
+const { Signup } = SignupComponents;
 
 /*
  * this is the the navigation bar at the top of the home page
@@ -29,6 +33,8 @@ export default class Navibar extends React.Component {
                             <Menu.Item>
                                 <Link to={GOODS} className={NAV_LINK}>{GOODS_TEXT}</Link>
                             </Menu.Item>
+                            <Menu.Item className={NAV_LINK}><Signin /></Menu.Item>
+                            <Menu.Item className={NAV_LINK}><Signup /></Menu.Item>
                             <Menu.Item className={NAV_LINK}><ContactUs /></Menu.Item>
                         </Menu>
                     </div>
