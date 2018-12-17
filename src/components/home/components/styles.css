@@ -5,17 +5,16 @@
     margin-top: -4px;
 }
 
-.lower-footer {
-    background-color: grey;
-    height: 50px; color:whitesmoke;
-    text-align: center;
-}
-
 .footer-content {
     margin-bottom: -40%;
     color: white;
     font-size: 15px;
     font-style: italic;
+}
+
+.footer-container {
+    background-color: #f0f2f5;
+    text-align: center;
 }
 
 .details {
@@ -162,10 +161,6 @@ img {
     margin-top: 35px;
 }
 
-/*.nav-bar {
-*  margin-top: -0.7em;
-} 
-*/
 .navLink:hover{
     color: green !important;
 }
