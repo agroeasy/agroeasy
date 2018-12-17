@@ -1,17 +1,4 @@
 /* footer.js */
-.footer {
-    text-align: center;  font-style: oblique;
-    background-color:  #dcdcdc;
-    margin-top: -4px;
-}
-
-.footer-content {
-    margin-bottom: -40%;
-    color: white;
-    font-size: 15px;
-    font-style: italic;
-}
-
 .footer-container {
     background-color: #f0f2f5;
     text-align: center;
