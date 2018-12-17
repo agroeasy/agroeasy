@@ -1,15 +1,18 @@
-const bcrypt = require('bcrypt-nodejs');
-const { User } = require('../../db/models/');
-const { UserSession }= require('../../db/models/');
-const {
-    NO_EMAIL_PASSWORD,
-    USER_NOT_FOUND,
-    SUCCESSFUL_SIGNIN,
-    LOGOUT,
-    INVALID_SIGNIN,
-} = require('./constants');
+import bcrypt from 'bcrypt-nodejs';
 
-module.exports = {
+import CONSTANTS from './constants';
+import models from '../../db/models/';
+
+const { User, UserSession } = models;
+const {
+    INVALID_SIGNIN,
+    LOGOUT,
+    NO_EMAIL_PASSWORD,
+    SUCCESSFUL_SIGNIN,
+    USER_NOT_FOUND,
+} = CONSTANTS;
+
+export default {
     // finds all users in the db
     allUsers: async (req, res) => {
         try {
@@ -86,7 +89,7 @@ module.exports = {
                 } else{
                     return res.send({ err, message: INVALID_SIGNIN });
                 }
-            });           
+            });
         } catch(err) {
             return res.send({ err, success: false });
         }

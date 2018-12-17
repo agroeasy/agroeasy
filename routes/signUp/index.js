@@ -1,7 +1,8 @@
-const router = require('../router');
+import helpers from './helpers';
+import router from '../router';
 
-const { signUpUser } = require('./helper');
+const { signUpUser } = helpers;
 
 router.post('/signup', signUpUser);
 
-module.exports = router;
+export default router;

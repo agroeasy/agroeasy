@@ -1,7 +1,10 @@
-const { ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } = require('./constants');
-const { Product } = require('../../db/models/');
+import CONSTANTS from './constants';
+import models from '../../db/models/';
 
-module.exports = {
+const { Product } = models;
+const { ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } = CONSTANTS;
+
+export default {
     // finds all products in the db
     allProductsDetails: async (req, res) => {
         try {

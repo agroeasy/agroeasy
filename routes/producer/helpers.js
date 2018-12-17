@@ -1,7 +1,10 @@
-const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = require('./constants');
-const { Producer } = require('../../db/models');
+import CONSTANTS from './constants';
+import models from '../../db/models/';
 
-module.exports = {
+const { Producer } = models;
+const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = CONSTANTS;
+
+export default {
     // finds all the producers in the database
     allProducersDetails: async (req, res) => {
         try {

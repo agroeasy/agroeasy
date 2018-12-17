@@ -1,8 +1,12 @@
-const router = require('./router');
+import router from './router';
+import signInAndOut from './signInAndOut';
+import signUp from './signUp';
+import producer from './producer';
+import product from './product';
 
-router.use('/account', require('./signInAndOut'));
-router.use('/account', require('./signUp'));
-router.use('/producer', require('./producer'));
-router.use('/product', require('./product')); 
+router.use('/account', signInAndOut);
+router.use('/account', signUp);
+router.use('/producer', producer);
+router.use('/product', product);
 
-module.exports = router;
+export default router;

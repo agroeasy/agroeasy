@@ -1,4 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
+// const mongoose = require('mongoose');
 const UserSessionSchema = new mongoose.Schema({
     isDeleted: {
         default: false,
@@ -13,4 +15,5 @@ const UserSessionSchema = new mongoose.Schema({
         type: String,
     },
 });
-module.exports = mongoose.model('UserSession', UserSessionSchema);
+
+export default mongoose.model('UserSession', UserSessionSchema);

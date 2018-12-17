@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     INVALID_SIGNIN: "Invalid password, login unsuccessful",
     LOGOUT: 'Logged out successfully',
     NO_EMAIL_PASSWORD: 'Error: Email or Password cannot be blank.',

@@ -1,16 +1,19 @@
 const BrotliPlugin = require('brotli-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     devtool: '',
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({
+            new TerserPlugin({
                 cache: true,
+                extractComments: true,
                 parallel: true,
-                sourceMap: false,
+                terserOptions: {
+                    ecma: 6,
+                },
             }),
             new OptimizeCssAssetsPlugin(),
         ],

@@ -1,9 +1,10 @@
-const router = require('../router');
+import helpers from './helpers';
+import router from '../router';
 
-const { allUsers, logout, signInUser } = require('./helper');
+const { allUsers, logout, signInUser } = helpers;
 
-router.post('/signin', signInUser);
-router.get('/logout', logout);
 router.get('/findusers', allUsers);
+router.get('/logout', logout);
+router.post('/signin', signInUser);
 
-module.exports = router;
+export default router;

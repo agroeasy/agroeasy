@@ -1,8 +1,13 @@
-const bcrypt = require('bcrypt-nodejs');
-const { Producer, User } = require('../../db/models/');
-const { NO_EMAIL_PASSWORD, USER_EXIST, SIGNED_UP  } = require('./constants');
+import bcrypt from 'bcrypt-nodejs';
 
-module.exports = {
+import CONSTANTS from './constants';
+import models from '../../db/models/';
+
+// const bcrypt = require('bcrypt-nodejs');
+const { Producer, User } = models;
+const { NO_EMAIL_PASSWORD, USER_EXIST, SIGNED_UP  } = CONSTANTS;
+
+export default {
     signUpUser: async (req, res) => {
         const {
             address,
@@ -20,7 +25,7 @@ module.exports = {
             updatedAt,
             username,
         } = req.body;
-        
+
         if(!email || !password){
             return res.send({ message: NO_EMAIL_PASSWORD, success: false });
         }
@@ -36,8 +41,8 @@ module.exports = {
         } catch(err){
             res.send({ err });
         }
-         
-        try { 
+
+        try {
             await bcrypt.hash(password, null, null, (err, hash) => {
                 user.password = hash;
             });
@@ -63,9 +68,9 @@ module.exports = {
                 userId: user._id,
             });
 
-            if(isProducer){
+            if(typeOfProducts){
                 await producer.save();
-            } 
+            }
             await user.save();
             return res.send({
                 message: SIGNED_UP,
@@ -73,7 +78,7 @@ module.exports = {
             });
         } catch(err) {
             res.send({ err, success: false });
-        }  
-    }, //end of signup end point.
+        }
+    },
     //This does not log the user in, but does create an account via API.
 };

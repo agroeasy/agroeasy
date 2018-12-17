@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --mode development --config webpack.base.config.js --open --hot --history-api-fallback",
-    "build": "webpack --mode production --config webpack.prod.config.js --env.NODE_ENV=production --progress",
-    "start": "node server",
+    "build": "webpack --mode production --config webpack.prod.config.js && webpack --mode production --config webpack.server.config.js --progress",
+    "prebuild": "rm -rf dist/*",
+    "start": "NODE_ENV=production node dist/server.js",
     "lint": "eslint src db server.js routes"
   },
   "repository": {
@@ -82,10 +83,12 @@
     "postcss-preset-env": "6.4.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.1.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
-    "webpack-merge": "^4.1.4"
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2"
   }
 }
