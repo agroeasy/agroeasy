@@ -15,17 +15,12 @@ export default {
         }
     },
     producerCreate: async(req, res) => {
-        const {
-            typeOfProducts,
-        } = req.body;
-
-        const producer = Object
-            .assign(new Producer(), {
-                typeOfProducts,
-            });
-
         try {
+            const { typeOfProducts } = req.body;
+            const producer = { ...new Producer() , typeOfProducts };
+
             await producer.save();
+
             return res.json({ message: ADD_PRODUCER, success: true });
         } catch (err) {
             res.send({ err, success: false });

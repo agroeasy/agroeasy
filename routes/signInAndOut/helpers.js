@@ -24,10 +24,9 @@ export default {
     },
 
     logout: async (req, res) => {
-        // Get the token
-        const { query } = req;
-        const { token } = query;
         try{
+            const { token } = req.query;
+
             await UserSession.findOneAndUpdate(
                 {
                     _id: token,
@@ -48,9 +47,7 @@ export default {
     },
 
     signInUser: async (req, res) => {
-        const { body } = req;
-        const { password } = body;
-        let { email } = body;
+        let { email, password } = req.body;
 
         if (!email || !password) {
             return res.send({
@@ -59,36 +56,26 @@ export default {
             });
         }
 
-        email = email.toLowerCase().trim();
-        let users;
-
         try {
-            users = await User.findOne({ email });
-            if(!users){
+            email = email.toLowerCase().trim();
+            const user = await User.findOne({ email });
+
+            if(!user){
                 return res.send({
                     message: USER_NOT_FOUND,
                     success: false,
                 });
             }
-        } catch(err) {
-            return res.send({ err, success: false });
-        }
 
-        // Otherwise correct user
-        const userSession = new UserSession();
-        userSession.userId = users._id;
-        try {
+            const userSession = { ...new UserSession(), userId: user._id };
             const doc = await userSession.save();
-            await bcrypt.compare(password, users.password, ( err, result ) => {
-                if(result){
-                    return res.send({
-                        message: SUCCESSFUL_SIGNIN,
-                        success: true,
-                        token: doc._id,
-                    });
-                } else{
-                    return res.send({ err, message: INVALID_SIGNIN });
-                }
+
+            await bcrypt.compare(password, user.password, (error, result) => {
+                const data = result ?
+                    { message: SUCCESSFUL_SIGNIN, success: true, token: doc._id } :
+                    { error, message: INVALID_SIGNIN };
+
+                return res.send(data);
             });
         } catch(err) {
             return res.send({ err, success: false });

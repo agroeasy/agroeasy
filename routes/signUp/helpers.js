@@ -1,30 +1,17 @@
+import _pick from 'lodash.pick';
 import bcrypt from 'bcrypt-nodejs';
 
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
-// const bcrypt = require('bcrypt-nodejs');
 const { Producer, User } = models;
-const { NO_EMAIL_PASSWORD, USER_EXIST, SIGNED_UP  } = CONSTANTS;
+const { NO_EMAIL_PASSWORD, SIGN_UP_KEYS, USER_EXIST, SIGNED_UP  } = CONSTANTS;
 
 export default {
     signUpUser: async (req, res) => {
-        const {
-            address,
-            city,
-            country,
-            createdAt,
-            deletedAt,
-            email,
-            firstName,
-            lastName,
-            password,
-            phoneNumber,
-            typeOfProducts,
-            state,
-            updatedAt,
-            username,
-        } = req.body;
+        // https://lodash.com/docs/4.17.11#pick
+        const userData = _pick(req.body, SIGN_UP_KEYS);
+        const { email, password, typeOfProducts } = req.body;
 
         if(!email || !password){
             return res.send({ message: NO_EMAIL_PASSWORD, success: false });
@@ -43,35 +30,24 @@ export default {
         }
 
         try {
+            const user = { ...new User(), ...userData };
             await bcrypt.hash(password, null, null, (err, hash) => {
                 user.password = hash;
             });
+            await user.save();
 
-            const user = Object.assign(new User(), {
-                address,
-                city,
-                country,
-                createdAt,
-                deletedAt,
-                email,
-                firstName,
-                lastName,
-                password,
-                phoneNumber,
-                state,
-                updatedAt,
-                username,
-            });
+            // TODO: Check that the type of product is valid before creating the
+            // producer
+            if(typeOfProducts) {
+                const producer = {
+                    ...new Producer(),
+                    typeOfProducts,
+                    userId: user._id,
+                };
 
-            const producer = Object.assign( new Producer(), {
-                typeOfProducts,
-                userId: user._id,
-            });
-
-            if(typeOfProducts){
                 await producer.save();
             }
-            await user.save();
+
             return res.send({
                 message: SIGNED_UP,
                 success: true,

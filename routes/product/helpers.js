@@ -1,8 +1,10 @@
+import _pick from 'lodash.pick';
+
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
 const { Product } = models;
-const { ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } = CONSTANTS;
+const { ADD_PRODUCT, DELETE_PRODUCT, CREATE_KEYS, UPDATE_PRODUCT } = CONSTANTS;
 
 export default {
     // finds all products in the db
@@ -15,28 +17,12 @@ export default {
         }
     },
     productCreate: async (req, res) => {
-        const {
-            name,
-            quantity,
-            producerId,
-            typeOfProduct,
-            createdAt,
-            updatedAt,
-            deletedAt,
-        } = req.body;
-
-        const product = Object.assign( new Product(), {
-            createdAt,
-            deletedAt,
-            name,
-            producerId,
-            quantity,
-            typeOfProduct,
-            updatedAt,
-        });
-
         try {
+            const productData = _pick(req.body, CREATE_KEYS);
+            const product = { ...new Product(), ...productData };
+
             await product.save();
+
             return res.json({ message: ADD_PRODUCT, success: true });
         } catch (err) {
             res.send({ err, success: false });
