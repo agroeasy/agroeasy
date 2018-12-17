@@ -2,22 +2,6 @@ import { effects } from 'redux-saga';
 import {  SIGNUP_REQUEST } from './actionTypes';
 import { SIGNUP_URL } from './constants';
 import { signupSuccess, signupFailure } from './actions';
-// The url derived from our .env file
-
-/* const signupApi = user => {
-    // call to the "fetch".  this is a "native" function for browsers
-    // that's conveniently polyfilled in create-react-app if not available
-    fetch(signupUrl, {
-        body: JSON.stringify(user),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        method: 'POST',
-    })
-        .then(response => response.json())
-        .then(json => json)
-        .catch(error => { throw error; });
-}; */
 
 function* signupUser(action) {
     try {
@@ -32,10 +16,12 @@ function* signupUser(action) {
 
         if(response.ok){
             const data = yield response.json();
+            // eslint-disable-next-line no-console
             console.log(data);
             yield effects.put(signupSuccess(data));
         }
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
         yield effects.put(signupFailure(error));
     } 
@@ -45,6 +31,7 @@ function* watchSignupUser() {
     try {
         yield effects.takeEvery(SIGNUP_REQUEST, signupUser);
     } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
     }
 }
