@@ -1,8 +1,6 @@
 'use strict';
 import mongoose from 'mongoose';
-// const mongoose = require('mongoose');
 import { MONGO_DB_URL } from './config';
-// const { MONGO_DB_URL } = require('./config');
 
 mongoose.Promise = global.Promise;
 
