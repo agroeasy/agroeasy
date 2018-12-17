@@ -39,7 +39,7 @@ class Home extends React.Component {
                                 showIcon
                                 closable = {true}
                             />
-                        } 
+                        }
                     </div>
                     <Row>
                         <Col className={SM_IMG}>
@@ -66,4 +66,3 @@ Home.propTypes = {
 };
 
 export default connect(mapStateToProps)(Home);
-/* export default Home; */

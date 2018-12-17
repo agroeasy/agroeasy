@@ -33,30 +33,7 @@ function generateSignupInputs(decorator) {
 }
 
 class SignupModal extends React.Component {
-    
-/*     handleSubmit = e => {
-        e.preventDefault();
-        const { signupRequest } = this.props.actions;
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                const user = {
-                    address: values.address,
-                    city: values.city,
-                    country: values.country,
-                    createdAt: new Date(),
-                    email: values.email,
-                    firstName: values.firstName,
-                    lastName: values.lastName,
-                    password: values.password,
-                    phoneNumber: values.phoneNumber,
-                    state: values.state,
-                    username: values.username,
-                };
-                signupRequest(user);
-            }
-        });
-    }
- */
+
     render() {
         const { form, onCancel, onCreate, visible } = this.props;
         const { getFieldDecorator } = form;
@@ -78,6 +55,7 @@ class SignupModal extends React.Component {
         );
     }
 }
+
 const SignupForm = Form.create()(SignupModal);
 
 SignupModal.propTypes = {
