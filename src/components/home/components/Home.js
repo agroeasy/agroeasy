@@ -23,20 +23,11 @@ class Home extends React.Component {
                 <div className={BG_IMG}>
                     <div >
                         {
-                            data.success && 
+                            data.success !== undefined &&
                             <Alert 
                                 message = {data.message} 
-                                type="success" 
+                                type={data.success ? 'success' : 'error'}
                                 showIcon 
-                                closable = {true}
-                            />
-                        }
-                        {
-                            data.success === false &&
-                            <Alert 
-                                message = {data.message}
-                                type="error" 
-                                showIcon
                                 closable = {true}
                             />
                         }
