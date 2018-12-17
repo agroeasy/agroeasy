@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-// const mongoose = require('mongoose');
 const UserSessionSchema = new mongoose.Schema({
     isDeleted: {
         default: false,
