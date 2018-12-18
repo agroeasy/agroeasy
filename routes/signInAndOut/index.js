@@ -1,6 +1,8 @@
-import helpers from './helpers';
-import router from '../router';
+import express from 'express';
 
+import helpers from './helpers';
+
+const router = express.Router();
 const { allUsers, logout, signInUser } = helpers;
 
 router.get('/findusers', allUsers);

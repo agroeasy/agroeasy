@@ -18,8 +18,9 @@ export default {
         }
 
         try{
-            const previousUsers = await User.findOne({ email  });
-            if(previousUsers){
+            const previousUsers = await User.findOne({ email });
+
+            if (previousUsers) {
                 return res.send({
                     message: USER_EXIST,
                     success: false,
@@ -30,7 +31,8 @@ export default {
         }
 
         try {
-            const user = { ...new User(), ...userData };
+            const user = Object.assign(new User(), userData);
+
             await bcrypt.hash(password, null, null, (err, hash) => {
                 user.password = hash;
             });
@@ -39,11 +41,10 @@ export default {
             // TODO: Check that the type of product is valid before creating the
             // producer
             if(typeOfProducts) {
-                const producer = {
-                    ...new Producer(),
+                const producer = Object.assign(new Producer(), {
                     typeOfProducts,
                     userId: user._id,
-                };
+                });
 
                 await producer.save();
             }
@@ -52,8 +53,8 @@ export default {
                 message: SIGNED_UP,
                 success: true,
             });
-        } catch(err) {
-            res.send({ err, success: false });
+        } catch(error) {
+            res.send({ error, success: false });
         }
     },
     //This does not log the user in, but does create an account via API.

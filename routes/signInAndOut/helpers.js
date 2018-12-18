@@ -67,7 +67,7 @@ export default {
                 });
             }
 
-            const userSession = { ...new UserSession(), userId: user._id };
+            const userSession = Object.assign(new UserSession(), { userId: user._id  });
             const doc = await userSession.save();
 
             await bcrypt.compare(password, user.password, (error, result) => {

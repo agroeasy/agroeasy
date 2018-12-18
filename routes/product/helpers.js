@@ -19,7 +19,7 @@ export default {
     productCreate: async (req, res) => {
         try {
             const productData = _pick(req.body, CREATE_KEYS);
-            const product = { ...new Product(), ...productData };
+            const product = Object.assign(new Product(), productData);
 
             await product.save();
 

@@ -1,5 +1,5 @@
 import CONSTANTS from './constants';
-import models from '../../db/models/';
+import models from '../../db/models';
 
 const { Producer } = models;
 const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = CONSTANTS;
@@ -17,8 +17,9 @@ export default {
     producerCreate: async(req, res) => {
         try {
             const { typeOfProducts } = req.body;
-            const producer = { ...new Producer() , typeOfProducts };
-
+            // TODO: check if producer already exists - use user_id
+            // or do an upsert (update or insert)
+            const producer = Object.assign(new Producer(), { typeOfProducts });
             await producer.save();
 
             return res.json({ message: ADD_PRODUCER, success: true });
