@@ -8,7 +8,7 @@ const ProductsSchema = new Schema({
     name: { required: true, type: String },
     producerId: { required: true, type: String },
     quantity: { required: true, type: Number },
-    // typeOfProducts: { required: true, type: String },
+    typeOfProducts: { required: true, type: String },
     updatedAt: { type: Date },
 }, { versionKey: false });
 
