@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Col, Row } from 'antd';
+import { Alert, Col, message, Row } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -22,14 +22,15 @@ class Home extends React.Component {
                 <Navibar />
                 <div className={BG_IMG}>
                     <div >
+                       
                         {
-                            data.success !== undefined &&
-                            <Alert 
-                                message = {data.message} 
-                                type={data.success ? 'success' : 'error'}
-                                showIcon 
-                                closable = {true}
-                            />
+                            data.success !== undefined &&                           
+                            <span>
+                                {
+                                    data.success ? message.success(data.message, 5) :
+                                        message.error(data.message, 5)
+                                } 
+                            </span>                 
                         }
                     </div>
                     <Row>
