@@ -1,10 +1,10 @@
 import React from 'react';
 import { Layout } from 'antd';
 
-import { FOOTER_DATA, FOOTER_STRINGS } from './constants';
+import { FOOTER_DATA, FOOTER_CLASSNAMES } from './constants';
 
 const { Footer } = Layout;
-const { CONTAINER, DYNAMIC_FOOTER, ROW } = FOOTER_STRINGS;
+const { CONTAINER, DYNAMIC_FOOTER, ROW } = FOOTER_CLASSNAMES;
 
 const footers = FOOTER_DATA.map(footer => (
     <div className={DYNAMIC_FOOTER} key={footer.key}>
