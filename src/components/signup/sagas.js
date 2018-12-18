@@ -27,6 +27,13 @@ function* signupUser(action) {
     } 
 }
 
+/**
+ * @function
+ * Watches for the {@link actionTypes.SIGNUP_REQUEST SIGNUP_REQUEST} action.
+ * Triggers request to capture data from body
+ *
+ * @return {void}
+ */
 function* watchSignupUser() {
     try {
         yield effects.takeEvery(SIGNUP_REQUEST, signupUser);
