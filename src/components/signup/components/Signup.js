@@ -16,7 +16,6 @@ class Signup extends React.Component {
     showModal = () => {
         this.setState({ visible: true });
     }
-  
     handleCancel = () => {
         this.setState({ visible: false });
     }
@@ -24,7 +23,6 @@ class Signup extends React.Component {
     handleCreate = () => {
         const form = this.formRef.props.form;
         const { signupRequest } = this.props.actions;
-        const { data } = this.props.signupState;
         form.validateFields((err, values ) => {
             if (err) {
                 return err;
@@ -44,9 +42,6 @@ class Signup extends React.Component {
                 username: values.username,
             };
             signupRequest(user);
-            this.setState({ 
-                visible: data.success === false ? false : true, 
-            });
         });
 
     }

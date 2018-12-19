@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Col, message, Row } from 'antd';
+import { Col, message, Row } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 

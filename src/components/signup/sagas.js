@@ -16,13 +16,9 @@ function* signupUser(action) {
 
         if(response.ok){
             const data = yield response.json();
-            // eslint-disable-next-line no-console
-            console.log(data);
             yield effects.put(signupSuccess(data));
         }
     } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log(error);
         yield effects.put(signupFailure(error));
     } 
 }
@@ -39,7 +35,7 @@ function* watchSignupUser() {
         yield effects.takeEvery(SIGNUP_REQUEST, signupUser);
     } catch (error) {
         // eslint-disable-next-line no-console
-        console.log(error);
+        console.log(Error);
     }
 }
 

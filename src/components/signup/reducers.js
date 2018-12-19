@@ -31,6 +31,7 @@ const signUpReducer  = (state = initialState, action) => {
             ...state,
             data:[],
             error: action.error,
+            isLoading: false,
         };
   
     default:
