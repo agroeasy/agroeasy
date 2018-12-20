@@ -4,10 +4,11 @@ import { SIGNUP_URL } from './constants';
 import { signupSuccess, signupFailure } from './actions';
 
 /**
- * Triggers request to and fro the signup endpoint.
- * 
- * @function
- * @return {Object}
+ * Makes a request to sign up a user
+ *
+ * @param {object} [action] The data passed from the watcher generator
+ *
+ * @return {object} An object containing either "data" or "error"
  */
 function* signupUser(action) {
     try {
