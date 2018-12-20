@@ -1,15 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {  Checkbox, Form, Input, Modal } from 'antd';
+import { Form, Input, Modal } from 'antd';
 
-import { formItemLayout, INPUTS, SIGNUP_STRINGS } from './constants';
+import { formItemLayout, INPUTS, SIGNUP_STRINGS } from '../constants';
 
 const FormItem = Form.Item;
 const {
-    AGREEMENT,
-    CLASSNAME_AGREEMENT,
     CLASSNAME_SCROLLBAR,
-    READ,
     TITLE,
 } = SIGNUP_STRINGS;
 
@@ -34,7 +31,9 @@ function generateSignupInputs(decorator) {
         );
     });
 }
+
 class SignupModal extends React.Component {
+
     render() {
         const { form, onCancel, onCreate, visible } = this.props;
         const { getFieldDecorator } = form;
@@ -46,29 +45,17 @@ class SignupModal extends React.Component {
                 okText={TITLE}
                 onCancel={onCancel}
                 onOk={onCreate}
-                className= {CLASSNAME_SCROLLBAR}
+                className={CLASSNAME_SCROLLBAR}
             >
-                <Form>
+            
+                <Form  >
                     {generateSignupInputs(getFieldDecorator)}
-                    <FormItem 
-                        className={CLASSNAME_AGREEMENT}
-                    >
-                        {getFieldDecorator("agreement", {
-                            valuePropName: "checked",
-                        })(
-                            <Checkbox>
-                                {READ} 
-                                <a href="">
-                                    {AGREEMENT}
-                                </a>
-                            </Checkbox>
-                        )}
-                    </FormItem>
                 </Form>
             </Modal>
         );
     }
 }
+
 const SignupForm = Form.create()(SignupModal);
 
 SignupModal.propTypes = {
@@ -79,3 +66,4 @@ SignupModal.propTypes = {
 };
 
 export default SignupForm;
+

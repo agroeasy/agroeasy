@@ -56,11 +56,25 @@ export const HOME_STRINGS = {
 };
 
 // strings from Footer.js
-export const FOOTER_STRINGS = {
-    CENTER: "center",
-    FLEX: "flex",
-    FOOTER: "footer",
-    FOOTER_CONTENT: "footer-content",
-    FOOTER_TEXT: "All rights reserved, Copyright © 2018 Agroeasy.",
-    LOWER_FOOTER: "lower-footer",
+export const FOOTER_CLASSNAMES = {
+    CONTAINER: 'footer-container',
+    DYNAMIC_FOOTER: 'ant-col-xs-24 ant-col-sm-24 ant-col-md-6',
+    ROW: 'ant-row',
 };
+
+export const FOOTER_DATA = [{
+    header: 'Product',
+    items: [{ title: 'What is Argo Easy?' }, { title: 'Marketplace' }, { title: 'Sign Up' }],
+    key: 'product',
+}, {
+    header: 'About Us',
+    items: [{ title: 'Who is Argo Easy?' }, { title: 'Our Mission' }, { title: 'Our Customers' }],
+    key: 'about',
+}, {
+    header: 'Support',
+    items: [{ title: 'Contact Us' }, { title: 'FAQ' }],
+    key: 'support',
+}, {
+    items: [{ title: 'All rights reserved, Copyright © 2018 Agroeasy.' }],
+    key: 'rights',
+}];
