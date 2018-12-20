@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 
 import ContactUs from './ContactUs';
-import { components as SigninComponents } from '../../signin';
-import { components as SignupComponents } from '../../signup/';
+import signin from '../../signin/';
+import signup from '../../signup/';
 import { GOODS, HOME, LOGO, NAVIBAR, SUPPORT } from './constants';
 
 const { GOODS_TEXT, HOME_TEXT, FLOAT_NAV, NAV_LINK, NAV_MODE, NAV_THEME, SUPPORT_TEXT } = NAVIBAR;
 const { SOURCE, WIDTH } = LOGO;
 const { Header } = Layout;
-const { Signin } = SigninComponents;
-const { Signup } = SignupComponents;
+const { Signin } = signin.components;
+const { Signup } = signup.components;
 
 /*
  * this is the the navigation bar at the top of the home page

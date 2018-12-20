@@ -1,5 +1,7 @@
 import React from 'react';
-import { Col, Row } from 'antd';
+import { Col, message, Row } from 'antd';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import AppFoot from './Footer';
 import Navibar from './Navibar';
@@ -13,11 +15,24 @@ const { BG_IMG, SEARCH, SM_IMG, WELCOME_TEXT_1, WELCOME_TEXT_2, WELCOME_TEXT_3 }
 //this is the home page, containing sub-components ( Navibar, ListItems and Foot components)
 class Home extends React.Component {
     render() {
+        const { signupState } = this.props;
+        const { data } = signupState;
         return (
             <div>
                 <Navibar />
                 <div className={BG_IMG}>
-                    
+                    <div >
+                       
+                        {
+                            data.success !== undefined &&                           
+                            <span>
+                                {
+                                    data.success ? message.success(data.message, 5) :
+                                        message.error(data.message, 5)
+                                } 
+                            </span>                 
+                        }
+                    </div>
                     <Row>
                         <Col className={SM_IMG}>
                             <h1>{WELCOME_TEXT_1}</h1>
@@ -34,4 +49,12 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+    signupState: state.signup,
+});
+
+Home.propTypes = {
+    signupState: PropTypes.object,
+};
+
+export default connect(mapStateToProps)(Home);
