@@ -1,15 +1,18 @@
-const bcrypt = require('bcrypt-nodejs');
-const { User } = require('../../db/models/');
-const { UserSession }= require('../../db/models/');
-const {
-    NO_EMAIL_PASSWORD,
-    USER_NOT_FOUND,
-    SUCCESSFUL_SIGNIN,
-    LOGOUT,
-    INVALID_SIGNIN,
-} = require('./constants');
+import bcrypt from 'bcrypt-nodejs';
 
-module.exports = {
+import CONSTANTS from './constants';
+import models from '../../db/models/';
+
+const { User, UserSession } = models;
+const {
+    INVALID_SIGNIN,
+    LOGOUT,
+    NO_EMAIL_PASSWORD,
+    SUCCESSFUL_SIGNIN,
+    USER_NOT_FOUND,
+} = CONSTANTS;
+
+export default {
     // finds all users in the db
     allUsers: async (req, res) => {
         try {
@@ -21,10 +24,9 @@ module.exports = {
     },
 
     logout: async (req, res) => {
-        // Get the token
-        const { query } = req;
-        const { token } = query;
         try{
+            const { token } = req.query;
+
             await UserSession.findOneAndUpdate(
                 {
                     _id: token,
@@ -45,9 +47,7 @@ module.exports = {
     },
 
     signInUser: async (req, res) => {
-        const { body } = req;
-        const { password } = body;
-        let { email } = body;
+        let { email, password } = req.body;
 
         if (!email || !password) {
             return res.send({
@@ -56,37 +56,27 @@ module.exports = {
             });
         }
 
-        email = email.toLowerCase().trim();
-        let users;
-
         try {
-            users = await User.findOne({ email });
-            if(!users){
+            email = email.toLowerCase().trim();
+            const user = await User.findOne({ email });
+
+            if(!user){
                 return res.send({
                     message: USER_NOT_FOUND,
                     success: false,
                 });
             }
-        } catch(err) {
-            return res.send({ err, success: false });
-        }
 
-        // Otherwise correct user
-        const userSession = new UserSession();
-        userSession.userId = users._id;
-        try {
+            const userSession = Object.assign(new UserSession(), { userId: user._id  });
             const doc = await userSession.save();
-            await bcrypt.compare(password, users.password, ( err, result ) => {
-                if(result){
-                    return res.send({
-                        message: SUCCESSFUL_SIGNIN,
-                        success: true,
-                        token: doc._id,
-                    });
-                } else{
-                    return res.send({ err, message: INVALID_SIGNIN });
-                }
-            });           
+
+            await bcrypt.compare(password, user.password, (error, result) => {
+                const data = result ?
+                    { message: SUCCESSFUL_SIGNIN, success: true, token: doc._id } :
+                    { error, message: INVALID_SIGNIN };
+
+                return res.send(data);
+            });
         } catch(err) {
             return res.send({ err, success: false });
         }

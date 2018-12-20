@@ -1,11 +1,15 @@
+import express from 'express';
+
+import helpers from './helpers';
+
+const router = express.Router();
 const {
     allProducersDetails,
     producerCreate,
     producerDetails,
     producerDelete,
     producerUpdate,
-} = require('./helper');
-const router = require("../router");
+} = helpers;
 
 router.get('/findAll', allProducersDetails); // find all
 // the end point to find producers saved in database using id
@@ -15,4 +19,4 @@ router.post('/create', producerCreate);
 router.put('/:producersId', producerUpdate);// update by id
 router.delete('/:id', producerDelete);// delete by id
 
-module.exports = router;
+export default router;
