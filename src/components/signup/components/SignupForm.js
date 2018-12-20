@@ -44,8 +44,8 @@ class SignupModal extends React.Component {
                 title={TITLE}
                 okText={TITLE}
                 onCancel={onCancel}
-                onOk = {onCreate}
-                className= {CLASSNAME_SCROLLBAR}
+                onOk={onCreate}
+                className={CLASSNAME_SCROLLBAR}
             >
             
                 <Form  >

@@ -3,6 +3,12 @@ import {  SIGNUP_REQUEST } from './actionTypes';
 import { SIGNUP_URL } from './constants';
 import { signupSuccess, signupFailure } from './actions';
 
+/**
+ * Triggers request to and fro the signup endpoint.
+ * 
+ * @function
+ * @return {Object}
+ */
 function* signupUser(action) {
     try {
         const { user } = action;
