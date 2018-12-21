@@ -1,31 +1,28 @@
 import React from 'react';
-import { Col, Layout, Row } from 'antd';
+import { Layout } from 'antd';
 
-import { FOOTER_STRINGS } from './constants';
-import { components } from '../../productsAvailable';
+import { FOOTER_DATA, FOOTER_CLASSNAMES } from './constants';
 
-const { ProductsAvailable } = components;
-const { Content, Footer } = Layout;
-const { CENTER, FLEX, FOOTER, FOOTER_CONTENT, FOOTER_TEXT, LOWER_FOOTER } = FOOTER_STRINGS;
+const { Footer } = Layout;
+const { CONTAINER, DYNAMIC_FOOTER, ROW } = FOOTER_CLASSNAMES;
 
-//This contains the productsavailable component
-class  AppFoot extends React.Component {
+const footers = FOOTER_DATA.map(footer => (
+    <div className={DYNAMIC_FOOTER} key={footer.key}>
+        <h3>{footer.header}</h3>
+        {
+            footer.items.map(item => (
+                <div key={item.title}>{item.title}</div>
+            ))
+        }
+    </div>
+));
+
+class AppFoot extends React.Component {
     render () {
         return (
-            <Layout>
-                <Content className={FOOTER} >
-                    <ProductsAvailable />
-                </Content>
-                <Footer className={LOWER_FOOTER}>
-                    <Row type={FLEX} justify={CENTER}>
-                        <Col span={8}>
-                            <h6 className={FOOTER_CONTENT}>
-                                {FOOTER_TEXT}
-                            </h6>
-                        </Col>
-                    </Row>
-                </Footer>
-            </Layout>
+            <Footer className={CONTAINER}>
+                <div className={ROW}>{footers}</div>
+            </Footer>
         );
     }
 }

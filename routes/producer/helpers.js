@@ -1,7 +1,10 @@
-const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = require('./constants');
-const { Producer } = require('../../db/models');
+import CONSTANTS from './constants';
+import models from '../../db/models';
 
-module.exports = {
+const { Producer } = models;
+const { ADD_PRODUCER, DELETE_PRODUCER, UPDATE_PRODUCER } = CONSTANTS;
+
+export default {
     // finds all the producers in the database
     allProducersDetails: async (req, res) => {
         try {
@@ -12,17 +15,13 @@ module.exports = {
         }
     },
     producerCreate: async(req, res) => {
-        const {
-            typeOfProducts,
-        } = req.body;
-
-        const producer = Object
-            .assign(new Producer(), {
-                typeOfProducts,
-            });
-
         try {
+            const { typeOfProducts } = req.body;
+            // TODO: check if producer already exists - use user_id
+            // or do an upsert (update or insert)
+            const producer = Object.assign(new Producer(), { typeOfProducts });
             await producer.save();
+
             return res.json({ message: ADD_PRODUCER, success: true });
         } catch (err) {
             res.send({ err, success: false });

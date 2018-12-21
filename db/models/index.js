@@ -1,6 +1,6 @@
-const Producer = require('./producer');
-const Product = require('./product');
-const User = require('./user');
-const UserSession = require('./userSession');
+import Producer from './producer';
+import Product from './product';
+import User from './user';
+import UserSession from './userSession';
 
-module.exports = { Producer, Product, User, UserSession };
+export default { Producer, Product, User, UserSession };

@@ -1,11 +1,15 @@
+import express from 'express';
+
+import helpers from './helpers';
+
+const router = express.Router();
 const {
     allProductsDetails,
     productCreate,
     productDetails,
     productDelete,
     productUpdate,
-} = require('./helper');
-const router = require('../router');
+} = helpers;
 
 router.get('/findAll', allProductsDetails);
 // the end point to find products saved in database
@@ -15,4 +19,4 @@ router.post('/create', productCreate);
 router.put('/:productsId', productUpdate);
 router.delete('/:id', productDelete);
 
-module.exports = router;
+export default router;

@@ -1,7 +1,12 @@
-const { ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT } = require('./constants');
-const { Product } = require('../../db/models/');
+import _pick from 'lodash.pick';
 
-module.exports = {
+import CONSTANTS from './constants';
+import models from '../../db/models/';
+
+const { Product } = models;
+const { ADD_PRODUCT, DELETE_PRODUCT, CREATE_KEYS, UPDATE_PRODUCT } = CONSTANTS;
+
+export default {
     // finds all products in the db
     allProductsDetails: async (req, res) => {
         try {
@@ -12,28 +17,12 @@ module.exports = {
         }
     },
     productCreate: async (req, res) => {
-        const {
-            name,
-            quantity,
-            producerId,
-            typeOfProduct,
-            createdAt,
-            updatedAt,
-            deletedAt,
-        } = req.body;
-
-        const product = Object.assign( new Product(), {
-            createdAt,
-            deletedAt,
-            name,
-            producerId,
-            quantity,
-            typeOfProduct,
-            updatedAt,
-        });
-
         try {
+            const productData = _pick(req.body, CREATE_KEYS);
+            const product = Object.assign(new Product(), productData);
+
             await product.save();
+
             return res.json({ message: ADD_PRODUCT, success: true });
         } catch (err) {
             res.send({ err, success: false });

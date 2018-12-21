@@ -89,4 +89,5 @@ module.exports = {
             name: '[name].[ext]',
         }),
     ],
+    target: 'web',
 };

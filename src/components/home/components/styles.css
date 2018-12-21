@@ -1,21 +1,7 @@
 /* footer.js */
-.footer {
-    text-align: center;  font-style: oblique;
-    background-color:  #dcdcdc;
-    margin-top: -4px;
-}
-
-.lower-footer {
-    background-color: grey;
-    height: 50px; color:whitesmoke;
+.footer-container {
+    background-color: #f0f2f5;
     text-align: center;
-}
-
-.footer-content {
-    margin-bottom: -40%;
-    color: white;
-    font-size: 15px;
-    font-style: italic;
 }
 
 .details {
@@ -162,10 +148,6 @@ img {
     margin-top: 35px;
 }
 
-/*.nav-bar {
-*  margin-top: -0.7em;
-} 
-*/
 .navLink:hover{
     color: green !important;
 }
