@@ -1,16 +1,23 @@
 /* Signup Form Strings*/
 export const SIGNUP_STRINGS = {
-    AGREEMENT: "agreement",
-    CLASSNAME_AGREEMENT: "agreementQuote",
-    CLASSNAME_FORM: "signupForm",
-    CLASSNAME_SCROLLBAR: "scrollBar",
+    CATEGORIES: "Select Categories",
+    MESSAGE: "Please select category",
+    MODE: "multiple",
+    NO: "No",
     PRIMARY: "primary",
-    READ: "I have read the ",
+    PRODUCER: "Are you a producer?",
+    PRODUCT_TYPE: "Product Type",
+    RADIO_BUTTONS: "radiobuttons",
+    RADIO_GROUP_FORM: "radiogroupform",
     REGISTER: "Register",
+    SCROLLBAR: "scrollBar",
+    SMALL: "small",
+    SOLID: "solid",
     TITLE: "Sign up",
+    YES: "Yes",
 };
 
-export const formItemLayout = {
+export const FORM_ITEM_LAYOUT = {
     labelCol: {
         sm: { span: 8 },
         xs: { span: 20 },
@@ -85,4 +92,58 @@ export const INPUTS = [
     },
 ];
 
+export const PRODUCTS = [
+    {
+        category: "Agrochemicals",
+        value: "agrochemicals",
+    },
+    {
+        category: "Beans",
+        value: "beans",
+    },
+    {    
+        category: "Fruits",
+        value: "fruits",
+    },
+    {
+        category: "Grains",
+        value: "grains",
+    },
+    {
+        category: "Nuts",
+        value: "nuts",
+    },
+    {
+        category: "Pesticides",
+        value: "pesticides",
+    },
+    {
+        category: "Plants",
+        value: "plants",
+    },
+    {
+        category: "Rice",
+        value: "rice",
+    },
+    {
+        category: "Seeds",
+        value: "seeds",
+    },
+    {
+        category: "Seedlings",
+        value: "seedlingss",
+    },
+    {
+        category: "Vegetable",
+        value: "vegetable",
+    },
+    {
+        category: "Wheat",
+        value: "wheat",
+    },
+    {
+        category: "Other",
+        value: "other",
+    },
+];
 export const SIGNUP_URL = 'http://localhost:4000/account/signup';

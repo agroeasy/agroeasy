@@ -20,9 +20,9 @@ export default class Signin extends React.Component {
   
     handleCreate = () => {
         const form = this.formRef.props.form;
-        form.validateFields(err => {
-            if (err) {
-                return;
+        form.validateFields(error => {
+            if (error) {
+                return error;
             }
   
             form.resetFields();
