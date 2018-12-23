@@ -65,6 +65,32 @@
 /*
  this is for Navibar.js and home.js
   */
+.main-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.nav-menu {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.avatar-container {
+    background-color: #001529 !important;
+}
+
+.home-avatar {
+    width: 55px;
+}
+
+.user-avatar-drop-down {
+    float: right;
+    bottom: 30px;
+    background-color: #f56a00;
+}
+
 .bg-img{
     background-image:
         linear-gradient( rgba(0, 0, 0, 0.336),
@@ -108,13 +134,6 @@
     display: table;
 }
 
-.nav {
-    position: fixed;
-    top: 0; left: 0; margin: 0;
-    padding: 0; width: 100%;
-    height: 80px;
-}
-
 img {
     margin-right: 50px;
 }
@@ -137,11 +156,6 @@ img {
     color: white !important;
     text-decoration: none;
     font-weight: 500;
-}
-
-.navLink {
-    color: #fff !important;
-    font-weight: 400;
 }
 
 .row {
