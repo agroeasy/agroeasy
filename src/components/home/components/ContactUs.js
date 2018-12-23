@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal } from 'antd';
 
-import { NAV_LINKS, CONTACT_US } from './constants';
+import { CONTACT_US } from './constants';
 import FormContent from './FormContent';
 
 const { BACK, CANCEL, PRIMARY, SMALL, SUBMIT, TITLE } = CONTACT_US;
@@ -34,8 +34,8 @@ export default class ContactUs extends React.Component {
         ];
         return (
             <div>
-                <div onClick={this.showModal} className={NAV_LINKS} >{TITLE}</div>
-                <Modal 
+                <div onClick={this.showModal} >{TITLE}</div>
+                <Modal
                     width={600}
                     visible={visible}
                     title={TITLE}

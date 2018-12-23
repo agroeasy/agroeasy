@@ -1,0 +1,116 @@
+/*
+Navbar Component
+*/
+.main-nav-div {
+    background-color: white;
+}
+
+.navbar-menu {
+    background: white;
+    float: right;
+    padding-top: 10px;
+}
+.nav-items {
+    color: black !important;
+    font-weight: 500;
+    margin-left: 54px;
+    margin-right: 54px;
+}
+.hi-user {
+    color: black !important;
+    margin-left: 54px;
+    margin-left: 54px;
+    font-weight: 400;
+}
+.hi-user-icon {
+    background-color: ash;
+    color: orange;
+    font-size: 40px;
+    size: 150px;
+}
+/*UserInfo */
+.header-title {
+    color: darkgray;
+    font-size: 13px;
+    font-weight: bold;
+}
+.data-title {
+    margin-top: 22px;
+    margin-bottom: 19.2px;  
+}
+.data-title div {
+     float: right;
+     font-size: 12.5px;
+     text-align: right;   
+}
+.data-title b {
+    font-size: 13.5px;
+}
+.basic-info {
+    margin-top: 15px;
+    padding-bottom: 17.4px; 
+}
+.basic-info b {
+    font-size: 13.5px;
+}
+.basic-info div {
+    float: right;
+    font-size: 13px;
+    padding-right: 40px; 
+}
+.big-card {
+    background-color: DodgerBlue;
+    width: 1000px;
+}
+.card-header {
+    color: white;
+    font-size: 16px;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    font-weight: 600;
+    padding-left: 37px; 
+}
+.inner-card {
+    padding-right: 40px; 
+    padding-left: 40px;
+}
+/**UserProfile.js */
+.big-content {
+    background: white;
+}
+.big-layout {
+    background: white;  
+    padding: 40px 0;
+    margin-top: 1%;
+}
+.sider {
+    background: white;
+   
+}
+.menu {
+    height: 126%;
+    padding-top: 20px;
+}
+.sm-content {
+    padding: 0 14px;
+}
+.info-card {
+    float: right;
+    width: 100%;
+}
+.card-meta {
+    margin-top: 35px;
+}
+.profile-content {
+  padding: 60px;
+}
+
+/** UserAvatar */
+.avatar {
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+}
+.avatar-card {
+    margin: -7%;
+    padding-top: 24px;
+}

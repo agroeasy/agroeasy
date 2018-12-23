@@ -34,12 +34,14 @@ class Home extends React.Component {
                         }
                     </div>
                     <Row>
-                        <Col className={SM_IMG}>
-                            <h1>{WELCOME_TEXT_1}</h1>
-                            <h4>{WELCOME_TEXT_2}</h4>
-                            <h5>{WELCOME_TEXT_3}</h5>
+                        <Col >
+                            <div className={SM_IMG}>
+                                <h1>{WELCOME_TEXT_1}</h1>
+                                <h4>{WELCOME_TEXT_2}</h4>
+                                <h5>{WELCOME_TEXT_3}</h5>
+                            </div>
+                            <div className={SEARCH}><Search /></div>
                         </Col>
-                        <Col className={SEARCH}><Search /></Col>
                     </Row>
                 </div>
                 <ProductList />
