@@ -68,7 +68,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#1,200",
         email: " ",
-        image: "/images/egg-crates.jpeg",
+        image: "/egg-crates.jpeg",
         location: "Owerri Imo State",
         name: "Egg crates",
         phone: " ",
@@ -77,7 +77,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#10,000",
         email: " ",
-        image: "/images/palmOil.jpg",
+        image: "/palmOil.jpg",
         location: " Ondo state",
         name: "Palm oil",
         phone: " ",
@@ -87,7 +87,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#11,500",
         email: " ",
-        image: "/images/onion-bags.jpg",
+        image: "/onion-bags.jpg",
         location: "Zaria, Kaduna state",
         name: "Onion bags",
         phone: " ",
@@ -97,7 +97,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#1,500",
         email: " ",
-        image: "/images/GroundnutOil.jpeg",
+        image: "/GroundnutOil.jpeg",
         location: "Shoprite, Owerri, Imo state",
         name: "Vegetable Oil ",
         phone: " ",
@@ -106,7 +106,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost : "#1.350",
         email : "myemail@example.com",
-        image: "/images/poultry-chicken.jpg",
+        image: "/poultry-chicken.jpg",
         location : "Niger state",
         name : "Abu's farm",
         phone : " ",
@@ -115,7 +115,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#500",
         email: "myemail@example.com",
-        image: "/images/greenBanana.jpeg",
+        image: "/greenBanana.jpeg",
         location: "Edo state",
         name: "Green banana",
         phone: " ",
@@ -124,7 +124,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#15,500",
         email: "myemail@example.com",
-        image: "/images/bagsofrice.jpg",
+        image: "/bagsofrice.jpg",
         location: "Gurara, Niger state",
         name: "Bags of rice",
         phone: " ",
@@ -133,7 +133,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#4,500",
         email: "myemail@example.com",
-        image: "/images/Drypepper.jpg",
+        image: "/Drypepper.jpg",
         location: "",
         name: "Dry pepper",
         phone: " ",
@@ -142,7 +142,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#750",
         email: "myemail@example.com",
-        image: "/images/lettuse.jpg",
+        image: "/lettuse.jpg",
         location: "",
         name: "Lettuses",
         phone: " ",
@@ -151,7 +151,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#5000",
         email: "myemail@example.com",
-        image: "/images/freshfarm.jpg",
+        image: "/freshfarm.jpg",
         location: "",
         name: "Fresh Farm",
         phone: " ",
@@ -160,7 +160,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#3,500",
         email: "myemail@example.com",
-        image: "/images/carrot.jpg",
+        image: "/carrot.jpg",
         location: "",
         name: "Carrot",
         phone: " ",
@@ -169,7 +169,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#1,299",
         email: "myemail@example.com",
-        image: "/images/poultry.jpg",
+        image: "/poultry.jpg",
         location: "",
         name: "Poultry",
         phone: " ",
@@ -178,7 +178,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#10,000",
         email: "myemail@example.com",
-        image: "/images/tomatoes.jpg",
+        image: "/tomatoes.jpg",
         location: "benue state",
         name: "Tomatoes",
         phone: " ",
@@ -187,7 +187,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#15,000",
         email: "myemail@example.com",
-        image: "/images/beans.jpg",
+        image: "/beans.jpg",
         location: "Niger state",
         name: "Bag of beans",
         phone: " ",
@@ -196,7 +196,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#2,000",
         email: "myemail@example.com",
-        image: "/images/prawn.jpg",
+        image: "/prawn.jpg",
         location: "Imo state",
         name: "Prawn",
         phone: " ",
@@ -205,7 +205,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#500",
         email: "myemail@example.com",
-        image: "/images/fruits.jpg",
+        image: "/fruits.jpg",
         location: "Ore, ondo state",
         name: "Jamal's fruit store",
         phone: " ",

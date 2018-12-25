@@ -16,7 +16,7 @@ export const NAVBAR = {
 
 //app logo
 export const LOGO = {
-    SOURCE:  "/images/Agroeasylogo.png",
+    SOURCE:  "/Agroeasylogo.png",
     WIDTH: "60px",
 };
 
