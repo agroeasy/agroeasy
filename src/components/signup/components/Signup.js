@@ -12,14 +12,14 @@ class Signup extends React.Component {
     state = {
         visible: false,
     };
-  
+
     showModal = () => {
         this.setState({ visible: true });
     }
     handleCancel = () => {
         this.setState({ visible: false });
     }
-  
+
     handleCreate = () => {
         const form = this.formRef.props.form;
         const { signupRequest } = this.props.actions;
@@ -27,7 +27,7 @@ class Signup extends React.Component {
             if (error) {
                 return error;
             }
-            form.resetFields();         
+            form.resetFields();
             const user = {
                 address: values.address,
                 city: values.city,
@@ -45,15 +45,15 @@ class Signup extends React.Component {
         });
 
     }
-  
+
     saveFormRef = formRef => {
         this.formRef = formRef;
     }
-  
+
     render() {
         return (
             <div>
-                <span type={PRIMARY} onClick={this.showModal}>{TITLE}</span>
+                <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
                 <SignupForm
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}
@@ -74,7 +74,7 @@ Signup.propTypes = {
     visible: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({ 
+const mapStateToProps = state => ({
     signupState: state.signup,
 });
 
@@ -82,4 +82,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(signupActions, dispatch),
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Signup); 
+export default connect(mapStateToProps,mapDispatchToProps)(Signup);

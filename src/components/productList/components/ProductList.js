@@ -2,7 +2,7 @@ import React from 'react';
 import { List } from 'antd';
 
 import Product from './Product';
-import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from './constants';
+import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from '../constants';
 
 // React Component used to render the list of product items
 class ProductList extends React.Component {
