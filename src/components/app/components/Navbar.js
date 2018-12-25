@@ -53,12 +53,12 @@ export default class Navbar extends React.Component {
                     theme={NAV_THEME}
                 >
                     {
-                        items.map(link => {
-                            const { key } = link;
+                        items.map(item => {
+                            const { key } = item;
                             const className = key === AVATAR ? CONTAINER : '';
 
                             return (
-                                <Item className={className} key={key}>{link}</Item>
+                                <Item className={className} key={key}>{item}</Item>
                             );
                         })
                     }

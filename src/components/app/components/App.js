@@ -12,11 +12,9 @@ class App extends React.Component {
         const { children } = this.props;
 
         return (
-            <Layout className="app-main-container" >
+            <Layout>
                 <Navbar />
-                <Content className="app-content-container">
-                    {children}
-                </Content>
+                <Content>{children}</Content>
                 <Footer />
             </Layout>
         );
