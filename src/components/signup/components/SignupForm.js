@@ -101,7 +101,7 @@ class SignupModal extends React.Component {
                             label={PRODUCT_TYPE}
                         >
                             {
-                                getFieldDecorator('productType', {
+                                getFieldDecorator('typeOfProducts', {
                                     rules:
                                     [{ message: MESSAGE, required: true }],
                                 })(

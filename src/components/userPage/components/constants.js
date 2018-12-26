@@ -16,7 +16,7 @@ export const NAVBAR = {
 
 //app logo
 export const LOGO = {
-    SOURCE:  "/images/Agroeasylogo.png",
+    SOURCE:  "/Agroeasylogo.png",
     WIDTH: "60px",
 };
 
@@ -41,7 +41,7 @@ export const USER_PAGE = {
         SIDER: 'sider',
         SM_CONTENT: 'sm-content',
     },
-    PROFILE_PIX: "./images/josh.jpg",
+    PROFILE_PIX: "./josh.jpg",
     STRINGS: {
         CENTER: 'center',
         DARK: 'dark',
