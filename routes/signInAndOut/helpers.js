@@ -77,8 +77,8 @@ export default {
 
                 return res.send(data);
             });
-        } catch(err) {
-            return res.send({ err, success: false });
+        } catch(error) {
+            return res.send({ error, success: false });
         }
     },
 };

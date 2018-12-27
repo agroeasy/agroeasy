@@ -1,11 +1,15 @@
 import React from 'react';
+import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import SigninForm from './SigninForm';
-import { SIGNIN_STRINGS } from './constants';
+import { SIGNIN_STRINGS } from '../constants';
+import * as signinActions from '../actions';
 
 const { PRIMARY, TITLE } = SIGNIN_STRINGS;
 
-export default class Signin extends React.Component {
+class Signin extends React.Component {
     state = {
         visible: false,
     };
@@ -20,11 +24,14 @@ export default class Signin extends React.Component {
   
     handleCreate = () => {
         const form = this.formRef.props.form;
-        form.validateFields(error => {
+        const { signinRequest } = this.props.actions;
+        form.validateFields((error, values) => {
             if (error) {
                 return error;
             }
-  
+            const { email, password } = values;
+
+            signinRequest(email, password);
             form.resetFields();
             this.setState({ visible: false });
         });
@@ -48,3 +55,13 @@ export default class Signin extends React.Component {
         );
     }
 }
+
+Signin.propTypes = {
+    actions: PropTypes.object,
+};
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(signinActions, dispatch),
+});
+
+export default connect(mapDispatchToProps)(Signin);

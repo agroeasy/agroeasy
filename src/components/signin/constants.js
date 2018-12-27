@@ -7,15 +7,17 @@ export const SIGNIN_STRINGS = {
 
 export const INPUTS = [
     {
-        field: 'title',
+        field: 'email',
         iconType: "user",
         placeholder: "Enter your username",
         rules: [{ message: "You have to input your username", required: true }],
     },
     {
-        field: 'description',
+        field: 'password',
         iconType: "lock",
         placeholder: "Enter your password",
         type: "password",
     },
 ];
+
+export const SIGNIN_URL = "http://localhost:4000/account/signin";

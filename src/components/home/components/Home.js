@@ -15,8 +15,8 @@ const { BG_IMG, SEARCH, SM_IMG, WELCOME_TEXT_1, WELCOME_TEXT_2, WELCOME_TEXT_3 }
 //this is the home page, containing sub-components ( Navibar, ListItems and Foot components)
 class Home extends React.Component {
     render() {
-        const { signupState } = this.props;
-        const { data } = signupState;
+        let { data } = this.props.signupState; 
+        data ? data : { data } = this.props.signinState;
         return (
             <div>
                 <Navibar />
@@ -52,10 +52,12 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    signinState: state.signin,
     signupState: state.signup,
 });
 
 Home.propTypes = {
+    signinState: PropTypes.object,
     signupState: PropTypes.object,
 };
 

@@ -70,16 +70,11 @@ Signup.propTypes = {
     form: PropTypes.object,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
-    signupState: PropTypes.object,
     visible: PropTypes.bool,
 };
-
-const mapStateToProps = state => ({ 
-    signupState: state.signup,
-});
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(signupActions, dispatch),
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Signup); 
+export default connect(mapDispatchToProps)(Signup); 
