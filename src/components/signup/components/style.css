@@ -1,23 +1,16 @@
-.scrollBar {
+.scroll-bar {
     overflow-y:auto;
     max-height:85%;
 }
 
-.agreementQuote {
-    font-size: 14px;
-    margin-left: 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.radiogroupform{
+.radio-group-form{
     font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.radiobuttons{
+.radio-buttons{
     font-size: 14px;
     margin-left: 20px;
     margin-top: 5px;
