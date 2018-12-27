@@ -39,6 +39,7 @@ class Signup extends React.Component {
                 password: values.password,
                 phoneNumber: values.phoneNumber,
                 state: values.state,
+                typeOfProducts:values.typeOfProducts,
                 username: values.username,
             };
             signupRequest(user);

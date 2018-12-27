@@ -9,26 +9,25 @@ import connectToDb from './db';
 import router from './routes';
 
 const app = express();
+const isDevEnv = process.env.NODE_ENV !== 'production';
+const appPath = isDevEnv ? `${__dirname}/dist` : __dirname;
 const server = http.createServer(app);
 const { PORT = 4000 } = process.env;
 
 // Add compression logic and handle compressed files
 app.use(compression());
-app.use('/', expressStaticGzip(__dirname, {
+app.use('/', expressStaticGzip(appPath, {
     enableBrotli: true,
     orderPreference: ['br', 'gz'],
 }));
-app.use('/images', express.static(__dirname));
+app.use('/images', express.static(appPath));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 /* Cross-Origin Resource Sharing CORS
 To enable access of resources from our server */
-
-if(process.env.NODE_ENV !== 'production'){
-    app.use(cors());
-}
+isDevEnv && app.use(cors());
 
 app.use('/', router);
 

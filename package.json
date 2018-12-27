@@ -1,6 +1,6 @@
 {
   "name": "agroeasy",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "dev": "webpack-dev-server --mode development --config webpack.base.config.js --open --hot --history-api-fallback",
     "build": "webpack --mode production --config webpack.prod.config.js && webpack --mode production --config webpack.server.config.js --progress",
     "prebuild": "rm -rf dist/*",
-    "start": "node dist/server.js",
+    "serve": "node dist/server.js",
+    "start": "nodemon --exec babel-node server.js",
     "lint": "eslint src db server.js routes"
   },
   "repository": {
@@ -80,6 +81,7 @@
     "imagemin-webpack": "^4.0.1",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
+    "nodemon": "^1.18.9",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
