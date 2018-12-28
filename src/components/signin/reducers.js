@@ -35,5 +35,7 @@ export default ( state = initialState, action) => {
             error: action.error,
             password: "",
         };
+    default:
+        return state;
     }
 };
