@@ -1,0 +1,41 @@
+@keyframes example {
+    0% {background-image: url(/images/oilmill.jpg);}
+    15% {background-image: url(/images/bkrnd2.jpg);}
+    25% {background-image: url(/images/marketer.jpg);}
+    35% {background-image: url(/images/rfdtfa.jpg);}
+    50% {background-image: url(/images/prawn.jpg);}
+    75% {background-image: url(/images/bkrnd1.jpg);}
+    100% {background-image: url(/images/carrot.jpg);}
+}
+.about-us {
+    background-image: url(/images/bagsofrice.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-name: example;
+    animation-duration: 120s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+    width: 100%;
+    height: 55vh;
+    
+    position: absolute;
+    top: 30%;
+}
+.text {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    opacity: 0.7;
+    color: white;
+    padding-bottom: 2%;
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 300px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    
+    
+}

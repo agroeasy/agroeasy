@@ -4,6 +4,8 @@ import { Layout } from 'antd';
 import ProfileContent from './ProfileContent';
 import Navibar from '../../home/components/Navibar';
 import SideMenu from './SideMenu';
+import Counter from '../../redux/Counter';
+import Practice from '../../redux/Practice';
 import { USER_PAGE } from './constants';
 
 const { Content, Sider } = Layout;
@@ -22,7 +24,9 @@ export default class UserProfile extends React.Component {
                             <SideMenu />
                         </Sider>
                         <Content className={SM_CONTENT}>
-                            <ProfileContent />  
+                            <ProfileContent /> 
+                            <Counter />
+                            <Practice /> 
                         </Content>
                     </Layout>
                 </Content>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout } from 'antd';
+import { Link } from 'react-router-dom';
 
 import { FOOTER_DATA, FOOTER_CLASSNAMES } from './constants';
 
@@ -11,7 +12,9 @@ const footers = FOOTER_DATA.map(footer => (
         <h3>{footer.header}</h3>
         {
             footer.items.map(item => (
-                <div key={item.title}>{item.title}</div>
+                <div key={item.title}>
+                    <Link to={item.link}>{item.title}</Link>
+                </div>
             ))
         }
     </div>
