@@ -23,25 +23,23 @@ const {
 } = SIGNUP_STRINGS;
 
 function generateSignupInputs(decorator) {
-    return INPUTS.map(input => {
-        const { field, inputType, label, rules } = input;
-
-        return (
-            <FormItem
-                key={field}
-                {...FORM_ITEM_LAYOUT}
-                label={label}
-            >
-                {
-                    decorator(field, {
-                        rules,
-                    })(
-                        <Input type={inputType} />
-                    )
-                }
-            </FormItem>
-        );
-    });
+    return INPUTS.map(({ field, inputType, label, rules }) =>
+    {
+        <FormItem
+            key={field}
+            {...FORM_ITEM_LAYOUT}
+            label={label}
+        >
+            {
+                decorator(field, {
+                    rules,
+                })(
+                    <Input type={inputType} />
+                )
+            }
+        </FormItem>;
+    }
+    );
 }
 
 function handleChange(value) {
