@@ -74,8 +74,12 @@ Signup.propTypes = {
     visible: PropTypes.bool,
 };
 
+const mapStateToProps = state => ({
+    signupState: state.signup,
+});
+
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(signupActions, dispatch),
 });
 
-export default connect(mapDispatchToProps)(Signup); 
+export default connect(mapStateToProps, mapDispatchToProps)(Signup); 

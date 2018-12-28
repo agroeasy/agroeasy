@@ -13,9 +13,9 @@ export default ( state = initialState, action) => {
         return {
             ...state,
             data:[],
-            email: action.email,
+            email: action.payload.email,
             error: null,
-            password: action.password,
+            password: action.payload.password,
         };
 
     case SIGNIN_SUCCESS:

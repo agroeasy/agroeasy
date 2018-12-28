@@ -29,10 +29,12 @@ class Signin extends React.Component {
             if (error) {
                 return error;
             }
-            const { email, password } = values;
-
-            signinRequest(email, password);
             form.resetFields();
+            const payload = {
+                email: values.email,
+                password: values.password,
+            };
+            signinRequest(payload);
             this.setState({ visible: false });
         });
     }
@@ -59,9 +61,12 @@ class Signin extends React.Component {
 Signin.propTypes = {
     actions: PropTypes.object,
 };
+const mapStateToProps = state => ({
+    signinState: state.signin,
+});
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(signinActions, dispatch),
 });
 
-export default connect(mapDispatchToProps)(Signin);
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);

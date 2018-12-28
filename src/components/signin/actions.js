@@ -1,8 +1,7 @@
 import { SIGNIN_FAILURE, SIGNIN_REQUEST, SIGNIN_SUCCESS } from './actionTypes';
 
-export const signinRequest = (email,password) => ({
-    email,
-    password,
+export const signinRequest = payload => ({
+    payload,
     type: SIGNIN_REQUEST,
 });
 

@@ -4,10 +4,10 @@ import { SIGNIN_URL } from './constants';
 import { signinSuccess, signinFailure } from './actions';
 
 function* signinUser(action){
-    const { email, password } = action;
+    const { payload } = action;
     try {
         const response = yield fetch(SIGNIN_URL, {
-            body: JSON.stringify(email, password),
+            body: JSON.stringify(payload),
             headers: {
                 'Content-Type': 'application/json',
             },
