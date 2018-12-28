@@ -13,15 +13,15 @@ class Signin extends React.Component {
     state = {
         visible: false,
     };
-  
+
     showModal = () => {
         this.setState({ visible: true });
     }
-  
+
     handleCancel = () => {
         this.setState({ visible: false });
     }
-  
+
     handleCreate = () => {
         const form = this.formRef.props.form;
         const { signinRequest } = this.props.actions;
@@ -29,22 +29,24 @@ class Signin extends React.Component {
             if (error) {
                 return error;
             }
-            const { email, password } = values;
-
-            signinRequest(email, password);
             form.resetFields();
+            const payload = {
+                email: values.email,
+                password: values.password,
+            };
+            signinRequest(payload);
             this.setState({ visible: false });
         });
     }
-  
+
     saveFormRef = formRef => {
         this.formRef = formRef;
     }
-   
+
     render() {
         return (
             <div>
-                <span type={PRIMARY} onClick={this.showModal}>{TITLE}</span>
+                <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
                 <SigninForm
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}
@@ -59,9 +61,12 @@ class Signin extends React.Component {
 Signin.propTypes = {
     actions: PropTypes.object,
 };
+const mapStateToProps = state => ({
+    signinState: state.signin,
+});
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(signinActions, dispatch),
 });
 
-export default connect(mapDispatchToProps)(Signin);
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'antd';
-import { PRODUCTS_AVAILABLE } from './constants';
+import { PRODUCTS_AVAILABLE } from '../constants';
 
 const { GROUPED_ITEMS, LIST } = PRODUCTS_AVAILABLE;
 

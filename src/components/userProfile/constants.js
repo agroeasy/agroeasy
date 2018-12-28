@@ -1,25 +1,3 @@
-export const NAVBAR = {
-    LINKS: {
-        HOME: '/',
-        SUPPORT: "/about/",
-    },
-    STINGS: {
-        CATEGORIES: "Categories",
-        FAQS: "FAQs",
-        HI_USER_ICON: "hi-user-icon",
-        HI_USER_TEXT: "Hi user!",
-        HOME_TEXT: "Home",
-        SUPPORT_TEXT: "Support",
-
-    },
-};
-
-//app logo
-export const LOGO = {
-    SOURCE:  "/Agroeasylogo.png",
-    WIDTH: "60px",
-};
-
 //userpage string
 export const USER_PAGE = {
     CLASSNAMES: {
