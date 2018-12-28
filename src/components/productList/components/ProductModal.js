@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Card, Modal } from 'antd';
 
-import { PRODUCT } from './constants';
+import { PRODUCT } from '../constants';
 
 const { BUY, CANCEL, COST, EMAIL, LOCATION, PHONE, PRODUCERS_NAME, QUANTITY } = PRODUCT;
 

@@ -13,15 +13,15 @@ class Signin extends React.Component {
     state = {
         visible: false,
     };
-  
+
     showModal = () => {
         this.setState({ visible: true });
     }
-  
+
     handleCancel = () => {
         this.setState({ visible: false });
     }
-  
+
     handleCreate = () => {
         const form = this.formRef.props.form;
         const { signinRequest } = this.props.actions;
@@ -36,15 +36,15 @@ class Signin extends React.Component {
             this.setState({ visible: false });
         });
     }
-  
+
     saveFormRef = formRef => {
         this.formRef = formRef;
     }
-   
+
     render() {
         return (
             <div>
-                <span type={PRIMARY} onClick={this.showModal}>{TITLE}</span>
+                <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
                 <SigninForm
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}

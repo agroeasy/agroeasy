@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PLACES, PRODUCTION_LOCATIONS } from './constants';
+import { PLACES, PRODUCTION_LOCATIONS } from '../constants';
 
 const { BIG_DIV, HEADER_TEXT, LINK_ITEMS } = PRODUCTION_LOCATIONS;
 
