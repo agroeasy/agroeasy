@@ -1,4 +1,6 @@
+import ContactUs from './ContactUs';
 import Home from './Home';
+
 import './styles.css';
 
-export default { Home };
+export { ContactUs, Home };

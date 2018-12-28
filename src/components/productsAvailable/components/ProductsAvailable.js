@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'antd';
 import GroupedItems from './GroupedItems';
-import { FOODSITEMS, FRUITS_VEGETABLES, LIVESTOCK, SPICES, PRODUCTS_AVAILABLE } from './constants';
+import { FOODSITEMS, FRUITS_VEGETABLES, LIVESTOCK, SPICES, PRODUCTS_AVAILABLE } from '../constants';
 
 const {
     AVAILABLE,
