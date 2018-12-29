@@ -18,9 +18,11 @@ const Routes = () => (
                 <Route path={HOME} exact strict component={home.components.Home} />
                 <Route path={MARKET} exact strict component={home.components.Home} />
                 <Route path={PROFILE} exact strict component={userProfile.components.UserProfile} />
-                <Route path={PRODUCER_DATA_PAGE} exact strict component={
-                    producerDataPage.components.producerDataPage
-                } 
+                <Route
+                    path={PRODUCER_DATA_PAGE}
+                    exact
+                    strict
+                    component={producerDataPage.components.AddItem} 
                 />
                 <Route component={NoMatch} />
             </Switch>
