@@ -13,8 +13,11 @@ const { BG_IMG, SEARCH, SM_IMG, WELCOME_TEXT_1, WELCOME_TEXT_2, WELCOME_TEXT_3 }
 //this is the home page, containing sub-components ( Navibar, ListItems and Foot components)
 class Home extends React.Component {
     render() {
-        let { data } = this.props.signupState; 
-        data ? data : { data } = this.props.signinState;
+        /* let { data } = this.props.signupState; 
+        data ? data : { data } = this.props.signinState; */
+        const { signinState, signupState } = this.props;
+        let { data } = signupState;
+        data[0] !== undefined ? data : { data } = signinState;
         return (
             <div>
                 <div className={BG_IMG}>

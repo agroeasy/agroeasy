@@ -73,7 +73,7 @@ export default {
             await bcrypt.compare(password, user.password, (error, result) => {
                 const data = result ?
                     { message: SUCCESSFUL_SIGNIN, success: true, token: doc._id } :
-                    { error, message: INVALID_SIGNIN };
+                    { error, message: INVALID_SIGNIN, success: false };
 
                 return res.send(data);
             });
