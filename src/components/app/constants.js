@@ -28,12 +28,14 @@ export const PATHS = {
     CONTACT: '/contact',
     HOME: '/',
     MARKET: '/market',
+    PRODUCER_DATA_PAGE: '/producerDataPage',
     PROFILE: '/profile',
     SIGN_IN: '/signin',
     SIGN_UP: '/signup',
 };
 
 export const USER_AVATAR = {
+    ADD_ITEM: "Add Item",
     CONTAINER: "avatar-container",
     ICON_TYPE: "user",
     SIGN_OUT: "Sign Out",
