@@ -77,7 +77,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#10,000",
         email: " ",
-        image: "/palmOil.jpg",
+        image: "/PalmOil.JPG",
         location: " Ondo state",
         name: "Palm oil",
         phone: " ",
@@ -151,7 +151,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#5000",
         email: "myemail@example.com",
-        image: "/freshfarm.jpg",
+        image: "/freshfarm.JPG",
         location: "",
         name: "Fresh Farm",
         phone: " ",
@@ -205,7 +205,7 @@ export const EXAMPLE_PRODUCTS = [
     {
         cost: "#500",
         email: "myemail@example.com",
-        image: "/fruits.jpg",
+        image: "/Fruits.jpg",
         location: "Ore, ondo state",
         name: "Jamal's fruit store",
         phone: " ",
