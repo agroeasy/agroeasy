@@ -2,11 +2,14 @@ import React from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { message } from 'antd';
 
 import SigninForm from './SigninForm';
 import { SIGNIN_STRINGS } from '../constants';
 import * as signinActions from '../actions';
+import * as  signinSelectors from '../selectors';
 
+const { getMessage, getStatus } = signinSelectors;
 const { PRIMARY, TITLE } = SIGNIN_STRINGS;
 
 class Signin extends React.Component {
@@ -37,6 +40,7 @@ class Signin extends React.Component {
             signinRequest(payload);
             this.setState({ visible: false });
         });
+        
     }
 
     saveFormRef = formRef => {
@@ -44,6 +48,8 @@ class Signin extends React.Component {
     }
 
     render() {
+        const { signinMessage, signinStatus } = this.props;
+
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -53,6 +59,15 @@ class Signin extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                 />
+                {
+                    signinStatus !== undefined &&
+                    <span>
+                        {
+                            signinStatus ? message.success(signinMessage, 5) :
+                                message.error(signinMessage, 5)
+                        }
+                    </span>
+                }
             </div>
         );
     }
@@ -60,9 +75,12 @@ class Signin extends React.Component {
 
 Signin.propTypes = {
     actions: PropTypes.object,
+    signinMessage: PropTypes.string,
+    signinStatus: PropTypes.bool,
 };
 const mapStateToProps = state => ({
-    signinState: state.signin,
+    signinMessage: getMessage(state),
+    signinStatus: getStatus(state),
 });
 
 const mapDispatchToProps = dispatch => ({

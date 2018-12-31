@@ -1,4 +1,5 @@
 /* Signup Form Strings*/
+export const NAME =  "signup";
 export const SIGNUP_STRINGS = {
     CATEGORIES: "Select Categories",
     MESSAGE: "Please select category",
