@@ -1,9 +1,10 @@
 import { SIGNIN_FAILURE, SIGNIN_REQUEST, SIGNIN_SUCCESS } from './actionTypes';
 
 const initialState = {
-    data: [],
     email: "",
     error: null,
+    isSigninSuccessful: false,
+    message: "",
     password: "",
 };
 
@@ -12,25 +13,26 @@ export default ( state = initialState, action) => {
     case SIGNIN_REQUEST:
         return {
             ...state,
-            data:[],
             email: action.payload.email,
             error: null,
             password: action.payload.password,
         };
 
-    case SIGNIN_SUCCESS:
+    case SIGNIN_SUCCESS:{
+        const { message, success: isSigninSuccessful } = action.data;
         return {
             ...state,
-            data: action.data,
             email: "",
             error: null,
+            isSigninSuccessful,
+            message,
             password: "",
         };
+    }
 
     case SIGNIN_FAILURE:
         return {
             ...state,
-            data: [],
             email: "",
             error: action.error,
             password: "",

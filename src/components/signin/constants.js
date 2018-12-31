@@ -1,4 +1,6 @@
 /* Signin Form Strings*/
+export const NAME = 'signin';
+
 export const SIGNIN_STRINGS = {
     CHECKBOX_REMINDER: "Remember me",
     PRIMARY: "primary",
