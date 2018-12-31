@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, message, Row } from 'antd';
+import { Alert, Col, message, Row, Spin } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -16,13 +16,15 @@ class Home extends React.Component {
         /* let { data } = this.props.signupState; 
         data ? data : { data } = this.props.signinState; */
         const { signinState, signupState } = this.props;
-        let { data } = signupState;
-        data[0] !== undefined ? data : { data } = signinState;
+        let { data, isLoading } = signupState;
+        data.success !== undefined ? data : { data } = signinState;
         return (
             <div>
                 <div className={BG_IMG}>
                     <div >
-
+                        {
+                            isLoading &&  <Spin size="large" />
+                        }
                         {
                             data.success !== undefined &&
                             <span>
