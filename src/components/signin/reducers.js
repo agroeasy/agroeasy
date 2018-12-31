@@ -3,7 +3,7 @@ import { SIGNIN_FAILURE, SIGNIN_REQUEST, SIGNIN_SUCCESS } from './actionTypes';
 const initialState = {
     email: "",
     error: null,
-    isSigninSuccessful: false,
+    isLoading:false,
     message: "",
     password: "",
 };
@@ -15,6 +15,7 @@ export default ( state = initialState, action) => {
             ...state,
             email: action.payload.email,
             error: null,
+            isLoading: true,
             password: action.payload.password,
         };
 
@@ -24,6 +25,7 @@ export default ( state = initialState, action) => {
             ...state,
             email: "",
             error: null,
+            isLoading: false,
             isSigninSuccessful,
             message,
             password: "",
@@ -35,6 +37,8 @@ export default ( state = initialState, action) => {
             ...state,
             email: "",
             error: action.error,
+            isLoading: false,
+            isSigninSuccessful: false,
             password: "",
         };
     default:
