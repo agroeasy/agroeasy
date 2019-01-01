@@ -1,14 +1,14 @@
 import React from 'react';
 import { Avatar, Card } from 'antd';
 
-import { BASIC_INFOMATION, USER_PAGE } from './constants';
+import { BASIC_INFOMATION, USER_PAGE } from '../constants';
 
 const { Meta } = Card;
-const { 
+const {
     CLASSNAMES: { AVATAR, AVATAR_CARD, BASIC_INFO, HEADER_TITLE },
-    PROFILE_PIX, 
+    PROFILE_PIX,
     STRINGS: { SQUARE },
-    TEXTS: { BASIC_INFO_TEXT }, 
+    TEXTS: { BASIC_INFO_TEXT },
 } = USER_PAGE;
 
 class UserAvatar extends React.Component {
@@ -17,12 +17,12 @@ class UserAvatar extends React.Component {
             <div>
                 <Avatar
                     className={AVATAR}
-                    src={PROFILE_PIX} 
-                    size={170} 
+                    src={PROFILE_PIX}
+                    size={170}
                     shape={SQUARE}
                 />
-                <Card bordered={false} className={AVATAR_CARD}> 
-                    <Meta 
+                <Card bordered={false} className={AVATAR_CARD}>
+                    <Meta
                         title={<h4 className={HEADER_TITLE}>{BASIC_INFO_TEXT}</h4>}
                         description={
                             BASIC_INFOMATION.map(data => (
@@ -40,4 +40,3 @@ class UserAvatar extends React.Component {
 }
 
 export default UserAvatar;
-

@@ -3,7 +3,7 @@ import { Col, Row } from 'antd';
 
 import UserAvatar from './UserAvatar';
 import UserInfo from './UserInfo';
-import { USER_PAGE } from './constants';
+import { USER_PAGE } from '../constants';
 
 const { CLASSNAMES: { PROFILE_CONTENT }, TEXTS: { FLEX, START } } = USER_PAGE;
 

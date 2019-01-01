@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Icon, Layout, List, Avatar } from 'antd';
 
-import Navibar from '../../home/components/Navibar';
 import { ABOUT_US, ABOUT_TEXT, TEAM_INFO } from './constants';
 
 const { Meta } = Card;
@@ -14,7 +13,7 @@ class AboutUs extends React.Component {
         return (
             <Layout>
                 <Content>
-                    <Navibar />
+                    
                     <div>
                         <div className="top-div">
                             <p className="top-text">{TEXT_ONE}</p>

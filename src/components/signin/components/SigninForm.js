@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Checkbox, Form, Icon, Input, Modal } from 'antd';
 
-import { INPUTS, SIGNIN_STRINGS } from './constants';
+import { INPUTS, SIGNIN_STRINGS } from '../constants';
 
 const FormItem = Form.Item;
 const { CHECKBOX_REMINDER, TITLE } = SIGNIN_STRINGS;

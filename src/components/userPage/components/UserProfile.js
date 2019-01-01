@@ -22,16 +22,16 @@ export default class UserProfile extends React.Component {
                             <SideMenu />
                         </Sider>
                         <Content className={SM_CONTENT}>
-                            <ProfileContent />
+                            <ProfileContent /> 
                         </Content>
                     </Layout>
                 </Content>
                 <Carousel autoplay effect="fade">
-                        <div><h3 style={{ textAlign: 'center' }}>one</h3></div>
-                        <div><h3 style={{ textAlign: 'center' }}>two</h3></div>
-                        <div><h3 style={{ textAlign: 'center' }}>three</h3></div>
-                        <div><h3 style={{ textAlign: 'center' }}>four</h3></div>
-                    </Carousel>
+                    <div><h3 style={{ textAlign: 'center' }}>one</h3></div>
+                    <div><h3 style={{ textAlign: 'center' }}>two</h3></div>
+                    <div><h3 style={{ textAlign: 'center' }}>three</h3></div>
+                    <div><h3 style={{ textAlign: 'center' }}>four</h3></div>
+                </Carousel>
             </Layout>
         );
     }

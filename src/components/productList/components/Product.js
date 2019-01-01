@@ -3,7 +3,7 @@ import React from 'react';
 import { Avatar, Card, Icon, Tag } from 'antd';
 
 import ProductModal from './ProductModal';
-import { PRODUCT } from './constants';
+import { PRODUCT } from '../constants';
 
 const { Meta } = Card;
 const {

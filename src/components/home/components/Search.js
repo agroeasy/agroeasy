@@ -1,7 +1,7 @@
 import React from 'react';
 import  { Col, Input, Row } from 'antd';
 
-import { SEARCH } from './constants';
+import { SEARCH } from '../constants';
 
 const Search = Input.Search;
 const { CENTER, FLEX, LARGE, SEARCH_PRODUCTS } = SEARCH;

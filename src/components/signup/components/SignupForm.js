@@ -23,32 +23,28 @@ const {
 } = SIGNUP_STRINGS;
 
 function generateSignupInputs(decorator) {
-    return INPUTS.map(input => {
-        const { field, inputType, label, rules } = input;
-
-        return (
-            <FormItem
-                key={field}
-                {...FORM_ITEM_LAYOUT}
-                label={label}
-            >
-                {
-                    decorator(field, {
-                        rules,
-                    })(
-                        <Input type={inputType} />
-                    )
-                }
-            </FormItem>
-        );
-    });
+    return INPUTS.map(({ field, inputType, label, rules }) => (
+        <FormItem
+            key={field}
+            {...FORM_ITEM_LAYOUT}
+            label={label}
+        >
+            {
+                decorator(field, {
+                    rules,
+                })(
+                    <Input type={inputType} />
+                )
+            }
+        </FormItem>
+    ));
 }
 
 function handleChange(value) {
     return value;
 }
 
-function generateFilterOption(input, option) { 
+function generateFilterOption(input, option) {
     const children = option.props.children.toLowerCase();
     const currInput = input.toLowerCase();
     return children.indexOf(currInput) >= 0;
@@ -70,7 +66,7 @@ class SignupModal extends React.Component {
         const { getFieldDecorator } = form;
         const { isProducer } = this.state;
         const createCategories = PRODUCTS.map(({ category, value }) =>
-            <Option key={value} >{category}</Option> 
+            <Option key={value} >{category}</Option>
         );
 
         return (
@@ -85,7 +81,7 @@ class SignupModal extends React.Component {
                 <Form>
                     <FormItem className={RADIO_GROUP_FORM}>
                         {PRODUCER}
-                        <Radio.Group 
+                        <Radio.Group
                             defaultValue={false}
                             buttonStyle={SOLID}
                             onChange={this.toggleIsProducer}
@@ -103,7 +99,7 @@ class SignupModal extends React.Component {
                             label={PRODUCT_TYPE}
                         >
                             {
-                                getFieldDecorator('productType', {
+                                getFieldDecorator('typeOfProducts', {
                                     rules:
                                     [{ message: MESSAGE, required: true }],
                                 })(
@@ -137,4 +133,3 @@ SignupModal.propTypes = {
 };
 
 export default SignupForm;
-
