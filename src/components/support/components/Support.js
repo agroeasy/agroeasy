@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Col, Row } from 'antd';
 
-import { HOME, SUPPORT_STRINGS } from './constants';
+import { HOME, SUPPORT_STRINGS } from '../constants';
 
 const {
     BOTTON_TEXT,
