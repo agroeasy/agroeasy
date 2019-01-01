@@ -3,6 +3,13 @@ import {  SIGNIN_REQUEST } from './actionTypes';
 import { SIGNIN_URL } from './constants';
 import { signinSuccess, signinFailure } from './actions';
 
+/**
+ * Makes a request to sign in a user
+ *
+ * @param {object} [action] The data passed from the watcher generator
+ *
+ * @return {object} An object containing either "data" or "error"
+ */
 function* signinUser(action){
     const { payload } = action;
     try {
@@ -21,11 +28,18 @@ function* signinUser(action){
         yield effects.put(signinFailure(error));
     }
 }
-
+/**
+ * @function
+ * Watches for the {@link actionTypes.SIGNIN_REQUEST SIGNIN_REQUEST} action.
+ * Triggers request to capture data from body
+ *
+ * @return {void}
+ */
 function* watchSigninUser(){
     try {
         yield effects.takeLatest(SIGNIN_REQUEST, signinUser);
     } catch(error){
+        // eslint-disable-next-line no-console
         console.log(error);
     }
 }
