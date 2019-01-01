@@ -1,3 +1,6 @@
+.content {
+    background: white;
+}
 @keyframes example {
     0% {background-image: url(/images/rfdtfa.jpg);}
     15% {background-image: url(/images/oilmill.jpg);}
@@ -19,59 +22,50 @@
     animation-play-state: running;
     animation-fill-mode: forwards;
     width: 100%;
-    height: 55vh;
+    margin-top: -5%;
+    height: 57vh;
     color: black; 
     text-align: center;  
     font-family:  Tahoma,  Verdana, sans-serif;
-    position: absolute;
-    bottom: -10%;
+   
 }
 
 .text {
-    position: absolute;
-    bottom: 0%;
     background: rgb(0, 0, 0);
     opacity: 0.4;
     color: whitesmoke;
-    text-align: auto;
+    text-align: left;
     font-size: 20px;
     font-family: tahoma;
     font-weight: 600;
-    margin: 0;
     width: 100%;
 }
 .top-div {
-    background: white;
-    position: absolute;
-    bottom: 50%;
-    left: 24%;
-    width: 50%;
+    background: white; 
     text-align: center;
 }
 .top-text {
-    text-align: justify;
-    color: darkslategray;
-    font-size: 18px;
+    text-align: center;
+    font-size: 19px;
     font-weight: 500;
-    font-family: 'Arial Narrow Bold', sans-serif
+    font-family:  'Geneva', Verdana, sans-serif;
 }
 .top-text:first-letter {
     font-size: 25px;
     font-style: italic;
 }
-
-.profile-div {
-    position: absolute;
-    top: 110%;
-    width: 100%;
+.top-card {
+    margin-left: 23%;
+    margin-top: 4%; 
+    padding-top: 2%;
+    width: 50%;
 }
 .team-card {
     position: relative;
-    left: 45%;
-    width: 113%;
+    left: 49%;
+    width: 100%;
     text-align: center; 
-    padding-top: 8%;
-    margin-top: 15%;
+    margin-top: 8%;
 }
 .avatar { 
     width: 55%;
@@ -83,4 +77,9 @@
 .team-profile {
     font-size: 16px; 
     text-align: justify;
+}
+.team-header {
+    text-align: center;
+    font-size: 23px;
+    margin: 2%;
 }

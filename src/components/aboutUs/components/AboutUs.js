@@ -1,57 +1,42 @@
 import React from 'react';
-import { Card, Icon, Layout, List, Avatar } from 'antd';
+import { Card, Carousel } from 'antd';
 
-import { ABOUT_US, ABOUT_TEXT, TEAM_INFO } from './constants';
+import { ABOUT_US, IMAGE_STYLE, MARKET_SCENES } from './constants';
+import TeamProfile from './TeamProfile';
 
-const { Meta } = Card;
-const { Content } = Layout;
-const { TEXT_ONE, TEXT_TWO } = ABOUT_TEXT;
-const { CLASSNAMES: { AVATAR, COVER, TEAM_CARD } } = ABOUT_US;
+const { 
+    CLASSNAMES: { CONTENT, TEAM_HEADER,  TOP_DIV, TOP_TEXT },
+    STRINGS: { },
+    TEXTS: { HEADER_TEXT, TOPMOST_TEXT }, 
+} = ABOUT_US;
+const { width } = IMAGE_STYLE;
 
 class AboutUs extends React.Component {
     render() {
         return (
-            <Layout>
-                <Content>
-                    
-                    <div>
-                        <div className="top-div">
-                            <p className="top-text">{TEXT_ONE}</p>
-                        </div>
-                        <div className={COVER}>
-                            <p className='text'>{TEXT_TWO}</p>
-                        </div>
-                        <div className="profile-div">
-                            <List  
-                                bordered
-                                dataSource={TEAM_INFO}
-                                grid={{ gutter: 12, lg: 4, md: 3.7, sm: 1.7, xs: 1.8, xxl: 3 }}
-                                renderItem={item => (
-                                    <List.Item>
-                                        <div key={item.name}>
-                                            <Card
-                                                hoverable
-                                                bordered={false}
-                                                className={TEAM_CARD}
-                                                cover={<Avatar src={item.photo} shape="square" className={AVATAR}  />}
-                                                actions={[<Icon type="linkedin" key="icon" />, 
-                                                    <Icon type="facebook" key="icon" />, 
-                                                    <Icon type="github" key="icon" />]}
-                                            >
-                                                <Meta
-                                                    title={item.name}
-                                                    description={<p className="team-profile" >{item.description}</p>}
-                                                />
-                                            </Card>
-                                        </div>
-                                    </List.Item>
-                                )}
-                            />
-                        </div>
-                    </div>
-                </Content>
-               
-            </Layout>
+            <div className={CONTENT}>
+                <div className={TOP_DIV}>
+                    <Card bordered={false} className="top-card">
+                        <p className={TOP_TEXT}>{TOPMOST_TEXT}</p>
+                    </Card>
+                </div>
+                <div>
+                    <Carousel autoplay effect="fade">
+                        {
+                            MARKET_SCENES.map(market_scene => (
+                                <div key={market_scene}>
+                                    <img src={market_scene} width={width} />
+                                </div>
+                            ))
+                        }
+                        
+                    </Carousel>
+                </div>
+                <div>
+                    <h1 className={TEAM_HEADER}><u>{HEADER_TEXT}</u></h1>
+                    <TeamProfile />
+                </div>
+            </div>
         );
     }
 }
