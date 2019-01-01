@@ -73,7 +73,9 @@ export const FOOTER_DATA = [{
     key: 'product',
 }, {
     header: 'About Us',
-    items: [{ title: 'Who is Argo Easy?' }, { title: 'Our Mission' }, { title: 'Our Customers' }],
+    items: [{ link: '/who-is-agroeasy/', title: 'Who is Argo Easy?' },
+        { title: 'Our Mission' }, 
+        { title: 'Our Customers' }],
     key: 'about',
 }, {
     header: 'Support',
