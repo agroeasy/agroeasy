@@ -9,8 +9,8 @@ import connectToDb from './db';
 import router from './routes';
 
 const app = express();
+const appPath = __dirname;
 const isDevEnv = process.env.NODE_ENV !== 'production';
-const appPath = isDevEnv ? `${__dirname}/dist` : __dirname;
 const server = http.createServer(app);
 const { PORT = 4000 } = process.env;
 
