@@ -7,7 +7,6 @@ import home from '../../home';
 
 import signin from '../../signin';
 import signup from '../../signup';
-
 import { LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
 
 const { Item } = Menu;
