@@ -1,15 +1,3 @@
-.hi-user {
-    color: black !important;
-    margin-left: 54px;
-    margin-left: 54px;
-    font-weight: 400;
-}
-.hi-user-icon {
-    background-color: ash;
-    color: orange;
-    font-size: 40px;
-    size: 150px;
-}
 /*UserInfo */
 .header-title {
     color: darkgray;
@@ -94,4 +82,12 @@
 .avatar-card {
     margin: -7%;
     padding-top: 24px;
+}
+
+/* Prodeucer */
+.product-item{
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 70px;
+    margin-bottom: 5px;
 }
