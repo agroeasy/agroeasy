@@ -1,7 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 
-import AddItem from './AddItem';
 import UserAvatar from './UserAvatar';
 import UserInfo from './UserInfo';
 import { USER_PAGE } from '../constants';
@@ -16,7 +15,6 @@ class ProfileContent extends React.Component {
                     <Col span={6}><UserAvatar /></Col>
                     <Col span={15}><UserInfo /></Col>
                 </Row>
-                <AddItem />
             </div>
 
         );

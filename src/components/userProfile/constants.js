@@ -15,6 +15,7 @@ export const USER_PAGE = {
         INNER_CARD: 'inner-card',
         ITEM_LAYOUT: 'horizontal',
         MENU: 'menu',
+        PRODUCT_ITEM: 'product-item',
         PROFILE_CONTENT: 'profile-content',
         SIDER: 'sider',
         SM_CONTENT: 'sm-content',
@@ -23,10 +24,13 @@ export const USER_PAGE = {
     STRINGS: {
         CENTER: 'center',
         DARK: 'dark',
+        EDIT: 'edit',
         FLEX: 'flex',
         FOLDER: 'folder',
         INFO_CIRCLE: 'info-circle',
         INLINE: 'inline',
+        LARGE: 'large',
+        LOGO: 'logo',
         MESSAGE: 'message',
         NOTIFICATION: 'notification',
         ORIENTATION: 'left',
@@ -37,6 +41,7 @@ export const USER_PAGE = {
         SOLUTION: 'solution',
         SQUARE: 'square',
         START: 'start',
+        VERTICAL: 'vertical',
     },
     TEXTS: {
         ACCOUNT_INFO: 'Account Info',
@@ -70,13 +75,13 @@ export const LOCATION = [
 ];
 
 export const SIDE_MENU_ITEMS = [
-    { iconType: "info-circle", label: "Account Info" },
-    { iconType: "message", label: "Messages" },
-    { iconType: "notification", label: "Notifications" },
-    { iconType: "shopping", label: "Purchases" },
-    { iconType: "folder", label: "Add Items" },
-    { iconType: "setting", label: "Settings" },
-    { iconType: "solution", label: "Help" },
+    { iconType: "info-circle", label: "Account Info", path:"./ProfileContent" },
+    { iconType: "message", label: "Messages", path:"./messages" },
+    { iconType: "notification", label: "Notifications", path:"./notifications" },
+    { iconType: "shopping", label: "Purchases", path:"./purchases" },
+    { iconType: "folder", label: "Add Items", path:"./AddItem" },
+    { iconType: "setting", label: "Settings", path:"./settings" },
+    { iconType: "solution", label: "Help", path:"./help" },
 ];
 
 export const LIST_DATA = [

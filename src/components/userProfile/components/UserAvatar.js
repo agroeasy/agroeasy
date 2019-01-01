@@ -11,7 +11,7 @@ const {
     TEXTS: { BASIC_INFO_TEXT },
 } = USER_PAGE;
 
-class UserAvatar extends React.Component {
+export default class UserAvatar extends React.Component {
     render() {
         return(
             <div>
@@ -38,5 +38,3 @@ class UserAvatar extends React.Component {
         );
     }
 }
-
-export default UserAvatar;
