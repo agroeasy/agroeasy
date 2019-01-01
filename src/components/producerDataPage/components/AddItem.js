@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Avatar, Icon } from 'antd';
-import { LISTDATA } from '../constants';
+import { LIST_DATA } from '../constants';
 
 const IconText = ({ type, text }) => (
     <span>
@@ -14,29 +14,31 @@ export default class AddItem extends React.Component {
         return (
             <div className='product-item'>
                 <List
+                    bordered={true}
                     itemLayout="vertical"
                     size="large"
                     pagination={{
                         onChange: page => {
                             return page;
                         },
-                        pageSize: 3,
+                        pageSize: 10,
                     }}
-                    dataSource={LISTDATA}
+                    dataSource={LIST_DATA}
                     footer={
                         <a href={'./'}><b><Icon type="plus" /></b> Add an item for sale</a>
                     }
                     renderItem={item => (
                         <List.Item
-                            actions={[<a>edit</a>]}
+                            actions={[<Icon key="edit" type="edit" />]}
                             key={item.title}
-                            extra={<img width={272} alt="logo" src={item.avatar} />}
+                            extra={<img width={200} alt="logo" src={item.avatar} />}
                         >
                             <List.Item.Meta
                                 avatar={<Avatar src={item.avatar} />}
-                                title={<a href={item.href}>{item.title}</a>}
+                                title={item.title}
                                 cost={item.cost}
                                 location={location}
+                                description={item.description}
                             />
                             {item.description}
                         </List.Item>
