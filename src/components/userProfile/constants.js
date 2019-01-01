@@ -75,13 +75,13 @@ export const LOCATION = [
 ];
 
 export const SIDE_MENU_ITEMS = [
-    { iconType: "info-circle", label: "Account Info", path:"./ProfileContent" },
-    { iconType: "message", label: "Messages", path:"./messages" },
-    { iconType: "notification", label: "Notifications", path:"./notifications" },
-    { iconType: "shopping", label: "Purchases", path:"./purchases" },
-    { iconType: "folder", label: "Add Items", path:"./AddItem" },
-    { iconType: "setting", label: "Settings", path:"./settings" },
-    { iconType: "solution", label: "Help", path:"./help" },
+    { iconType: "info-circle", label: "Account Info", path:"./components/ProfileContent" },
+    { iconType: "message", label: "Messages", path:"/" },
+    { iconType: "notification", label: "Notifications", path:"/" },
+    { iconType: "shopping", label: "Purchases", path:"/" },
+    { iconType: "folder", label: "Add Items", path:"./components/AddItem" },
+    { iconType: "setting", label: "Settings", path:"/" },
+    { iconType: "solution", label: "Help", path:"/" },
 ];
 
 export const LIST_DATA = [
