@@ -5,8 +5,8 @@ import { ABOUT_US, IMAGE_STYLE, MARKET_SCENES } from './constants';
 import TeamProfile from './TeamProfile';
 
 const { 
-    CLASSNAMES: { CONTENT, TEAM_HEADER,  TOP_DIV, TOP_TEXT },
-    STRINGS: { },
+    CLASSNAMES: { CONTENT, TEAM_HEADER, TOP_CARD, TOP_DIV, TOP_TEXT },
+    STRINGS: { FADE },
     TEXTS: { HEADER_TEXT, TOPMOST_TEXT }, 
 } = ABOUT_US;
 const { width } = IMAGE_STYLE;
@@ -16,12 +16,12 @@ class AboutUs extends React.Component {
         return (
             <div className={CONTENT}>
                 <div className={TOP_DIV}>
-                    <Card bordered={false} className="top-card">
+                    <Card bordered={false} className={TOP_CARD}>
                         <p className={TOP_TEXT}>{TOPMOST_TEXT}</p>
                     </Card>
                 </div>
                 <div>
-                    <Carousel autoplay effect="fade">
+                    <Carousel autoplay effect={FADE}>
                         {
                             MARKET_SCENES.map(market_scene => (
                                 <div key={market_scene}>

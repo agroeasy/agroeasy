@@ -23,9 +23,9 @@ class TeamProfile extends React.Component {
                                 hoverable
                                 bordered={false}
                                 className={TEAM_CARD}
-                                cover={<Avatar src={item.photo} shape={SQUARE}
-                                    className={AVATAR}
-                                />}
+                                cover={
+                                    <Avatar src={item.photo} shape={SQUARE} className={AVATAR} />
+                                }
                                 actions={[<Icon type={LINKEDIN} key={ICON} />, 
                                     <Icon type={FACEBOOK} key={ICON} />, 
                                     <Icon type={GITHUB} key={ICON} />]}

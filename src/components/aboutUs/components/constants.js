@@ -2,15 +2,16 @@ export const ABOUT_US = {
     CLASSNAMES: {
         AVATAR: 'avatar',
         CONTENT: 'content',
-        COVER: 'cover',
         TEAM_CARD: 'team-card',
         TEAM_HEADER: 'team-header',
         TEAM_PROFILE: 'team-profile',
+        TOP_CARD: 'top-card',
         TOP_DIV: 'top-div',
         TOP_TEXT: 'top-text',
     },
     STRINGS: {
         FACEBOOK: 'facebook',
+        FADE: 'fade',
         GITHUB: 'github',
         ICON: 'icon',
         LINKEDIN: 'linkedin',
