@@ -5,9 +5,10 @@ import app from '../../app';
 import home from '../../home';
 import NoMatch from './NoMatch';
 import userProfile from '../../userProfile';
+import producerData from '../../producerData';
 import { PATHS } from '../constants';
 
-const { HOME, MARKET, PROFILE } = PATHS;
+const { HOME, MARKET, PROFILE, PRODUCER_DATA_PAGE } = PATHS;
 const { App } = app.components;
 
 const Routes = () => (
@@ -17,6 +18,12 @@ const Routes = () => (
                 <Route path={HOME} exact strict component={home.components.Home} />
                 <Route path={MARKET} exact strict component={home.components.Home} />
                 <Route path={PROFILE} exact strict component={userProfile.components.UserProfile} />
+                <Route
+                    path={PRODUCER_DATA_PAGE}
+                    exact
+                    strict
+                    component={producerData.components.AddItem}
+                />
                 <Route component={NoMatch} />
             </Switch>
         </App>
