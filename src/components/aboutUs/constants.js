@@ -4,8 +4,6 @@ export const ABOUT_US = {
         CONTENT: 'content',
         TEAM_CARD: 'team-card',
         TEAM_HEADER: 'team-header',
-        TOP_CARD: 'top-card',
-        TOP_DIV: 'top-div',
         TOP_TEXT: 'top-text',
     },
     STRINGS: {
@@ -36,7 +34,7 @@ export const TEAM_INFO = [
             At Enye, he learnt how best to be able to accomplish. His focus and passion will
             ensure Agroeasy provides the best of service to all our customers. `,
         name: "Josh Obinna",
-        photo: '/images/obinna.jpg',
+        photo: '/obinna.jpg',
     },
     {
         description: `She loves playing around with codes, encountering errors, fixing bugs,
@@ -47,7 +45,7 @@ export const TEAM_INFO = [
             lover of graphic design. She looks forward to building one of the largest Agro
             E-commerce platform with the collaboration of her colleagues.`,
         name: "Chioma Onyekpere",
-        photo: '/images/chiomaa.jpg',
+        photo: '/chiomaa.jpg',
     },
     {
         description: `He is a dedicated full-statck web developer, who is skilled in javascript.
@@ -58,7 +56,7 @@ export const TEAM_INFO = [
             Presently, he is on internship at Silicon jungle labs, where he is  leveraging on the
             power of more experts to reach a climax where, he will be one of the best. `,
         name: "Okemmadu Eric",
-        photo: '/images/okemmadu.jpg',
+        photo: '/okemmadu.jpg',
     },
 ];
 
