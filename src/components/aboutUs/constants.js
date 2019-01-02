@@ -4,7 +4,6 @@ export const ABOUT_US = {
         CONTENT: 'content',
         TEAM_CARD: 'team-card',
         TEAM_HEADER: 'team-header',
-        TEAM_PROFILE: 'team-profile',
         TOP_CARD: 'top-card',
         TOP_DIV: 'top-div',
         TOP_TEXT: 'top-text',
@@ -13,19 +12,16 @@ export const ABOUT_US = {
         FACEBOOK: 'facebook',
         FADE: 'fade',
         GITHUB: 'github',
-        ICON: 'icon',
         LINKEDIN: 'linkedin',
         SQUARE: 'square',
     },
     TEXTS: {
         HEADER_TEXT: 'The Team',
-        MID_TEXT: 
-        ` At Agroeasy, we believe there is a better way for you to  market your product `,
+        MID_TEXT: ` At Agroeasy, we believe there is a better way for you to  market your product `,
 
-        TOPMOST_TEXT:
-        `At Agroeasy, we all come to work everyday because we want to solve one of the major 
-        challenges of the agro industry, i.e distribution and marketing of products. Producers,
-        marketers and brands do not know where their target users are, how to reach
+        TOPMOST_TEXT: `At Agroeasy, we all come to work everyday because we want to solve one of 
+        the major challenges of the agro industry, i.e distribution and marketing of products.
+        Producers, marketers and brands do not know where their target users are, how to reach
         them, or even how much the need to spend to do so.Through out the history of business, 
         people use data to make more informed decisions. Our goal at Agroeasy, is to make the 
         istribution of products between producers, marketers and consumers easy.We want to make
@@ -36,8 +32,7 @@ export const ABOUT_US = {
 
 export const TEAM_INFO = [
     {
-        description: `
-            Front-end developer at Agroeasy, he's a graduate of Federal university 
+        description: ` Front-end developer at Agroeasy, he's a graduate of Federal university 
             of technology, owerri, imo state, Studied Biochemistry (B.Tech). He has great interest
             in the use of computer and the internet and yes decided to channel that interest
             to software engineering. His carear as a software engineer started at Enye (2017),
@@ -48,21 +43,19 @@ export const TEAM_INFO = [
         photo: '/images/obinna.jpg',
     },
     {
-        description: `
-            She loves playing around with codes, encountering errors, fixing bugs, reading codes,
-            interacting and implementing. Being a developer of Agroesy is a basic tool that cemented
-            her foundation in web development. Studied Material & Metallurgical engineering (B.Engr)
-            at the University of Nigeria, Nsuka, Enugu State. For some reason, decided to explore 
-            the world of software development. She's also a lover of graphic design. She looks 
-            forward to building one of the largest Agro E-commerce platform with the collaboration 
-            of her colleagues,`,
+        description: ` She loves playing around with codes, encountering errors, fixing bugs,
+            reading codes, interacting and implementing. Being a developer of Agroesy is a basic
+            tool that has cemented her foundation in web development. Studied Material & 
+            Metallurgical engineering (B.Engr) at the University of Nigeria, Nsuka, Enugu State. 
+            For some reason, decided to explore the world of software development. She's also a 
+            lover of graphic design. She looks forward to building one of the largest Agro 
+            E-commerce platform with the collaboration of her colleagues,`,
         name: "Chioma Onyekpere",
         photo: '/images/chiomaa.jpg',
     },
     {
-        description:  `
-            He is a dedicated full-statck web developer, who is skilled in javascript.  A talented 
-            software engineer, proficient in react js for frontend and node js for 
+        description: ` He is a dedicated full-statck web developer, who is skilled in javascript.  
+            A talented software engineer, proficient in react js for frontend and node js for 
             backend. He is a graduate of information management technology (B.Tech), Federal 
             University of Technology, Owerri, Imo State. Currently, he is a student at Enye, where 
             he is becoming the engineer he yearns for, under the mentorship of Uche Nnadi (CEO). 
@@ -74,13 +67,10 @@ export const TEAM_INFO = [
 ];
 
 export const MARKET_SCENES = [
-    '/images/rfdtfa.jpg',
-    '/images/oilmill.jpg',
-    '/images/marketer.jpg',
-    '/images/market.jpg',
-    '/images/fishseller.jpg',
+    '/images/sales.jpg','/images/omil.jpg','/images/farm.jpg','/images/mark.jpg','/images/fish.jpg',
 ];
+
 export const IMAGE_STYLE = {
-    width: '100%',
+    WIDTH: '100%',
 };
 

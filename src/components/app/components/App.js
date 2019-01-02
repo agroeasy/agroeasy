@@ -14,7 +14,7 @@ class App extends React.Component {
         return (
             <Layout>
                 <Navbar />
-                <Layout> <Content>{children}</Content></Layout>
+                <Content>{children}</Content>
                 <Footer />
             </Layout>
         );
