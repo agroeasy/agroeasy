@@ -9,10 +9,7 @@ export const ABOUT_US = {
         TOP_TEXT: 'top-text',
     },
     STRINGS: {
-        FACEBOOK: 'facebook',
         FADE: 'fade',
-        GITHUB: 'github',
-        LINKEDIN: 'linkedin',
         SQUARE: 'square',
     },
     TEXTS: {
