@@ -21,8 +21,7 @@ export default class SideMenu extends React.Component {
                         <Menu.Item key={path}>
                             <span><Icon type={iconType} />{label}</span>
                         </Menu.Item>
-                    )
-                    )
+                    ))
                 }
             </Menu>
         );
