@@ -8,6 +8,9 @@ export const PROFILE = "/profile/";
 export const MARKET_TEXT = 'Market';
 
 /** @constant */
+export const ADD_ITEM= "Add Item";
+
+/** @constant */
 export const LOGO = {
     AVATAR: "home-avatar",
     SHAPE: "square",
@@ -35,7 +38,6 @@ export const PATHS = {
 };
 
 export const USER_AVATAR = {
-    ADD_ITEM: "Add Item",
     CONTAINER: "avatar-container",
     ICON_TYPE: "user",
     SIGN_OUT: "Sign Out",

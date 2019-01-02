@@ -8,14 +8,14 @@ import home from '../../home';
 import signin from '../../signin';
 import signup from '../../signup';
 
-import { LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
+import { ADD_ITEM, LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
 
 const { Item } = Menu;
 const { Header } = Layout;
 const { AVATAR, SHAPE, SIZE, SOURCE } = LOGO;
 const { MAIN_NAV, NAV_MENU, NAV_MODE, NAV_THEME } = NAVBAR;
 const { CONTACT, HOME, MARKET, PRODUCER_DATA_PAGE, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
-const { ADD_ITEM,  CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AVATAR;
+const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AVATAR;
 
 const { ContactUs } = home.components;
 const { Signin } = signin.components;
