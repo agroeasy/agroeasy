@@ -1,13 +1,15 @@
 import React from 'react';
 import { Avatar, Card, Icon, List } from 'antd';
 
-import { ABOUT_US, TEAM_INFO } from '../constants';
+import { ABOUT_US, SOCIAL_MEDIA, TEAM_INFO } from '../constants';
 
 const { Meta } = Card;
 const { 
     CLASSNAMES: { AVATAR, TEAM_CARD },
-    STRINGS: { FACEBOOK, GITHUB, LINKEDIN, SQUARE }, 
+    STRINGS: { SQUARE }, 
 } = ABOUT_US;
+
+const actionList = SOCIAL_MEDIA.map(social => (<Icon type={social} key={social} />));
 
 class TeamProfile extends React.Component {
     render() {
@@ -26,9 +28,7 @@ class TeamProfile extends React.Component {
                             cover={
                                 <Avatar src={item.photo} shape={SQUARE} className={AVATAR} />
                             }
-                            actions={[<Icon type={LINKEDIN} key={LINKEDIN} />, 
-                                <Icon type={FACEBOOK} key={FACEBOOK} />, 
-                                <Icon type={GITHUB} key={GITHUB} />]}
+                            actions={actionList}
                         >
                             <Meta
                                 title={item.name}

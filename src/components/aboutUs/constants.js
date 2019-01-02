@@ -74,3 +74,4 @@ export const IMAGE_STYLE = {
     WIDTH: '100%',
 };
 
+export const SOCIAL_MEDIA = [ 'facebook', 'github', 'linkedin' ];
