@@ -7,7 +7,7 @@ import { USER_PAGE } from '../constants';
 
 const { CLASSNAMES: { PROFILE_CONTENT }, TEXTS: { FLEX, START } } = USER_PAGE;
 
-class ProfileContent extends React.Component {
+export default class ProfileContent extends React.Component {
     render() {
         return(
             <Row type={FLEX} justify={START} gutter={3} className={PROFILE_CONTENT}>
@@ -17,5 +17,3 @@ class ProfileContent extends React.Component {
         );
     }
 }
-
-export default ProfileContent;
