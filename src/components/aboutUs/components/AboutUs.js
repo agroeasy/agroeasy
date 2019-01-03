@@ -5,9 +5,9 @@ import { ABOUT_US, IMAGE_STYLE, MARKET_SCENES } from '../constants';
 import TeamProfile from './TeamProfile';
 
 const { 
-    CLASSNAMES: { CONTENT, TEAM_HEADER, TOP_CARD, TOP_DIV, TOP_TEXT },
+    CLASSNAMES: { CONTENT, TOP_CARD, TOP_DIV, TOP_TEXT },
     STRINGS: { FADE },
-    TEXTS: { HEADER_TEXT, TOPMOST_TEXT }, 
+    TEXTS: { TOPMOST_TEXT }, 
 } = ABOUT_US;
 const { WIDTH } = IMAGE_STYLE;
 
@@ -27,7 +27,6 @@ class AboutUs extends React.Component {
                         ))
                     }
                 </Carousel>
-                <h4 className={TEAM_HEADER}><u>{HEADER_TEXT}</u></h4>
                 <TeamProfile />
             </div>
         );

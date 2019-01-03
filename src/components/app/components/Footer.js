@@ -11,11 +11,7 @@ const footers = FOOTER_DATA.map(footer => (
     <div className={DYNAMIC_FOOTER} key={footer.key}>
         <h3>{footer.header}</h3>
         {footer.items.map(item => (<div key={item.title}>
-            {
-                item.link ? 
-                    <Link to={item.link}>{item.title}</Link> :
-                    item.title
-            }
+            { item.link ? <Link to={item.link}>{item.title}</Link> : item.title }
         </div>))}
     </div>
 ));

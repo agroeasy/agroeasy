@@ -37,7 +37,7 @@ export const TEAM_INFO = [
             At Enye, he learnt how best to be able to accomplish. His focus and passion will 
             ensure Agroeasy provides the best of service to all our customers. `,
         name: "Josh Obinna",
-        photo: '/images/obinna.jpg',
+        photo: '/obinna.jpg',
     },
     {
         description: ` She loves playing around with codes, encountering errors, fixing bugs,
@@ -48,7 +48,7 @@ export const TEAM_INFO = [
             lover of graphic design. She looks forward to building one of the largest Agro 
             E-commerce platform with the collaboration of her colleagues,`,
         name: "Chioma Onyekpere",
-        photo: '/images/chiomaa.jpg',
+        photo: '/chiomaa.jpg',
     },
     {
         description: ` He is a dedicated full-statck web developer, who is skilled in javascript.  
@@ -59,16 +59,12 @@ export const TEAM_INFO = [
             Presently, he is on internship at Silicon jungle labs, where he is  leveraging on the 
             power of more experts to reach a climax where, he will be one of the best. `, 
         name: "Okemmadu Eric",
-        photo: '/images/okemmadu.jpg',
+        photo: '/okemmadu.jpg',
     },
 ];
 
-export const MARKET_SCENES = [
-    '/images/sales.jpg','/images/omil.jpg','/images/farm.jpg','/images/mark.jpg','/images/fish.jpg',
-];
+export const MARKET_SCENES = [ '/sales.jpg', '/omil.jpg', '/farm.jpg', '/mark.jpg', '/fish.jpg' ];
 
-export const IMAGE_STYLE = {
-    WIDTH: '100%',
-};
+export const IMAGE_STYLE = { WIDTH: '100%' };
 
 export const SOCIAL_MEDIA = [ 'facebook', 'github', 'linkedin' ];

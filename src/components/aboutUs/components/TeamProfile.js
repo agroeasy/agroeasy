@@ -5,7 +5,8 @@ import { ABOUT_US, SOCIAL_MEDIA, TEAM_INFO } from '../constants';
 
 const { Meta } = Card;
 const { 
-    CLASSNAMES: { AVATAR, TEAM_CARD },
+    CLASSNAMES: { AVATAR, TEAM_CARD, TEAM_HEADER },
+    TEXTS: { HEADER_TEXT },
     STRINGS: { SQUARE }, 
 } = ABOUT_US;
 
@@ -15,9 +16,10 @@ class TeamProfile extends React.Component {
     render() {
         return(
             <List  
+                header={<h4 className={TEAM_HEADER}><u>{HEADER_TEXT}</u></h4>}
                 bordered={false}
                 dataSource={TEAM_INFO}
-                grid={{ gutter: 12, lg: 4, md: 1.7, sm: 1.8, xs: 1.7, xxl: 3 }}
+                grid={{ column: 3, lg: 3, md: 1, sm: 1, xs: 1, xxl: 3 }}
                 renderItem={item => (
                     <List.Item>   
                         <Card

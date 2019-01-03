@@ -24,20 +24,19 @@
 }
 .team-card {
     position: relative;
-    left: 45%;
     width: 100%;
     text-align: center; 
     margin-top: 8%;
 }
 .avatar { 
-    width: 55%;
+    width: 40%;
     height: 50%;
-    margin-left: 23%;
+    margin-left: 30%;
     margin-right: 50%;
     display: block;
 }
 .team-header {
     text-align: center;
     font-size: 23px;
-    margin: 2%;
+    margin: 1%;
 }
