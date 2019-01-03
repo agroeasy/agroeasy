@@ -1,11 +1,18 @@
 import React from 'react';
+import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { message } from 'antd';
 
 import SigninForm from './SigninForm';
 import { SIGNIN_STRINGS } from '../constants';
+import * as signinActions from '../actions';
+import * as  signinSelectors from '../selectors';
 
+const { getMessage, getStatus } = signinSelectors;
 const { PRIMARY, TITLE } = SIGNIN_STRINGS;
 
-export default class Signin extends React.Component {
+class Signin extends React.Component {
     state = {
         visible: false,
     };
@@ -20,14 +27,20 @@ export default class Signin extends React.Component {
 
     handleCreate = () => {
         const form = this.formRef.props.form;
-        form.validateFields(error => {
+        const { signinRequest } = this.props.actions;
+        form.validateFields((error, values) => {
             if (error) {
                 return error;
             }
-
             form.resetFields();
+            const payload = {
+                email: values.email,
+                password: values.password,
+            };
+            signinRequest(payload);
             this.setState({ visible: false });
         });
+        
     }
 
     saveFormRef = formRef => {
@@ -35,6 +48,8 @@ export default class Signin extends React.Component {
     }
 
     render() {
+        const { signinMessage, signinStatus } = this.props;
+
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -44,7 +59,32 @@ export default class Signin extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                 />
+                {
+                    signinStatus !== undefined &&
+                    <span>
+                        {
+                            signinStatus ? message.success(signinMessage, 5) :
+                                message.error(signinMessage, 5)
+                        }
+                    </span>
+                }
             </div>
         );
     }
 }
+
+Signin.propTypes = {
+    actions: PropTypes.object,
+    signinMessage: PropTypes.string,
+    signinStatus: PropTypes.bool,
+};
+const mapStateToProps = state => ({
+    signinMessage: getMessage(state),
+    signinStatus: getStatus(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(signinActions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);

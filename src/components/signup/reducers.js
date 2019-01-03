@@ -18,13 +18,17 @@ const signUpReducer  = (state = initialState, action) => {
             registered: false,
         };
 
-    case SIGNUP_SUCCESS:
+    case SIGNUP_SUCCESS:{
+        const { message, success: isSignupSuccessful } = action.data;
         return {
             ...state,
             data: action.data,
             isLoading: false,
+            isSignupSuccessful,
+            message,
             registered: true,
         };
+    }
            
     case SIGNUP_FAILURE:
         return {
