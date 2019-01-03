@@ -60,16 +60,8 @@ export const TEAM_INFO = [
     },
 ];
 
-export const MARKET_SCENES = [
-    '/images/sales.jpg',
-    '/images/omil.jpg',
-    '/images/farm.jpg',
-    '/images/mark.jpg',
-    '/images/fish.jpg',
-];
+export const MARKET_SCENES = ['/sales.jpg', '/omil.jpg', '/farm.jpg', '/mark.jpg', '/fish.jpg'];
 
-export const IMAGE_STYLE = {
-    WIDTH: '100%',
-};
+export const IMAGE_STYLE = { WIDTH: '100%' };
 
 export const SOCIAL_MEDIA = ['facebook', 'github', 'linkedin'];
