@@ -2,11 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types';
+import { message } from 'antd';
 
 import * as signupActions from '../actions';
+import * as  signupSelectors from '../selectors';
 import SignupForm from './SignupForm';
 import { SIGNUP_STRINGS } from '../constants';
 
+const { getMessage, getStatus } = signupSelectors;
 const { PRIMARY, TITLE } = SIGNUP_STRINGS;
 class Signup extends React.Component {
     state = {
@@ -52,6 +55,7 @@ class Signup extends React.Component {
     }
 
     render() {
+        const { signupMessage, signupStatus } = this.props;
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -61,6 +65,16 @@ class Signup extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                 />
+
+                {
+                    signupStatus !== undefined &&
+                    <span>
+                        {
+                            signupStatus ? message.success(signupMessage, 5) :
+                                message.error(signupMessage, 5)
+                        }
+                    </span>
+                }
             </div>
         );
     }
@@ -71,16 +85,18 @@ Signup.propTypes = {
     form: PropTypes.object,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
-    signupState: PropTypes.object,
+    signupMessage: PropTypes.string,
+    signupStatus: PropTypes.bool,
     visible: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
-    signupState: state.signup,
+    signupMessage: getMessage(state),
+    signupStatus: getStatus(state),
 });
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(signupActions, dispatch),
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup); 

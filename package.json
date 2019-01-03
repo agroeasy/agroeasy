@@ -1,6 +1,6 @@
 {
   "name": "agroeasy",
-  "version": "1.2.0",
+  "version": "1.1.6",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -48,7 +48,9 @@
     "redux-saga": "^0.16.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.1.2",
+    "@babel/node": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-decorators": "^7.1.2",
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",

@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Checkbox, Form, Icon, Input, Modal } from 'antd';
+import { Form, Icon, Input, Modal } from 'antd';
 
 import { INPUTS, SIGNIN_STRINGS } from '../constants';
 
 const FormItem = Form.Item;
-const { CHECKBOX_REMINDER, TITLE } = SIGNIN_STRINGS;
+const { TITLE } = SIGNIN_STRINGS;
 
 function generateSiginInputs(decorator) {
     return INPUTS.map(input => {
@@ -46,14 +46,6 @@ class SigninModal extends React.Component {
             >
                 <Form>
                     {generateSiginInputs(getFieldDecorator)}
-                    <FormItem>
-                        {getFieldDecorator("remember", {
-                            initialValue: true,
-                            valuePropName: "checked",
-                        })(
-                            <Checkbox>{CHECKBOX_REMINDER}</Checkbox>
-                        )}
-                    </FormItem>
                 </Form>
             </Modal>
         );
