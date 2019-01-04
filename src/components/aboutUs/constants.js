@@ -30,11 +30,16 @@ export const TEAM_INFO = [
             of technology, owerri, imo state, Studied Biochemistry (B.Tech). He has great interest
             in the use of computer and the internet and yes decided to channel that interest
             to software engineering. His carear as a software engineer started at Enye (2017),
-            where he became aware of numerous challenges that could be solved via the tech.
-            At Enye, he learnt how best to be able to accomplish. His focus and passion will 
-            ensure Agroeasy provides the best of service to all our customers. `,
+            where he became aware of numerous challenges that could be solved through tech.
+            At Enye, he learnt how best to be able to accomplish this. His focus and passion will 
+            ensure Agroeasy provides the best of services to all our customers. `,
         name: "Josh Obinna",
-        photo: '/obinna.jpg',
+        photo: '/obinna.jpg', 
+        social_media: [
+            { icon: 'facebook', link: '/www.facebook.com/joshua171/' },
+            { icon: 'github', link: '/github.com/joshuaobinna/' },
+            { icon: 'linkedin', link: '/https://www.linkedin.com/in/joshua-obinna-9bb963116/' },
+        ],
     },
     {
         description: `She loves playing around with codes, encountering errors, fixing bugs,
@@ -46,6 +51,11 @@ export const TEAM_INFO = [
             E-commerce platform with the collaboration of her colleagues.`,
         name: "Chioma Onyekpere",
         photo: '/chiomaa.jpg',
+        social_media: [
+            { icon: 'facebook', link: '/www.facebook.com/angela.onyekpere/' },
+            { icon: 'github', link: '/github.com/Simpcyclassy/' },
+            { icon: 'linkedin', link: '/https://www.linkedin.com/in/chioma-onyekpere-127378103/' },
+        ],
     },
     {
         description: `He is a dedicated full-statck web developer, who is skilled in javascript.  
@@ -57,10 +67,14 @@ export const TEAM_INFO = [
             power of more experts to reach a climax where, he will be one of the best. `, 
         name: "Okemmadu Eric",
         photo: '/okemmadu.jpg',
+        social_media: [
+            { icon: 'facebook', link: '/www.facebook.com/eric.okemmadu/' },
+            { icon: 'github', link: '/github.com/EngrEric/' },
+            { icon: 'linkedin', link: '/https://www.linkedin.com/in/okemmadu-eric-1a3818113/' },
+        ],
     },
 ];
 
 export const MARKET_SCENES = [ '/sales.jpg', '/omil.jpg', '/farm.jpg', '/mark.jpg', '/fish.jpg' ];
 export const IMAGE_STYLE = { WIDTH: '100%' };
 
-export const SOCIAL_MEDIA = ['facebook', 'github', 'linkedin'];
