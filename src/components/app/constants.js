@@ -31,7 +31,7 @@ export const PATHS = {
     CONTACT: '/contact',
     HOME: '/',
     MARKET: '/market',
-    PRODUCER_DATA_PAGE: '/producerData',
+    PRODUCER_DATA_PAGE: '/addItem',
     PROFILE: '/profile',
     SIGN_IN: '/signin',
     SIGN_UP: '/signup',

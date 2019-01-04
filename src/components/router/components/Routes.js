@@ -5,7 +5,7 @@ import app from '../../app';
 import home from '../../home';
 import NoMatch from './NoMatch';
 import userProfile from '../../userProfile';
-import producerData from '../../producerData';
+import addItem from '../../addItem';
 import { PATHS } from '../constants';
 
 const { HOME, MARKET, PROFILE, PRODUCER_DATA_PAGE } = PATHS;
