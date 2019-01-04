@@ -22,7 +22,7 @@ const Routes = () => (
                     path={PRODUCER_DATA_PAGE}
                     exact
                     strict
-                    component={producerData.components.AddItem}
+                    component={addItem.components.AddItem}
                 />
                 <Route component={NoMatch} />
             </Switch>
