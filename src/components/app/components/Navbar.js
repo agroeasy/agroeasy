@@ -8,13 +8,13 @@ import home from '../../home';
 import signin from '../../signin';
 import signup from '../../signup';
 
-import { ADD_ITEM, LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
+import { ADD_ITEM_TEXT, LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
 
 const { Item } = Menu;
 const { Header } = Layout;
 const { AVATAR, SHAPE, SIZE, SOURCE } = LOGO;
 const { MAIN_NAV, NAV_MENU, NAV_MODE, NAV_THEME } = NAVBAR;
-const { CONTACT, HOME, MARKET, PRODUCER_DATA_PAGE, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
+const { ADD_ITEM, CONTACT, HOME, MARKET, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
 const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AVATAR;
 
 const { ContactUs } = home.components;
@@ -35,7 +35,7 @@ const items = [
         <Avatar className={AVATAR} src={SOURCE} size={SIZE} shape={SHAPE} />
     </AppLink>,
     <AppLink key={MARKET} to={MARKET}>{MARKET_TEXT}</AppLink>,
-    <AppLink key={PRODUCER_DATA_PAGE} to={PRODUCER_DATA_PAGE}>{ADD_ITEM}</AppLink>,
+    <AppLink key={ADD_ITEM} to={ADD_ITEM}>{ADD_ITEM_TEXT}</AppLink>,
     <Signin key={SIGN_IN} />,
     <Signup key={SIGN_UP} />,
     <ContactUs key={CONTACT} />,

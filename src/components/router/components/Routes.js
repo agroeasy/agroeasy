@@ -8,7 +8,7 @@ import userProfile from '../../userProfile';
 import addItem from '../../addItem';
 import { PATHS } from '../constants';
 
-const { HOME, MARKET, PROFILE, PRODUCER_DATA_PAGE } = PATHS;
+const { ADD_ITEM, HOME, MARKET, PROFILE } = PATHS;
 const { App } = app.components;
 
 const Routes = () => (
@@ -19,7 +19,7 @@ const Routes = () => (
                 <Route path={MARKET} exact strict component={home.components.Home} />
                 <Route path={PROFILE} exact strict component={userProfile.components.UserProfile} />
                 <Route
-                    path={PRODUCER_DATA_PAGE}
+                    path={ADD_ITEM}
                     exact
                     strict
                     component={addItem.components.AddItem}

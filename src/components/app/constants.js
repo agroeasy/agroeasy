@@ -8,7 +8,7 @@ export const PROFILE = "/profile/";
 export const MARKET_TEXT = 'Market';
 
 /** @constant */
-export const ADD_ITEM= "Add Item";
+export const ADD_ITEM_TEXT= "Add Item";
 
 /** @constant */
 export const LOGO = {
@@ -28,10 +28,10 @@ export const NAVBAR = {
 
 /** @constant */
 export const PATHS = {
+    ADD_ITEM: '/addItem',
     CONTACT: '/contact',
     HOME: '/',
     MARKET: '/market',
-    PRODUCER_DATA_PAGE: '/addItem',
     PROFILE: '/profile',
     SIGN_IN: '/signin',
     SIGN_UP: '/signup',
