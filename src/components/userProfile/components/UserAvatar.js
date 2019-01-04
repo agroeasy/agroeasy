@@ -18,7 +18,6 @@ class UserAvatar extends React.Component {
                 <Avatar
                     className={AVATAR}
                     src={PROFILE_PIX}
-                    size={170}
                     shape={SQUARE}
                 />
                 <Card bordered={false} className={AVATAR_CARD}>
