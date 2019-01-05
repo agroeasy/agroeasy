@@ -10,7 +10,7 @@ const {
     CLASSNAMES: { BIG_CONTENT, BIG_LAYOUT, SIDER, SM_CONTENT },
 } = USER_PAGE;
 
-export default class UserProfile extends React.Component {
+class UserProfile extends React.Component {
     render() {
         return(
             <Content className={BIG_CONTENT}>
@@ -26,3 +26,5 @@ export default class UserProfile extends React.Component {
         );
     }
 }
+
+export default UserProfile;

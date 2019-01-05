@@ -71,10 +71,10 @@ export const LOCATION = [
 
 export const SIDE_MENU_ITEMS = [
     { iconType: "info-circle", label: "Account Info" },
-    { iconType: "message", label: "Meaasges" },
+    { iconType: "message", label: "Messages" },
     { iconType: "notification", label: "Notifications" },
     { iconType: "shopping", label: "Purchases" },
-    { iconType: "folder", label: "Saved Items" },
+    { iconType: "folder", label: "Add Items" },
     { iconType: "setting", label: "Settings" },
     { iconType: "solution", label: "Help" },
 ];
