@@ -48,11 +48,19 @@ export const USER_AVATAR = {
 /** @constant */
 export const FOOTER_DATA = [{
     header: 'Product',
-    items: [{ title: 'What is Argo Easy?' }, { title: 'Marketplace' }, { title: 'Sign Up' }],
+    items: [
+        { title: 'What is Argo Easy?' },
+        { title: 'Marketplace' },
+        { title: 'Sign Up' },
+    ],
     key: 'product',
 }, {
     header: 'About Us',
-    items: [{ title: 'Who is Argo Easy?' }, { title: 'Our Mission' }, { title: 'Our Customers' }],
+    items: [
+        { link: '/who-is-Agro-Esay/', title: 'Who is Argo Easy?' },
+        { title: 'Our Mission' },
+        { title: 'Our Customers' },
+    ],
     key: 'about',
 }, {
     header: 'Support',
