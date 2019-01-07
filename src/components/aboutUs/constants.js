@@ -36,8 +36,8 @@ export const TEAM_INFO = [
         name: "Josh Obinna",
         photo: '/obinna.jpg', 
         social_media: [
-            { icon: 'facebook', link: 'http://www.facebook.com/joshua171/' },
-            { icon: 'github', link: 'http://www.github.com/joshuaobinna/' },
+            { icon: 'facebook', link: 'https://www.facebook.com/joshua171/' },
+            { icon: 'github', link: 'https://www.github.com/joshuaobinna/' },
             { icon: 'linkedin', link: 'https://www.linkedin.com/in/joshua-obinna-9bb963116/' },
         ],
     },
@@ -52,8 +52,8 @@ export const TEAM_INFO = [
         name: "Chioma Onyekpere",
         photo: '/chiomaa.jpg',
         social_media: [
-            { icon: 'facebook', link: 'http://www.facebook.com/angela.onyekpere/' },
-            { icon: 'github', link: 'http://www.github.com/Simpcyclassy/' },
+            { icon: 'facebook', link: 'https://www.facebook.com/angela.onyekpere/' },
+            { icon: 'github', link: 'https://www.github.com/Simpcyclassy/' },
             { icon: 'linkedin', link: 'https://www.linkedin.com/in/chioma-onyekpere-127378103/' },
         ],
     },
@@ -68,13 +68,23 @@ export const TEAM_INFO = [
         name: "Okemmadu Eric",
         photo: '/okemmadu.jpg',
         social_media: [
-            { icon: 'facebook', link: 'http://www.facebook.com/eric.okemmadu/' },
-            { icon: 'github', link: 'http://www.github.com/EngrEric/' },
+            { icon: 'facebook', link: 'https://www.facebook.com/eric.okemmadu/' },
+            { icon: 'github', link: 'https://www.github.com/EngrEric/' },
             { icon: 'linkedin', link: 'https://www.linkedin.com/in/okemmadu-eric-1a3818113/' },
         ],
     },
 ];
 
-export const MARKET_SCENES = [ 'a.jpg','b.jpg','c.jpg','d.jpg','e.jpg','f.jpg','g.jpg','j.jpg' ];
+export const MARKET_SCENES = [ 
+    { key: 1, value: 'cows.jpg' },
+    { key: 2, value: 'fishseller.jpg' },
+    { key: 3, value: 'broilers.jpg' },
+    { key: 4, value: 'snails.jpg' },
+    { key: 5, value: 'fruitstore.jpg' },
+    { key: 6, value: 'yam-market.jpg' },
+    { key: 7, value: 'smoked-fishes.jpg' },
+    { key: 8, value: 'chicken.jpg' },
+    { key: 9, value: 'top-products.jpg' },
+];
 export const IMAGE_STYLE = { WIDTH: '100%' };
 
