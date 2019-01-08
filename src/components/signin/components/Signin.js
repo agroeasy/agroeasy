@@ -49,7 +49,11 @@ class Signin extends React.Component {
 
     render() {
         const { signinMessage, signinStatus } = this.props;
-
+        const { resetStateObject } = this.props.actions;
+        const notifySigninStatus =() => (
+            signinStatus ? message.success(signinMessage, 5) :
+                message.error(signinMessage, 5)
+        );
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -62,12 +66,10 @@ class Signin extends React.Component {
                 {
                     signinStatus !== undefined &&
                     <span>
-                        {
-                            signinStatus ? message.success(signinMessage, 5) :
-                                message.error(signinMessage, 5)
-                        }
+                        { notifySigninStatus() + resetStateObject() }
                     </span>
                 }
+
             </div>
         );
     }
