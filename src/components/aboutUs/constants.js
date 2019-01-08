@@ -8,6 +8,7 @@ export const ABOUT_US = {
     },
     STRINGS: {
         FADE: 'fade',
+        NEW_WINDOW: '_blank',
         SQUARE: 'square',
     },
     TEXTS: {
