@@ -76,7 +76,7 @@ export const TEAM_INFO = [
 ];
 
 export const MARKET_SCENES = [ 
-    'cows.jpg' ,
+    'cattle.jpg' ,
     'fishseller.jpg',
     'broilers.jpg',
     'snails.jpg',
