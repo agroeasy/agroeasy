@@ -33,7 +33,7 @@ export default ( state = { ...initialState }, action) => {
     }
 
     case RESET_STATE:
-        return initialState;
+        return { ...initialState };
         
     case SIGNIN_FAILURE:
         return {
