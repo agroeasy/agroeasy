@@ -8,6 +8,9 @@ export const PROFILE = "/profile/";
 export const MARKET_TEXT = 'Market';
 
 /** @constant */
+export const ADD_ITEM_TEXT= "Add Item";
+
+/** @constant */
 export const LOGO = {
     AVATAR: "home-avatar",
     SHAPE: "square",
@@ -25,6 +28,7 @@ export const NAVBAR = {
 
 /** @constant */
 export const PATHS = {
+    ADD_ITEM: '/addItem',
     CONTACT: '/contact',
     HOME: '/',
     MARKET: '/market',
@@ -44,11 +48,19 @@ export const USER_AVATAR = {
 /** @constant */
 export const FOOTER_DATA = [{
     header: 'Product',
-    items: [{ title: 'What is Argo Easy?' }, { title: 'Marketplace' }, { title: 'Sign Up' }],
+    items: [
+        { title: 'What is Argo Easy?' },
+        { title: 'Marketplace' },
+        { title: 'Sign Up' },
+    ],
     key: 'product',
 }, {
     header: 'About Us',
-    items: [{ title: 'Who is Argo Easy?' }, { title: 'Our Mission' }, { title: 'Our Customers' }],
+    items: [
+        { link: '/who-is-Agro-Esay/', title: 'Who is Argo Easy?' },
+        { title: 'Our Mission' },
+        { title: 'Our Customers' },
+    ],
     key: 'about',
 }, {
     header: 'Support',

@@ -1,0 +1,30 @@
+.content {
+    background: white;
+}
+.top-text {
+    width: 50%;
+    margin: 50px auto 20px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    font-family:  Geneva,Verdana;
+}
+.top-text:first-letter {
+    font-size: 25px;
+    font-style: italic;
+}
+.team-card {
+    text-align: center;
+    margin: 20px 30px;
+}
+.avatar {
+    width: 55%;
+    height: 50%;
+}
+.team-header {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 23px;
+    margin-top: 20px;
+}

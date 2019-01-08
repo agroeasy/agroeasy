@@ -17,9 +17,9 @@ export default class SideMenu extends React.Component {
                 mode={INLINE}
             >
                 {
-                    SIDE_MENU_ITEMS.map(sideMenuItem => (
-                        <Menu.Item key={sideMenuItem.label}>
-                            <span><Icon type={sideMenuItem.iconType} />{sideMenuItem.label}</span>
+                    SIDE_MENU_ITEMS.map(({ iconType, label }) => (
+                        <Menu.Item key={label}>
+                            <span><Icon type={iconType} />{label}</span>
                         </Menu.Item>
                     ))
                 }
