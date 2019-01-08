@@ -39,6 +39,6 @@ export const signinFailure = error => ({
  * @function
  * @return {void} The {@link actionTypes.RESET_STATE RESET_STATE} action.
  */
-export const resetStateObject = () => ({
+export const resetSignState = () => ({
     type: RESET_STATE,
 });

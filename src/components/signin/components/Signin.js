@@ -49,7 +49,7 @@ class Signin extends React.Component {
 
     render() {
         const { signinMessage, signinStatus } = this.props;
-        const { resetStateObject } = this.props.actions;
+        const { resetSignState } = this.props.actions;
         const notifySigninStatus =() => (
             signinStatus ? message.success(signinMessage, 5) :
                 message.error(signinMessage, 5)
@@ -66,7 +66,7 @@ class Signin extends React.Component {
                 {
                     signinStatus !== undefined &&
                     <span>
-                        { notifySigninStatus() + resetStateObject() }
+                        { notifySigninStatus() + resetSignState() }
                     </span>
                 }
 
