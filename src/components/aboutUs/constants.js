@@ -76,15 +76,15 @@ export const TEAM_INFO = [
 ];
 
 export const MARKET_SCENES = [ 
-    { key: 1, value: 'cows.jpg' },
-    { key: 2, value: 'fishseller.jpg' },
-    { key: 3, value: 'broilers.jpg' },
-    { key: 4, value: 'snails.jpg' },
-    { key: 5, value: 'fruitstore.jpg' },
-    { key: 6, value: 'yam-market.jpg' },
-    { key: 7, value: 'smoked-fishes.jpg' },
-    { key: 8, value: 'chicken.jpg' },
-    { key: 9, value: 'top-products.jpg' },
+    'cows.jpg' ,
+    'fishseller.jpg',
+    'broilers.jpg',
+    'snails.jpg',
+    'fruitstore.jpg',
+    'yam-market.jpg',
+    'smoked-fishes.jpg',
+    'chicken.jpg',
+    'top-products.jpg',
 ];
 export const IMAGE_STYLE = { WIDTH: '100%' };
 

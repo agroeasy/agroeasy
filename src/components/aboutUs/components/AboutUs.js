@@ -18,8 +18,8 @@ class AboutUs extends React.Component {
                 <h4 className={TOP_TEXT}>{TOPMOST_TEXT}</h4>
                 <Carousel autoplay effect={FADE}>
                     {
-                        MARKET_SCENES.map(({ key, value }) => (
-                            <img src={value} width={WIDTH} key={key} />
+                        MARKET_SCENES.map(scenes => (
+                            <img src={scenes} width={WIDTH} key={scenes} />
                         ))
                     }
                 </Carousel>
