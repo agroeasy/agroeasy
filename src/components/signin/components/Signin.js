@@ -46,13 +46,21 @@ class Signin extends React.Component {
     saveFormRef = formRef => {
         this.formRef = formRef;
     }
-
-    render() {
-        const { signinMessage, signinStatus } = this.props;
+    notifySigninStatus = () => {
         const { resetSignState } = this.props.actions;
-        const notifySigninStatus =() => signinStatus ? message.success(signinMessage, 5) : 
+        const { signinMessage, signinStatus } = this.props;
+
+        if(signinStatus){
+            message.success(signinMessage, 5);
+        } else {
             message.error(signinMessage, 5);
+        }
         resetSignState();
+    }
+    
+    render() {
+        const {  signinStatus } = this.props;
+       
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -65,7 +73,7 @@ class Signin extends React.Component {
                 {
                     signinStatus !== undefined &&
                     <span>
-                        { notifySigninStatus() }
+                        { this.notifySigninStatus() }
                     </span>
                 }
 
