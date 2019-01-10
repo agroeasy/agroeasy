@@ -6,7 +6,7 @@ import { ABOUT_US, TEAM_INFO } from '../constants';
 const { Meta } = Card;
 const {
     CLASSNAMES: { AVATAR, TEAM_CARD, TEAM_HEADER },
-    STRINGS: { SQUARE },
+    STRINGS: { NEW_WINDOW, SQUARE },
     TEXTS: { HEADER_TEXT },
 } = ABOUT_US;
 
@@ -27,7 +27,7 @@ class TeamProfile extends React.Component {
                             cover={<Avatar src={photo} shape={SQUARE} className={AVATAR} />}
                             actions={
                                 social_media.map(({ icon, link }) => (
-                                    <a href={link} key={icon}>
+                                    <a href={link} key={icon} target={NEW_WINDOW}>
                                         <Icon type={icon} />
                                     </a>
                                 ))

@@ -8,6 +8,7 @@ export const ABOUT_US = {
     },
     STRINGS: {
         FADE: 'fade',
+        NEW_WINDOW: '_blank',
         SQUARE: 'square',
     },
     TEXTS: {
@@ -36,9 +37,9 @@ export const TEAM_INFO = [
         name: "Josh Obinna",
         photo: '/obinna.jpg', 
         social_media: [
-            { icon: 'facebook', link: '/www.facebook.com/joshua171/' },
-            { icon: 'github', link: '/github.com/joshuaobinna/' },
-            { icon: 'linkedin', link: '/https://www.linkedin.com/in/joshua-obinna-9bb963116/' },
+            { icon: 'facebook', link: 'https://www.facebook.com/joshua171/' },
+            { icon: 'github', link: 'https://www.github.com/joshuaobinna/' },
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/joshua-obinna-9bb963116/' },
         ],
     },
     {
@@ -52,9 +53,9 @@ export const TEAM_INFO = [
         name: "Chioma Onyekpere",
         photo: '/chiomaa.jpg',
         social_media: [
-            { icon: 'facebook', link: '/www.facebook.com/angela.onyekpere/' },
-            { icon: 'github', link: '/github.com/Simpcyclassy/' },
-            { icon: 'linkedin', link: '/https://www.linkedin.com/in/chioma-onyekpere-127378103/' },
+            { icon: 'facebook', link: 'https://www.facebook.com/angela.onyekpere/' },
+            { icon: 'github', link: 'https://www.github.com/Simpcyclassy/' },
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/chioma-onyekpere-127378103/' },
         ],
     },
     {
@@ -68,13 +69,23 @@ export const TEAM_INFO = [
         name: "Okemmadu Eric",
         photo: '/okemmadu.jpg',
         social_media: [
-            { icon: 'facebook', link: '/www.facebook.com/eric.okemmadu/' },
-            { icon: 'github', link: '/github.com/EngrEric/' },
-            { icon: 'linkedin', link: '/https://www.linkedin.com/in/okemmadu-eric-1a3818113/' },
+            { icon: 'facebook', link: 'https://www.facebook.com/eric.okemmadu/' },
+            { icon: 'github', link: 'https://www.github.com/EngrEric/' },
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/okemmadu-eric-1a3818113/' },
         ],
     },
 ];
 
-export const MARKET_SCENES = [ '/sales.jpg', '/omil.jpg', '/farm.jpg', '/mark.jpg', '/fish.jpg' ];
+export const MARKET_SCENES = [ 
+    'cattle.jpg' ,
+    'fishseller.jpg',
+    'broilers.jpg',
+    'snails.jpg',
+    'fruitstore.jpg',
+    'yam-market.jpg',
+    'smoked-fishes.jpg',
+    'chicken.jpg',
+    'top-products.jpg',
+];
 export const IMAGE_STYLE = { WIDTH: '100%' };
 
