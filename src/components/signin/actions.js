@@ -1,4 +1,4 @@
-import { SIGNIN_FAILURE, SIGNIN_REQUEST, SIGNIN_SUCCESS } from './actionTypes';
+import { RESET_STATE, SIGNIN_FAILURE, SIGNIN_REQUEST, SIGNIN_SUCCESS } from './actionTypes';
 
 /**
  * Triggers request to sign in a user
@@ -31,4 +31,14 @@ export const signinSuccess = data => ({
 export const signinFailure = error => ({
     error,
     type: SIGNIN_FAILURE,
+});
+
+/**
+ * Triggers request to reset redux state to initial
+ *
+ * @function
+ * @return {void} The {@link actionTypes.RESET_STATE RESET_STATE} action.
+ */
+export const resetSignState = () => ({
+    type: RESET_STATE,
 });

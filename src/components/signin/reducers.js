@@ -1,4 +1,4 @@
-import { SIGNIN_FAILURE, SIGNIN_REQUEST, SIGNIN_SUCCESS } from './actionTypes';
+import { RESET_STATE, SIGNIN_FAILURE, SIGNIN_REQUEST, SIGNIN_SUCCESS } from './actionTypes';
 
 const initialState = {
     email: "",
@@ -8,7 +8,7 @@ const initialState = {
     password: "",
 };
 
-export default ( state = initialState, action) => {
+export default ( state = { ...initialState }, action) => {
     switch(action.type){
     case SIGNIN_REQUEST:
         return {
@@ -32,6 +32,9 @@ export default ( state = initialState, action) => {
         };
     }
 
+    case RESET_STATE:
+        return { ...initialState };
+        
     case SIGNIN_FAILURE:
         return {
             ...state,
