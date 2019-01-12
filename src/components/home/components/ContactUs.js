@@ -49,7 +49,7 @@ class ContactUs extends React.Component {
     }
 
     render() {
-
+        const { isMailSent } = this.props;
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -59,6 +59,13 @@ class ContactUs extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                 />
+                { 
+                    isMailSent !== undefined &&
+                    <span>
+                        { isMailSent ? message.success("message succesfully sent", 5) :
+                            message.error("message not sent", 5)}
+                    </span>
+                }
             </div>
         );
     }

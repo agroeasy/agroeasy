@@ -41,9 +41,9 @@ export const INPUTS = [
         placeholder: "Please enter your email",
     },
     {
-        field: "report",
+        field: "subject",
         placeholder: "Subject",
     },
 ];
 export const NAME = "home";
-export const CONTACT_URL = "localhost:4000/account/sendmail";
+export const CONTACT_URL = "http://localhost:4000/account/sendmail";

@@ -30,5 +30,7 @@ export default (state = { ...initialState }, action ) => {
             error: action.error,
             isSending: false,            
         };
+    default:
+        return state;
     }
 };
