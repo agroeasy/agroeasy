@@ -9,10 +9,12 @@ export default {
                 ssl:     true,
                 user:    "agroeasy2018@gmail.com",
             });
-            const { email, name, message, report } = req.body;
+            const { email, name, message, subject } = req.body;
+            const subjectToUpperCase = subject.toUpperCase();
+            
             const userMessage = {
                 from: email,
-                subject: report,
+                subject: subjectToUpperCase,
                 text:    `${name} (${email}) says: ${message}`,
                 to: "agroeasy2018@gmail.com",
             };

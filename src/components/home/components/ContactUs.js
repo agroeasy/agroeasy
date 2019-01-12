@@ -1,11 +1,13 @@
 import React from 'react';
-/* import { bindActionCreators } from "redux";
+import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { message } from 'antd'; */
+import { message } from 'antd';
 
 import ContactForm from './ContactForm';
+import * as contactMailActions from '../actions';
 import { CONTACT_STRINGS } from '../constants';
+import { getStatus } from '../selectors';
 
 const { PRIMARY, TITLE } = CONTACT_STRINGS;
 
@@ -23,6 +25,7 @@ class ContactUs extends React.Component {
     }
 
     handleCreate = () => {
+        const { sendContactMail } = this.props.actions;
         const form = this.formRef.props.form;
         form.validateFields((error, values) => {
             if (error) {
@@ -33,8 +36,9 @@ class ContactUs extends React.Component {
                 email: values.email,
                 message: values.message,
                 name: values.name,
-                report: values.report,
+                subject: values.subject,
             };
+            sendContactMail(payload);
             this.setState({ visible: false });
         });
         
@@ -60,4 +64,17 @@ class ContactUs extends React.Component {
     }
 }
 
-export default ContactUs;
+ContactUs.propTypes = {
+    actions: PropTypes.object,
+    isMailSent: PropTypes.bool,
+};
+
+const mapStateToProps = state => ({
+    isMailSent: getStatus(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(contactMailActions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactUs);

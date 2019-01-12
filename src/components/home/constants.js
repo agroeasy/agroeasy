@@ -30,19 +30,20 @@ export const HOME_STRINGS = {
 
 export const INPUTS = [
     {
-        field: 'name',
+        field: "name",
         iconType: "user",
         placeholder: "Enter your username",
         rules: [{ message: "You have to input your username", required: true }],
     },
     {
-        field: 'email',
+        field: "email",
         iconType: "mail",
         placeholder: "Please enter your email",
     },
     {
-        field: 'report',
+        field: "report",
         placeholder: "Subject",
     },
 ];
-
+export const NAME = "home";
+export const CONTACT_URL = "localhost:4000/account/sendmail";
