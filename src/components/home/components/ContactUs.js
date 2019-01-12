@@ -1,51 +1,63 @@
 import React from 'react';
-import { Button, Modal } from 'antd';
+/* import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { message } from 'antd'; */
 
-import { CONTACT_US } from '../constants';
-import FormContent from './FormContent';
+import ContactForm from './ContactForm';
+import { CONTACT_STRINGS } from '../constants';
 
-const { BACK, CANCEL, PRIMARY, SMALL, SUBMIT, TITLE } = CONTACT_US;
+const { PRIMARY, TITLE } = CONTACT_STRINGS;
 
-export default class ContactUs extends React.Component {
+class ContactUs extends React.Component {
     state = {
         visible: false,
-    }
+    };
 
     showModal = () => {
-        this.setState({
-            visible: true,
-        });
+        this.setState({ visible: true });
     }
 
     handleCancel = () => {
         this.setState({ visible: false });
     }
 
+    handleCreate = () => {
+        const form = this.formRef.props.form;
+        form.validateFields((error, values) => {
+            if (error) {
+                return error;
+            }
+            form.resetFields();
+            const payload = {
+                email: values.email,
+                message: values.message,
+                name: values.name,
+                report: values.report,
+            };
+            this.setState({ visible: false });
+        });
+        
+    }
+
+    saveFormRef = formRef => {
+        this.formRef = formRef;
+    }
+
     render() {
-        const { visible } = this.state;
-        const footer = [
-            <Button
-                key={SUBMIT}
-                type={PRIMARY}
-                size={SMALL}
-                onClick={this.handleOk}
-            >{SUBMIT}</Button>,
-            <Button key={BACK} size={SMALL} onClick={this.handleCancel}>{CANCEL}</Button>,
-        ];
+
         return (
             <div>
-                <div onClick={this.showModal} >{TITLE}</div>
-                <Modal
-                    width={600}
-                    visible={visible}
-                    title={TITLE}
-                    onOk={this.handleOk}
+                <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
+                <ContactForm
+                    wrappedComponentRef={this.saveFormRef}
+                    visible={this.state.visible}
                     onCancel={this.handleCancel}
-                    footer={footer}
-                >
-                    <FormContent />
-                </Modal>
+                    onCreate={this.handleCreate}
+                />
             </div>
         );
     }
 }
+
+export default ContactUs;
