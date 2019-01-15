@@ -3,6 +3,13 @@ import {  REQUEST_SENDMAIL } from './actionTypes';
 import { CONTACT_URL } from './constants';
 import { mailSent, failedToSendmail } from './actions';
 
+/**
+ * Makes a request to send mail
+ *
+ * @param {object} [action] The data passed from the watcher generator
+ *
+ * @return {object} An object containing either "data" or "error"
+ */
 function* contactMail(action){
     const { payload } = action;
     try {
@@ -22,6 +29,13 @@ function* contactMail(action){
     }
 }
 
+/**
+ * @function
+ * Watches for the {@link actionTypes.REQUEST_SENDMAIL REQUEST_SENDMAIL} action.
+ * Triggers request to capture data from body
+ *
+ * @return {void}
+ */
 function* watchContactMail(){
     try {
         yield effects.takeLatest(REQUEST_SENDMAIL, contactMail);

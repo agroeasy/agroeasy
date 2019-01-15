@@ -46,4 +46,4 @@ export const INPUTS = [
     },
 ];
 export const NAME = "home";
-export const CONTACT_URL = "http://localhost:4000/account/sendmail";
+export const CONTACT_URL = "/account/sendmail";

@@ -60,7 +60,6 @@ class ContactModal extends React.Component {
                             )
                         }
                     </FormItem>
-
                 </Form>
             </Modal>
         );
