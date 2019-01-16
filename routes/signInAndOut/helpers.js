@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt-nodejs';
+import _pick from 'lodash.pick';
 
 import CONSTANTS from './constants';
 import models from '../../db/models/';
@@ -10,6 +11,7 @@ const {
     NO_EMAIL_PASSWORD,
     SUCCESSFUL_SIGNIN,
     USER_NOT_FOUND,
+    USERINFO,
 } = CONSTANTS;
 
 export default {
@@ -47,7 +49,7 @@ export default {
     },
 
     signInUser: async (req, res) => {
-        let { email, password } = req.body;
+        const { email, password } = req.body;
 
         if (!email || !password) {
             return res.send({
@@ -57,7 +59,6 @@ export default {
         }
 
         try {
-            email = email.toLowerCase().trim();
             const user = await User.findOne({ email });
 
             if(!user){
@@ -69,10 +70,11 @@ export default {
 
             const userSession = Object.assign(new UserSession(), { userId: user._id  });
             const doc = await userSession.save();
-
+            const userInfo = _pick(user, USERINFO);
+            
             await bcrypt.compare(password, user.password, (error, result) => {
                 const data = result ?
-                    { message: SUCCESSFUL_SIGNIN, success: true, token: doc._id } :
+                    { message: SUCCESSFUL_SIGNIN, success: true, token: doc._id, userInfo } :
                     { error, message: INVALID_SIGNIN, success: false };
 
                 return res.send(data);
