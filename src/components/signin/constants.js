@@ -22,4 +22,4 @@ export const INPUTS = [
     },
 ];
 
-export const SIGNIN_URL = "http://localhost:4000/account/signin";
+export const SIGNIN_URL = "/account/signin";
