@@ -54,7 +54,7 @@ class ContactModal extends React.Component {
                                 [{ required: true }],
                             })(
                                 <TextArea
-                                    autosize = {true}
+                                    rows = {4}
                                     placeholder={PLACEHOLDER}
                                 />
                             )

@@ -27,16 +27,16 @@ class ContactUs extends React.Component {
     handleCreate = () => {
         const { sendContactMail } = this.props.actions;
         const form = this.formRef.props.form;
-        form.validateFields((error, values) => {
+        form.validateFields((error, { email, message, name, subject }) => {
             if (error) {
                 return error;
             }
             form.resetFields();
             const payload = {
-                email: values.email,
-                message: values.message,
-                name: values.name,
-                subject: values.subject,
+                email,
+                message,
+                name,
+                subject,
             };
             sendContactMail(payload);
             this.setState({ visible: false });
