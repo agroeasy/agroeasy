@@ -2,7 +2,7 @@ import emailJs from "emailjs";
 
 export const contactUsmail = async (req, res) => {
     try {
-        const server = await emailJs.server.connect({
+        const server = emailJs.server.connect({
             host:    process.env.EMAIL_HOST,
             password: process.env.EMAIL_PASSWORD,
             ssl:     true,
@@ -15,11 +15,11 @@ export const contactUsmail = async (req, res) => {
             from: email,
             subject: subjectToUpperCase,
             text:    `${name} (${email}) says: ${message}`,
-            to: "agroeasy2018@gmail.com",
+            to: process.env.USER_EMAIL,
         };
         
-        const messages = await server.send(userMessage);
-        return res.json({ messages, success: true });
+        server.send(userMessage, (error, messages) => res.json({ messages, success: true }));
+        
     } catch(error){
         res.send({ error, success: false });
     }
