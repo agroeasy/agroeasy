@@ -3,10 +3,10 @@ import emailJs from "emailjs";
 export const contactUsmail = async (req, res) => {
     try {
         const server = await emailJs.server.connect({
-            host:    "smtp.gmail.com",
-            password:"agroeasy1$##",
+            host:    process.env.EMAIL_HOST,
+            password: process.env.EMAIL_PASSWORD,
             ssl:     true,
-            user:    "agroeasy2018@gmail.com",
+            user:    process.env.USER_EMAIL,
         });
         const { email, name, message, subject } = req.body;
         const subjectToUpperCase = subject.toUpperCase();

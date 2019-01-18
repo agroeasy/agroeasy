@@ -69,7 +69,7 @@ class ContactUs extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                 />
-                { isMailSent !== undefined && this.notifyMailStatus }
+                { isMailSent !== undefined && this.notifyMailStatus() }
             </div>
         );
     }
