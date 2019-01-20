@@ -42,6 +42,7 @@ export const INPUTS = [
     },
     {
         field: "subject",
+        iconType: "info",
         placeholder: "Subject",
     },
 ];

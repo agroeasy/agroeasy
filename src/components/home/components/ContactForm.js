@@ -9,27 +9,24 @@ const { TextArea } = Input;
 const { TITLE, PLACEHOLDER } = CONTACT_STRINGS;
 
 function generateContactInputs(decorator) {
-    return INPUTS.map(input => {
-        const { field, iconType, placeholder, rules } = input;
-
-        return (
-            <FormItem
-                key={field}
-            >
-                {
-                    decorator(field, {
-                        rules,
-                    })(
-                        <Input
-                            placeholder={placeholder}
-                            prefix={<Icon type={iconType} />}
-                        />
-                    )
-                }
-            </FormItem>
+    return INPUTS.map(({ field, iconType, placeholder, rules }) => (
+  
+        <FormItem
+            key={field}
+        >
+            {
+                decorator(field, {
+                    rules,
+                })(
+                    <Input
+                        placeholder={placeholder}
+                        prefix={<Icon type={iconType} />}
+                    />
+                )
+            }
+        </FormItem>
             
-        );
-    });
+    ));
 }
 
 class ContactModal extends React.Component {
