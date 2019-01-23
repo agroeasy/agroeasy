@@ -10,7 +10,6 @@ const { TITLE, PLACEHOLDER } = CONTACT_STRINGS;
 
 function generateContactInputs(decorator) {
     return INPUTS.map(({ field, iconType, placeholder, rules }) => (
-  
         <FormItem
             key={field}
         >
@@ -24,8 +23,7 @@ function generateContactInputs(decorator) {
                     />
                 )
             }
-        </FormItem>
-            
+        </FormItem>     
     ));
 }
 

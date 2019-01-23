@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { message } from 'antd';
 
 import ContactForm from './ContactForm';
@@ -27,11 +27,13 @@ class ContactUs extends React.Component {
     handleCreate = () => {
         const { sendContactMail } = this.props.actions;
         const form = this.formRef.props.form;
+
         form.validateFields((error, { email, message, name, subject }) => {
             if (error) {
                 return error;
             }
             form.resetFields();
+            
             const payload = {
                 email,
                 message,
@@ -49,17 +51,13 @@ class ContactUs extends React.Component {
 
     notifyMailStatus = () => {
         const { isMailSent } = this.props;
-
-        if(isMailSent){
-            message.success("message succesfully sent", 5);
-        } else {
-            message.error("message not sent", 5);
+        if(isMailSent !== undefined){
+            isMailSent ? message.success("message succesfully sent", 5): 
+                message.error("message not sent", 5);
         }            
     };
 
-    render() {
-        const { isMailSent } = this.props;
-        
+    render() {      
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -69,7 +67,7 @@ class ContactUs extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                 />
-                { isMailSent !== undefined && this.notifyMailStatus() }
+                {this.notifyMailStatus()}
             </div>
         );
     }
