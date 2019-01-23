@@ -5,8 +5,8 @@ import emailJs from "emailjs";
  * Sends mail to the provided email
  * @function
  *  
- * @param {object} req 
- * @param {object} res 
+ * @param {object} req object containing information about the request sent by user
+ * @param {object} res object that sends back the desired HTTP response
  * 
  * @return {object} containing either success set to true/false and error/message
  */

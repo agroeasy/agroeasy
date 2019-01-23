@@ -8,6 +8,14 @@ const FormItem = Form.Item;
 const { TextArea } = Input;
 const { TITLE, PLACEHOLDER } = CONTACT_STRINGS;
 
+/**
+ * List all the input fields
+ * @function
+ *
+ * @param {func} decorator The callback function that takes the input field name and rules object
+ *
+ * @return {object} An object containing the FormItems component
+ */
 function generateContactInputs(decorator) {
     return INPUTS.map(({ field, iconType, placeholder, rules }) => (
         <FormItem
