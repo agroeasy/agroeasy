@@ -1,8 +1,9 @@
 export default {
+    FAIL: 'fail',
     INVALID_SIGNIN: "Invalid password, login unsuccessful",
     LOGOUT: 'Logged out successfully',
     NO_EMAIL_PASSWORD: 'Error: Email or Password cannot be blank.',
-    SUCCESSFUL_SIGNIN: 'Valid sign in',
+    SUCCESS: 'success',
     USERINFO: [
         '_id',
         'address',

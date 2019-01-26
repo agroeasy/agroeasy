@@ -6,10 +6,11 @@ import models from '../../db/models/';
 
 const { User, UserSession } = models;
 const {
+    FAIL,
     INVALID_SIGNIN,
     LOGOUT,
     NO_EMAIL_PASSWORD,
-    SUCCESSFUL_SIGNIN,
+    SUCCESS,
     USER_NOT_FOUND,
     USERINFO,
 } = CONSTANTS;
@@ -70,12 +71,22 @@ export default {
 
             const userSession = Object.assign(new UserSession(), { userId: user._id  });
             const doc = await userSession.save();
-            const userInfo = _pick(user, USERINFO);
             
-            await bcrypt.compare(password, user.password, (error, result) => {
+            bcrypt.compare(password, user.password, (error, result) => {
                 const data = result ?
-                    { message: SUCCESSFUL_SIGNIN, success: true, token: doc._id, userInfo } :
-                    { error, message: INVALID_SIGNIN, success: false };
+                    {
+                        data: {
+                            token: doc._id,
+                            user: _pick(user, USERINFO),
+                        },
+                        status: SUCCESS,
+                    } : { 
+                        data: {
+                            error,
+                            message: INVALID_SIGNIN,
+                        },           
+                        status: FAIL,
+                    };
 
                 return res.send(data);
             });
