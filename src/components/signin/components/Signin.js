@@ -48,12 +48,12 @@ class Signin extends React.Component {
     }
     notifySigninStatus = () => {
         const { resetSignState } = this.props.actions;
-        const { signinStatus, userData } = this.props;
+        const { signinStatus, siginData } = this.props;
         
         if(signinStatus !== undefined){
             signinStatus === SUCCESS ? 
-                message.success(`${userData.user.firstName}  ${SUCCESS_MESSAGE}`, 5):          
-                message.error(FAIL_MESSAGE, 5);
+                message.success(`${siginData.user.firstName}  ${SUCCESS_MESSAGE}`, 5):          
+                message.error(siginData.title, 5);
         }
         resetSignState();
     }
@@ -77,11 +77,11 @@ class Signin extends React.Component {
 Signin.propTypes = {
     actions: PropTypes.object,
     signinStatus: PropTypes.string,
-    userData: PropTypes.object,
+    siginData: PropTypes.object,
 };
 const mapStateToProps = state => ({
     signinStatus: getStatus(state),
-    userData: getData(state),
+    siginData: getData(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -4,7 +4,6 @@ const initialState = {
     email: "",
     error: null,
     isLoading:false,
-    message: "",
     password: "",
 };
 

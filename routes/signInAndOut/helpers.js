@@ -54,8 +54,8 @@ export default {
 
         if (!email || !password) {
             return res.send({
-                message: NO_EMAIL_PASSWORD,
-                success: false,
+                data: { title: NO_EMAIL_PASSWORD },
+                status: FAIL,
             });
         }
 
@@ -64,8 +64,8 @@ export default {
 
             if(!user){
                 return res.send({
-                    message: USER_NOT_FOUND,
-                    success: false,
+                    data: { title: USER_NOT_FOUND },
+                    status: FAIL,
                 });
             }
 
