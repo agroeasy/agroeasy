@@ -9,8 +9,8 @@ import { SIGNIN_STRINGS } from '../constants';
 import * as signinActions from '../actions';
 import * as  signinSelectors from '../selectors';
 
-const { getMessage, getStatus } = signinSelectors;
-const { PRIMARY, TITLE } = SIGNIN_STRINGS;
+const { getData, getStatus } = signinSelectors;
+const { FAIL_MESSAGE, PRIMARY, SUCCESS, SUCCESS_MESSAGE, TITLE } = SIGNIN_STRINGS;
 
 class Signin extends React.Component {
     state = {
@@ -28,14 +28,14 @@ class Signin extends React.Component {
     handleCreate = () => {
         const form = this.formRef.props.form;
         const { signinRequest } = this.props.actions;
-        form.validateFields((error, values) => {
+        form.validateFields((error, { email, password }) => {
             if (error) {
                 return error;
             }
             form.resetFields();
             const payload = {
-                email: values.email,
-                password: values.password,
+                email,
+                password,
             };
             signinRequest(payload);
             this.setState({ visible: false });
@@ -48,19 +48,17 @@ class Signin extends React.Component {
     }
     notifySigninStatus = () => {
         const { resetSignState } = this.props.actions;
-        const { signinMessage, signinStatus } = this.props;
-
-        if(signinStatus){
-            message.success(signinMessage, 5);
-        } else {
-            message.error(signinMessage, 5);
+        const { signinStatus, userData } = this.props;
+        
+        if(signinStatus !== undefined){
+            signinStatus === SUCCESS ? 
+                message.success(`${userData.user.firstName}  ${SUCCESS_MESSAGE}`, 5):          
+                message.error(FAIL_MESSAGE, 5);
         }
         resetSignState();
     }
     
-    render() {
-        const {  signinStatus } = this.props;
-       
+    render() {    
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -70,13 +68,7 @@ class Signin extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                 />
-                {
-                    signinStatus !== undefined &&
-                    <span>
-                        { this.notifySigninStatus() }
-                    </span>
-                }
-
+                { this.notifySigninStatus() }
             </div>
         );
     }
@@ -84,12 +76,12 @@ class Signin extends React.Component {
 
 Signin.propTypes = {
     actions: PropTypes.object,
-    signinMessage: PropTypes.string,
-    signinStatus: PropTypes.bool,
+    signinStatus: PropTypes.string,
+    userData: PropTypes.object,
 };
 const mapStateToProps = state => ({
-    signinMessage: getMessage(state),
     signinStatus: getStatus(state),
+    userData: getData(state),
 });
 
 const mapDispatchToProps = dispatch => ({

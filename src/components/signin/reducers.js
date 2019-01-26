@@ -9,41 +9,43 @@ const initialState = {
 };
 
 export default ( state = { ...initialState }, action) => {
+
     switch(action.type){
-    case SIGNIN_REQUEST:
+    case SIGNIN_REQUEST: {
+        const { payload: { email, password } } = action;
         return {
             ...state,
-            email: action.payload.email,
+            email,
             error: null,
             isLoading: true,
-            password: action.payload.password,
+            password,
         };
+    }
 
     case SIGNIN_SUCCESS:{
-        const { message, success: isSigninSuccessful } = action.data;
+        const { payload: { data, status } } = action;
         return {
             ...state,
-            email: "",
+            data,
             error: null,
             isLoading: false,
-            isSigninSuccessful,
-            message,
-            password: "",
+            status,
         };
     }
 
     case RESET_STATE:
         return { ...initialState };
         
-    case SIGNIN_FAILURE:
+    case SIGNIN_FAILURE:{
+        const { error } = action;
         return {
             ...state,
             email: "",
-            error: action.error,
+            error,
             isLoading: false,
-            isSigninSuccessful: false,
             password: "",
         };
+    }
     default:
         return state;
     }

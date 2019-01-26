@@ -17,8 +17,8 @@ export const signinRequest = payload => ({
  * @function
  * @return {Object} The {@link actionTypes.SIGNIN_SUCCESS SIGNIN_SUCCESS} action.
  */
-export const signinSuccess = data => ({
-    data,
+export const signinSuccess = payload => ({
+    payload,
     type: SIGNIN_SUCCESS,
 });
 
