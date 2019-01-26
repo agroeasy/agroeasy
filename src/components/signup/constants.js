@@ -148,4 +148,4 @@ export const PRODUCTS = [
         value: "other",
     },
 ];
-export const SIGNUP_URL = 'http://localhost:4000/account/signup';
+export const SIGNUP_URL = '/account/signup';
