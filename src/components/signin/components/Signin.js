@@ -76,12 +76,12 @@ class Signin extends React.Component {
 
 Signin.propTypes = {
     actions: PropTypes.object,
-    signinStatus: PropTypes.string,
     siginData: PropTypes.object,
+    signinStatus: PropTypes.string,
 };
 const mapStateToProps = state => ({
-    signinStatus: getStatus(state),
     siginData: getData(state),
+    signinStatus: getStatus(state),
 });
 
 const mapDispatchToProps = dispatch => ({
