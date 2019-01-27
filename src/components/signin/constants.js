@@ -2,8 +2,10 @@
 export const NAME = 'signin';
 
 export const SIGNIN_STRINGS = {
-    CHECKBOX_REMINDER: "Remember me",
+    FAIL_MESSAGE: "Unsuccessful sigin, check your username or password",
     PRIMARY: "primary",
+    SUCCESS: "success",
+    SUCCESS_MESSAGE: "You have  successfully sigined in",
     TITLE: "Sign in",
 };
 
@@ -22,4 +24,4 @@ export const INPUTS = [
     },
 ];
 
-export const SIGNIN_URL = "http://localhost:4000/account/signin";
+export const SIGNIN_URL = "/account/signin";

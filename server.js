@@ -1,3 +1,4 @@
+import './env';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';

@@ -1,15 +1,18 @@
 import bcrypt from 'bcrypt-nodejs';
+import _pick from 'lodash.pick';
 
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
 const { User, UserSession } = models;
 const {
+    FAIL,
     INVALID_SIGNIN,
     LOGOUT,
     NO_EMAIL_PASSWORD,
-    SUCCESSFUL_SIGNIN,
+    SUCCESS,
     USER_NOT_FOUND,
+    USERINFO,
 } = CONSTANTS;
 
 export default {
@@ -47,33 +50,43 @@ export default {
     },
 
     signInUser: async (req, res) => {
-        let { email, password } = req.body;
+        const { email, password } = req.body;
 
         if (!email || !password) {
             return res.send({
-                message: NO_EMAIL_PASSWORD,
-                success: false,
+                data: { title: NO_EMAIL_PASSWORD },
+                status: FAIL,
             });
         }
 
         try {
-            email = email.toLowerCase().trim();
             const user = await User.findOne({ email });
 
             if(!user){
                 return res.send({
-                    message: USER_NOT_FOUND,
-                    success: false,
+                    data: { title: USER_NOT_FOUND },
+                    status: FAIL,
                 });
             }
 
             const userSession = Object.assign(new UserSession(), { userId: user._id  });
             const doc = await userSession.save();
-
-            await bcrypt.compare(password, user.password, (error, result) => {
+            
+            bcrypt.compare(password, user.password, (error, result) => {
                 const data = result ?
-                    { message: SUCCESSFUL_SIGNIN, success: true, token: doc._id } :
-                    { error, message: INVALID_SIGNIN, success: false };
+                    {
+                        data: {
+                            token: doc._id,
+                            user: _pick(user, USERINFO),
+                        },
+                        status: SUCCESS,
+                    } : { 
+                        data: {
+                            error,
+                            title: INVALID_SIGNIN,
+                        },           
+                        status: FAIL,
+                    };
 
                 return res.send(data);
             });

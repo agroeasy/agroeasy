@@ -1,51 +1,89 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { Button, Modal } from 'antd';
+import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import { message } from 'antd';
 
-import { CONTACT_US } from '../constants';
-import FormContent from './FormContent';
+import ContactForm from './ContactForm';
+import * as contactMailActions from '../actions';
+import { CONTACT_STRINGS } from '../constants';
+import { getStatus } from '../selectors';
 
-const { BACK, CANCEL, PRIMARY, SMALL, SUBMIT, TITLE } = CONTACT_US;
+const { PRIMARY, TITLE } = CONTACT_STRINGS;
 
-export default class ContactUs extends React.Component {
+class ContactUs extends React.Component {
     state = {
         visible: false,
-    }
+    };
 
     showModal = () => {
-        this.setState({
-            visible: true,
-        });
+        this.setState({ visible: true });
     }
 
     handleCancel = () => {
         this.setState({ visible: false });
     }
 
-    render() {
-        const { visible } = this.state;
-        const footer = [
-            <Button
-                key={SUBMIT}
-                type={PRIMARY}
-                size={SMALL}
-                onClick={this.handleOk}
-            >{SUBMIT}</Button>,
-            <Button key={BACK} size={SMALL} onClick={this.handleCancel}>{CANCEL}</Button>,
-        ];
+    handleCreate = () => {
+        const { sendContactMail } = this.props.actions;
+        const form = this.formRef.props.form;
+
+        form.validateFields((error, { email, message, name, subject }) => {
+            if (error) {
+                return error;
+            }
+            form.resetFields();
+            
+            const payload = {
+                email,
+                message,
+                name,
+                subject,
+            };
+            sendContactMail(payload);
+            this.setState({ visible: false });
+        });  
+    }
+
+    saveFormRef = formRef => {
+        this.formRef = formRef;
+    }
+
+    notifyMailStatus = () => {
+        const { isMailSent } = this.props;
+        if(isMailSent !== undefined){
+            isMailSent ? message.success("message succesfully sent", 5): 
+                message.error("message not sent", 5);
+        }            
+    };
+
+    render() {      
         return (
             <div>
-                <div onClick={this.showModal} >{TITLE}</div>
-                <Modal
-                    width={600}
-                    visible={visible}
-                    title={TITLE}
-                    onOk={this.handleOk}
+                <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
+                <ContactForm
+                    wrappedComponentRef={this.saveFormRef}
+                    visible={this.state.visible}
                     onCancel={this.handleCancel}
-                    footer={footer}
-                >
-                    <FormContent />
-                </Modal>
+                    onCreate={this.handleCreate}
+                />
+                {this.notifyMailStatus()}
             </div>
         );
     }
 }
+
+ContactUs.propTypes = {
+    actions: PropTypes.object,
+    isMailSent: PropTypes.bool,
+};
+
+const mapStateToProps = state => ({
+    isMailSent: getStatus(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(contactMailActions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactUs);
