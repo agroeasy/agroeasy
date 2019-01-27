@@ -91,7 +91,7 @@ export default {
                 return res.send(data);
             });
         } catch(error) {
-            return res.send({ error, success: false });
+            return res.status(500).send({ error, success: false });
         }
     },
 };

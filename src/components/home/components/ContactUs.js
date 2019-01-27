@@ -32,6 +32,7 @@ class ContactUs extends React.Component {
             if (error) {
                 return error;
             }
+            
             form.resetFields();
             
             const payload = {
@@ -40,8 +41,10 @@ class ContactUs extends React.Component {
                 name,
                 subject,
             };
+
             sendContactMail(payload);
             this.setState({ visible: false });
+
         });  
     }
 
@@ -51,7 +54,8 @@ class ContactUs extends React.Component {
 
     notifyMailStatus = () => {
         const { isMailSent } = this.props;
-        if(isMailSent !== undefined){
+
+        if(isMailSent !== undefined) {
             isMailSent ? message.success("message succesfully sent", 5): 
                 message.error("message not sent", 5);
         }            
