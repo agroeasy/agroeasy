@@ -4,9 +4,11 @@ export const SUPPORT = "/about/";
 export const MARKET = "/market/";
 
 export const CONTACT_STRINGS = {
+    AVATAR: "avatar",
+    CONTACT_IMG: './contact.png',
+    CONTACT_US: "contactUs",
     PLACEHOLDER: "Your Message here...",
     PRIMARY: "primary",
-    TITLE: "Contact Us",
 };
 
 //strings from ListItems.js

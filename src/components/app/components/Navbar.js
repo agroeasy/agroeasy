@@ -3,7 +3,6 @@ import React from 'react';
 import { Avatar,  Dropdown, Layout, Menu } from 'antd';
 
 import AppLink from './AppLink';
-import home from '../../home';
 
 import signin from '../../signin';
 import signup from '../../signup';
@@ -14,10 +13,9 @@ const { Item } = Menu;
 const { Header } = Layout;
 const { AVATAR, SHAPE, SIZE, SOURCE } = LOGO;
 const { MAIN_NAV, NAV_MENU, NAV_MODE, NAV_THEME } = NAVBAR;
-const { ADD_ITEM, CONTACT, HOME, MARKET, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
+const { ADD_ITEM, HOME, MARKET, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
 const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AVATAR;
 
-const { ContactUs } = home.components;
 const { Signin } = signin.components;
 const { Signup } = signup.components;
 
@@ -38,7 +36,6 @@ const items = [
     <AppLink key={ADD_ITEM} to={ADD_ITEM}>{ADD_ITEM_TEXT}</AppLink>,
     <Signin key={SIGN_IN} />,
     <Signup key={SIGN_UP} />,
-    <ContactUs key={CONTACT} />,
 ];
 
 /*

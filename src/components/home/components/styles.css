@@ -213,3 +213,9 @@ img {
 .search {
     margin-top: 70px;
 }
+
+.contactUs {
+    top: 350pt;
+    position: fixed;
+    transform: translateX(-100px)
+}

@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import { message } from 'antd';
+import { Avatar, message } from 'antd';
 
 import ContactForm from './ContactForm';
 import * as contactMailActions from '../actions';
 import { CONTACT_STRINGS } from '../constants';
 import { getStatus } from '../selectors';
 
-const { PRIMARY, TITLE } = CONTACT_STRINGS;
+const { AVATAR, PRIMARY, CONTACT_IMG, CONTACT_US } = CONTACT_STRINGS;
 
 class ContactUs extends React.Component {
     state = {
@@ -64,7 +64,12 @@ class ContactUs extends React.Component {
     render() {      
         return (
             <div>
-                <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
+                <div className = {CONTACT_US}  type={PRIMARY} onClick={this.showModal}>
+                    <Avatar
+                        className = { AVATAR }
+                        src= {CONTACT_IMG}
+                    />
+                </div>
                 <ContactForm
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}
