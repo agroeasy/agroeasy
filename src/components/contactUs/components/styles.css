@@ -8,3 +8,9 @@
  .btn-mail {
     border-radius: 20px 0 20px 0;
 }
+
+@media (max-width: 700px) {
+  .contactUs {
+      left: 70%;
+  }
+}
