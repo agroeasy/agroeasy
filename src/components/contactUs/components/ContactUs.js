@@ -10,11 +10,12 @@ import { CONTACT_STRINGS } from '../constants';
 import { getStatus } from '../selectors';
 
 const { 
+    BTN_MAIL,
     CONTACT_US, 
     DEFAULT, 
     LARGE, 
     MAIL,MSG_NOT_SENT, 
-    MSG_SENT, 
+    MSG_SENT,
 } = CONTACT_STRINGS;
 
 class ContactUs extends React.Component {
@@ -72,10 +73,11 @@ class ContactUs extends React.Component {
             <div>
                 <div className={CONTACT_US} >
                     <Button 
+                        className={BTN_MAIL}
+                        icon={MAIL} 
+                        onClick={this.showModal} 
+                        size={LARGE}
                         type={DEFAULT} 
-                        icon={MAIL}  
-                        size={LARGE} 
-                        onClick={this.showModal}
                     >
                         {CONTACT_US}
                     </Button>

@@ -1,7 +1,8 @@
 
 export const CONTACT_STRINGS = {
+    BTN_MAIL: "btn-mail",
     CONTACT_US: "contactUs",
-    DEFAULT: "default", 
+    DEFAULT: "primary", 
     LARGE: "large", 
     MAIL: "mail", 
     MSG_NOT_SENT: "message not sent",

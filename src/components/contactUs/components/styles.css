@@ -4,3 +4,7 @@
     left: 89%;
     position: fixed;
 }
+
+ .btn-mail {
+    border-radius: 20px 0 20px 0;
+}
