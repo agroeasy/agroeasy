@@ -6,7 +6,7 @@ import { Button, message } from 'antd';
 
 import ContactForm from './ContactForm';
 import * as contactMailActions from '../actions';
-import { CONTACT_STRINGS } from '../../home/constants';
+import { CONTACT_STRINGS } from '../constants';
 import { getStatus } from '../selectors';
 
 const { 
