@@ -2,14 +2,20 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import { Avatar, message } from 'antd';
+import { Button, message } from 'antd';
 
 import ContactForm from './ContactForm';
 import * as contactMailActions from '../actions';
-import { CONTACT_STRINGS } from '../constants';
+import { CONTACT_STRINGS } from '../../home/constants';
 import { getStatus } from '../selectors';
 
-const { AVATAR, PRIMARY, CONTACT_IMG, CONTACT_US } = CONTACT_STRINGS;
+const { 
+    CONTACT_US, 
+    DEFAULT, 
+    LARGE, 
+    MAIL,MSG_NOT_SENT, 
+    MSG_SENT, 
+} = CONTACT_STRINGS;
 
 class ContactUs extends React.Component {
     state = {
@@ -56,19 +62,23 @@ class ContactUs extends React.Component {
         const { isMailSent } = this.props;
 
         if(isMailSent !== undefined) {
-            isMailSent ? message.success("message succesfully sent", 5): 
-                message.error("message not sent", 5);
+            isMailSent ? message.success(MSG_SENT, 5): 
+                message.error(MSG_NOT_SENT, 5);
         }            
     };
 
     render() {      
         return (
             <div>
-                <div className = {CONTACT_US}  type={PRIMARY} onClick={this.showModal}>
-                    <Avatar
-                        className = { AVATAR }
-                        src= {CONTACT_IMG}
-                    />
+                <div className={CONTACT_US} >
+                    <Button 
+                        type={DEFAULT} 
+                        icon={MAIL}  
+                        size={LARGE} 
+                        onClick={this.showModal}
+                    >
+                        {CONTACT_US}
+                    </Button>
                 </div>
                 <ContactForm
                     wrappedComponentRef={this.saveFormRef}

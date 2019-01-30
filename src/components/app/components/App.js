@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 
-import home from '../../home';
+import home from '../../contactUs';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
