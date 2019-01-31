@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 
+import contactus from '../../contactUs';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
+const { ContactUs } = contactus.components;
 const { Content } = Layout;
 
 class App extends React.Component {
@@ -16,6 +18,7 @@ class App extends React.Component {
                 <Navbar />
                 <Content>{children}</Content>
                 <Footer />
+                <ContactUs />
             </Layout>
         );
     }
