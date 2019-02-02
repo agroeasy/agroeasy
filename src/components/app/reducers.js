@@ -11,8 +11,8 @@ import { SET_COOKIE, REMOVE_COOKIE } from './actionTypes';
         const time = 12;
         const expiration = new Date(new Date().getTime()+ time * 3600 * 1000);
         const token = action.data.token || 'testtoken';
-        browser.cookies.set(token, expiration);
-
+        Cookies.set(token, expiration);
+        Cookies.get(token);
         return {
             ...state,
             loggedIn: true,
@@ -22,7 +22,8 @@ import { SET_COOKIE, REMOVE_COOKIE } from './actionTypes';
     }
     case REMOVE_COOKIE: {
         const token = action.data.token || 'testtoken';
-        browser.cookies.remove(token);
+        Cookies.expire(token);
+        Cookies.get();
         return {
             ...state,
             loggedIn: false,

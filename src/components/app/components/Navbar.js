@@ -1,7 +1,10 @@
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Avatar,  Dropdown, Layout, Menu } from 'antd';
+import { Avatar, Dropdown, Layout, Menu } from 'antd';
 
+import { removeCookie } from '../actions';
 import AppLink from './AppLink';
 
 import signin from '../../signin';
@@ -42,6 +45,10 @@ const items = [
  * this is the the navigation bar at the top of the home page
  */
 export default class Navbar extends React.Component {
+    logout(e) {
+        this.props.actions.removeCookie();
+    }
+
     render() {
 
         return (
@@ -72,5 +79,12 @@ export default class Navbar extends React.Component {
 }
 
 Navbar.propTypes = {
+    actions: PropTypes.object,
     links: PropTypes.arrayOf(PropTypes.node),
 };
+
+// const mapDispatchToProps = dispatch => ({
+//     actions: bindActionCreators({ removeCookie }, dispatch),
+// });
+
+//  export default connect(mapDispatchToProps)(Navbar);
