@@ -1,4 +1,5 @@
 import { effects } from 'redux-saga';
+import { setCookie } from '../app/actions';
 import {  SIGNIN_REQUEST } from './actionTypes';
 import { SIGNIN_URL } from './constants';
 import { signinSuccess, signinFailure } from './actions';
@@ -23,6 +24,7 @@ function* signinUser(action){
         if(response.ok){
             const data = yield response.json();
             yield effects.put(signinSuccess(data));
+            yield effects.put(setCookie());
         }
     } catch(error){
         yield effects.put(signinFailure(error));
