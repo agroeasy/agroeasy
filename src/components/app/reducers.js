@@ -11,7 +11,7 @@ import { SET_COOKIE, REMOVE_COOKIE } from './actionTypes';
         const time = 12;
         const expiration = new Date(new Date().getTime()+ time * 3600 * 1000);
         const token = action.data.token || 'testtoken';
-        Cookies.set(token, expiration);
+        Cookies.set(token, {expires: expiration});
         Cookies.get(token);
         return {
             ...state,
