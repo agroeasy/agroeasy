@@ -1,6 +1,4 @@
 //userpage string
-export const DEFAULT_SELECTED = 'Account';
-
 export const USER_PAGE = {
     CLASSNAMES: {
         AVATAR: 'avatar',

@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu, Icon } from 'antd';
 
 import { AppLink } from '../../app/components';
-import { DEFAULT_SELECTED, SIDE_MENU_ITEMS, USER_PAGE } from '../constants';
+import { SIDE_MENU_ITEMS, USER_PAGE } from '../constants';
 
 const {
     CLASSNAMES: { MENU },
