@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
 
+import { AppLink } from '../../app/components';
 import { SIDE_MENU_ITEMS, USER_PAGE } from '../constants';
 
 const {
@@ -17,9 +18,15 @@ export default class SideMenu extends React.Component {
                 mode={INLINE}
             >
                 {
-                    SIDE_MENU_ITEMS.map(({ iconType, label }) => (
+                    SIDE_MENU_ITEMS.map(({ iconType, label, link }) => (
                         <Menu.Item key={label}>
-                            <span><Icon type={iconType} />{label}</span>
+                            {
+                                link ?
+                                    <AppLink to={link} key={label}>
+                                        <span><Icon type={iconType} />{label}</span>
+                                    </AppLink> :
+                                    <span><Icon type={iconType} />{label}</span>
+                            }
                         </Menu.Item>
                     ))
                 }
