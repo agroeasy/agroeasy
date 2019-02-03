@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Layout } from 'antd';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import ProfileContent from './ProfileContent';
 import SideMenu from './SideMenu';
@@ -14,8 +15,8 @@ const {
 
 class UserProfile extends React.Component {
     render() {
-        console.log(this.props)
         const { match } = this.props;
+        
         return(
             <Content className={BIG_CONTENT}>
                 <Layout className={BIG_LAYOUT}>
@@ -34,5 +35,9 @@ class UserProfile extends React.Component {
         );
     }
 }
+
+UserProfile.propTypes = {
+    match: PropTypes.object,
+};
 
 export default UserProfile;

@@ -1,4 +1,6 @@
 //userpage string
+export const DEFAULT_SELECTED = 'Account';
+
 export const USER_PAGE = {
     CLASSNAMES: {
         AVATAR: 'avatar',
@@ -70,7 +72,7 @@ export const LOCATION = [
 ];
 
 export const SIDE_MENU_ITEMS = [
-    { iconType: "info-circle", label: "Account Info", link: '/profile' },
+    { iconType: "info-circle", label: "Account", link: '/profile' },
     { iconType: "message", label: "Messages" },
     { iconType: "notification", label: "Notifications" },
     { iconType: "shopping", label: "Purchases" },
