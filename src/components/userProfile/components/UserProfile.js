@@ -15,8 +15,8 @@ const {
 
 class UserProfile extends React.Component {
     render() {
-        const { match } = this.props;
-        
+        const { path } = this.props.match;
+
         return(
             <Content className={BIG_CONTENT}>
                 <Layout className={BIG_LAYOUT}>
@@ -24,9 +24,9 @@ class UserProfile extends React.Component {
                         <SideMenu />
                     </Sider>
                     <Content className={SM_CONTENT}>
-                        <Route path={'/profile'} exact strict component={ProfileContent} />
+                        <Route path={path} exact strict component={ProfileContent} />
                         <Route
-                            path={`${match.path}/items`}
+                            path={`${path}/items`}
                             component={AddItem}
                         />
                     </Content>
