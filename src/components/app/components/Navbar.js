@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Avatar, Dropdown, Layout, Menu } from 'antd';
+import { Avatar, Dropdown, Layout, Menu, message } from 'antd';
 
 import { removeCookie } from '../actions';
 import AppLink from './AppLink';
@@ -22,15 +22,6 @@ const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AV
 const { Signin } = signin.components;
 const { Signup } = signup.components;
 
-const UserMenu = (
-    <Menu>
-        <Item key={USER_PROFILE}>
-            <AppLink to={PROFILE} key={PROFILE}>{USER_PROFILE}</AppLink>
-        </Item>
-        <Item key={SIGN_OUT}>{SIGN_OUT}</Item>
-    </Menu>
-);
-
 const items = [
     <AppLink key={AVATAR} to={HOME}>
         <Avatar className={AVATAR} src={SOURCE} size={SIZE} shape={SHAPE} />
@@ -44,12 +35,27 @@ const items = [
 /*
  * this is the the navigation bar at the top of the home page
  */
-export default class Navbar extends React.Component {
-    logout(e) {
-        this.props.actions.removeCookie();
+class Navbar extends React.Component {
+    logout () {
+        const { removeCookie } = this.props.actions;
+        const { isLoggedIn } = this.props;
+        isLoggedIn? message.success('blah blah blah', 5): message.error('user not logged in', 5);
+        removeCookie();
     }
 
     render() {
+        
+        const UserMenu = (
+            <Menu>
+                <Item key={USER_PROFILE}>
+                    <AppLink to={PROFILE} key={PROFILE}>{USER_PROFILE}</AppLink>
+                </Item>
+
+                <Item key={SIGN_OUT}>
+                    <a onClick={this.logout}>{SIGN_OUT}</a>
+                </Item>
+            </Menu>
+        );
 
         return (
             <Header className={MAIN_NAV}>
@@ -80,11 +86,16 @@ export default class Navbar extends React.Component {
 
 Navbar.propTypes = {
     actions: PropTypes.object,
+    isLoggedIn: PropTypes.func, 
     links: PropTypes.arrayOf(PropTypes.node),
 };
 
-// const mapDispatchToProps = dispatch => ({
-//     actions: bindActionCreators({ removeCookie }, dispatch),
-// });
+const mapStateToProps = state => ({
+    isLoggedIn: state.loggedIn,
+});
 
-//  export default connect(mapDispatchToProps)(Navbar);
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({ removeCookie }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
