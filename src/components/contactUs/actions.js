@@ -17,7 +17,7 @@ export const sendContactMail = payload => ({
  * Triggers request to update redux store on successful mail sent
  *
  * @function
- * @param {Object} data An object of the data returned from the endpoint if mail is sent 
+ * @param {Object} payload An object of the data returned from the endpoint if mail is sent 
  * @return {Object} The {@link actionTypes.MAIL_SENT MAIL_SENT} action.
  */
 export const mailSent = payload => ({
@@ -29,7 +29,7 @@ export const mailSent = payload => ({
  * Triggers request to update redux store on failure to send mail
  * 
  * @function
- * @param {Object} data An object of the error returned if mail is not 
+ * @param {Object} error An object of the error returned if mail is not 
  * sent and endpoint isn't reachable
  * @return {Object} The {@link actionTypes.MAIL_FAILED MAIL_FAILED} action.
  */

@@ -16,7 +16,7 @@ export const signupRequest = payload => ({
  * Triggers request to update redux store on success
  *
  * @function
- * @param {Object} data An object containing signup status (success or failure) provided 
+ * @param {Object} payload An object containing signup status (success or failure) provided 
  * the endpoint is reachable
  * @return {Object} The {@link actionTypes.SIGNUP_SUCCESS SIGNUP_SUCCESS} action.
  */
