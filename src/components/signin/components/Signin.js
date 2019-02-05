@@ -46,11 +46,8 @@ class Signin extends React.Component {
     saveFormRef = formRef => {
         this.formRef = formRef;
     }
-    notifySigninStatus = () => {
 
-    }
-
-    componentDidMount() {
+    componentDidUpdate() {
         const { resetSignState } = this.props.actions;
         const { signinStatus, siginData } = this.props;
 
