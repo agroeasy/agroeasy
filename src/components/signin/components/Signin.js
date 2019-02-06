@@ -40,25 +40,26 @@ class Signin extends React.Component {
             signinRequest(payload);
             this.setState({ visible: false });
         });
-        
+
     }
 
     saveFormRef = formRef => {
         this.formRef = formRef;
     }
-    notifySigninStatus = () => {
+
+    componentDidUpdate() {
         const { resetSignState } = this.props.actions;
         const { signinStatus, siginData } = this.props;
-        
+
         if(signinStatus !== undefined){
-            signinStatus === SUCCESS ? 
-                message.success(`${siginData.user.firstName}  ${SUCCESS_MESSAGE}`, 5):          
+            signinStatus === SUCCESS ?
+                message.success(`${siginData.user.firstName}  ${SUCCESS_MESSAGE}`, 5):
                 message.error(siginData.title, 5);
         }
         resetSignState();
     }
-    
-    render() {    
+
+    render() {
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -68,7 +69,6 @@ class Signin extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                 />
-                { this.notifySigninStatus() }
             </div>
         );
     }
