@@ -10,7 +10,7 @@ import * as signinActions from '../actions';
 import * as  signinSelectors from '../selectors';
 
 const { getData, getStatus } = signinSelectors;
-const { FAIL_MESSAGE, PRIMARY, SUCCESS, SUCCESS_MESSAGE, TITLE } = SIGNIN_STRINGS;
+const { PRIMARY, SUCCESS, SUCCESS_MESSAGE, TITLE } = SIGNIN_STRINGS;
 
 class Signin extends React.Component {
     state = {
