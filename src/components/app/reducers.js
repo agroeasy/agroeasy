@@ -10,22 +10,22 @@ const initialState = {
 export default ( state = { ...initialState }, action) => {
     switch (action.type) {
     case SET_COOKIE:    {
-        const { payload: token } = action;
+        const { token } = action;
         Cookies.set(token, { expires: EXPIRATION });
 
         return {
             ...state,
             loggedIn: true,
-
         };
     }
     case REMOVE_COOKIE: {
-        const { payload: token } = action;
+        const { token } = action;
         Cookies.expire(token);
         
         return {
             ...state,
             loggedIn: false,
+            message,
         };
     }
     default:

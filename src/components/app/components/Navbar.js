@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Avatar, Dropdown, Layout, Menu, message } from 'antd';
 
-import { removeCookie } from '../actions';
 import AppLink from './AppLink';
+import { removeCookie } from '../actions';
+import { getLoginStatus } from '../selectors';
 
 import signin from '../../signin';
 import signup from '../../signup';
@@ -36,24 +37,25 @@ const items = [
  * this is the the navigation bar at the top of the home page
  */
 class Navbar extends React.Component {
+    state = {
+        isLoggedIn: false,
+    };
     logout () {
         const { removeCookie } = this.props.actions;
         const { isLoggedIn } = this.props;
-        isLoggedIn? message.success('blah blah blah', 5): message.error('user not logged in', 5);
+        isLoggedIn? message.success('user is logged in', 5): message.error('user not logged in', 5);
         removeCookie();
     }
 
     render() {
         
         const UserMenu = (
-            <Menu>
+            <Menu onClick={this.logout}>
                 <Item key={USER_PROFILE}>
                     <AppLink to={PROFILE} key={PROFILE}>{USER_PROFILE}</AppLink>
                 </Item>
 
-                <Item key={SIGN_OUT}>
-                    <a onClick={this.logout}>{SIGN_OUT}</a>
-                </Item>
+                <Item key={SIGN_OUT}>{SIGN_OUT}</Item>
             </Menu>
         );
 
@@ -91,7 +93,7 @@ Navbar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    isLoggedIn: state.loggedIn,
+    isLoggedIn: getLoginStatus(state),
 });
 
 const mapDispatchToProps = dispatch => ({
