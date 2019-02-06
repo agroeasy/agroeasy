@@ -34,24 +34,25 @@ class Signup extends React.Component {
     handleCreate = () => {
         const form = this.formRef.props.form;
         const { signupRequest } = this.props.actions;
-        form.validateFields((error, user = {
-            address,
-            city,
-            country,
-            createdAt: new Date(),
-            email,
-            firstName,
-            lastName,
-            password,
-            phoneNumber,
-            state,
-            typeOfProducts,
-            username }) => {
+        form.validateFields((error, values ) => {
             if (error) {
                 return error;
             }
             form.resetFields();
-            console.log(user);
+            const user = {
+                address: values.address,
+                city: values.city,
+                country: values.country,
+                createdAt: new Date(),
+                email: values.email,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                password: values.password,
+                phoneNumber: values.phoneNumber,
+                state: values.state,
+                typeOfProducts:values.typeOfProducts,
+                username: values.username,
+            };
             signupRequest(user);
             this.setState({ visible: false });
         });
