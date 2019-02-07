@@ -2,10 +2,10 @@
 export const NAME = 'signin';
 
 export const SIGNIN_STRINGS = {
-    FAIL_MESSAGE: "Unsuccessful sigin, check your username or password",
+    FAIL_MESSAGE: "Unsuccessful sigin, check your email or password",
     PRIMARY: "primary",
     SUCCESS: "success",
-    SUCCESS_MESSAGE: "You have  successfully sigined in",
+    SUCCESS_MESSAGE: "Hello",
     TITLE: "Sign in",
 };
 
@@ -13,8 +13,8 @@ export const INPUTS = [
     {
         field: 'email',
         iconType: "user",
-        placeholder: "Enter your username",
-        rules: [{ message: "You have to input your username", required: true }],
+        placeholder: "Enter your email",
+        rules: [{ message: "You have to input your email", required: true }],
     },
     {
         field: 'password',

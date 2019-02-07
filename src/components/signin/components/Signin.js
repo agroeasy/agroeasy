@@ -53,7 +53,7 @@ class Signin extends React.Component {
 
         if(signinStatus !== undefined){
             signinStatus === SUCCESS ?
-                message.success(`${siginData.user.firstName}  ${SUCCESS_MESSAGE}`, 5):
+                message.success(`${SUCCESS_MESSAGE} ${siginData.user.firstName}!`, 5):
                 message.error(siginData.title, 5);
         }
         resetSignState();

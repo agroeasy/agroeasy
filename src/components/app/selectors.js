@@ -4,7 +4,7 @@ import { NAME } from './constants';
  *
  * @function
  * @param {Object} state - redux store state
- * @return {Boolean} the state of the signup
+ * @return {Boolean} the state of the signout
  * {@link module:app/constants::INITIAL_STATE constants::INITIAL_STATE}).
  */
 export const getLoginStatus = state => state[NAME].loggedIn;

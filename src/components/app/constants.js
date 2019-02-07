@@ -77,5 +77,10 @@ export const FOOTER_CLASSNAMES = {
     DYNAMIC_FOOTER: 'ant-col-xs-24 ant-col-sm-24 ant-col-md-6',
     ROW: 'ant-row',
 };
- 
+
+export const SIGNOUT_STRINGS = {
+    INVALID_SIGNOUT: "You are not logged in",
+    VALID_SIGNOUT: "Valid sign out",
+};
+
 export const EXPIRATION = 86400000;

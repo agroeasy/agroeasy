@@ -11,13 +11,14 @@ import { getLoginStatus } from '../selectors';
 import signin from '../../signin';
 import signup from '../../signup';
 
-import { ADD_ITEM_TEXT, LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
+import { ADD_ITEM_TEXT, LOGO, MARKET_TEXT, NAVBAR, PATHS, SIGNOUT_STRINGS, USER_AVATAR } from '../constants';
 
 const { Item } = Menu;
 const { Header } = Layout;
 const { AVATAR, SHAPE, SIZE, SOURCE } = LOGO;
 const { MAIN_NAV, NAV_MENU, NAV_MODE, NAV_THEME } = NAVBAR;
 const { ADD_ITEM, HOME, MARKET, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
+const { INVALID_SIGNOUT, VALID_SIGNOUT } = SIGNOUT_STRINGS;
 const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AVATAR;
 
 const { Signin } = signin.components;
@@ -44,10 +45,10 @@ class Navbar extends React.Component {
         if (key === SIGN_OUT) {
             if (isLoggedIn){
                 removeCookie();
-                return message.success('valid sign out', 5)
+                return message.success(VALID_SIGNOUT)
             }
                 else {
-                message.error('you have not logged in', 5);
+                message.error(INVALID_SIGNOUT);
             }
         }
     }
