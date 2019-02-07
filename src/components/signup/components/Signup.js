@@ -16,6 +16,14 @@ class Signup extends React.Component {
         visible: false,
     };
 
+    componentDidUpdate(){
+        const { signupMessage, signupStatus } = this.props;
+        if(signupStatus !== undefined){
+            signupStatus ? message.success(signupMessage, 5) :
+                message.error(signupMessage, 5);
+        }
+    }
+
     showModal = () => {
         this.setState({ visible: true });
     }
@@ -46,6 +54,7 @@ class Signup extends React.Component {
                 username: values.username,
             };
             signupRequest(user);
+            this.setState({ visible: false });
         });
 
     }
@@ -55,7 +64,6 @@ class Signup extends React.Component {
     }
 
     render() {
-        const { signupMessage, signupStatus } = this.props;
         return (
             <div>
                 <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
@@ -65,16 +73,6 @@ class Signup extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                 />
-
-                {
-                    signupStatus !== undefined &&
-                    <span>
-                        {
-                            signupStatus ? message.success(signupMessage, 5) :
-                                message.error(signupMessage, 5)
-                        }
-                    </span>
-                }
             </div>
         );
     }
