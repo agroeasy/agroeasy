@@ -7,4 +7,4 @@ import { NAME } from './constants';
  * @return {Boolean} the state of the signup
  * {@link module:app/constants::INITIAL_STATE constants::INITIAL_STATE}).
  */
-export const getLoginStatus = state =>  state[NAME].loggedIn;
+export const getLoginStatus = state => state[NAME].loggedIn;

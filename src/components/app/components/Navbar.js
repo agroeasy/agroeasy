@@ -54,7 +54,7 @@ class Navbar extends React.Component {
 
     render() {       
         const UserMenu = (
-            <Menu onClick={this. logout}>
+            <Menu onClick={this.logout}>
                 <Item key={USER_PROFILE}>
                     <AppLink to={PROFILE} key={PROFILE}>{USER_PROFILE}</AppLink>
                 </Item>
