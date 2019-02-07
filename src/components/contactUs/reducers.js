@@ -14,7 +14,7 @@ export default (state = { ...initialState }, action ) => {
             isSending: true,
         };
     case MAIL_SENT: {
-        const { email, message, name, success: isMailSent } = action.data;
+        const { email, message, name, success: isMailSent } = action.payload;
         return{
             ...state,
             isMailSent,

@@ -19,10 +19,10 @@ export default (state = initialState, action) => {
         };
 
     case SIGNUP_SUCCESS:{
-        const { message, success: isSignupSuccessful } = action.data;
+        const { message, success: isSignupSuccessful } = action.payload;
         return {
             ...state,
-            data: action.data,
+            data: action.payload,
             isLoading: false,
             isSignupSuccessful,
             message,
