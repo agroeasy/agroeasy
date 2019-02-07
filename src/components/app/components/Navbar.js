@@ -35,22 +35,26 @@ const items = [
 
 /*
  * this is the the navigation bar at the top of the home page
- */
+*/
 class Navbar extends React.Component {
-    state = {
-        isLoggedIn: false,
-    };
-    logout () {
-        const { removeCookie } = this.props.actions;
+    logout = ({ key }) => {
         const { isLoggedIn } = this.props;
-        isLoggedIn? message.success('user is logged in', 5): message.error('user not logged in', 5);
-        removeCookie();
+        const { removeCookie } = this.props.actions;
+
+        if (key === SIGN_OUT) {
+            if (isLoggedIn){
+                removeCookie();
+                return message.success('valid sign out', 5)
+            }
+                else {
+                message.error('you have not logged in', 5);
+            }
+        }
     }
 
-    render() {
-        
+    render() {       
         const UserMenu = (
-            <Menu onClick={this.logout}>
+            <Menu onClick={this. logout}>
                 <Item key={USER_PROFILE}>
                     <AppLink to={PROFILE} key={PROFILE}>{USER_PROFILE}</AppLink>
                 </Item>
@@ -88,7 +92,7 @@ class Navbar extends React.Component {
 
 Navbar.propTypes = {
     actions: PropTypes.object,
-    isLoggedIn: PropTypes.func, 
+    isLoggedIn: PropTypes.bool, 
     links: PropTypes.arrayOf(PropTypes.node),
 };
 

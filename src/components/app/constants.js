@@ -79,5 +79,3 @@ export const FOOTER_CLASSNAMES = {
 };
  
 export const EXPIRATION = 86400000;
-
-export const NAME = "app";

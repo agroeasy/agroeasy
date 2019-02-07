@@ -25,7 +25,6 @@ export default ( state = { ...initialState }, action) => {
         return {
             ...state,
             loggedIn: false,
-            message,
         };
     }
     default:
