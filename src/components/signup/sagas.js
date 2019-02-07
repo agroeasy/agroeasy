@@ -12,9 +12,9 @@ import { signupSuccess, signupFailure } from './actions';
  */
 function* signupUser(action) {
     try {
-        const { user } = action;
+        const { payload } = action;
         const response = yield fetch(SIGNUP_URL, {
-            body: JSON.stringify(user),
+            body: JSON.stringify(payload),
             headers: {
                 'Content-Type': 'application/json',
             },
