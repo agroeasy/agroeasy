@@ -1,6 +1,6 @@
 import * as actions from './actions';
 import * as components from './components';
 import reducers from './reducers';
-import { getLoginStatus } from './selectors';
+import * as selectors from './selectors';
 
-export default { actions, components, reducers, getLoginStatus };
+export default { actions, components, reducers, selectors };

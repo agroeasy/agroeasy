@@ -5,9 +5,11 @@ import { EXPIRATION } from './constants';
 
 const initialState = {
     loggedIn: false,
+    token: "",
 };
 
 export default ( state = { ...initialState }, action) => {
+    
     switch (action.type) {
     case SET_COOKIE:    {
         const { token } = action;
@@ -16,10 +18,10 @@ export default ( state = { ...initialState }, action) => {
         return {
             ...state,
             loggedIn: true,
+            token,
         };
     }
     case REMOVE_COOKIE: {
-        const { token } = action;
         Cookies.expire(token);
         
         return {

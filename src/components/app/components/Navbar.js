@@ -43,9 +43,9 @@ class Navbar extends React.Component {
         const { removeCookie } = this.props.actions;
 
         if (key === SIGN_OUT) {
-            if (isLoggedIn){
+            if (isLoggedIn) {
                 removeCookie();
-                return message.success(VALID_SIGNOUT)
+                message.success(VALID_SIGNOUT)
             }
                 else {
                 message.error(INVALID_SIGNOUT);
@@ -59,7 +59,6 @@ class Navbar extends React.Component {
                 <Item key={USER_PROFILE}>
                     <AppLink to={PROFILE} key={PROFILE}>{USER_PROFILE}</AppLink>
                 </Item>
-
                 <Item key={SIGN_OUT}>{SIGN_OUT}</Item>
             </Menu>
         );
