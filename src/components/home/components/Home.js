@@ -2,10 +2,10 @@ import React from 'react';
 import { Col, Row } from 'antd';
 
 import Search from './Search';
-import { components } from '../../productList';
+import  productList  from '../../productList';
 import { HOME_STRINGS } from '../constants';
 
-const { ProductList } = components;
+const { ProductList } = productList.components;
 const { BG_IMG, SEARCH, SM_IMG, WELCOME_TEXT_1, WELCOME_TEXT_2, WELCOME_TEXT_3 } = HOME_STRINGS;
 
 //this is the home page, containing sub-components ( Navibar, ListItems and Foot components)
