@@ -56,8 +56,8 @@
 
 }
 .menu {
-    height: 80vh;
-    margin-top: 50px;
+    height: 100%;
+    padding-top: 50px;
 }
 .sm-content {
     padding: 0 14px;
