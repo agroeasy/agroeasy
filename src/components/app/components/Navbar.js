@@ -39,19 +39,23 @@ const items = [
 */
 class Navbar extends React.Component {
     logout = ({ key }) => {
-        const { isLoggedIn } = this.props;
         const { removeCookie } = this.props.actions;
 
         if (key === SIGN_OUT) {
-            if (isLoggedIn) {
                 removeCookie();
+        }
+    }
+    componentDidUpdate() {
+        const { isLoggedIn } = this.props;
+
+            if (isLoggedIn) {
                 message.success(VALID_SIGNOUT)
             }
                 else {
                 message.error(INVALID_SIGNOUT);
             }
-        }
     }
+
 
     render() {       
         const UserMenu = (
