@@ -70,11 +70,11 @@ export const LOCATION = [
 ];
 
 export const SIDE_MENU_ITEMS = [
-    { iconType: "info-circle", label: "Account Info" },
+    { iconType: "info-circle", label: "Account", link: '/profile' },
     { iconType: "message", label: "Messages" },
     { iconType: "notification", label: "Notifications" },
     { iconType: "shopping", label: "Purchases" },
-    { iconType: "folder", label: "Add Items" },
+    { iconType: "folder", label: "Add Items", link: "/profile/items" },
     { iconType: "setting", label: "Settings" },
     { iconType: "solution", label: "Help" },
 ];

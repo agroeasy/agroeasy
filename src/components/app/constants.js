@@ -8,9 +8,6 @@ export const PROFILE = "/profile/";
 export const MARKET_TEXT = 'Market';
 
 /** @constant */
-export const ADD_ITEM_TEXT= "Add Item";
-
-/** @constant */
 export const LOGO = {
     AVATAR: "home-avatar",
     SHAPE: "square",
@@ -28,7 +25,6 @@ export const NAVBAR = {
 
 /** @constant */
 export const PATHS = {
-    ADD_ITEM: '/addItem',
     CONTACT: '/contact',
     HOME: '/',
     MARKET: '/market',
@@ -78,9 +74,6 @@ export const FOOTER_CLASSNAMES = {
     ROW: 'ant-row',
 };
 
-export const SIGNOUT_STRINGS = {
-    INVALID_SIGNOUT: "You are not logged in",
-    VALID_SIGNOUT: "Valid sign out",
-};
+export const VALID_SIGNOUT = "Valid sign out",
 
 export const EXPIRATION = 86400000;
