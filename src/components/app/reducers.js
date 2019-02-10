@@ -22,12 +22,9 @@ export default ( state = { ...initialState }, action) => {
         };
     }
     case REMOVE_COOKIE: {
-        Cookies.expire(token);
+        Cookies.expire(state.token);
         
-        return {
-            ...state,
-            loggedIn: false,
-        };
+        return { ...initialState };
     }
     default:
         return state;

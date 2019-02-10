@@ -48,14 +48,10 @@ class Navbar extends React.Component {
     componentDidUpdate() {
         const { isLoggedIn } = this.props;
 
-            if (isLoggedIn) {
+            if (!isLoggedIn) {
                 message.success(VALID_SIGNOUT)
             }
-                else {
-                message.error(INVALID_SIGNOUT);
-            }
     }
-
 
     render() {       
         const UserMenu = (
