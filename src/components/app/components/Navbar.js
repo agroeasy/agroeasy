@@ -1,17 +1,16 @@
-import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Avatar, Dropdown, Layout, Menu, message } from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+import { Avatar, Dropdown, Layout, Menu } from 'antd';
 
 import AppLink from './AppLink';
 import { removeCookie } from '../actions';
-import { getLoginStatus } from '../selectors';
 
 import signin from '../../signin';
 import signup from '../../signup';
 
-import { LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR, VALID_SIGNOUT } from '../constants';
+import { LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
 
 const { Item } = Menu;
 const { Header } = Layout;
@@ -38,17 +37,7 @@ const items = [
 class Navbar extends React.Component {
     logout = ({ key }) => {
         const { removeCookie } = this.props.actions;
-
-        if (key === SIGN_OUT) {
-                removeCookie();
-        }
-    }
-    componentDidUpdate() {
-        const { isLoggedIn } = this.props;
-
-            if (!isLoggedIn) {
-                message.success(VALID_SIGNOUT)
-            }
+        key === SIGN_OUT && removeCookie();
     }
 
     render() {       
@@ -90,16 +79,11 @@ class Navbar extends React.Component {
 
 Navbar.propTypes = {
     actions: PropTypes.object,
-    isLoggedIn: PropTypes.bool, 
     links: PropTypes.arrayOf(PropTypes.node),
 };
-
-const mapStateToProps = state => ({
-    isLoggedIn: getLoginStatus(state),
-});
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({ removeCookie }, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(() => ({}), mapDispatchToProps)(Navbar);

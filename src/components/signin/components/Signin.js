@@ -47,17 +47,17 @@ class Signin extends React.Component {
         this.formRef = formRef;
     }
 
-    componentDidUpdate() {
-        const { resetSignState } = this.props.actions;
-        const { signinStatus, siginData } = this.props;
+    // componentDidUpdate() {
+    //     const { resetSignState } = this.props.actions;
+    //     const { signinStatus, siginData } = this.props;
 
-        if(signinStatus !== undefined){
-            signinStatus === SUCCESS ?
-                message.success(`${SUCCESS_MESSAGE} ${siginData.user.firstName}!`, 5):
-                message.error(siginData.title, 5);
-        }
-        resetSignState();
-    }
+    //     if(signinStatus !== undefined){
+    //         signinStatus === SUCCESS ?
+    //             message.success(`${SUCCESS_MESSAGE} ${siginData.user.firstName}!`, 5):
+    //             message.error(siginData.title, 5);
+    //     }
+    //     resetSignState();
+    // }
 
     render() {
         return (
@@ -80,7 +80,7 @@ Signin.propTypes = {
     signinStatus: PropTypes.string,
 };
 const mapStateToProps = state => ({
-    siginData: getData(state),
+    // siginData: getData(state),
     signinStatus: getStatus(state),
 });
 

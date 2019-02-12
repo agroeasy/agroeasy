@@ -23,9 +23,8 @@ function* signinUser(action){
         });
         if(response.ok){
             const data = yield response.json();
-            const { token } = data.data;
             yield effects.put(signinSuccess(data));
-            yield effects.put(setCookie(token));
+            yield effects.put(setCookie(data));
         }
     } catch(error){
         yield effects.put(signinFailure(error));
