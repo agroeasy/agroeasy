@@ -8,9 +8,6 @@ export const PROFILE = "/profile/";
 export const MARKET_TEXT = 'Market';
 
 /** @constant */
-export const ADD_ITEM_TEXT= "Add Item";
-
-/** @constant */
 export const LOGO = {
     AVATAR: "home-avatar",
     SHAPE: "square",
@@ -28,7 +25,6 @@ export const NAVBAR = {
 
 /** @constant */
 export const PATHS = {
-    ADD_ITEM: '/addItem',
     CONTACT: '/contact',
     HOME: '/',
     MARKET: '/market',
