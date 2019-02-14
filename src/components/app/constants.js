@@ -73,3 +73,9 @@ export const FOOTER_CLASSNAMES = {
     DYNAMIC_FOOTER: 'ant-col-xs-24 ant-col-sm-24 ant-col-md-6',
     ROW: 'ant-row',
 };
+
+export const VALID_SIGNOUT = "You have been signed out";
+
+export const SIGNIN_SUCCESS = "Hello";
+
+export const EXPIRATION = 86400000;

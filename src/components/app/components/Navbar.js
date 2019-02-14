@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Avatar,  Dropdown, Layout, Menu } from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+import { Avatar, Dropdown, Layout, Menu } from 'antd';
 
 import AppLink from './AppLink';
+import { removeCookie } from '../actions';
 
 import signin from '../../signin';
 import signup from '../../signup';
@@ -19,15 +22,6 @@ const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AV
 const { Signin } = signin.components;
 const { Signup } = signup.components;
 
-const UserMenu = (
-    <Menu>
-        <Item key={USER_PROFILE}>
-            <AppLink to={PROFILE} key={PROFILE}>{USER_PROFILE}</AppLink>
-        </Item>
-        <Item key={SIGN_OUT}>{SIGN_OUT}</Item>
-    </Menu>
-);
-
 const items = [
     <AppLink key={AVATAR} to={HOME}>
         <Avatar className={AVATAR} src={SOURCE} size={SIZE} shape={SHAPE} />
@@ -39,9 +33,22 @@ const items = [
 
 /*
  * this is the the navigation bar at the top of the home page
- */
-export default class Navbar extends React.Component {
-    render() {
+*/
+class Navbar extends React.Component {
+    logout = ({ key }) => {
+        const { removeCookie } = this.props.actions;
+        key === SIGN_OUT && removeCookie();
+    }
+
+    render() {       
+        const UserMenu = (
+            <Menu onClick={this.logout}>
+                <Item key={USER_PROFILE}>
+                    <AppLink to={PROFILE} key={PROFILE}>{USER_PROFILE}</AppLink>
+                </Item>
+                <Item key={SIGN_OUT}>{SIGN_OUT}</Item>
+            </Menu>
+        );
 
         return (
             <Header className={MAIN_NAV}>
@@ -71,5 +78,12 @@ export default class Navbar extends React.Component {
 }
 
 Navbar.propTypes = {
+    actions: PropTypes.object,
     links: PropTypes.arrayOf(PropTypes.node),
 };
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({ removeCookie }, dispatch),
+});
+
+export default connect(null, mapDispatchToProps)(Navbar);
