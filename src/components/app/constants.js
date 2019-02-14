@@ -74,11 +74,8 @@ export const FOOTER_CLASSNAMES = {
     ROW: 'ant-row',
 };
 
-export const VALID_SIGNOUT = "Valid sign out";
+export const VALID_SIGNOUT = "You have been signed out";
 
-export const SIGNIN_MESSAGES = {
-    FAILURE: "email or password incorrect",
-    SUCCESS: "Hello,"
-};
+export const SIGNIN_SUCCESS = "Hello";
 
 export const EXPIRATION = 86400000;

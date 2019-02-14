@@ -20,12 +20,3 @@ export const SET_COOKIE = 'SET_COOKIE';
  * @type {String}
  */
 export const RESET_STATE = "RESET_STATE";
-
-// /**
-//  * Fired by the {@link actions.signinFailure signinFailure}
-//  * action creator.
-//  *
-//  * @type {String}
-//  */
-// export const SIGNIN_FAILURE = "SIGNIN_FAILURE";
-

@@ -31,15 +31,3 @@ export const removeCookie = () => ({
 export const resetSigninState = () => ({
     type: RESET_STATE,
 });
-
-// /**
-//  * Triggers request to update redux store on failure
-//  *
-//  * @function
-//  * @param {Object} error An object containing error info if the signin endpoint is unreachable
-//  * @return {Object} The {@link actionTypes.SIGNIN_FAILURE SIGNIN_FAILURE} action.
-//  */
-// export const signinFailure = error => ({
-//     error,
-//     type: SIGNIN_FAILURE,
-// });
