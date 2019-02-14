@@ -4,7 +4,7 @@ import { SET_COOKIE, REMOVE_COOKIE, RESET_STATE } from './actionTypes';
 import { EXPIRATION } from './constants';
 
 const initialState = {
-    isLoggedIn: false,
+    isLoggedIn: null,
     token: "",
     user: {},
 };
@@ -27,8 +27,10 @@ export default ( state = { ...initialState }, action) => {
         Cookies.expire(state.token);
         
         return { 
-            ...initialState,
-            isLoggedIn: null,
+            ...state,
+            isLoggedIn: false,
+            token: null,
+            user: {},
         };
     }
     case RESET_STATE:

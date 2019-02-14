@@ -9,9 +9,8 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import { getLoginStatus, getUserData } from '../selectors';
 import { resetSigninState } from '../actions';
-import { SIGNIN_MESSAGES, VALID_SIGNOUT } from '../constants';
+import { SIGNIN_SUCCESS, VALID_SIGNOUT } from '../constants';
 
-const { FAILURE, SUCCESS } = SIGNIN_MESSAGES;
 const { ContactUs } = contactus.components;
 const { Content } = Layout;
 
@@ -21,14 +20,14 @@ class App extends React.Component {
         const { resetSigninState } = this.props.actions;
 
         if (isLoggedIn) {
-            message.success(`${SUCCESS} ${user.firstName}!`, 5)
+            message.success(`${SIGNIN_SUCCESS} ${user.firstName}!`, 5)
         }
-        else if (isLoggedIn === null) {
+        else if (isLoggedIn === false) {
             message.info(VALID_SIGNOUT, 5)
         }
         else {
             resetSigninState();
-            message.error(FAILURE, 5);
+            message.error(user.data.title, 5);
         }
     }
 

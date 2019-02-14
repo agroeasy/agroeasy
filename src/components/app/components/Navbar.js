@@ -86,4 +86,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({ removeCookie }, dispatch),
 });
 
-export default connect(() => ({}), mapDispatchToProps)(Navbar);
+export default connect(null, mapDispatchToProps)(Navbar);
