@@ -1,5 +1,12 @@
 import bcrypt from 'bcrypt-nodejs';
 import _pick from 'lodash.pick';
+import { 
+    NOT_FOUND, 
+    INTERNAL_SERVER_ERROR, 
+    OK, 
+    getStatusText, 
+    UNAUTHORIZED 
+} from 'http-status-codes';
 
 import CONSTANTS from './constants';
 import models from '../../db/models/';
@@ -20,9 +27,11 @@ export default {
     allUsers: async (req, res) => {
         try {
             const data = await User.find();
-            return res.json({ data, success: true });
-        } catch (err) {
-            return res.json({ err, success: false });
+            return res.status(OK).json({ data, status: SUCCESS });
+        } catch (error) {
+            return res
+                .status(INTERNAL_SERVER_ERROR)
+                .send({ error: getStatusText(INTERNAL_SERVER_ERROR), status: FAIL });
         }
     },
 
@@ -53,7 +62,7 @@ export default {
         const { email, password } = req.body;
 
         if (!email || !password) {
-            return res.send({
+            return res.status(NOT_FOUND).json({
                 data: { title: NO_EMAIL_PASSWORD },
                 status: FAIL,
             });
@@ -63,7 +72,7 @@ export default {
             const user = await User.findOne({ email });
 
             if(!user){
-                return res.send({
+                return res.status(NOT_FOUND).json({
                     data: { title: USER_NOT_FOUND },
                     status: FAIL,
                 });
@@ -88,10 +97,14 @@ export default {
                         status: FAIL,
                     };
 
-                return res.send(data);
+                const status = result ? OK : UNAUTHORIZED;
+
+                return res.status(status).json(data);
             });
         } catch(error) {
-            return res.status(500).send({ error, success: false });
+            return res
+                .status(INTERNAL_SERVER_ERROR)
+                .send({ error: getStatusText(INTERNAL_SERVER_ERROR), success: false });
         }
     },
 };

@@ -23,6 +23,7 @@ export default ( state = { ...initialState }, action) => {
             user,
         };
     }
+
     case REMOVE_COOKIE: {
         Cookies.expire(state.token);
         
@@ -33,9 +34,10 @@ export default ( state = { ...initialState }, action) => {
             user: {},
         };
     }
-    case RESET_STATE:
 
+    case RESET_STATE:
         return { ...initialState };
+
     default:
         return state;
     }

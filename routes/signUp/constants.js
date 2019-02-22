@@ -1,4 +1,5 @@
 export default {
+    FAIL:"fail",
     NO_EMAIL_PASSWORD: 'Error: Email or Password cannot be blank.',
     SIGNED_UP: 'Signed up successfully',
     SIGN_UP_KEYS: [
@@ -10,6 +11,22 @@ export default {
         'firstName',
         'lastName',
         'password',
+        'phoneNumber',
+        'state',
+        'updatedAt',
+        'username',
+    ],
+    
+    SUCCESS: "success",
+    USERINFO: [
+        '_id',
+        'address',
+        'city',
+        'country',
+        'createdAt',
+        'email',
+        'firstName',
+        'lastName',
         'phoneNumber',
         'state',
         'updatedAt',

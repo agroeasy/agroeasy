@@ -33,7 +33,7 @@ function generateSiginInputs(decorator) {
 
 class SigninModal extends React.Component {
     render() {
-        const { form, visible, onCancel, onCreate } = this.props;
+        const { form, visible, onCancel, onCreate, isLoading } = this.props;
         const { getFieldDecorator } = form;
 
         return (
@@ -43,6 +43,7 @@ class SigninModal extends React.Component {
                 okText={TITLE}
                 onCancel={onCancel}
                 onOk={onCreate}
+                confirmLoading={isLoading}
             >
                 <Form>
                     {generateSiginInputs(getFieldDecorator)}
@@ -56,6 +57,7 @@ const SigninForm = Form.create()(SigninModal);
 
 SigninModal.propTypes = {
     form: PropTypes.object,
+    isLoading: PropTypes.bool,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
     visible: PropTypes.bool,

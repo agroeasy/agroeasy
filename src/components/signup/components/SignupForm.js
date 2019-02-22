@@ -62,7 +62,7 @@ class SignupModal extends React.Component {
     }
 
     render() {
-        const { form, onCancel, onCreate, visible } = this.props;
+        const { form, isLoading, onCancel, onCreate, visible } = this.props;
         const { getFieldDecorator } = form;
         const { isProducer } = this.state;
         const createCategories = PRODUCTS.map(({ category, value }) =>
@@ -76,6 +76,7 @@ class SignupModal extends React.Component {
                 okText={TITLE}
                 onCancel={onCancel}
                 onOk={onCreate}
+                confirmLoading={isLoading}
                 className={SCROLLBAR}
             >
                 <Form>

@@ -2,15 +2,22 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
-import { Avatar, Dropdown, Layout, Menu } from 'antd';
+import { Avatar, Dropdown, Layout, Menu, message } from 'antd';
 
 import AppLink from './AppLink';
-import { removeCookie } from '../actions';
+import { getLoginStatus } from '../selectors';
+import { removeCookie, resetSigninState } from '../actions';
 
 import signin from '../../signin';
 import signup from '../../signup';
-
-import { LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
+import { 
+    LOGO, 
+    MARKET_TEXT, 
+    NAVBAR, 
+    PATHS, 
+    USER_AVATAR, 
+    VALID_SIGNOUT 
+} from '../constants';
 
 const { Item } = Menu;
 const { Header } = Layout;
@@ -35,9 +42,17 @@ const items = [
  * this is the the navigation bar at the top of the home page
 */
 class Navbar extends React.Component {
+
     logout = ({ key }) => {
-        const { removeCookie } = this.props.actions;
-        key === SIGN_OUT && removeCookie();
+        const { isLoggedIn } = this.props;
+
+        if (isLoggedIn && key === SIGN_OUT) {
+            const { removeCookie, resetSigninState } = this.props.actions;
+
+            removeCookie();
+            message.info(VALID_SIGNOUT, 5);
+            resetSigninState();
+        }
     }
 
     render() {       
@@ -79,11 +94,17 @@ class Navbar extends React.Component {
 
 Navbar.propTypes = {
     actions: PropTypes.object,
+    isLoggedIn:PropTypes.bool,
+    isSignedUp: PropTypes.string,
     links: PropTypes.arrayOf(PropTypes.node),
 };
 
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ removeCookie }, dispatch),
+const mapStateToProps = state => ({
+    isLoggedIn: getLoginStatus(state),
 });
 
-export default connect(null, mapDispatchToProps)(Navbar);
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({ removeCookie, resetSigninState }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
