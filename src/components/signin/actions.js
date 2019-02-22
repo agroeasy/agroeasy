@@ -16,7 +16,6 @@ export const signinRequest = payload => ({
  * Triggers request to update redux store on success
  *
  * @function
- * @param {boolean} isSuccessful returns true if isSuccessful else false.
  * @return {Object} The {@link actionTypes.SIGNIN_SUCCESS SIGNIN_SUCCESS} action.
  */
 export const signinSuccess = () => ({
@@ -27,7 +26,7 @@ export const signinSuccess = () => ({
  * Triggers request to update redux store on success
  *
  * @function
- * @param {Object} payload An object containing signin status and data 
+ * @param {Object} payload An object containing signin status and data
  * returned from siginn endpoint
  * @return {Object} The {@link actionTypes.SIGNIN_FAIL SIGNIN_FAIL} action.
  */

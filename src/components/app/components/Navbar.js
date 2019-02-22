@@ -55,7 +55,7 @@ class Navbar extends React.Component {
         }
     }
 
-    render() {       
+    render() {
         const UserMenu = (
             <Menu onClick={this.logout}>
                 <Item key={USER_PROFILE}>
@@ -71,6 +71,7 @@ class Navbar extends React.Component {
                     className={NAV_MENU}
                     mode={NAV_MODE}
                     theme={NAV_THEME}
+                    selectedKeys={[location.pathname]}
                 >
                     {
                         items.map(item => {
@@ -97,6 +98,7 @@ Navbar.propTypes = {
     isLoggedIn:PropTypes.bool,
     isSignedUp: PropTypes.string,
     links: PropTypes.arrayOf(PropTypes.node),
+    match: PropTypes.object,
 };
 
 const mapStateToProps = state => ({

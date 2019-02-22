@@ -1,17 +1,17 @@
 import _pick from 'lodash.pick';
 import bcrypt from 'bcrypt-nodejs';
-import { INTERNAL_SERVER_ERROR, OK, getStatusText, UNAUTHORIZED} from 'http-status-codes';
+import { INTERNAL_SERVER_ERROR, OK, getStatusText, UNAUTHORIZED } from 'http-status-codes';
 
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
 const { Producer, User, UserSession } = models;
-const { 
-    FAIL, 
-    NO_EMAIL_PASSWORD, 
-    SIGN_UP_KEYS, 
-    USER_EXIST, 
-    USERINFO, 
+const {
+    FAIL,
+    NO_EMAIL_PASSWORD,
+    SIGN_UP_KEYS,
+    USER_EXIST,
+    USERINFO,
     SUCCESS,
     SIGNED_UP,
 } = CONSTANTS;
@@ -23,8 +23,8 @@ export default {
         const { email, password, typeOfProducts } = req.body;
 
         if(!email || !password){
-            return res.status(UNAUTHORIZED).send({ 
-                data: { title: NO_EMAIL_PASSWORD }, 
+            return res.status(UNAUTHORIZED).send({
+                data: { title: NO_EMAIL_PASSWORD },
                 status: FAIL,
             });
         }
@@ -65,7 +65,7 @@ export default {
             }
 
             return res.status(OK).json({
-                data: { 
+                data: {
                     title: SIGNED_UP,
                     token: doc._id,
                     user: _pick(user, USERINFO),

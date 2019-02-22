@@ -1,17 +1,17 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { message } from 'antd';
 
 import SigninForm from './SigninForm';
 import { SIGNIN_STRINGS } from '../constants';
 import * as signinActions from '../actions';
-import { 
-    getIsLoading, 
-    getSigninFailureMessage, 
-    getSigninStatus, 
-    getisSuccessful 
+import {
+    getIsLoading,
+    getSigninFailureMessage,
+    getSigninStatus,
+    getisSuccessful
 } from '../selectors';
 
 const { PRIMARY, TITLE } = SIGNIN_STRINGS;
@@ -50,14 +50,14 @@ class Signin extends React.Component {
     }
 
     componentDidUpdate(){
-        const { 
-            isSuccessful, 
-            actions: { resetSignState }, 
-            signinfailMessage, 
+        const {
+            isSuccessful,
+            actions: { resetSignState },
+            signinfailMessage,
             signinError,
         } = this.props;
         const { visible } = this.state;
-    
+
         if (visible && isSuccessful) {
             this.setState({ visible: false });
             resetSignState();

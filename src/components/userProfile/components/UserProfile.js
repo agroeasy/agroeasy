@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 
 import ProfileContent from './ProfileContent';
 import SideMenu from './SideMenu';
-import { AddItem } from '../../addItem/components';
+import { ProducerItems } from '../../producerItems/components';
 import { USER_PAGE } from '../constants';
 
 const { Content, Sider } = Layout;
@@ -27,7 +27,7 @@ class UserProfile extends React.Component {
                         <Route path={path} exact strict component={ProfileContent} />
                         <Route
                             path={`${path}/items`}
-                            component={AddItem}
+                            component={ProducerItems}
                         />
                     </Content>
                 </Layout>

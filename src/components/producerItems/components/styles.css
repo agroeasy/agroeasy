@@ -1,0 +1,11 @@
+/* Producer */
+.product-item{
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 70px;
+    margin-bottom: 5px;
+}
+
+.list-item-desc {
+    display: block;
+}
