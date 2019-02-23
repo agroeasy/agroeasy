@@ -53,7 +53,7 @@ class Signin extends React.Component {
         const {
             isSuccessful,
             actions: { resetSignState },
-            signinfailMessage,
+            signinFailMessage,
             signinError,
         } = this.props;
         const { visible } = this.state;
@@ -62,7 +62,7 @@ class Signin extends React.Component {
             this.setState({ visible: false });
             resetSignState();
         } else if (signinError) {
-            message.error(signinfailMessage,3);
+            message.error(signinFailMessage,3);
             resetSignState();
         }
     }
@@ -90,7 +90,7 @@ Signin.propTypes = {
     isSuccessful:PropTypes.bool,
     siginData: PropTypes.object,
     signinError: PropTypes.string,
-    signinfailMessage: PropTypes.string,
+    signinFailMessage: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
