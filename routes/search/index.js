@@ -1,6 +1,6 @@
 import express from 'express';
 
-import helpers from './products';
+import helpers from './searchProducts';
 
 const router = express.Router();
 const { searchProducts } = helpers;

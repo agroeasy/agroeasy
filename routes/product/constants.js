@@ -6,7 +6,7 @@ export default {
         'name',
         'producerId',
         'quantity',
-        'typeOfProduct',
+        'productTypes',
         'updatedAt',
     ],
     DELETE_PRODUCT: 'Product successfully deleted!',

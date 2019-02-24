@@ -8,10 +8,10 @@ const Schema = mongoose.Schema;
 const ProductSchema = new Schema({
     createdAt: { type: Date },
     deletedAt: { type: Date },
-    name: { required: true, type: String },
-    producerId: {  required: true, type: String },
-    productTypes: { required: true, type: String },
-    quantity: { required: true, type: Number },
+    name: { es_indexed:true, required: true, type: String },
+    producerId: {  es_indexed:true, required: true, type: String },
+    productTypes: { es_indexed:true, required: true, type: String },
+    quantity: { es_indexed:true, required: true, type: Number },
     updatedAt: { type: Date },
 }, { versionKey: false });
 

@@ -13,6 +13,6 @@ router.use('/account', signUp);
 router.use('/account', contactUs);
 router.use('/producer', producer);
 router.use('/product', product);
-router.use('./api', search);
+router.use('/api', search);
 
 export default router;
