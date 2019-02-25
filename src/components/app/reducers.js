@@ -1,10 +1,11 @@
 import Cookies from 'cookies-js';
 
-import { SET_COOKIE, REMOVE_COOKIE, RESET_STATE } from './actionTypes';
+import { SET_COOKIE, REMOVE_COOKIE, RESET_STATE, RESET_STATUS_STATE } from './actionTypes';
 import { EXPIRATION } from './constants';
 
 const initialState = {
     isLoggedIn: null,
+    status: "",
     token: "",
     user: {},
 };
@@ -13,12 +14,13 @@ export default ( state = { ...initialState }, action) => {
     
     switch (action.type) {
     case SET_COOKIE:    {
-        const { token, user } = action.payload.data;
+        const { data: { token, user }, status } = action.payload;
         Cookies.set(token, { expires: EXPIRATION });
 
         return {
             ...state,
             isLoggedIn: true,
+            status,
             token,
             user,
         };
@@ -37,6 +39,12 @@ export default ( state = { ...initialState }, action) => {
 
     case RESET_STATE:
         return { ...initialState };
+
+    case RESET_STATUS_STATE:
+        return {
+            ...state,
+            status:"",
+        };
 
     default:
         return state;

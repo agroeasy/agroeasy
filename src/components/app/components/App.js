@@ -3,23 +3,38 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Layout, message } from 'antd';
 import { withRouter } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 
 import contactus from '../../contactUs';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import { getLoginStatus, getUserData } from '../selectors';
 import { SIGNIN_SUCCESS } from '../constants';
+import { resetStatusStatus } from '../actions';
 
 const { ContactUs } = contactus.components;
 const { Content } = Layout;
 
 class App extends React.Component {
 
+    state = {
+        successMessage: "",
+        userFirstName: "",
+    }
+    
+    resetSa() {
+        return this.setState({
+            successMessage:"",
+            userFirstName:"",
+        });
+    }
+
     componentDidUpdate() {
-        const { isLoggedIn, user } = this.props;
+        const { isLoggedIn, user, status, actions: { resetStatusStatus } } = this.props;
 
         if (isLoggedIn) {
-            message.success(`${user.firstName} ${SIGNIN_SUCCESS}`, 3);
+            status && message.success(`${user.firstName} ${SIGNIN_SUCCESS}`, 3);
+            resetStatusStatus();
         }
     }
 
@@ -46,12 +61,18 @@ App.propTypes = {
     isLoggedIn: PropTypes.bool,
     links: PropTypes.arrayOf(PropTypes.node),
     match: PropTypes.object,
+    status: PropTypes.string,
     user: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
     isLoggedIn: getLoginStatus(state),
+    status: state.app.status,
     user: getUserData(state),
 });
 
-export default withRouter(connect(mapStateToProps)(App));
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators ({ resetStatusStatus }, dispatch),
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

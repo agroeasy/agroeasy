@@ -18,3 +18,4 @@ export const getLoginStatus = state => state[NAME].isLoggedIn;
  * {@link module:signin/constants::INITIAL_STATE constants::INITIAL_STATE}).
  */
 export const getUserData = state => state[NAME].user;
+
