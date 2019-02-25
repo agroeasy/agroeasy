@@ -33,7 +33,7 @@ export const resetSigninState = () => ({
 });
 
 /**
- * Triggers request to reset redux state to Status
+ * Triggers request to reset redux Status key of the state
  *
  * @function
  * @return {void} The {@link actionTypes.RESET_STATUS_STATE RESET_STATUS_STATE} action.
