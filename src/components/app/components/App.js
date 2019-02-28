@@ -20,8 +20,8 @@ class App extends React.Component {
     componentDidUpdate() {
         const { isLoggedIn, user, status, actions: { resetStatusStatus } } = this.props;
 
-        if (isLoggedIn) {
-            status && message.success(`${user.firstName} ${SIGNIN_SUCCESS}`, 3)&&
+        if (isLoggedIn && status) {
+            message.success(`${user.firstName} ${SIGNIN_SUCCESS}`, 3)&&
             resetStatusStatus();
         }
     }

@@ -43,7 +43,7 @@ export default ( state = { ...initialState }, action) => {
     case RESET_STATUS_STATE:
         return {
             ...state,
-            status:"",
+            status: "",
         };
 
     default:
