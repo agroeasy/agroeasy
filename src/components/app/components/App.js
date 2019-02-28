@@ -17,18 +17,6 @@ const { Content } = Layout;
 
 class App extends React.Component {
 
-    state = {
-        successMessage: "",
-        userFirstName: "",
-    }
-    
-    resetSa() {
-        return this.setState({
-            successMessage:"",
-            userFirstName:"",
-        });
-    }
-
     componentDidUpdate() {
         const { isLoggedIn, user, status, actions: { resetStatusStatus } } = this.props;
 
