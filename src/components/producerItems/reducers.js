@@ -11,9 +11,9 @@ function generateItemMap(products) {
     const setOfProducts = new Map();
 
     products.forEach(product => {
-        const { id } = product;
+        const { _id } = product;
 
-        setOfProducts.set(id, product);
+        setOfProducts.set(_id, product);
     });
 
     return setOfProducts;
@@ -27,10 +27,10 @@ function generateItemMap(products) {
  * @return {Map} - the updated producer list
  */
 function updateProductList(product, list) {
-    const { id } = product;
+    const { _id } = product;
     const newList = new Map([...list.entries()]);
 
-    newList.set(id, product);
+    newList.set(_id, product);
 
     return newList;
 }

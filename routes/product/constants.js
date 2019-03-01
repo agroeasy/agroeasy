@@ -1,5 +1,4 @@
 export default {
-    ADD_PRODUCT: 'Product successfully added!',
     CREATE_KEYS: [
         'createdAt',
         'deletedAt',
@@ -9,6 +8,7 @@ export default {
         'typeOfProduct',
         'updatedAt',
     ],
-    DELETE_PRODUCT: 'Product successfully deleted!',
-    UPDATE_PRODUCT: 'Product successfully updated!',
+    PRODUCT_CREATED: 'Product successfully added!',
+    PRODUCT_DELETED: 'Product successfully deleted!',
+    PRODUCT_UPDATED: 'Product successfully updated!',
 };
