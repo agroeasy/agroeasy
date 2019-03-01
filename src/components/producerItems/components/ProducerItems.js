@@ -1,22 +1,29 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import shallowCompare from 'shallow-equal/objects';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import shallowCompare from 'shallow-equal/objects';
+import { Button, Icon } from 'antd';
 
 import ProductList from './ProductList';
 import ProductEditModal from './ProductEditModal';
 import { requestProductList, requestProductUpdate } from '../actions';
 import { getProductList } from '../selectors';
+import { DEFAULT_FIELD_VALUES, PRODUCER_ITEM } from '../constants';
 
+const {
+    BUTTON: { TEXT, TYPE },
+    CONTAINER_CLASS,
+} = PRODUCER_ITEM;
 /**
  * React component used to display the list of producer products
  */
 class ProducerItems extends React.Component {
     state = {
         isModalOpen: false,
+        isNewProduct: true,
         isProductUpdating : false,
-        productToEdit: {},
+        productToEdit: DEFAULT_FIELD_VALUES,
     };
 
     /**
@@ -28,8 +35,9 @@ class ProducerItems extends React.Component {
     closeProductModal = () => {
         this.setState({
             isModalOpen: false,
+            isNewProduct: true,
             isProductUpdating: false,
-            productToEdit: {},
+            productToEdit: DEFAULT_FIELD_VALUES,
         });
     }
 
@@ -42,10 +50,17 @@ class ProducerItems extends React.Component {
      */
     openProductModal = id => {
         const { productList } = this.props;
-        const productToEdit = productList.get(id);
+        const product = productList.get(id);
+        let { productToEdit, isNewProduct } = this.state;
+
+        if (product) {
+            productToEdit = product;
+            isNewProduct = false;
+        }
 
         this.setState({
             isModalOpen: true,
+            isNewProduct,
             productToEdit,
         });
     }
@@ -64,16 +79,7 @@ class ProducerItems extends React.Component {
 
         if (hasProductBeenUpdated) {
             this.setState({ isProductUpdating: true });
-
-            // TODO: Remove setTimeout here once this component has been hooked up
-            // to the backend
-            setTimeout(() => {
-                requestProductUpdate(newProductDetails);
-                this.setState({
-                    isProductUpdating: false,
-                    productToEdit: newProductDetails,
-                });
-            }, 1500);
+            requestProductUpdate(newProductDetails);
         }
     }
 
@@ -83,24 +89,39 @@ class ProducerItems extends React.Component {
         requestProductList();
     }
 
+    componentDidUpdate(prevProp) {
+        const { productList: newList } = this.props;
+        const { productList: oldList } = prevProp;
+        const { isProductUpdating } = this.state;
+        const hasNewProductList = newList !== oldList && isProductUpdating;
+
+        hasNewProductList && this.closeProductModal();
+    }
+
     render() {
-        const { isModalOpen, isProductUpdating, productToEdit } = this.state;
+        const { isModalOpen, isNewProduct, isProductUpdating, productToEdit } = this.state;
         const { productList } = this.props;
 
         return (
-            <React.Fragment>
+            <div className={CONTAINER_CLASS}>
+                <Button
+                    onClick={() => this.openProductModal()}
+                >
+                    <Icon type={TYPE} />{TEXT}
+                </Button>
                 <ProductList
                     list={[...productList.values()]}
                     openModal={this.openProductModal}
                 />
                 <ProductEditModal
                     closeModal={this.closeProductModal}
+                    isNewProduct={isNewProduct}
                     isOpen={isModalOpen}
                     isProductUpdating={isProductUpdating}
                     productToEdit={productToEdit}
                     updateProduct={this.sendProductForUpdate}
                 />
-            </React.Fragment>
+            </div>
         );
     }
 }

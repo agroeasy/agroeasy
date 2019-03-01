@@ -57,6 +57,7 @@
 }
 .menu {
     height: 100%;
+    min-height: 550px;
     padding-top: 50px;
 }
 .sm-content {

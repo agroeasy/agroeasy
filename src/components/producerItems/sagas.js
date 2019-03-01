@@ -1,9 +1,11 @@
 import { effects } from 'redux-saga';
 
-import { REQUEST_PRODUCT_LIST, REQUEST_PRODUCT_UPDATE } from './actionTypes';
-import { getFakeData } from './selectors';
+import App from '../app';
 import { updateProductDetails, updateProductList } from './actions';
+import { REQUEST_PRODUCT_LIST, REQUEST_PRODUCT_UPDATE } from './actionTypes';
 
+const { selectors: { getUserData } } = App;
+const headers = { 'Content-Type': 'application/json' };
 /**
  * Handles requesting the list of producer items from the backend
  *
@@ -11,10 +13,22 @@ import { updateProductDetails, updateProductList } from './actions';
  */
 function* requestProducersItems(){
     try {
-        // TODO: connect saga generator to backend api
-        // for now use fake data
-        const productList = yield effects.select(getFakeData);
-        yield effects.put(updateProductList(productList));
+        const { _id } = yield effects.select(getUserData);
+        const response = yield fetch(`/product/producerId/${_id}`, {
+            headers,
+            method: 'GET',
+        });
+
+        if (response.ok) {
+            const { data } = yield response.json();
+
+            yield effects.put(updateProductList(data));
+        } else {
+            const result = yield response.json();
+
+            // TODO: update state to reflect error on fetch item list
+            console.log('ERROR', result);
+        }
     } catch(error){
         // eslint-disable-next-line no-console
         console.log(error);
@@ -30,8 +44,26 @@ function* requestProducersItems(){
 function* requestProducersItemUpdate(action){
     try {
         // TODO: connect saga generator to backend api
+        const { _id } = yield effects.select(getUserData);
         const { payload } = action;
-        yield effects.put(updateProductDetails(payload));
+        const product = { ...payload, producerId: _id };
+
+        const response = yield fetch(`/product/update`, {
+            body: JSON.stringify(product),
+            headers,
+            method: 'PUT',
+        });
+
+        if (response.ok) {
+            const { data } = yield response.json();
+
+            yield effects.put(updateProductDetails(data));
+        } else {
+            const result = yield response.json();
+
+            // TODO: update state to reflect error on fetch item list
+            console.log('ERROR', result);
+        }
     } catch(error){
         // eslint-disable-next-line no-console
         console.log(error);

@@ -5,18 +5,23 @@ import helpers from './helpers';
 const router = express.Router();
 const {
     allProductsDetails,
+    getProductsByUserId,
     productCreate,
     productDetails,
     productDelete,
     productUpdate,
+    updateOrCreateItem,
 } = helpers;
 
 router.get('/findAll', allProductsDetails);
-// the end point to find products saved in database
+router.get('/producerId/:id', getProductsByUserId);
 router.get('/:id', productDetails);
-// the end point to create product and save to database
+
 router.post('/create', productCreate);
-router.put('/:productsId', productUpdate);
+
+router.put('/update', updateOrCreateItem);
+router.put('/update/:productsId', productUpdate);
+
 router.delete('/:id', productDelete);
 
 export default router;
