@@ -5,23 +5,22 @@ import esClient from '../../esClient';
 
 const Schema = mongoose.Schema;
 
-const ProductSchema = new Schema({
-    createdAt: { type: Date },
-    deletedAt: { type: Date },
-    name: { es_indexed:true, required: true, type: String },
-    producerId: {  es_indexed:true, required: true, type: String },
-    productTypes: { es_indexed:true, required: true, type: String },
-    quantity: { es_indexed:true, required: true, type: Number },
-    updatedAt: { type: Date },
+const ProductsSchema = new Schema({
+    cost: { required: true, type: Number },
+    description: { required: true, type: String },
+    name: { required: true, type: String },
+    producerId: { required: true, type: String },
+    quantity: { required: true, type: Number },
+    type: { required: true, type: String },
 }, { versionKey: false });
 
-ProductSchema.plugin(mongoosastic, {
+ProductsSchema.plugin(mongoosastic, {
     esClient,
     index: "all_product",
     type: "products",
 });
 
-const Product = mongoose.model('Product', ProductSchema);
+const Product = mongoose.model('Product', ProductsSchema);
 
 /* const stream = Product.synchronize();
 let count = 0;
