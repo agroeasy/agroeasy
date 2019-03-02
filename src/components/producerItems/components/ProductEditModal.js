@@ -1,23 +1,26 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Form, Input, Modal } from 'antd';
+import { Form, Input, InputNumber, Modal, Select } from 'antd';
 
 import {
-    DEFAULT_FIRST_FIELD,
-    EDIT_FORM_TITLE,
+    CREATE_TITLE,
+    EDIT_TITLE,
     EDITABLE_FIELDS,
     FORM_ITEM_LAYOUT,
+    MODAL_FIELDS,
     SAVE_PRODUCT_DETAILS
 } from '../constants';
 
 const FormItem = Form.Item;
+const Option = Select.Option;
+const { COST, NAME, QUANTITY, TYPE } = MODAL_FIELDS;
 
 /**
  * Helper function used to generate input fields for `ProductEditForm`.
  * It makes sure that the title/name field is at the beginning of the edit form
+ * And creates unique input based on the field.
  *
  * @function
-
  * @param {Function} decorator - sets the appropriate rules and defaults on the
  * input field
  * @param {Object} productToEdit - the product details to edit
@@ -31,18 +34,42 @@ function generateProductEditForm(decorator, productToEdit) {
         const editableField = EDITABLE_FIELDS[field];
 
         if (editableField) {
-            const { label, rules } = editableField;
+            const { label, options, rules } = editableField;
+            let InputField = <Input />;
+
+            if (field === COST) {
+                InputField = (
+                    <InputNumber
+                        formatter={value => `₦ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                        min={0}
+                        parser={value => value.replace(/₦\s?|(,*)/g, '')}
+                    />
+                );
+            } else if (field === QUANTITY) {
+                InputField = <InputNumber min={1} />;
+            } else if (field === TYPE) {
+                InputField = (
+                    <Select>
+                        {
+                            options.map(option => (
+                                <Option key={option}>{option}</Option>
+                            ))
+                        }
+                    </Select>
+                );
+            }
+
             const formItem = (
                 <FormItem
                     {...FORM_ITEM_LAYOUT}
                     key={field}
                     label={label}
                 >
-                    { decorator(field, { initialValue, rules })(<Input />) }
+                    { decorator(field, { initialValue, rules })(InputField) }
                 </FormItem>
             );
 
-            field === DEFAULT_FIRST_FIELD ? total.unshift(formItem) : total.push(formItem);
+            field === NAME ? total.unshift(formItem) : total.push(formItem);
         }
 
         return total;
@@ -64,11 +91,16 @@ class ProductEditForm extends React.Component {
      */
     updateProductInfo = () => {
         const { form, productToEdit, updateProduct } = this.props;
+        const { resetFields, validateFields } = form;
 
-        form.validateFields((error, productValues ) => error ?
-            error :
-            updateProduct({ ...productToEdit, ...productValues })
-        );
+        validateFields((error, fieldValues) => {
+            if (!error) {
+                updateProduct({ ...productToEdit, ...fieldValues });
+                return resetFields();
+            }
+
+            return error;
+        });
     }
 
     static getDerivedStateFromProps(props) {
@@ -79,14 +111,15 @@ class ProductEditForm extends React.Component {
     }
 
     render() {
-        const { closeModal, isOpen, isProductUpdating } = this.props;
+        const { closeModal, isNewProduct, isOpen, isProductUpdating } = this.props;
         const { formItems } = this.state;
+        const title = isNewProduct ? CREATE_TITLE : EDIT_TITLE;
 
         return (
             <Modal
                 confirmLoading={isProductUpdating}
                 visible={isOpen}
-                title={EDIT_FORM_TITLE}
+                title={title}
                 okText={SAVE_PRODUCT_DETAILS}
                 onCancel={closeModal}
                 onOk={this.updateProductInfo}
@@ -105,6 +138,7 @@ const ProductEditModal = Form.create()(ProductEditForm);
 ProductEditForm.propTypes = {
     closeModal: PropTypes.func,
     form: PropTypes.object,
+    isNewProduct: PropTypes.bool,
     isOpen: PropTypes.bool,
     isProductUpdating: PropTypes.bool,
     productToEdit: PropTypes.object,
