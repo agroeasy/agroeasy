@@ -29,15 +29,6 @@ const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AV
 const { Signin } = signin.components;
 const { Signup } = signup.components;
 
-const items = [
-    <AppLink key={AVATAR} to={HOME}>
-        <Avatar className={AVATAR} src={SOURCE} size={SIZE} shape={SHAPE} />
-    </AppLink>,
-    <AppLink key={MARKET} to={MARKET}>{MARKET_TEXT}</AppLink>,
-    <Signin key={SIGN_IN} />,
-    <Signup key={SIGN_UP} />,
-];
-
 /*
  * this is the the navigation bar at the top of the home page
 */
@@ -64,6 +55,7 @@ class Navbar extends React.Component {
                 <Item key={SIGN_OUT}>{SIGN_OUT}</Item>
             </Menu>
         );
+        const { isLoggedIn } = this.props;
 
         return (
             <Header className={MAIN_NAV}>
@@ -73,21 +65,31 @@ class Navbar extends React.Component {
                     theme={NAV_THEME}
                     selectedKeys={[location.pathname]}
                 >
-                    {
-                        items.map(item => {
-                            const { key } = item;
-                            const className = key === AVATAR ? CONTAINER : '';
-
-                            return (
-                                <Item className={className} key={key}>{item}</Item>
-                            );
-                        })
-                    }
+                    <Item key={SIGN_IN}>
+                        <AppLink key={AVATAR} to={HOME}>
+                            <Avatar className={AVATAR} src={SOURCE} size={SIZE} shape={SHAPE} />
+                        </AppLink>
+                    </Item>
+                    <Item key={SIGN_UP}>
+                        <AppLink key={MARKET} to={MARKET}>{MARKET_TEXT}</AppLink>
+                    </Item>
 
                 </Menu>
-                <Dropdown overlay={UserMenu} className={USER_DROP_DOWN}>
-                    <Avatar icon={ICON_TYPE} />
-                </Dropdown>
+                { isLoggedIn === true?
+                    <Dropdown overlay={UserMenu} className={USER_DROP_DOWN}>
+                        <Avatar icon={ICON_TYPE} />
+                    </Dropdown>:
+                    <Menu
+                        className={USER_DROP_DOWN}
+                        mode={NAV_MODE}
+                        theme={NAV_THEME}
+                        selectedKeys={[location.pathname]}
+                    >
+                        <Item key={SIGN_IN}><Signin /></Item>
+                        <Item key={SIGN_UP}><Signup /></Item>
+                    </Menu>
+                    
+                }
             </Header>
         );
     }
