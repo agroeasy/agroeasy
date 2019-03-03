@@ -9,7 +9,7 @@ const { GROUPED_ITEMS, LIST } = PRODUCTS_AVAILABLE;
 class GroupedItems extends React.Component {
     render() {
         const items = this.props.items.map(item =>
-            (<li key={item.name} className={LIST}> {item.name}</li>));
+            (<li key={item.name} className={LIST}>{item.name}</li>));
 
         return (
             <Row>
