@@ -46,6 +46,11 @@ export default {
 
             await product.save();
 
+            product.on('es-indexed', (err, res) => {
+                if (err) throw err;
+                console.log(" i am good");
+            });
+
             return res.json({ data: product, message: PRODUCT_CREATED, success: true });
         } catch (err) {
             res.send({ err, success: false });
