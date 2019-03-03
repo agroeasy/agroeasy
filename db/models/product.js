@@ -6,23 +6,23 @@ import esClient from '../../esClient';
 const Schema = mongoose.Schema;
 
 const ProductsSchema = new Schema({
-    cost: { required: true, type: Number },
-    description: { required: true, type: String },
-    name: { required: true, type: String },
-    producerId: { required: true, type: String },
-    quantity: { required: true, type: Number },
-    type: { required: true, type: String },
+    cost: {  es_indexed:true, required: true, type: Number },
+    description: { es_indexed:true, required: true, type: String },
+    name: { es_indexed:true, required: true, type: String },
+    producerId: { es_indexed:true, required: true, type: String },
+    quantity: { es_indexed:true, required: true, type: Number },
+    type: { es_indexed:true, required: true, type: String },
 }, { versionKey: false });
 
 ProductsSchema.plugin(mongoosastic, {
     esClient,
-    index: "all_product",
+    index: "productindex",
     type: "products",
 });
 
 const Product = mongoose.model('Product', ProductsSchema);
 
-/* const stream = Product.synchronize();
+const stream = Product.synchronize();
 let count = 0;
 
 stream.on('data', (err, doc) => {  
@@ -33,6 +33,6 @@ stream.on('close', () => {
 });
 stream.on('error', err => {
     console.log(err);
-}); */
+}); 
 
 export default Product;

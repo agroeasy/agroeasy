@@ -1,11 +1,12 @@
 export default {
     CREATE_KEYS: [
         'createdAt',
-        'deletedAt',
+        'cost',
+        'description',
         'name',
         'producerId',
         'quantity',
-        'productTypes',
+        'type',
         'updatedAt',
     ],
     PRODUCT_CREATED: 'Product successfully added!',

@@ -1,7 +1,6 @@
 import { OK, INTERNAL_SERVER_ERROR } from 'http-status-codes';
 
 import esClient from '../../esClient';
-//import Product from '../../db/models/product';
 
 export default {
     searchProducts: async (req, res) => {
@@ -14,7 +13,7 @@ export default {
                         },
                     },
                 },
-                index: 'all_product',
+                index: 'productindex',
                 type: 'products',
             });     
             res.status(OK).json(response.hits);
