@@ -77,8 +77,8 @@ class Navbar extends React.Component {
                     {
                         items.map(item => {
                             const { key } = item;
-
                             const className = key === AVATAR ? CONTAINER : '';
+                            
                             return (
                                 <Item className={className} key={key}>{item}</Item>
                             );
