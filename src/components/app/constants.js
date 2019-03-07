@@ -78,6 +78,6 @@ export const FOOTER_CLASSNAMES = {
 
 export const VALID_SIGNOUT = "You have been signed out";
 
-export const SIGNIN_SUCCESS = "You have succesfully signed in";
+export const SIGNIN_SUCCESS = "Hello";
 
 export const EXPIRATION = 86400000;
