@@ -22,9 +22,9 @@ import {
 const { Item } = Menu;
 const { Header } = Layout;
 const { AVATAR, SHAPE, SIZE, SOURCE } = LOGO;
-const { MAIN_NAV, NAV_MENU, NAV_MODE, NAV_THEME } = NAVBAR;
+const { LEFT_NAV_MENU, MAIN_NAV, NAV_MODE, NAV_THEME, RIGHT_NAV_MENU } = NAVBAR;
 const { HOME, MARKET, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
-const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AVATAR;
+const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_PROFILE } = USER_AVATAR;
 
 const { Signin } = signin.components;
 const { Signup } = signup.components;
@@ -69,7 +69,7 @@ class Navbar extends React.Component {
         return (
             <Header className={MAIN_NAV}>
                 <Menu
-                    className={NAV_MENU}
+                    className={RIGHT_NAV_MENU}
                     mode={NAV_MODE}
                     theme={NAV_THEME}
                     selectedKeys={[location.pathname]}
@@ -78,7 +78,7 @@ class Navbar extends React.Component {
                         items.map(item => {
                             const { key } = item;
                             const className = key === AVATAR ? CONTAINER : '';
-                            
+
                             return (
                                 <Item className={className} key={key}>{item}</Item>
                             );
@@ -87,11 +87,11 @@ class Navbar extends React.Component {
                 </Menu>
                 {
                     isLoggedIn === true?
-                        <Dropdown overlay={UserMenu} className={USER_DROP_DOWN}>
+                        <Dropdown overlay={UserMenu} className={LEFT_NAV_MENU}>
                             <Avatar icon={ICON_TYPE} />
                         </Dropdown> :
                         <Menu
-                            className={USER_DROP_DOWN}
+                            className={LEFT_NAV_MENU}
                             mode={NAV_MODE}
                             theme={NAV_THEME}
                             selectedKeys={[location.pathname]}

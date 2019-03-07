@@ -66,7 +66,7 @@
     z-index: 1;
 }
 
-.nav-menu {
+.right-nav-menu {
     position: relative;
     float: left;
     top: 50%;
@@ -81,7 +81,7 @@
     width: 55px;
 }
 
-.user-avatar-drop-down {
+.left-nav-menu {
     position: relative;
     float: right;
     top: 50%;

@@ -17,11 +17,13 @@ export const LOGO = {
 
 /** @constant */
 export const NAVBAR = {
+    LEFT_NAV_MENU: "left-nav-menu",
     MAIN_NAV: "main-nav",
     MARKET_TEXT: "Market",
     NAV_MENU: "nav-menu",
     NAV_MODE: "horizontal",
     NAV_THEME: "dark",
+    RIGHT_NAV_MENU: "right-nav-menu",
 };
 
 /** @constant */
@@ -39,7 +41,6 @@ export const USER_AVATAR = {
     CONTAINER: "avatar-container",
     ICON_TYPE: "user",
     SIGN_OUT: "Sign Out",
-    USER_DROP_DOWN: "user-avatar-drop-down",
     USER_PROFILE: "User Profile",
 };
 
