@@ -24,7 +24,7 @@ const { Header } = Layout;
 const { AVATAR, SHAPE, SIZE, SOURCE } = LOGO;
 const { LEFT_NAV_MENU, MAIN_NAV, NAV_MODE, NAV_THEME, RIGHT_NAV_MENU } = NAVBAR;
 const { HOME, MARKET, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
-const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_PROFILE } = USER_AVATAR;
+const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AVATAR;
 
 const { Signin } = signin.components;
 const { Signup } = signup.components;
@@ -87,7 +87,7 @@ class Navbar extends React.Component {
                 </Menu>
                 {
                     isLoggedIn === true?
-                        <Dropdown overlay={UserMenu} className={LEFT_NAV_MENU}>
+                        <Dropdown overlay={UserMenu} className={USER_DROP_DOWN}>
                             <Avatar icon={ICON_TYPE} />
                         </Dropdown> :
                         <Menu

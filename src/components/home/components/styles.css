@@ -86,7 +86,12 @@
     float: right;
     top: 50%;
     transform: translateY(-50%);
-
+}
+.user-avatar-drop-down {
+    background-color: #f56a00;
+    float: right;
+    top: 50%;
+    transform: translateY(-50%);
 }
 @media only screen and (max-width: 700px) {
     .ant-menu-dark{

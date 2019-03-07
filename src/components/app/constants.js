@@ -41,6 +41,7 @@ export const USER_AVATAR = {
     CONTAINER: "avatar-container",
     ICON_TYPE: "user",
     SIGN_OUT: "Sign Out",
+    USER_DROP_DOWN: "user-avatar-drop-down",
     USER_PROFILE: "User Profile",
 };
 
