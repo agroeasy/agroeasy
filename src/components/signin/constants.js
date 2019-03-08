@@ -5,7 +5,6 @@ export const SIGNIN_STRINGS = {
     FAIL_MESSAGE: "Unsuccessful sigin, check your email or password",
     PRIMARY: "primary",
     SUCCESS: "success",
-    SUCCESS_MESSAGE: "Hello",
     TITLE: "Sign in",
 };
 

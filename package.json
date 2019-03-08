@@ -1,6 +1,6 @@
 {
   "name": "agroeasy",
-  "version": "1.2.15",
+  "version": "1.2.16",
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -48,7 +48,7 @@
     "react-redux": "^6.0.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0.5",
+    "react-scripts": "^2.1.5",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
     "shallow-equal": "^1.1.0"

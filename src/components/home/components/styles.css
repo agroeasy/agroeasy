@@ -58,7 +58,7 @@
 }
 
 /*
- this is for Navibar.js and home.js
+ this is for Navbar.js and home.js
   */
 .main-nav {
     position: fixed;
@@ -66,8 +66,9 @@
     z-index: 1;
 }
 
-.nav-menu {
+.right-nav-menu {
     position: relative;
+    float: left;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -80,10 +81,17 @@
     width: 55px;
 }
 
-.user-avatar-drop-down {
+.left-nav-menu {
+    position: relative;
     float: right;
-    bottom: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.user-avatar-drop-down {
     background-color: #f56a00;
+    float: right;
+    top: 50%;
+    transform: translateY(-50%);
 }
 @media only screen and (max-width: 700px) {
     .ant-menu-dark{

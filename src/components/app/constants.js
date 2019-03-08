@@ -17,11 +17,13 @@ export const LOGO = {
 
 /** @constant */
 export const NAVBAR = {
+    LEFT_NAV_MENU: "left-nav-menu",
     MAIN_NAV: "main-nav",
     MARKET_TEXT: "Market",
     NAV_MENU: "nav-menu",
     NAV_MODE: "horizontal",
     NAV_THEME: "dark",
+    RIGHT_NAV_MENU: "right-nav-menu",
 };
 
 /** @constant */
@@ -78,6 +80,6 @@ export const FOOTER_CLASSNAMES = {
 
 export const VALID_SIGNOUT = "You have been signed out";
 
-export const SIGNIN_SUCCESS = "You have succesfully signed in";
+export const SIGNIN_SUCCESS = "Hello";
 
 export const EXPIRATION = 86400000;
