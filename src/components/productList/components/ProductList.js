@@ -6,6 +6,19 @@ import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from '../constants';
 
 // React Component used to render the list of product items
 class ProductList extends React.Component {
+
+    state = {
+        productList: [],
+    }
+
+    async componentDidMount() {
+        const response = await fetch('/product/findAll');
+        const json = await response.json();
+        this.setState({ productList: json.data });
+    } 
+
+    //TODO: make dataSource to get values from productList once it has image key
+
     render() {
         return(
             <List

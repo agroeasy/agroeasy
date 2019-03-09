@@ -5,6 +5,6 @@ import helpers from './searchProducts';
 const router = express.Router();
 const { searchProducts } = helpers;
 
-router.post('/searching', searchProducts);
+router.get('/searching/:name', searchProducts);
 
 export default router;
