@@ -10,19 +10,14 @@ export default {
     searchProducts:  async (req, res) => {
         try {
             const products = await productSearchAsync(
-                { query_string: { query: req.params.name } },
-                {
-                    hydrate: true,
-                    hydrateOptions: { 
-                        select: 'name cost description quantity', 
-                    },
-                    hydrateWithESResults: true,
-                });
+                { term: req.query },
+                { stored_fields : ["_id"] },
+            );
 
             const esFoundProductIds = products.hits.hits.map(({ _id }) => _id);
             const foundProducts = await Product.find({ _id: { $in: esFoundProductIds } });
 
-            return res.status(OK).json(foundProducts);
+            return res.status(OK).json({ foundProducts, numOfFoundProducts: products.hits.total });
         } catch (error) {
             console.log(error);
             return res.status(INTERNAL_SERVER_ERROR).send(error);
