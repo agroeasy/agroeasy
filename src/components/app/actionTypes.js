@@ -1,3 +1,4 @@
+import { NAME } from './constants';
 /**
  * Fired by the {@link actions.setCookie setCookie}
  * action creator.
@@ -11,12 +12,20 @@ export const SET_COOKIE = 'SET_COOKIE';
  * action creator.
  *
  * @type {String}
- */export const REMOVE_COOKIE = 'REMOVE_COOKIE';
+ */export const REMOVE_COOKIE = `${NAME}/REMOVE_COOKIE`;
 
 /**
- * Fired by the {@link actions.resetState resetState}
+ * Fired by the {@link actions.resetSigninState resetSigninState}
  * action creator.
  *
  * @type {String}
  */
-export const RESET_STATE = "RESET_STATE";
+export const RESET_STATE = `${NAME}/RESET_STATE`;
+
+/**
+ * Fired by the {@link actions.resetStatusStatus resetStatusStatus}
+ * action creator.
+ *
+ * @type {String}
+ */
+export const RESET_STATUS_STATE = `${NAME}/RESET_STATUS_STATE`;

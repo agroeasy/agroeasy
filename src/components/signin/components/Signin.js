@@ -26,7 +26,10 @@ class Signin extends React.Component {
     }
 
     handleCancel = () => {
+        const { resetSignState } = this.props.actions;
+        
         this.setState({ visible: false });
+        resetSignState();
     }
 
     handleCreate = () => {
