@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'antd';
+import { List, Pagination } from 'antd';
 
 import Product from './Product';
 import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from '../constants';
@@ -24,7 +24,9 @@ class ProductList extends React.Component {
             <List
                 bordered
                 className={PRODUCT_LIST_CLASSNAME}
-                dataSource={EXAMPLE_PRODUCTS}
+                dataSource={this.state.productList}
+                loading={!this.state.productList[1] && true}
+                pagination={{ pageSize:12 }}
                 grid={{ gutter: 12, lg: 4, md: 4, sm: 2, xs: 1, xxl: 3 }}
                 renderItem={item => (
                     <List.Item>
