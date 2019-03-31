@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Form, Input, InputNumber, Modal, Select } from 'antd';
+import { Button, Icon, Form, Input, InputNumber, Modal, Select, Upload, message } from 'antd';
+// import { FilePond } from "react-filepond";
 
 import {
     CREATE_TITLE,
@@ -35,7 +36,7 @@ function generateProductEditForm(decorator, productToEdit) {
 
         if (editableField) {
             const { label, options, rules } = editableField;
-            let InputField = <Input />;
+            let InputField = <Input  />;
 
             if (field === COST) {
                 InputField = (
@@ -76,6 +77,33 @@ function generateProductEditForm(decorator, productToEdit) {
     }, []);
 }
 
+function UploadImage() {
+    const props = {
+        name: 'image',
+        action: 'http://localhost:4000/api/createImage',
+        onChange(info) {
+            if (info.file.status !== 'uploading') {
+                console.log(info.file, info.fileList);
+            }
+            if (info.file.status === 'done') {
+                message.success(`${info.file.name} file uploaded successfully`);
+            } else if (info.file.status === 'error') {
+                message.error(`${info.file.name} file upload failed.`);
+            }
+        },
+        listType: "picture-card",
+        multiple: false,
+    };
+    
+    return(
+        <Upload {...props}>
+            <Button>
+                <Icon type="upload" /> {"add product image"}
+            </Button>
+        </Upload>
+    );
+} 
+
 /**
  * React component used to render the product eidtable fields
  */
@@ -110,6 +138,14 @@ class ProductEditForm extends React.Component {
         return { formItems };
     }
 
+    // handlePondFile(error, file) {
+    //     if (error) {
+    //         console.log('Oh no');
+    //         return;
+    //     }
+    //     console.log('File added', file);
+    // }
+
     render() {
         const { closeModal, isNewProduct, isOpen, isProductUpdating } = this.props;
         const { formItems } = this.state;
@@ -125,6 +161,15 @@ class ProductEditForm extends React.Component {
                 onOk={this.updateProductInfo}
             >
                 <Form>{formItems}</Form>
+                <UploadImage /> 
+                {/*                 <FilePond
+                    // Set the callback here.
+                    onprocessfile={this.handlePondFile}
+                    allowMultiple={false}
+                    // maxFiles={1}
+                    name="image"
+                    server="/api/createImage"
+                /> */}
             </Modal>
         );
     }

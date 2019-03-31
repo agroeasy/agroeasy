@@ -64,6 +64,10 @@ export const EDITABLE_FIELDS = {
         label: 'Description',
         rules: [{ message: "You must provide a description for this item", required: true }],
     },
+/*     image: {
+        label: 'image',
+        type: "file",
+    }, */
     name: {
         label: 'Name',
         rules: [{ message: "What is this item's name?", required: true }],

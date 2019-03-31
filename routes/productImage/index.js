@@ -6,15 +6,7 @@ import cloudinaryStorage from 'multer-storage-cloudinary';
 import helpers from './helpers';
 
 const router = express.Router();
-const {
-    allProductsDetails,
-    getProductsByUserId,
-    productCreate,
-    productDetails,
-    productDelete,
-    productUpdate,
-    updateOrCreateItem,
-} = helpers;
+const { imageCreate } = helpers;
 
 cloudinary.config({
     api_key: process.env.API_KEY,
@@ -30,15 +22,6 @@ const storage = cloudinaryStorage({
 
 const parser = multer({ storage: storage });
 
-router.get('/findAll', allProductsDetails);
-router.get('/producerId/:id', getProductsByUserId);
-router.get('/:id', productDetails);
-
-router.post('/create', productCreate);
-
-router.put('/update', parser.single('image'), updateOrCreateItem);
-router.put('/update/:productsId', productUpdate);
-
-router.delete('/:id', productDelete);
+router.post('/createImage', parser.single('image'), imageCreate);
 
 export default router;

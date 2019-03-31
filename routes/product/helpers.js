@@ -115,6 +115,10 @@ export default {
             } else {
                 // Redundancy: deletes possible invalid/valid '_id'
                 delete product._id;
+                //console.log(req.file);
+                /*    const { url, public_id } = req.file;
+                const image_url = url;
+                const image_id = public_id; */
 
                 data = await Product.create(product);
                 message = PRODUCT_CREATED;
