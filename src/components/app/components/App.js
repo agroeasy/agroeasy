@@ -10,19 +10,25 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import { getLoginStatus, getUserData } from '../selectors';
 import { SIGNIN_SUCCESS } from '../constants';
-import { resetStatusStatus } from '../actions';
+import { checkUserLoginStatus, resetStatusStatus } from '../actions';
 
 const { ContactUs } = contactus.components;
 const { Content } = Layout;
 
 class App extends React.Component {
 
+    componentDidMount(){
+        const { actions: { checkUserLoginStatus } } = this.props;
+
+        checkUserLoginStatus();
+
+    }
+
     componentDidUpdate() {
         const { isLoggedIn, user, status, actions: { resetStatusStatus } } = this.props;
 
-        if (user && status) {
-            isLoggedIn()&&
-            // message.success(`${SIGNIN_SUCCESS} ${user.firstName}`)&&
+        if (isLoggedIn && status) {
+            message.success(`${SIGNIN_SUCCESS} ${user.firstName}`)&&
             resetStatusStatus();
         }
     }
@@ -61,7 +67,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators ({ resetStatusStatus }, dispatch),
+    actions: bindActionCreators ({ checkUserLoginStatus, resetStatusStatus }, dispatch),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -29,3 +29,12 @@ export const RESET_STATE = `${NAME}/RESET_STATE`;
  * @type {String}
  */
 export const RESET_STATUS_STATE = `${NAME}/RESET_STATUS_STATE`;
+
+/**
+ * Fired by the {@link actions.checkUserLoginStatus checkUserLoginStatus}
+ * action creator.
+ *
+ * @type {String}
+ */
+export const CHECK_USER_LOGIN_STATUS = `${NAME}/CHECK_USER_LOGIN_STATUS`;
+
