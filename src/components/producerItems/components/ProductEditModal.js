@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button, Icon, Form, Input, InputNumber, Modal, Select, Upload, message } from 'antd';
+import { Icon, Form, Input, InputNumber, Modal, Select, Upload, message } from 'antd';
 // import { FilePond } from "react-filepond";
 
 import {
@@ -77,38 +77,16 @@ function generateProductEditForm(decorator, productToEdit) {
     }, []);
 }
 
-function UploadImage() {
-    const props = {
-        name: 'image',
-        action: 'http://localhost:4000/api/createImage',
-        onChange(info) {
-            if (info.file.status !== 'uploading') {
-                console.log(info.file, info.fileList);
-            }
-            if (info.file.status === 'done') {
-                message.success(`${info.file.name} file uploaded successfully`);
-            } else if (info.file.status === 'error') {
-                message.error(`${info.file.name} file upload failed.`);
-            }
-        },
-        listType: "picture-card",
-        multiple: false,
-    };
-    
-    return(
-        <Upload {...props}>
-            <Button>
-                <Icon type="upload" /> {"add product image"}
-            </Button>
-        </Upload>
-    );
-} 
-
 /**
  * React component used to render the product eidtable fields
  */
 class ProductEditForm extends React.Component {
-    state = { formItems: [] };
+    state = { 
+        fileDetails: [],
+        formItems: [],
+        previewImage: '',
+        previewVisible: false,
+    };
 
     /**
      * Validates the the form rules have all passed then sends a request to update
@@ -121,58 +99,96 @@ class ProductEditForm extends React.Component {
         const { form, productToEdit, updateProduct } = this.props;
         const { resetFields, validateFields } = form;
 
-        validateFields((error, fieldValues) => {
-            if (!error) {
-                updateProduct({ ...productToEdit, ...fieldValues });
-                return resetFields();
-            }
+        if(this.state.fileDetails.length>=1){
+            const { image_url, image_id } = this.state.fileDetails[0].response.data;
 
-            return error;
-        });
+            validateFields((error, fieldValues) => {
+                if (!error) {
+                    updateProduct({ ...productToEdit, ...fieldValues, image_id, image_url });
+                    return resetFields();
+                }
+                return error;
+            });
+        } else {
+            validateFields((error, fieldValues) => {
+                if (!error) {
+                    updateProduct({ ...productToEdit, ...fieldValues });
+                    return resetFields();
+                }
+                return error;
+            });
+        }
     }
+    
+      handleCancel = () => this.setState({ previewVisible: false })
+    
+      handlePreview = () => this.setState({ previewVisible: true });
 
-    static getDerivedStateFromProps(props) {
-        const { productToEdit, form: { getFieldDecorator } } = props;
-        const formItems = generateProductEditForm(getFieldDecorator, productToEdit);
+      handleRemove = () => this.setState({ fileDetails: [] })
+    
+      handleChange = info => {
+          if (info.file.status !== 'uploading') {
+              this.setState({ previewImage: 'info.file.response.data.image_url || info.thumbUrl' });
+          }
+          if (info.file.status === 'done') {
+              this.setState({ fileDetails: info.fileList });
+              message.success(`${info.file.name} file uploaded successfully`);
+          } else if (info.file.status === 'error') {
+              message.error(`${info.file.name} file upload failed.`);
+          }
+      }
 
-        return { formItems };
-    }
+      static getDerivedStateFromProps(props) {
+          const { productToEdit, form: { getFieldDecorator } } = props;
+          const formItems = generateProductEditForm(getFieldDecorator, productToEdit);
 
-    // handlePondFile(error, file) {
-    //     if (error) {
-    //         console.log('Oh no');
-    //         return;
-    //     }
-    //     console.log('File added', file);
-    // }
+          return { formItems };
+      }
 
-    render() {
-        const { closeModal, isNewProduct, isOpen, isProductUpdating } = this.props;
-        const { formItems } = this.state;
-        const title = isNewProduct ? CREATE_TITLE : EDIT_TITLE;
+      render() {
+          const { closeModal, isNewProduct, isOpen, isProductUpdating } = this.props;
+          const { formItems, previewVisible, previewImage, fileDetails } = this.state;
+          const title = isNewProduct ? CREATE_TITLE : EDIT_TITLE;
 
-        return (
-            <Modal
-                confirmLoading={isProductUpdating}
-                visible={isOpen}
-                title={title}
-                okText={SAVE_PRODUCT_DETAILS}
-                onCancel={closeModal}
-                onOk={this.updateProductInfo}
-            >
-                <Form>{formItems}</Form>
-                <UploadImage /> 
-                {/*                 <FilePond
-                    // Set the callback here.
-                    onprocessfile={this.handlePondFile}
-                    allowMultiple={false}
-                    // maxFiles={1}
-                    name="image"
-                    server="/api/createImage"
-                /> */}
-            </Modal>
-        );
-    }
+          const uploadButton = (
+              <div>
+                  <Icon type="plus" />
+                  <div className="ant-upload-text">{"Add Image"}</div>
+              </div>
+          );
+
+          const props = {
+              action:"http://localhost:4000/api/createImage",
+              listType:"picture-card",
+              multiple:false,
+              name:"image",
+              onChange: this.handleChange,
+              onPreview: this.handlePreview,
+              onRemove: this.handleRemove,
+          };
+
+          return (
+              <Modal
+                  confirmLoading={isProductUpdating}
+                  visible={isOpen}
+                  title={title}
+                  okText={SAVE_PRODUCT_DETAILS}
+                  onCancel={closeModal}
+                  onOk={this.updateProductInfo}
+              >
+                  <Form>{formItems}</Form>
+                  <div className="clearfix">
+                      <Upload {...props}>
+                          {fileDetails.length >= 1 ? null : uploadButton}
+                      </Upload>
+
+                      <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+                          <img alt="example" style={{ width: '100%' }} src={previewImage} />
+                      </Modal>
+                  </div>
+              </Modal>
+          );
+      }
 }
 
 /**

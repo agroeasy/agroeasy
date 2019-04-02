@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Avatar, Icon, List, Tag } from 'antd';
 
-import { DEFAULT_IMAGE, LIST_ITEM_CLASS, PRODUCER_PAGE } from '../constants';
+import { LIST_ITEM_CLASS, PRODUCER_PAGE } from '../constants';
 
 const { EDIT, LARGE, PRODUCT_ITEM, VERTICAL } = PRODUCER_PAGE;
 
@@ -32,7 +32,6 @@ function createItemDescTags(item) {
 export default class ProductList extends React.Component {
     render() {
         const { list, openModal } = this.props;
-
         return (
             <List
                 bordered={true}
@@ -42,7 +41,7 @@ export default class ProductList extends React.Component {
                 pagination={{ pageSize: 10 }}
                 dataSource={list}
                 renderItem={item => {
-                    const { description, _id, name } = item;
+                    const { description, _id, image_url, name } = item;
                     const actions = [
                         <Icon key={EDIT} onClick={() => openModal(_id)} type={EDIT} />,
                     ];
@@ -51,10 +50,10 @@ export default class ProductList extends React.Component {
                         <List.Item
                             actions={actions}
                             key={_id}
-                            extra={<img width={200} src={DEFAULT_IMAGE} />}
+                            extra={<img width={200} src={image_url} />}
                         >
                             <List.Item.Meta
-                                avatar={<Avatar src={DEFAULT_IMAGE} />}
+                                avatar={<Avatar src={image_url} />}
                                 description={createItemDescTags(item)}
                                 title={name}
                             />

@@ -1,7 +1,3 @@
-import models from '../../db/models/';
-
-const { ProductImage } = models;
-
 export default {
     imageCreate: async (req, res) => {
         try {
@@ -12,12 +8,8 @@ export default {
                 image_id: public_id,
                 image_url: url,
             };
-
-            const image = new ProductImage(imageData);
-
-            await image.save(); // save image information in database
             
-            return res.send({ data: image, success: true });
+            return res.send({ data: imageData, success: true });
         } catch (err) {
             res.send({ err, success: false });
         }
