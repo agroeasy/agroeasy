@@ -14,12 +14,4 @@ export default {
             res.send({ err, success: false });
         }
     },
-
-    // deletes products using id
-    imageDelete: async (req, res) => {
-    },
-
-    // updates products using id
-    imageUpdate: async (req, res) => {
-    },
 };

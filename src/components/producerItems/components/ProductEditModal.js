@@ -1,14 +1,26 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Icon, Form, Input, InputNumber, Modal, Select, Upload, message } from 'antd';
-// import { FilePond } from "react-filepond";
 
 import {
     CREATE_TITLE,
+    CLEARFIX,
+    DONE,
     EDIT_TITLE,
     EDITABLE_FIELDS,
+    ERROR,
     FORM_ITEM_LAYOUT,
+    IMAGE,
+    IMAGE_WIDTH,
     MODAL_FIELDS,
+    PLUS,
+    PICTURE_CARD,
+    TEXT,
+    UPLOADING,
+    UPLOADED,
+    UPLOAD_FAILED,
+    UPLOAD_TEXT,
+    CREATE_IMAGE_ENDPOINT,
     SAVE_PRODUCT_DETAILS
 } from '../constants';
 
@@ -36,7 +48,7 @@ function generateProductEditForm(decorator, productToEdit) {
 
         if (editableField) {
             const { label, options, rules } = editableField;
-            let InputField = <Input  />;
+            let InputField = <Input />;
 
             if (field === COST) {
                 InputField = (
@@ -69,10 +81,8 @@ function generateProductEditForm(decorator, productToEdit) {
                     { decorator(field, { initialValue, rules })(InputField) }
                 </FormItem>
             );
-
             field === NAME ? total.unshift(formItem) : total.push(formItem);
         }
-
         return total;
     }, []);
 }
@@ -98,24 +108,25 @@ class ProductEditForm extends React.Component {
     updateProductInfo = () => {
         const { form, productToEdit, updateProduct } = this.props;
         const { resetFields, validateFields } = form;
+        const { fileDetails } = this.state;
 
-        if(this.state.fileDetails.length>=1){
-            const { image_url, image_id } = this.state.fileDetails[0].response.data;
+        if(fileDetails.length >= 1) {
+            const { image_url, image_id } = fileDetails[0].response.data;
 
             validateFields((error, fieldValues) => {
-                if (!error) {
-                    updateProduct({ ...productToEdit, ...fieldValues, image_id, image_url });
-                    return resetFields();
+                if (error) {
+                    return error;
                 }
-                return error;
+                updateProduct({ ...productToEdit, ...fieldValues, image_id, image_url });
+                return resetFields();
             });
         } else {
             validateFields((error, fieldValues) => {
-                if (!error) {
-                    updateProduct({ ...productToEdit, ...fieldValues });
-                    return resetFields();
+                if (error) {
+                    return error;
                 }
-                return error;
+                updateProduct({ ...productToEdit, ...fieldValues });
+                return resetFields();
             });
         }
     }
@@ -127,14 +138,14 @@ class ProductEditForm extends React.Component {
       handleRemove = () => this.setState({ fileDetails: [] })
     
       handleChange = info => {
-          if (info.file.status !== 'uploading') {
-              this.setState({ previewImage: 'info.file.response.data.image_url || info.thumbUrl' });
+          if (info.file.status !== UPLOADING) {
+              this.setState({ previewImage: info.file.response.data.image_url || info.thumbUrl });
           }
-          if (info.file.status === 'done') {
+          if (info.file.status === DONE) {
               this.setState({ fileDetails: info.fileList });
-              message.success(`${info.file.name} file uploaded successfully`);
-          } else if (info.file.status === 'error') {
-              message.error(`${info.file.name} file upload failed.`);
+              message.success(`${info.file.name} ${UPLOADED}`);
+          } else if (info.file.status === ERROR) {
+              message.error(`${info.file.name} ${UPLOAD_FAILED}`);
           }
       }
 
@@ -151,17 +162,17 @@ class ProductEditForm extends React.Component {
           const title = isNewProduct ? CREATE_TITLE : EDIT_TITLE;
 
           const uploadButton = (
-              <div>
-                  <Icon type="plus" />
-                  <div className="ant-upload-text">{"Add Image"}</div>
-              </div>
+              <React.Fragment>
+                  <Icon type={PLUS} />
+                  <div className={UPLOAD_TEXT}>{TEXT}</div>
+              </React.Fragment>
           );
 
           const props = {
-              action:"http://localhost:4000/api/createImage",
-              listType:"picture-card",
+              action: CREATE_IMAGE_ENDPOINT,
+              listType: PICTURE_CARD,
               multiple:false,
-              name:"image",
+              name:IMAGE,
               onChange: this.handleChange,
               onPreview: this.handlePreview,
               onRemove: this.handleRemove,
@@ -177,13 +188,13 @@ class ProductEditForm extends React.Component {
                   onOk={this.updateProductInfo}
               >
                   <Form>{formItems}</Form>
-                  <div className="clearfix">
+                  <div className={CLEARFIX}>
                       <Upload {...props}>
                           {fileDetails.length >= 1 ? null : uploadButton}
                       </Upload>
 
                       <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-                          <img alt="example" style={{ width: '100%' }} src={previewImage} />
+                          <img className={IMAGE_WIDTH} src={previewImage} />
                       </Modal>
                   </div>
               </Modal>

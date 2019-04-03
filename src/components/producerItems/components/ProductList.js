@@ -41,7 +41,7 @@ export default class ProductList extends React.Component {
                 pagination={{ pageSize: 10 }}
                 dataSource={list}
                 renderItem={item => {
-                    const { description, _id, image_url, name } = item;
+                    const { description, _id, image_url: imageUrl, name } = item;
                     const actions = [
                         <Icon key={EDIT} onClick={() => openModal(_id)} type={EDIT} />,
                     ];
@@ -50,10 +50,10 @@ export default class ProductList extends React.Component {
                         <List.Item
                             actions={actions}
                             key={_id}
-                            extra={<img width={200} src={image_url} />}
+                            extra={<img width={200} src={imageUrl} />}
                         >
                             <List.Item.Meta
-                                avatar={<Avatar src={image_url} />}
+                                avatar={<Avatar src={imageUrl} />}
                                 description={createItemDescTags(item)}
                                 title={name}
                             />

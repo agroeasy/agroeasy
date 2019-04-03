@@ -106,3 +106,17 @@ export const PRODUCER_PAGE = {
 export const INITIAL_STATE = {
     productList: new Map(),
 };
+
+export const UPLOADING = 'uploading';
+export const UPLOADED = ' file uploaded successfully';
+export const UPLOAD_FAILED = 'file upload failed.';
+export const DONE = 'done';
+export const ERROR = 'error';
+export const UPLOAD_TEXT = 'ant-upload-text';
+export const TEXT = 'Add Image';
+export const PLUS = 'plus';
+export const CREATE_IMAGE_ENDPOINT = 'http://localhost:4000/api/createImage';
+export const PICTURE_CARD = 'picture-card';
+export const IMAGE = 'image';
+export const CLEARFIX = "clearfix";
+export const IMAGE_WIDTH = "image-width";
