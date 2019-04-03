@@ -21,7 +21,7 @@ export default ( state = { ...initialState }, action) => {
     switch (action.type) {
     case SET_COOKIE: {
         const { data: { token, user }, status } = action.payload;
-        Cookies.set(token, user, { expires: EXPIRATION });
+        Cookies.set("token", user, { expires: EXPIRATION });
 
         return {
             ...state,
@@ -33,7 +33,7 @@ export default ( state = { ...initialState }, action) => {
     }
 
     case CHECK_USER_LOGIN_STATUS: {
-        const user = Cookies.get(state.token);
+        const user = Cookies.get("token");
         
         return {
             ...state,
@@ -42,7 +42,7 @@ export default ( state = { ...initialState }, action) => {
     }
 
     case REMOVE_COOKIE: {
-        Cookies.expire(state.token);
+        Cookies.expire("token");
         
         return {
             ...state,

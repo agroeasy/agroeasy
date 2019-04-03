@@ -22,11 +22,9 @@ export const setCookie = payload => ({
  * Triggers request to set cookie
  *
  * @function
- * @params {String} payload - The data passed into the the action
  * @return {Object} The {@link actionTypes.CHECK_USER_LOGIN_STATUS CHECK_USER_LOGIN_STATUS} action.
  */
-export const checkUserLoginStatus = payload => ({
-    payload,
+export const checkUserLoginStatus = () => ({
     type: CHECK_USER_LOGIN_STATUS,
 });
 
