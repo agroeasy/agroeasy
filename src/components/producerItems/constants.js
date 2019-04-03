@@ -120,3 +120,4 @@ export const PICTURE_CARD = 'picture-card';
 export const IMAGE = 'image';
 export const CLEARFIX = "clearfix";
 export const IMAGE_WIDTH = "image-width";
+export const NUM_OF_IMAGES = 0; 

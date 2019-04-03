@@ -13,6 +13,7 @@ import {
     IMAGE,
     IMAGE_WIDTH,
     MODAL_FIELDS,
+    NUM_OF_IMAGES,
     PLUS,
     PICTURE_CARD,
     TEXT,
@@ -131,9 +132,7 @@ class ProductEditForm extends React.Component {
         }
     }
     
-      handleCancel = () => this.setState({ previewVisible: false })
-    
-      handlePreview = () => this.setState({ previewVisible: true });
+      setPreview = value => this.setState({ previewVisible: value });
 
       handleRemove = () => this.setState({ fileDetails: [] })
     
@@ -174,7 +173,7 @@ class ProductEditForm extends React.Component {
               multiple:false,
               name:IMAGE,
               onChange: this.handleChange,
-              onPreview: this.handlePreview,
+              onPreview: () => this.setPreview(true),
               onRemove: this.handleRemove,
           };
 
@@ -190,10 +189,14 @@ class ProductEditForm extends React.Component {
                   <Form>{formItems}</Form>
                   <div className={CLEARFIX}>
                       <Upload {...props}>
-                          {fileDetails.length >= 1 ? null : uploadButton}
+                          {fileDetails.length <= NUM_OF_IMAGES && uploadButton}
                       </Upload>
 
-                      <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+                      <Modal 
+                          visible={previewVisible}
+                          footer={null} 
+                          onCancel={() => this.setPreview(false)}
+                      >
                           <img className={IMAGE_WIDTH} src={previewImage} />
                       </Modal>
                   </div>
