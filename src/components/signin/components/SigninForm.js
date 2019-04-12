@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Form, Icon, Input, Modal } from 'antd';
+import { Form, Icon, Input, Modal, Button } from 'antd';
 
 import { INPUTS, SIGNIN_STRINGS } from '../constants';
 
@@ -33,7 +33,7 @@ function generateSiginInputs(decorator) {
 
 class SigninModal extends React.Component {
     render() {
-        const { form, visible, onCancel, onCreate, isLoading } = this.props;
+        const { form, visible, onCancel, onCreate, isLoading, handleAuth } = this.props;
         const { getFieldDecorator } = form;
 
         return (
@@ -48,6 +48,7 @@ class SigninModal extends React.Component {
                 <Form>
                     {generateSiginInputs(getFieldDecorator)}
                 </Form>
+                <Button onClick={handleAuth}>{"google"}</Button>
             </Modal>
         );
     }

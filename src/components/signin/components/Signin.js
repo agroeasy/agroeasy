@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import { message } from 'antd';
+import { message, Button } from 'antd';
 
 import SigninForm from './SigninForm';
 import { SIGNIN_STRINGS } from '../constants';
 import * as signinActions from '../actions';
+import Auth from '../../Auth/components/Auth';
 import {
     getIsLoading,
     getSigninFailureMessage,
@@ -15,7 +16,7 @@ import {
 } from '../selectors';
 
 const { PRIMARY, TITLE } = SIGNIN_STRINGS;
-
+ 
 class Signin extends React.Component {
     state = {
         visible: false,
@@ -47,6 +48,11 @@ class Signin extends React.Component {
             signinRequest(payload);
         });
     }
+
+    handleAuth = () => {
+        const auth = new Auth();
+        auth.login();
+    };
 
     saveFormRef = formRef => {
         this.formRef = formRef;
@@ -81,6 +87,7 @@ class Signin extends React.Component {
                     onCancel={this.handleCancel}
                     onCreate={this.handleCreate}
                     isLoading={isLoading}
+                    handleAuth={this.handleAuth}
                 />
             </div>
         );
