@@ -115,7 +115,7 @@ export default {
             } else {
                 // Redundancy: deletes possible invalid/valid '_id'
                 delete product._id;
-
+                
                 data = await Product.create(product);
                 message = PRODUCT_CREATED;
             }
