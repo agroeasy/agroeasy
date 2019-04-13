@@ -41,7 +41,7 @@ export default class ProductList extends React.Component {
                 pagination={{ pageSize: 10 }}
                 dataSource={list}
                 renderItem={item => {
-                    const { description, _id, image_url: imageUrl, name } = item;
+                    const { description, _id, imageUrl, name } = item;
                     const actions = [
                         <Icon key={EDIT} onClick={() => openModal(_id)} type={EDIT} />,
                     ];

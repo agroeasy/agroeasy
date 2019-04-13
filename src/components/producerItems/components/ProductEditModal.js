@@ -112,13 +112,13 @@ class ProductEditForm extends React.Component {
         const { fileDetails } = this.state;
 
         if(fileDetails.length >= 1) {
-            const { image_url, image_id } = fileDetails[0].response.data;
+            const { imageUrl, imageId } = fileDetails[0].response.data;
 
             validateFields((error, fieldValues) => {
                 if (error) {
                     return error;
                 }
-                updateProduct({ ...productToEdit, ...fieldValues, image_id, image_url });
+                updateProduct({ ...productToEdit, ...fieldValues, imageId, imageUrl });
                 return resetFields();
             });
         } else {
@@ -137,14 +137,23 @@ class ProductEditForm extends React.Component {
       handleRemove = () => this.setState({ fileDetails: [] })
     
       handleChange = info => {
-          if (info.file.status !== UPLOADING) {
-              this.setState({ previewImage: info.file.response.data.image_url || info.thumbUrl });
+          const { 
+              fileList, 
+              thumbUrl, 
+              file: { 
+                  status, 
+                  response: { data }, 
+                  name },
+          } = info;
+
+          if (status !== UPLOADING) {
+              this.setState({ previewImage: data.imageUrl || thumbUrl });
           }
-          if (info.file.status === DONE) {
-              this.setState({ fileDetails: info.fileList });
-              message.success(`${info.file.name} ${UPLOADED}`);
-          } else if (info.file.status === ERROR) {
-              message.error(`${info.file.name} ${UPLOAD_FAILED}`);
+          if (status === DONE) {
+              this.setState({ fileDetails: fileList });
+              message.success(`${name} ${UPLOADED}`);
+          } else if (status === ERROR) {
+              message.error(`${name} ${UPLOAD_FAILED}`);
           }
       }
 

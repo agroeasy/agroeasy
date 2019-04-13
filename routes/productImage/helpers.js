@@ -5,8 +5,8 @@ export default {
             const { public_id, url } = await req.file;
 
             const imageData = {
-                image_id: public_id,
-                image_url: url,
+                imageId: public_id,
+                imageUrl: url,
             };
             
             return res.send({ data: imageData, success: true });
