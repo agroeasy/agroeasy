@@ -7,7 +7,8 @@ import { message, Button } from 'antd';
 import SigninForm from './SigninForm';
 import { SIGNIN_STRINGS } from '../constants';
 import * as signinActions from '../actions';
-import Auth from '../../Auth/components/Auth';
+import Auth from '../../auth0';
+
 import {
     getIsLoading,
     getSigninFailureMessage,
