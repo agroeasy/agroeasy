@@ -7,8 +7,10 @@ import esClient from '../../esClient';
 const Schema = mongoose.Schema;
 
 const ProductsSchema = new Schema({
-    cost: {  es_indexed: true, required: true, type: Number },
+    cost: { es_indexed: true, required: true, type: Number },
     description: { es_indexed: true, required: true, type: String },
+    imageId: { type: String },
+    imageUrl: { type: String },
     name: { es_indexed: true, required: true, type: String },
     producerId: { es_indexed: true, required: true, type: String },
     quantity: { es_indexed: true, required: true, type: Number },

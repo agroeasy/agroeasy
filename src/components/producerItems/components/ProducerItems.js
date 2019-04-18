@@ -7,6 +7,7 @@ import { Button, Icon } from 'antd';
 
 import ProductList from './ProductList';
 import ProductEditModal from './ProductEditModal';
+
 import { requestProductList, requestProductUpdate } from '../actions';
 import { getProductList } from '../selectors';
 import { DEFAULT_FIELD_VALUES, PRODUCER_ITEM } from '../constants';
@@ -15,6 +16,7 @@ const {
     BUTTON: { TEXT, TYPE },
     CONTAINER_CLASS,
 } = PRODUCER_ITEM;
+
 /**
  * React component used to display the list of producer products
  */

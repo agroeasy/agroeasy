@@ -1,13 +1,27 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Form, Input, InputNumber, Modal, Select } from 'antd';
+import { Icon, Form, Input, InputNumber, Modal, Select, Upload, message } from 'antd';
 
 import {
     CREATE_TITLE,
+    CLEARFIX,
+    DONE,
     EDIT_TITLE,
     EDITABLE_FIELDS,
+    ERROR,
     FORM_ITEM_LAYOUT,
+    IMAGE,
+    IMAGE_WIDTH,
     MODAL_FIELDS,
+    NUM_OF_IMAGES,
+    PLUS,
+    PICTURE_CARD,
+    TEXT,
+    UPLOADING,
+    UPLOADED,
+    UPLOAD_FAILED,
+    UPLOAD_TEXT,
+    CREATE_IMAGE_ENDPOINT,
     SAVE_PRODUCT_DETAILS
 } from '../constants';
 
@@ -68,10 +82,8 @@ function generateProductEditForm(decorator, productToEdit) {
                     { decorator(field, { initialValue, rules })(InputField) }
                 </FormItem>
             );
-
             field === NAME ? total.unshift(formItem) : total.push(formItem);
         }
-
         return total;
     }, []);
 }
@@ -80,7 +92,12 @@ function generateProductEditForm(decorator, productToEdit) {
  * React component used to render the product eidtable fields
  */
 class ProductEditForm extends React.Component {
-    state = { formItems: [] };
+    state = { 
+        fileDetails: [],
+        formItems: [],
+        previewImage: '',
+        previewVisible: false,
+    };
 
     /**
      * Validates the the form rules have all passed then sends a request to update
@@ -92,42 +109,109 @@ class ProductEditForm extends React.Component {
     updateProductInfo = () => {
         const { form, productToEdit, updateProduct } = this.props;
         const { resetFields, validateFields } = form;
+        const { fileDetails } = this.state;
 
-        validateFields((error, fieldValues) => {
-            if (!error) {
+        if(fileDetails.length >= 1) {
+            const { imageUrl, imageId } = fileDetails[0].response.data;
+
+            validateFields((error, fieldValues) => {
+                if (error) {
+                    return error;
+                }
+                updateProduct({ ...productToEdit, ...fieldValues, imageId, imageUrl });
+                return resetFields();
+            });
+        } else {
+            validateFields((error, fieldValues) => {
+                if (error) {
+                    return error;
+                }
                 updateProduct({ ...productToEdit, ...fieldValues });
                 return resetFields();
-            }
-
-            return error;
-        });
+            });
+        }
     }
+    
+      setPreview = value => this.setState({ previewVisible: value });
 
-    static getDerivedStateFromProps(props) {
-        const { productToEdit, form: { getFieldDecorator } } = props;
-        const formItems = generateProductEditForm(getFieldDecorator, productToEdit);
+      handleRemove = () => this.setState({ fileDetails: [] })
+    
+      handleChange = info => {
+          const { 
+              fileList, 
+              thumbUrl, 
+              file: { 
+                  status, 
+                  response: { data }, 
+                  name },
+          } = info;
 
-        return { formItems };
-    }
+          if (status !== UPLOADING) {
+              this.setState({ previewImage: data.imageUrl || thumbUrl });
+          }
+          if (status === DONE) {
+              this.setState({ fileDetails: fileList });
+              message.success(`${name} ${UPLOADED}`);
+          } else if (status === ERROR) {
+              message.error(`${name} ${UPLOAD_FAILED}`);
+          }
+      }
 
-    render() {
-        const { closeModal, isNewProduct, isOpen, isProductUpdating } = this.props;
-        const { formItems } = this.state;
-        const title = isNewProduct ? CREATE_TITLE : EDIT_TITLE;
+      static getDerivedStateFromProps(props) {
+          const { productToEdit, form: { getFieldDecorator } } = props;
+          const formItems = generateProductEditForm(getFieldDecorator, productToEdit);
 
-        return (
-            <Modal
-                confirmLoading={isProductUpdating}
-                visible={isOpen}
-                title={title}
-                okText={SAVE_PRODUCT_DETAILS}
-                onCancel={closeModal}
-                onOk={this.updateProductInfo}
-            >
-                <Form>{formItems}</Form>
-            </Modal>
-        );
-    }
+          return { formItems };
+      }
+
+      render() {
+          const { closeModal, isNewProduct, isOpen, isProductUpdating } = this.props;
+          const { formItems, previewVisible, previewImage, fileDetails } = this.state;
+          const title = isNewProduct ? CREATE_TITLE : EDIT_TITLE;
+
+          const uploadButton = (
+              <React.Fragment>
+                  <Icon type={PLUS} />
+                  <div className={UPLOAD_TEXT}>{TEXT}</div>
+              </React.Fragment>
+          );
+
+          const props = {
+              action: CREATE_IMAGE_ENDPOINT,
+              listType: PICTURE_CARD,
+              multiple:false,
+              name:IMAGE,
+              onChange: this.handleChange,
+              onPreview: () => this.setPreview(true),
+              onRemove: this.handleRemove,
+          };
+
+          return (
+              <Modal
+                  confirmLoading={isProductUpdating}
+                  visible={isOpen}
+                  title={title}
+                  okText={SAVE_PRODUCT_DETAILS}
+                  onCancel={closeModal}
+                  onOk={this.updateProductInfo}
+              >
+                  <Form>{formItems}</Form>
+                  <div className={CLEARFIX}>
+                      <Upload {...props}>
+                          {fileDetails.length <= NUM_OF_IMAGES && uploadButton}
+                      </Upload>
+
+                      <Modal 
+                          visible={previewVisible}
+                          footer={null} 
+                          onCancel={() => this.setPreview(false)}
+                      >
+                          <img className={IMAGE_WIDTH} src={previewImage} />
+                      </Modal>
+                  </div>
+              </Modal>
+          );
+      }
 }
 
 /**

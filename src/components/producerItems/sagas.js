@@ -27,6 +27,7 @@ function* requestProducersItems(){
             const result = yield response.json();
 
             // TODO: update state to reflect error on fetch item list
+            // eslint-disable-next-line no-console
             console.log('ERROR', result);
         }
     } catch(error){
@@ -62,6 +63,7 @@ function* requestProducersItemUpdate(action){
             const result = yield response.json();
 
             // TODO: update state to reflect error on fetch item list
+            // eslint-disable-next-line no-console
             console.log('ERROR', result);
         }
     } catch(error){
