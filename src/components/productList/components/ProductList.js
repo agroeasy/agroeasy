@@ -12,8 +12,9 @@ class ProductList extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('/product/findAll');
+        const response = await fetch('/product/findallwithproduct', { method: 'post' });
         const json = await response.json();
+
         this.setState({ productList: json.data });
     } 
 

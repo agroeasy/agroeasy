@@ -6,7 +6,8 @@ import { updateSearchResult } from './actions';
 function* searchProduct(action) {
     try {
         const { payload } = action;
-        const response = yield fetch(`${SEARCH_URL}/${payload}`, {
+        console.log(payload);
+        const response = yield fetch(`${SEARCH_URL}?name=${payload}`, {
             method: 'GET',
         });
 
@@ -17,7 +18,7 @@ function* searchProduct(action) {
         }
     } catch (error) {
         // eslint-disable-next-line no-console
-        console.log(error);
+        //console.log(error);
     } 
 }
 
@@ -26,7 +27,7 @@ function* watchSearchProduct() {
         yield effects.takeLatest(REQUEST_SEARCH, searchProduct);
     } catch (error) {
         // eslint-disable-next-line no-console
-        console.log(Error);
+        //console.log(error);
     }
 }
 

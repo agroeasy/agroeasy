@@ -27,7 +27,8 @@ class Product extends React.Component {
 
     render() {
         const { visible } = this.state;
-        const { cost, image, name } = this.props.data;
+        const { cost, imageUrl, name } = this.props.data;
+
         const description = tag => (
             <div>
                 <Tag color={TAG_COLOR}>{tag}</Tag>
@@ -43,12 +44,12 @@ class Product extends React.Component {
             <div>
                 <Card
                     actions={actions}
-                    cover={<img className={CARD_IMAGE} src={image} />}
+                    cover={<img className={CARD_IMAGE} src={imageUrl} />}
                     hoverable
                     key={name}
                 >
                     <Meta
-                        avatar={<Avatar src={image} />}
+                        avatar={<Avatar src={imageUrl} />}
                         title={name}
                         description={description(cost)}
                     />

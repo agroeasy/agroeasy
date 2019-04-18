@@ -12,7 +12,7 @@ const ProductsSchema = new Schema({
     imageId: { type: String },
     imageUrl: { type: String },
     name: { es_indexed: true, required: true, type: String },
-    producerId: { es_indexed: true, required: true, type: String },
+    producerId: { es_indexed: true, ref: 'User', required: true, type: String },
     quantity: { es_indexed: true, required: true, type: Number },
     type: { es_indexed: true, required: true, type: String },
 }, { versionKey: false });

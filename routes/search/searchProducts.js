@@ -12,6 +12,7 @@ export default {
             const products = await productSearchAsync(
                 { term: req.query },
                 { stored_fields : ["_id"] },
+                
             );
 
             const esFoundProductIds = products.hits.hits.map(({ _id }) => _id);
