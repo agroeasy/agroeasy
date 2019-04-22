@@ -24,7 +24,6 @@ export default {
 
             return res.status(OK).json({ foundProducts, numOfFoundProducts: products.hits.total });
         } catch (error) {
-            console.log(error);
             return res.status(INTERNAL_SERVER_ERROR).send(error);
         }
     },

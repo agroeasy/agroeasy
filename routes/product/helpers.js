@@ -19,7 +19,7 @@ export default {
             return res.json({ error, success: false });
         }
     },
-
+    //clean up invalid products and producers
     cleanProductsWithInvalidProducerId: async (req, res) => {
         try {
             const data = await Product.find();
@@ -30,7 +30,6 @@ export default {
             });
 
             await Product.deleteMany({ _id: { $in: invalidProducer } });
-            // console.log(invalidData);
 
             return res.json({ data, success: true });
         } catch (error) {
