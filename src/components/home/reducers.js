@@ -17,7 +17,6 @@ export default ( state = { ...initialState },  action) => {
     }
     case UPDATE_SEARCH:{
         const { payload } = action;
-        console.log(payload);
         return{
             ...state,
             isloading: false,

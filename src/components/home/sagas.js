@@ -6,19 +6,17 @@ import { updateSearchResult } from './actions';
 function* searchProduct(action) {
     try {
         const { payload } = action;
-        console.log(payload);
         const response = yield fetch(`${SEARCH_URL}?name=${payload}`, {
             method: 'GET',
         });
 
         if(response.ok){
             const data = yield response.json();
-            console.log(data);
             yield effects.put(updateSearchResult(data));
         }
     } catch (error) {
         // eslint-disable-next-line no-console
-        //console.log(error);
+        console.log(error);
     } 
 }
 
@@ -27,7 +25,7 @@ function* watchSearchProduct() {
         yield effects.takeLatest(REQUEST_SEARCH, searchProduct);
     } catch (error) {
         // eslint-disable-next-line no-console
-        //console.log(error);
+        console.log(error);
     }
 }
 

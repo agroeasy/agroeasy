@@ -20,7 +20,7 @@ export default {
         }
     },
 
-    scrubProductsWithInvalidProducerId: async (req, res) => {
+    cleanProductsWithInvalidProducerId: async (req, res) => {
         try {
             const data = await Product.find();
             const invalidProducer = data.map(dataitem => {
@@ -103,6 +103,19 @@ export default {
         }
     },
 
+    // finds products with associated producers
+    productsWithRelatedProducers: async (req, res) => {
+        try {
+            const data = await Product.find()
+                .populate('producerId', PRODUCER_DATA)
+                .exec();
+
+            return res.json({ data, success: true });
+        } catch (error) {
+            return res.json({ error, success: false });
+        }
+    },
+
     /**
      * Either updates an item or creates an entirely new item for a given producer.
      *
@@ -145,14 +158,5 @@ export default {
                 .json({ error, message: getStatusText(INTERNAL_SERVER_ERROR), success: false });
         }
     },
-    productsWithRelatedProducers: async(req, res) => {
-        try {
-            const data = await Product.find()
-                .populate('producerId', PRODUCER_DATA)
-                .exec();
-            return res.json({ data, success: true });
-        } catch (error) {
-            return res.json({ error, success: false });
-        }
-    },
+
 };

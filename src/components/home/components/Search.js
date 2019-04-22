@@ -6,9 +6,12 @@ import PropTypes from 'prop-types';
 
 import { SEARCH } from '../constants';
 import * as searchActions from '../actions';
+import { getSearchProducts } from '../selectors';
 
 const Search = Input.Search;
 const { CENTER, FLEX, LARGE, SEARCH_PRODUCTS } = SEARCH;
+
+//TODO: move search component to App component.
 
 //this is the search component
 class SearchItems extends React.Component {
@@ -36,7 +39,7 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(searchActions, dispatch),
 });
 const mapStateToProps = state => ({
-    searchResults: state.home.results,
+    searchResults: getSearchProducts(state),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchItems);

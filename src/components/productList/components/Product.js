@@ -9,7 +9,6 @@ const { Meta } = Card;
 const {
     ACTIONS: { INFO_CIRCLE, SHOPPING },
     CARD_IMAGE,
-    DEFAULT_DESCRIPTION,
     TAG_COLOR,
 } = PRODUCT;
 
@@ -27,12 +26,12 @@ class Product extends React.Component {
 
     render() {
         const { visible } = this.state;
-        const { cost, imageUrl, name } = this.props.data;
+        const { cost, description, imageUrl, name } = this.props.data;
 
-        const description = tag => (
+        const productDescription = (tag, description) => (
             <div>
                 <Tag color={TAG_COLOR}>{tag}</Tag>
-                {DEFAULT_DESCRIPTION}
+                {description}
             </div>
         );
         const actions = [
@@ -51,7 +50,7 @@ class Product extends React.Component {
                     <Meta
                         avatar={<Avatar src={imageUrl} />}
                         title={name}
-                        description={description(cost)}
+                        description={productDescription(cost, description)}
                     />
                 </Card>
                 <ProductModal

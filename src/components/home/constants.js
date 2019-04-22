@@ -23,3 +23,4 @@ export const HOME_STRINGS = {
 };
 
 export const SEARCH_URL = "/api/searching";
+export const NAME = 'home';

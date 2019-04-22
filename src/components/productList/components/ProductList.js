@@ -1,10 +1,11 @@
 import React from 'react';
-import { List, Pagination } from 'antd';
+import { List } from 'antd';
 
 import Product from './Product';
-import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from '../constants';
+import { PRODUCT_LIST_CLASSNAME } from '../constants';
 
 // React Component used to render the list of product items
+
 class ProductList extends React.Component {
 
     state = {
@@ -18,8 +19,6 @@ class ProductList extends React.Component {
         this.setState({ productList: json.data });
     } 
 
-    //TODO: make dataSource to get values from productList once it has image key
-
     render() {
         return(
             <List
@@ -28,7 +27,7 @@ class ProductList extends React.Component {
                 dataSource={this.state.productList}
                 loading={!this.state.productList[1] && true}
                 pagination={{ pageSize:12 }}
-                grid={{ gutter: 12, lg: 4, md: 4, sm: 2, xs: 1, xxl: 3 }}
+                grid={{ gutter: 9, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
                 renderItem={item => (
                     <List.Item>
                         <Product data={item} />
