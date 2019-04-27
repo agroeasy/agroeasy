@@ -128,6 +128,7 @@ const SignupForm = Form.create()(SignupModal);
 
 SignupModal.propTypes = {
     form: PropTypes.object,
+    isLoading: PropTypes.bool,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
     visible: PropTypes.bool,
