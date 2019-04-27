@@ -1,7 +1,7 @@
-const nock = require('nock');
-const url = require("url");
+import nock from 'nock';
+import url from "url";
 
-module.exports = nock(
+export default nock(
     url.format({
         hostname: "127.0.0.1",
         port: 4000,
