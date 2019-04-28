@@ -17,8 +17,16 @@ const {
 class Product extends React.Component {
     state = { visible: false }
 
-    toggleModal= bool => {
-        this.setState({ visible: bool });
+    // toggleModal= bool => {
+    //     this.setState({ visible: bool });
+    // }
+
+    showModal = () => {
+        this.setState({ visible: true });
+    }
+
+    handleCancel = () => {
+        this.setState({ visible: false });
     }
 
     render() {
@@ -32,7 +40,7 @@ class Product extends React.Component {
         );
         const actions = [
             <Icon key={SHOPPING} type={SHOPPING} />,
-            <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={() => this.toggleModal(true)} />,
+            <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />,
         ];
 
         return (
@@ -51,7 +59,7 @@ class Product extends React.Component {
                 </Card>
                 <ProductModal
                     data={this.props.data}
-                    handleCancel={() => this.toggleModal(false)}
+                    handleCancel={this.handleCancel}
                     visible={visible}
                 />
             </div>
