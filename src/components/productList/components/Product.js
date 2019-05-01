@@ -15,14 +15,16 @@ const {
 
 // React Component used to render the product item in a 'Card'
 class Product extends React.Component {
-    state = { visible: false }
+    state = { 
+        selectedPost: {},
+        visible: false
+     }
 
-    // toggleModal= bool => {
-    //     this.setState({ visible: bool });
-    // }
-
-    showModal = () => {
-        this.setState({ visible: true });
+    showModal = selectedPost => {
+        this.setState({ 
+            selectedPost,
+            visible: true
+         });
     }
 
     handleCancel = () => {
@@ -30,7 +32,7 @@ class Product extends React.Component {
     }
 
     render() {
-        const { visible } = this.state;
+        const { selectedPost, visible } = this.state;
         const { cost, image, name } = this.props.data;
         const description = tag => (
             <div>
@@ -40,7 +42,7 @@ class Product extends React.Component {
         );
         const actions = [
             <Icon key={SHOPPING} type={SHOPPING} />,
-            <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />,
+            <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={() => this.showModal(this.props.data)} />,
         ];
 
         return (
@@ -58,7 +60,7 @@ class Product extends React.Component {
                     />
                 </Card>
                 <ProductModal
-                    data={this.props.data}
+                    data={selectedPost}
                     handleCancel={this.handleCancel}
                     visible={visible}
                 />
