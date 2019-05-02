@@ -17,14 +17,14 @@ const {
 class Product extends React.Component {
     state = { 
         selectedPost: {},
-        visible: false
-     }
+        visible: false,
+    }
 
     showModal = selectedPost => {
         this.setState({ 
             selectedPost,
-            visible: true
-         });
+            visible: true,
+        });
     }
 
     handleCancel = () => {
@@ -42,7 +42,10 @@ class Product extends React.Component {
         );
         const actions = [
             <Icon key={SHOPPING} type={SHOPPING} />,
-            <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={() => this.showModal(this.props.data)} />,
+            <Icon key={INFO_CIRCLE} 
+                type={INFO_CIRCLE} 
+                onClick={() => this.showModal(this.props.data)} 
+            />,
         ];
 
         return (
