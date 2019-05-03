@@ -2,6 +2,8 @@ import React from 'react';
 import { Col, Row } from 'antd';
 
 import Search from './Search';
+import CarouselImages from './Carousel';
+
 import productList from '../../productList';
 import { HOME_STRINGS } from '../constants';
 
@@ -27,6 +29,7 @@ class Home extends React.Component {
                         </Col>
                     </Row>
                 </div>
+                <CarouselImages />
                 <ProductList />
             </div>
         );
