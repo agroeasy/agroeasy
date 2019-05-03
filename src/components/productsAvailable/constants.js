@@ -1,107 +1,107 @@
 /*food stuffs strings of ProductsAvailable*/
 export const FOODSITEMS = [
     {
-        link: "/yam/",
-        name: "Yams",
+        link: '/yam/',
+        name: 'Yams'
     },
     {
-        link: "/rice/",
-        name: "Rice",
+        link: '/rice/',
+        name: 'Rice'
     },
     {
-        link: "/beans/",
-        name: "Beans",
+        link: '/beans/',
+        name: 'Beans'
     },
     {
-        link: "garri",
-        name: "Garri",
+        link: 'garri',
+        name: 'Garri'
     },
     {
-        link: "/fufu/",
-        name: "Cassava flour (fufu)",
-    },
+        link: '/fufu/',
+        name: 'Cassava flour (fufu)'
+    }
 ];
 
 /*poultry & Livestock from ProductsAvailable */
 export const LIVESTOCK = [
     {
         link: '/fishes/',
-        name: 'Fishes',
+        name: 'Fishes'
     },
     {
-        link: "/eggs/",
-        name: 'Eggs',
+        link: '/eggs/',
+        name: 'Eggs'
     },
     {
         link: '/cattle/',
-        name: 'Cattle',
+        name: 'Cattle'
     },
     {
         link: '/chicken/',
-        name: 'Chicken',
+        name: 'Chicken'
     },
     {
         link: '/ram/',
-        name: 'Ram',
-    },
+        name: 'Ram'
+    }
 ];
 
 /* Fruits & vegetables  from ProductsAvailable*/
 export const FRUITS_VEGETABLES = [
     {
         link: '/cabbage/',
-        name: 'Cabbage',
+        name: 'Cabbage'
     },
     {
-        link: "/lettuse/",
-        name: 'Lettuse',
+        link: '/lettuse/',
+        name: 'Lettuse'
     },
     {
         link: '/tomatoes/',
-        name: 'Tomatoes',
+        name: 'Tomatoes'
     },
     {
         link: '/oranges/',
-        name: 'Oranges',
+        name: 'Oranges'
     },
     {
         link: '/plantain/',
-        name: 'Plantain',
-    },
+        name: 'Plantain'
+    }
 ];
 
 /* spices from ProductsAvailable */
 export const SPICES = [
     {
         link: '/onions/',
-        name: 'Onions',
+        name: 'Onions'
     },
     {
         link: '/ginger/',
-        name: 'Ginger',
+        name: 'Ginger'
     },
     {
         link: '/garlic/',
-        name: 'Garlic',
+        name: 'Garlic'
     },
     {
         link: '/curry/',
-        name: 'Curry',
+        name: 'Curry'
     },
     {
         link: '/pepper/',
-        name: 'Pepper',
-    },
+        name: 'Pepper'
+    }
 ];
 
 //strings
 export const PRODUCTS_AVAILABLE = {
-    AVAILABLE: "productsAvailable",
+    AVAILABLE: 'productsAvailable',
     FOOD_ITEM_TEXT: 'Food Items',
-    FRUITS_TEXT: "Fruits & Vegetables",
+    FRUITS_TEXT: 'Fruits & Vegetables',
     GROUPED_ITEMS: 'groupedItems',
     ITEMS: 'items',
     LIST: 'list',
-    LIVE_STOCK_TEXT: "Livestock & Poultry",
-    SPICES_TEXT: 'Spices',
+    LIVE_STOCK_TEXT: 'Livestock & Poultry',
+    SPICES_TEXT: 'Spices'
 };

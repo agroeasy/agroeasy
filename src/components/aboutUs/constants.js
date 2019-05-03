@@ -4,12 +4,12 @@ export const ABOUT_US = {
         CONTENT: 'content',
         TEAM_CARD: 'team-card',
         TEAM_HEADER: 'team-header',
-        TOP_TEXT: 'top-text',
+        TOP_TEXT: 'top-text'
     },
     STRINGS: {
         FADE: 'fade',
         NEW_WINDOW: '_blank',
-        SQUARE: 'square',
+        SQUARE: 'square'
     },
     TEXTS: {
         HEADER_TEXT: 'The Team',
@@ -20,9 +20,8 @@ export const ABOUT_US = {
         them, or even how much the need to spend to do so.Through out the history of business, 
         people use data to make more informed decisions. Our goal at Agroeasy, is to make the 
         istribution of products between producers, marketers and consumers easy.We want to make
-        data / information available to as mamy as possible. `,
-
-    },
+        data / information available to as mamy as possible. `
+    }
 };
 
 export const TEAM_INFO = [
@@ -34,13 +33,13 @@ export const TEAM_INFO = [
             where he became aware of numerous challenges that could be solved through tech.
             At Enye, he learnt how best to be able to accomplish this. His focus and passion will 
             ensure Agroeasy provides the best of services to all our customers. `,
-        name: "Josh Obinna",
-        photo: '/obinna.jpg', 
+        name: 'Josh Obinna',
+        photo: '/obinna.jpg',
         social_media: [
             { icon: 'facebook', link: 'https://www.facebook.com/joshua171/' },
             { icon: 'github', link: 'https://www.github.com/joshuaobinna/' },
-            { icon: 'linkedin', link: 'https://www.linkedin.com/in/joshua-obinna-9bb963116/' },
-        ],
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/joshua-obinna-9bb963116/' }
+        ]
     },
     {
         description: `She loves playing around with codes, encountering errors, fixing bugs,
@@ -50,13 +49,13 @@ export const TEAM_INFO = [
             For some reason, she decided to explore the world of software development. She's also a 
             lover of graphic design. She looks forward to building one of the largest Agro 
             E-commerce platform with the collaboration of her colleagues.`,
-        name: "Chioma Onyekpere",
+        name: 'Chioma Onyekpere',
         photo: '/chiomaa.jpg',
         social_media: [
             { icon: 'facebook', link: 'https://www.facebook.com/angela.onyekpere/' },
             { icon: 'github', link: 'https://www.github.com/Simpcyclassy/' },
-            { icon: 'linkedin', link: 'https://www.linkedin.com/in/chioma-onyekpere-127378103/' },
-        ],
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/chioma-onyekpere-127378103/' }
+        ]
     },
     {
         description: `He is a dedicated full-statck web developer, who is skilled in javascript.  
@@ -65,19 +64,19 @@ export const TEAM_INFO = [
             University of Technology, Owerri, Imo State. Currently, he is a student at Enye, where 
             he is becoming the engineer he yearns for, under the mentorship of Uche Nnadi (CEO). 
             Presently, he is on internship at Silicon jungle labs, where he is  leveraging on the 
-            power of more experts to reach a climax where, he will be one of the best. `, 
-        name: "Okemmadu Eric",
+            power of more experts to reach a climax where, he will be one of the best. `,
+        name: 'Okemmadu Eric',
         photo: '/okemmadu.jpg',
         social_media: [
             { icon: 'facebook', link: 'https://www.facebook.com/eric.okemmadu/' },
             { icon: 'github', link: 'https://www.github.com/EngrEric/' },
-            { icon: 'linkedin', link: 'https://www.linkedin.com/in/okemmadu-eric-1a3818113/' },
-        ],
-    },
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/okemmadu-eric-1a3818113/' }
+        ]
+    }
 ];
 
-export const MARKET_SCENES = [ 
-    'cattle.jpg' ,
+export const MARKET_SCENES = [
+    'cattle.jpg',
     'fishseller.jpg',
     'broilers.jpg',
     'snails.jpg',
@@ -85,7 +84,6 @@ export const MARKET_SCENES = [
     'yam-market.jpg',
     'smoked-fishes.jpg',
     'chicken.jpg',
-    'top-products.jpg',
+    'top-products.jpg'
 ];
 export const IMAGE_STYLE = { WIDTH: '100%' };
-

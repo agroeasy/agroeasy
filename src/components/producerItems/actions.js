@@ -13,7 +13,7 @@ import {
  * action.
  */
 export const requestProductList = () => ({
-    type: REQUEST_PRODUCT_LIST,
+    type: REQUEST_PRODUCT_LIST
 });
 
 /**
@@ -27,7 +27,7 @@ export const requestProductList = () => ({
  */
 export const requestProductUpdate = payload => ({
     payload,
-    type: REQUEST_PRODUCT_UPDATE,
+    type: REQUEST_PRODUCT_UPDATE
 });
 
 /**
@@ -41,7 +41,7 @@ export const requestProductUpdate = payload => ({
  */
 export const updateProductDetails = payload => ({
     payload,
-    type: UPDATE_PRODUCT_DETAILS,
+    type: UPDATE_PRODUCT_DETAILS
 });
 
 /**
@@ -55,5 +55,5 @@ export const updateProductDetails = payload => ({
  */
 export const updateProductList = payload => ({
     payload,
-    type: UPDATE_PRODUCT_LIST,
+    type: UPDATE_PRODUCT_LIST
 });

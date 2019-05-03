@@ -17,9 +17,9 @@ export const USER_PAGE = {
         MENU: 'menu',
         PROFILE_CONTENT: 'profile-content',
         SIDER: 'sider',
-        SM_CONTENT: 'sm-content',
+        SM_CONTENT: 'sm-content'
     },
-    PROFILE_PIX: "./josh.jpg",
+    PROFILE_PIX: './josh.jpg',
     STRINGS: {
         CENTER: 'center',
         DARK: 'dark',
@@ -36,7 +36,7 @@ export const USER_PAGE = {
         SM_HEADER_DIV: 'sm-header-div',
         SOLUTION: 'solution',
         SQUARE: 'square',
-        START: 'start',
+        START: 'start'
     },
     TEXTS: {
         ACCOUNT_INFO: 'Account Info',
@@ -49,32 +49,32 @@ export const USER_PAGE = {
         PURCHASES: 'Purchases',
         SAVED_ITEMS: 'Saved Items',
         SETTINGS: 'Settings',
-        USER_PROFILE: 'User Profile',
-    },
+        USER_PROFILE: 'User Profile'
+    }
 };
 
 export const BASIC_INFOMATION = [
-    { description: 'Josh', title: "First Name:" },
+    { description: 'Josh', title: 'First Name:' },
     { description: 'Obinna', title: 'Last Name:' },
-    { description: 'male', title: 'Gender:' },
+    { description: 'male', title: 'Gender:' }
 ];
 export const CONTACT = [
-    { description: 'joshuaobinna@gmail.com',  title: "Email:" },
-    { description: '+2347061589692',  title: "Phone:" },
+    { description: 'joshuaobinna@gmail.com', title: 'Email:' },
+    { description: '+2347061589692', title: 'Phone:' }
 ];
 
 export const LOCATION = [
-    { description:  '24, Wilkie Crescent, Ikeja', title: "Address:" },
-    { description: "Lagos", title: 'City:' },
-    { description: "Nigeria", title: 'Country:' },
+    { description: '24, Wilkie Crescent, Ikeja', title: 'Address:' },
+    { description: 'Lagos', title: 'City:' },
+    { description: 'Nigeria', title: 'Country:' }
 ];
 
 export const SIDE_MENU_ITEMS = [
-    { iconType: "info-circle", label: "Account", link: '/profile' },
-    { iconType: "message", label: "Messages" },
-    { iconType: "notification", label: "Notifications" },
-    { iconType: "shopping", label: "Purchases" },
-    { iconType: "folder", label: "Items", link: "/profile/items" },
-    { iconType: "setting", label: "Settings" },
-    { iconType: "solution", label: "Help" },
+    { iconType: 'info-circle', label: 'Account', link: '/profile' },
+    { iconType: 'message', label: 'Messages' },
+    { iconType: 'notification', label: 'Notifications' },
+    { iconType: 'shopping', label: 'Purchases' },
+    { iconType: 'folder', label: 'Items', link: '/profile/items' },
+    { iconType: 'setting', label: 'Settings' },
+    { iconType: 'solution', label: 'Help' }
 ];

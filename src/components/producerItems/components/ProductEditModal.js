@@ -64,22 +64,16 @@ function generateProductEditForm(decorator, productToEdit) {
             } else if (field === TYPE) {
                 InputField = (
                     <Select>
-                        {
-                            options.map(option => (
-                                <Option key={option}>{option}</Option>
-                            ))
-                        }
+                        {options.map(option => (
+                            <Option key={option}>{option}</Option>
+                        ))}
                     </Select>
                 );
             }
 
             const formItem = (
-                <FormItem
-                    {...FORM_ITEM_LAYOUT}
-                    key={field}
-                    label={label}
-                >
-                    { decorator(field, { initialValue, rules })(InputField) }
+                <FormItem {...FORM_ITEM_LAYOUT} key={field} label={label}>
+                    {decorator(field, { initialValue, rules })(InputField)}
                 </FormItem>
             );
             field === NAME ? total.unshift(formItem) : total.push(formItem);
@@ -92,11 +86,11 @@ function generateProductEditForm(decorator, productToEdit) {
  * React component used to render the product eidtable fields
  */
 class ProductEditForm extends React.Component {
-    state = { 
+    state = {
         fileDetails: [],
         formItems: [],
         previewImage: '',
-        previewVisible: false,
+        previewVisible: false
     };
 
     /**
@@ -111,7 +105,7 @@ class ProductEditForm extends React.Component {
         const { resetFields, validateFields } = form;
         const { fileDetails } = this.state;
 
-        if(fileDetails.length >= 1) {
+        if (fileDetails.length >= 1) {
             const { imageUrl, imageId } = fileDetails[0].response.data;
 
             validateFields((error, fieldValues) => {
@@ -130,88 +124,92 @@ class ProductEditForm extends React.Component {
                 return resetFields();
             });
         }
+    };
+
+    setPreview = value => this.setState({ previewVisible: value });
+
+    handleRemove = () => this.setState({ fileDetails: [] });
+
+    handleChange = info => {
+        const {
+            fileList,
+            thumbUrl,
+            file: {
+                status,
+                response: { data },
+                name
+            }
+        } = info;
+
+        if (status !== UPLOADING) {
+            this.setState({ previewImage: data.imageUrl || thumbUrl });
+        }
+        if (status === DONE) {
+            this.setState({ fileDetails: fileList });
+            message.success(`${name} ${UPLOADED}`);
+        } else if (status === ERROR) {
+            message.error(`${name} ${UPLOAD_FAILED}`);
+        }
+    };
+
+    static getDerivedStateFromProps(props) {
+        const {
+            productToEdit,
+            form: { getFieldDecorator }
+        } = props;
+        const formItems = generateProductEditForm(getFieldDecorator, productToEdit);
+
+        return { formItems };
     }
-    
-      setPreview = value => this.setState({ previewVisible: value });
 
-      handleRemove = () => this.setState({ fileDetails: [] })
-    
-      handleChange = info => {
-          const { 
-              fileList, 
-              thumbUrl, 
-              file: { 
-                  status, 
-                  response: { data }, 
-                  name },
-          } = info;
+    render() {
+        const { closeModal, isNewProduct, isOpen, isProductUpdating } = this.props;
+        const { formItems, previewVisible, previewImage, fileDetails } = this.state;
+        const title = isNewProduct ? CREATE_TITLE : EDIT_TITLE;
 
-          if (status !== UPLOADING) {
-              this.setState({ previewImage: data.imageUrl || thumbUrl });
-          }
-          if (status === DONE) {
-              this.setState({ fileDetails: fileList });
-              message.success(`${name} ${UPLOADED}`);
-          } else if (status === ERROR) {
-              message.error(`${name} ${UPLOAD_FAILED}`);
-          }
-      }
+        const uploadButton = (
+            <React.Fragment>
+                <Icon type={PLUS} />
+                <div className={UPLOAD_TEXT}>{TEXT}</div>
+            </React.Fragment>
+        );
 
-      static getDerivedStateFromProps(props) {
-          const { productToEdit, form: { getFieldDecorator } } = props;
-          const formItems = generateProductEditForm(getFieldDecorator, productToEdit);
+        const props = {
+            action: CREATE_IMAGE_ENDPOINT,
+            listType: PICTURE_CARD,
+            multiple: false,
+            name: IMAGE,
+            onChange: this.handleChange,
+            onPreview: () => this.setPreview(true),
+            onRemove: this.handleRemove
+        };
 
-          return { formItems };
-      }
+        return (
+            <Modal
+                confirmLoading={isProductUpdating}
+                visible={isOpen}
+                title={title}
+                okText={SAVE_PRODUCT_DETAILS}
+                onCancel={closeModal}
+                onOk={this.updateProductInfo}
+            >
+                <Form>{formItems}</Form>
+                <div className={CLEARFIX}>
+                    <Upload {...props}>
+                        {fileDetails.length <= NUM_OF_IMAGES && uploadButton}
+                    </Upload>
 
-      render() {
-          const { closeModal, isNewProduct, isOpen, isProductUpdating } = this.props;
-          const { formItems, previewVisible, previewImage, fileDetails } = this.state;
-          const title = isNewProduct ? CREATE_TITLE : EDIT_TITLE;
-
-          const uploadButton = (
-              <React.Fragment>
-                  <Icon type={PLUS} />
-                  <div className={UPLOAD_TEXT}>{TEXT}</div>
-              </React.Fragment>
-          );
-
-          const props = {
-              action: CREATE_IMAGE_ENDPOINT,
-              listType: PICTURE_CARD,
-              multiple:false,
-              name:IMAGE,
-              onChange: this.handleChange,
-              onPreview: () => this.setPreview(true),
-              onRemove: this.handleRemove,
-          };
-
-          return (
-              <Modal
-                  confirmLoading={isProductUpdating}
-                  visible={isOpen}
-                  title={title}
-                  okText={SAVE_PRODUCT_DETAILS}
-                  onCancel={closeModal}
-                  onOk={this.updateProductInfo}
-              >
-                  <Form>{formItems}</Form>
-                  <div className={CLEARFIX}>
-                      <Upload {...props}>
-                          {fileDetails.length <= NUM_OF_IMAGES && uploadButton}
-                      </Upload>
-
-                      <Modal 
-                          visible={previewVisible}
-                          footer={null} 
-                          onCancel={() => this.setPreview(false)}
-                      >
-                          <img className={IMAGE_WIDTH} src={previewImage} />
-                      </Modal>
-                  </div>
-              </Modal>
-          );
-      }
+                    <Modal
+                        visible={previewVisible}
+                        footer={null}
+                        onCancel={() => this.setPreview(false)}
+                    >
+                        <img className={IMAGE_WIDTH} src={previewImage} />
+                    </Modal>
+                </div>
+            </Modal>
+        );
+    }
 }
 
 /**
@@ -226,7 +224,7 @@ ProductEditForm.propTypes = {
     isOpen: PropTypes.bool,
     isProductUpdating: PropTypes.bool,
     productToEdit: PropTypes.object,
-    updateProduct: PropTypes.func,
+    updateProduct: PropTypes.func
 };
 
 export default ProductEditModal;

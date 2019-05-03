@@ -7,12 +7,12 @@ const { Meta } = Card;
 const {
     CLASSNAMES: { AVATAR, TEAM_CARD, TEAM_HEADER },
     STRINGS: { NEW_WINDOW, SQUARE },
-    TEXTS: { HEADER_TEXT },
+    TEXTS: { HEADER_TEXT }
 } = ABOUT_US;
 
 class TeamProfile extends React.Component {
     render() {
-        return(
+        return (
             <List
                 dataSource={TEAM_INFO}
                 header={<h4 className={TEAM_HEADER}>{HEADER_TEXT}</h4>}
@@ -25,18 +25,13 @@ class TeamProfile extends React.Component {
                             bordered={false}
                             className={TEAM_CARD}
                             cover={<Avatar src={photo} shape={SQUARE} className={AVATAR} />}
-                            actions={
-                                social_media.map(({ icon, link }) => (
-                                    <a href={link} key={icon} target={NEW_WINDOW}>
-                                        <Icon type={icon} />
-                                    </a>
-                                ))
-                            }
+                            actions={social_media.map(({ icon, link }) => (
+                                <a href={link} key={icon} target={NEW_WINDOW}>
+                                    <Icon type={icon} />
+                                </a>
+                            ))}
                         >
-                            <Meta
-                                title={name}
-                                description={description }
-                            />
+                            <Meta title={name} description={description} />
                         </Card>
                     </List.Item>
                 )}

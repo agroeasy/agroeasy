@@ -19,23 +19,15 @@ const {
     SMALL,
     SOLID,
     TITLE,
-    YES,
+    YES
 } = SIGNUP_STRINGS;
 
 function generateSignupInputs(decorator) {
     return INPUTS.map(({ field, inputType, label, rules }) => (
-        <FormItem
-            key={field}
-            {...FORM_ITEM_LAYOUT}
-            label={label}
-        >
-            {
-                decorator(field, {
-                    rules,
-                })(
-                    <Input type={inputType} />
-                )
-            }
+        <FormItem key={field} {...FORM_ITEM_LAYOUT} label={label}>
+            {decorator(field, {
+                rules
+            })(<Input type={inputType} />)}
         </FormItem>
     ));
 }
@@ -52,22 +44,22 @@ function generateFilterOption(input, option) {
 
 class SignupModal extends React.Component {
     state = {
-        isProducer: false,
+        isProducer: false
     };
 
     toggleIsProducer = e => {
-        this.setState ({
-            isProducer: e.target.value,
+        this.setState({
+            isProducer: e.target.value
         });
-    }
+    };
 
     render() {
         const { form, isLoading, onCancel, onCreate, visible } = this.props;
         const { getFieldDecorator } = form;
         const { isProducer } = this.state;
-        const createCategories = PRODUCTS.map(({ category, value }) =>
-            <Option key={value} >{category}</Option>
-        );
+        const createCategories = PRODUCTS.map(({ category, value }) => (
+            <Option key={value}>{category}</Option>
+        ));
 
         return (
             <Modal
@@ -93,30 +85,23 @@ class SignupModal extends React.Component {
                             <Radio.Button value={false}>{NO}</Radio.Button>
                         </Radio.Group>
                     </FormItem>
-                    {
-                        isProducer &&
-                        <FormItem
-                            {...FORM_ITEM_LAYOUT}
-                            label={PRODUCT_TYPE}
-                        >
-                            {
-                                getFieldDecorator('typeOfProducts', {
-                                    rules:
-                                    [{ message: MESSAGE, required: true }],
-                                })(
-                                    <Select
-                                        showSearch
-                                        mode={MODE}
-                                        placeholder={CATEGORIES}
-                                        onChange={handleChange}
-                                        filterOption={generateFilterOption}
-                                    >
-                                        {createCategories}
-                                    </Select>
-                                )
-                            }
+                    {isProducer && (
+                        <FormItem {...FORM_ITEM_LAYOUT} label={PRODUCT_TYPE}>
+                            {getFieldDecorator('typeOfProducts', {
+                                rules: [{ message: MESSAGE, required: true }]
+                            })(
+                                <Select
+                                    showSearch
+                                    mode={MODE}
+                                    placeholder={CATEGORIES}
+                                    onChange={handleChange}
+                                    filterOption={generateFilterOption}
+                                >
+                                    {createCategories}
+                                </Select>
+                            )}
                         </FormItem>
-                    }
+                    )}
                     {generateSignupInputs(getFieldDecorator)}
                 </Form>
             </Modal>
@@ -130,7 +115,7 @@ SignupModal.propTypes = {
     form: PropTypes.object,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
-    visible: PropTypes.bool,
+    visible: PropTypes.bool
 };
 
 export default SignupForm;

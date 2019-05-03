@@ -8,8 +8,12 @@ const { GROUPED_ITEMS, LIST } = PRODUCTS_AVAILABLE;
 //This component encapsulates items on productsavailable.js
 class GroupedItems extends React.Component {
     render() {
-        const items = this.props.items.map(item =>
-            (<li key={item.name} className={LIST}> {item.name}</li>));
+        const items = this.props.items.map(item => (
+            <li key={item.name} className={LIST}>
+                {' '}
+                {item.name}
+            </li>
+        ));
 
         return (
             <Row>
@@ -26,7 +30,7 @@ class GroupedItems extends React.Component {
 
 GroupedItems.propTypes = {
     heading: PropTypes.string,
-    items: PropTypes.array,
+    items: PropTypes.array
 };
 
 export default GroupedItems;

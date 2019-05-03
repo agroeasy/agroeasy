@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { message } from 'antd';
 
@@ -12,20 +12,20 @@ import { getMessage, getisLoading, getisSuccessful, getStatus } from '../selecto
 const { PRIMARY, TITLE } = SIGNUP_STRINGS;
 class Signup extends React.Component {
     state = {
-        visible: false,
+        visible: false
     };
 
     showModal = () => {
         this.setState({ visible: true });
-    }
+    };
     handleCancel = () => {
         this.setState({ visible: false });
-    }
+    };
 
     handleCreate = () => {
         const form = this.formRef.props.form;
         const { signupRequest } = this.props.actions;
-        form.validateFields((error, values ) => {
+        form.validateFields((error, values) => {
             if (error) {
                 return error;
             }
@@ -41,17 +41,16 @@ class Signup extends React.Component {
                 password: values.password,
                 phoneNumber: values.phoneNumber,
                 state: values.state,
-                typeOfProducts:values.typeOfProducts,
-                username: values.username,
+                typeOfProducts: values.typeOfProducts,
+                username: values.username
             };
             signupRequest(user);
         });
-
-    }
+    };
 
     saveFormRef = formRef => {
         this.formRef = formRef;
-    }
+    };
 
     componentDidUpdate() {
         const { isSuccessful, signinfailMessage, signupError } = this.props;
@@ -62,8 +61,7 @@ class Signup extends React.Component {
             this.setState({ visible: false });
             resetSignState();
         } else if (signupError) {
-            message.error(signinfailMessage,3)&&
-            resetSignState();
+            message.error(signinfailMessage, 3) && resetSignState();
         }
     }
 
@@ -71,7 +69,9 @@ class Signup extends React.Component {
         const { isLoading } = this.props;
         return (
             <div>
-                <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
+                <div type={PRIMARY} onClick={this.showModal}>
+                    {TITLE}
+                </div>
                 <SignupForm
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}
@@ -93,17 +93,20 @@ Signup.propTypes = {
     onCreate: PropTypes.func,
     signinfailMessage: PropTypes.string,
     signupError: PropTypes.string,
-    visible: PropTypes.bool,
+    visible: PropTypes.bool
 };
 const mapStateToProps = state => ({
     isLoading: getisLoading(state),
     isSuccessful: getisSuccessful(state),
     signinfailMessage: getMessage(state),
-    signupError: getStatus(state),
+    signupError: getStatus(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(signupActions, dispatch),
+    actions: bindActionCreators(signupActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup); 
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Signup);

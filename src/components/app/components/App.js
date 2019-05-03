@@ -16,13 +16,16 @@ const { ContactUs } = contactus.components;
 const { Content } = Layout;
 
 class App extends React.Component {
-
     componentDidUpdate() {
-        const { isLoggedIn, user, status, actions: { resetStatusStatus } } = this.props;
+        const {
+            isLoggedIn,
+            user,
+            status,
+            actions: { resetStatusStatus }
+        } = this.props;
 
         if (isLoggedIn && status) {
-            message.success(`${SIGNIN_SUCCESS} ${user.firstName}`)&&
-            resetStatusStatus();
+            message.success(`${SIGNIN_SUCCESS} ${user.firstName}`) && resetStatusStatus();
         }
     }
 
@@ -42,25 +45,27 @@ class App extends React.Component {
 
 App.propTypes = {
     actions: PropTypes.object,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     isLoggedIn: PropTypes.bool,
     links: PropTypes.arrayOf(PropTypes.node),
     match: PropTypes.object,
     status: PropTypes.string,
-    user: PropTypes.object,
+    user: PropTypes.object
 };
 
 const mapStateToProps = state => ({
     isLoggedIn: getLoginStatus(state),
     status: state.app.status,
-    user: getUserData(state),
+    user: getUserData(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators ({ resetStatusStatus }, dispatch),
+    actions: bindActionCreators({ resetStatusStatus }, dispatch)
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(App)
+);

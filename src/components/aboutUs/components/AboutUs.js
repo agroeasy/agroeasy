@@ -7,7 +7,7 @@ import TeamProfile from './TeamProfile';
 const {
     CLASSNAMES: { CONTENT, TOP_TEXT },
     STRINGS: { FADE },
-    TEXTS: { TOPMOST_TEXT },
+    TEXTS: { TOPMOST_TEXT }
 } = ABOUT_US;
 const { WIDTH } = IMAGE_STYLE;
 
@@ -17,11 +17,9 @@ class AboutUs extends React.Component {
             <div className={CONTENT}>
                 <h4 className={TOP_TEXT}>{TOPMOST_TEXT}</h4>
                 <Carousel autoplay effect={FADE}>
-                    {
-                        MARKET_SCENES.map(scenes => (
-                            <img src={scenes} width={WIDTH} key={scenes} />
-                        ))
-                    }
+                    {MARKET_SCENES.map(scenes => (
+                        <img src={scenes} width={WIDTH} key={scenes} />
+                    ))}
                 </Carousel>
                 <TeamProfile />
             </div>

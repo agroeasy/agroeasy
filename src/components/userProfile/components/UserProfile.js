@@ -10,14 +10,14 @@ import { USER_PAGE } from '../constants';
 
 const { Content, Sider } = Layout;
 const {
-    CLASSNAMES: { BIG_CONTENT, BIG_LAYOUT, SIDER, SM_CONTENT },
+    CLASSNAMES: { BIG_CONTENT, BIG_LAYOUT, SIDER, SM_CONTENT }
 } = USER_PAGE;
 
 class UserProfile extends React.Component {
     render() {
         const { path } = this.props.match;
 
-        return(
+        return (
             <Content className={BIG_CONTENT}>
                 <Layout className={BIG_LAYOUT}>
                     <Sider width={200} className={SIDER}>
@@ -25,10 +25,7 @@ class UserProfile extends React.Component {
                     </Sider>
                     <Content className={SM_CONTENT}>
                         <Route path={path} exact strict component={ProfileContent} />
-                        <Route
-                            path={`${path}/items`}
-                            component={ProducerItems}
-                        />
+                        <Route path={`${path}/items`} component={ProducerItems} />
                     </Content>
                 </Layout>
             </Content>
@@ -37,7 +34,7 @@ class UserProfile extends React.Component {
 }
 
 UserProfile.propTypes = {
-    match: PropTypes.object,
+    match: PropTypes.object
 };
 
 export default UserProfile;

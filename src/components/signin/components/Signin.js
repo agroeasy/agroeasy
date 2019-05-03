@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { message } from 'antd';
 
@@ -18,19 +18,19 @@ const { PRIMARY, TITLE } = SIGNIN_STRINGS;
 
 class Signin extends React.Component {
     state = {
-        visible: false,
+        visible: false
     };
 
     showModal = () => {
         this.setState({ visible: true });
-    }
+    };
 
     handleCancel = () => {
         const { resetSignState } = this.props.actions;
-        
+
         this.setState({ visible: false });
         resetSignState();
-    }
+    };
 
     handleCreate = () => {
         const form = this.formRef.props.form;
@@ -42,22 +42,22 @@ class Signin extends React.Component {
             form.resetFields();
             const payload = {
                 email,
-                password,
+                password
             };
             signinRequest(payload);
         });
-    }
+    };
 
     saveFormRef = formRef => {
         this.formRef = formRef;
-    }
+    };
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         const {
             isSuccessful,
             actions: { resetSignState },
             signinFailMessage,
-            signinError,
+            signinError
         } = this.props;
         const { visible } = this.state;
 
@@ -65,7 +65,7 @@ class Signin extends React.Component {
             this.setState({ visible: false });
             resetSignState();
         } else if (signinError) {
-            message.error(signinFailMessage,3);
+            message.error(signinFailMessage, 3);
             resetSignState();
         }
     }
@@ -74,7 +74,9 @@ class Signin extends React.Component {
         const { isLoading } = this.props;
         return (
             <div>
-                <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
+                <div type={PRIMARY} onClick={this.showModal}>
+                    {TITLE}
+                </div>
                 <SigninForm
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}
@@ -90,21 +92,24 @@ class Signin extends React.Component {
 Signin.propTypes = {
     actions: PropTypes.object,
     isLoading: PropTypes.bool,
-    isSuccessful:PropTypes.bool,
+    isSuccessful: PropTypes.bool,
     siginData: PropTypes.object,
     signinError: PropTypes.string,
-    signinFailMessage: PropTypes.string,
+    signinFailMessage: PropTypes.string
 };
 
 const mapStateToProps = state => ({
     isLoading: getIsLoading(state),
     isSuccessful: getisSuccessful(state),
     signinError: getSigninStatus(state),
-    signinFailMessage: getSigninFailureMessage(state),
+    signinFailMessage: getSigninFailureMessage(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(signinActions, dispatch),
+    actions: bindActionCreators(signinActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signin);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Signin);

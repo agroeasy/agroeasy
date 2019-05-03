@@ -14,10 +14,14 @@ const generateDescription = data => {
         { key: COST, value: cost },
         { key: QUANTITY, value: quantity },
         { key: PHONE, value: phone },
-        { key: EMAIL, value: email },
+        { key: EMAIL, value: email }
     ];
 
-    return keyValuePairs.map(({ key, value }) => <p key={key}><b>{key}</b> {value}</p>);
+    return keyValuePairs.map(({ key, value }) => (
+        <p key={key}>
+            <b>{key}</b> {value}
+        </p>
+    ));
 };
 
 // React Component used to render the product detail information in a 'Modal'
@@ -37,9 +41,7 @@ class ProductModal extends React.Component {
                 title={title}
                 visible={visible}
             >
-                <Card cover={<img src={image} />}>
-                    {generateDescription(data)}
-                </Card>
+                <Card cover={<img src={image} />}>{generateDescription(data)}</Card>
             </Modal>
         );
     }
@@ -48,7 +50,7 @@ class ProductModal extends React.Component {
 ProductModal.propTypes = {
     data: PropTypes.object,
     handleCancel: PropTypes.func,
-    visible: PropTypes.bool,
+    visible: PropTypes.bool
 };
 
 export default ProductModal;

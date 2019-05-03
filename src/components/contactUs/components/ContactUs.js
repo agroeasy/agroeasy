@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Button, message } from 'antd';
 
@@ -9,27 +9,20 @@ import * as contactMailActions from '../actions';
 import { CONTACT_STRINGS } from '../constants';
 import { getStatus } from '../selectors';
 
-const { 
-    BTN_MAIL,
-    CONTACT_US, 
-    DEFAULT, 
-    LARGE, 
-    MAIL,MSG_NOT_SENT, 
-    MSG_SENT,
-} = CONTACT_STRINGS;
+const { BTN_MAIL, CONTACT_US, DEFAULT, LARGE, MAIL, MSG_NOT_SENT, MSG_SENT } = CONTACT_STRINGS;
 
 class ContactUs extends React.Component {
     state = {
-        visible: false,
+        visible: false
     };
 
     showModal = () => {
         this.setState({ visible: true });
-    }
+    };
 
     handleCancel = () => {
         this.setState({ visible: false });
-    }
+    };
 
     handleCreate = () => {
         const { sendContactMail } = this.props.actions;
@@ -39,45 +32,43 @@ class ContactUs extends React.Component {
             if (error) {
                 return error;
             }
-            
+
             form.resetFields();
-            
+
             const payload = {
                 email,
                 message,
                 name,
-                subject,
+                subject
             };
 
             sendContactMail(payload);
             this.setState({ visible: false });
-
-        });  
-    }
+        });
+    };
 
     saveFormRef = formRef => {
         this.formRef = formRef;
-    }
+    };
 
     notifyMailStatus = () => {
         const { isMailSent } = this.props;
 
-        if(isMailSent !== undefined) {
-            isMailSent ? message.success(MSG_SENT, 5): 
-                message.error(MSG_NOT_SENT, 5);
-        }            
+        if (isMailSent !== undefined) {
+            isMailSent ? message.success(MSG_SENT, 5) : message.error(MSG_NOT_SENT, 5);
+        }
     };
 
-    render() {      
+    render() {
         return (
             <div>
-                <div className={CONTACT_US} >
-                    <Button 
+                <div className={CONTACT_US}>
+                    <Button
                         className={BTN_MAIL}
-                        icon={MAIL} 
-                        onClick={this.showModal} 
+                        icon={MAIL}
+                        onClick={this.showModal}
                         size={LARGE}
-                        type={DEFAULT} 
+                        type={DEFAULT}
                     >
                         {CONTACT_US}
                     </Button>
@@ -96,15 +87,18 @@ class ContactUs extends React.Component {
 
 ContactUs.propTypes = {
     actions: PropTypes.object,
-    isMailSent: PropTypes.bool,
+    isMailSent: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
-    isMailSent: getStatus(state),
+    isMailSent: getStatus(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(contactMailActions, dispatch),
+    actions: bindActionCreators(contactMailActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactUs);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ContactUs);

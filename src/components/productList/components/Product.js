@@ -10,20 +10,20 @@ const {
     ACTIONS: { INFO_CIRCLE, SHOPPING },
     CARD_IMAGE,
     DEFAULT_DESCRIPTION,
-    TAG_COLOR,
+    TAG_COLOR
 } = PRODUCT;
 
 // React Component used to render the product item in a 'Card'
 class Product extends React.Component {
-    state = { visible: false }
+    state = { visible: false };
 
     showModal = () => {
         this.setState({ visible: true });
-    }
+    };
 
     handleCancel = () => {
         this.setState({ visible: false });
-    }
+    };
 
     render() {
         const { visible } = this.state;
@@ -36,7 +36,7 @@ class Product extends React.Component {
         );
         const actions = [
             <Icon key={SHOPPING} type={SHOPPING} />,
-            <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />,
+            <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />
         ];
 
         return (
@@ -64,7 +64,7 @@ class Product extends React.Component {
 }
 
 Product.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.object
 };
 
 export default Product;

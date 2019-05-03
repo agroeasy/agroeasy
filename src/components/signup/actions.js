@@ -9,7 +9,7 @@ import { RESET_STATE, SIGNUP_FAILURE, SIGNUP_REQUEST, SIGNUP_SUCCESS } from './a
  */
 export const signupRequest = payload => ({
     payload,
-    type: SIGNUP_REQUEST,
+    type: SIGNUP_REQUEST
 });
 
 /**
@@ -19,7 +19,7 @@ export const signupRequest = payload => ({
  * @return {Object} The {@link actionTypes.SIGNUP_SUCCESS SIGNUP_SUCCESS} action.
  */
 export const signupSuccess = () => ({
-    type: SIGNUP_SUCCESS,
+    type: SIGNUP_SUCCESS
 });
 
 /**
@@ -32,7 +32,7 @@ export const signupSuccess = () => ({
  */
 export const signupFail = payload => ({
     payload,
-    type: SIGNUP_FAILURE,
+    type: SIGNUP_FAILURE
 });
 
 /**
@@ -42,5 +42,5 @@ export const signupFail = payload => ({
  * @return {void} The {@link actionTypes.RESET_STATE RESET_STATE} action.
  */
 export const resetSignState = () => ({
-    type: RESET_STATE,
+    type: RESET_STATE
 });

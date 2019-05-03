@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import shallowCompare from 'shallow-equal/objects';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Button, Icon } from 'antd';
 
@@ -14,7 +14,7 @@ import { DEFAULT_FIELD_VALUES, PRODUCER_ITEM } from '../constants';
 
 const {
     BUTTON: { TEXT, TYPE },
-    CONTAINER_CLASS,
+    CONTAINER_CLASS
 } = PRODUCER_ITEM;
 
 /**
@@ -24,8 +24,8 @@ class ProducerItems extends React.Component {
     state = {
         isModalOpen: false,
         isNewProduct: true,
-        isProductUpdating : false,
-        productToEdit: DEFAULT_FIELD_VALUES,
+        isProductUpdating: false,
+        productToEdit: DEFAULT_FIELD_VALUES
     };
 
     /**
@@ -39,9 +39,9 @@ class ProducerItems extends React.Component {
             isModalOpen: false,
             isNewProduct: true,
             isProductUpdating: false,
-            productToEdit: DEFAULT_FIELD_VALUES,
+            productToEdit: DEFAULT_FIELD_VALUES
         });
-    }
+    };
 
     /**
      * Controls opening the ProductEditModal by setting the `isModalOpen`
@@ -63,9 +63,9 @@ class ProducerItems extends React.Component {
         this.setState({
             isModalOpen: true,
             isNewProduct,
-            productToEdit,
+            productToEdit
         });
-    }
+    };
 
     /**
      * Checks to see if the new product details differs from the current product
@@ -83,7 +83,7 @@ class ProducerItems extends React.Component {
             this.setState({ isProductUpdating: true });
             requestProductUpdate(newProductDetails);
         }
-    }
+    };
 
     componentDidMount() {
         const { requestProductList } = this.props.actions;
@@ -106,15 +106,11 @@ class ProducerItems extends React.Component {
 
         return (
             <div className={CONTAINER_CLASS}>
-                <Button
-                    onClick={() => this.openProductModal()}
-                >
-                    <Icon type={TYPE} />{TEXT}
+                <Button onClick={() => this.openProductModal()}>
+                    <Icon type={TYPE} />
+                    {TEXT}
                 </Button>
-                <ProductList
-                    list={[...productList.values()]}
-                    openModal={this.openProductModal}
-                />
+                <ProductList list={[...productList.values()]} openModal={this.openProductModal} />
                 <ProductEditModal
                     closeModal={this.closeProductModal}
                     isNewProduct={isNewProduct}
@@ -131,20 +127,26 @@ class ProducerItems extends React.Component {
 ProducerItems.propTypes = {
     actions: PropTypes.shape({
         requestProductList: PropTypes.func,
-        requestProductUpdate: PropTypes.func,
+        requestProductUpdate: PropTypes.func
     }),
-    productList: PropTypes.instanceOf(Map),
+    productList: PropTypes.instanceOf(Map)
 };
 
 const mapStateToProps = state => ({
-    productList: getProductList(state),
+    productList: getProductList(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-        requestProductList,
-        requestProductUpdate,
-    }, dispatch),
+    actions: bindActionCreators(
+        {
+            requestProductList,
+            requestProductUpdate
+        },
+        dispatch
+    )
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProducerItems);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ProducerItems);

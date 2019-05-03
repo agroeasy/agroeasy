@@ -9,7 +9,7 @@ import { SET_COOKIE, REMOVE_COOKIE, RESET_STATE, RESET_STATUS_STATE } from './ac
  */
 export const setCookie = payload => ({
     payload,
-    type: SET_COOKIE,
+    type: SET_COOKIE
 });
 
 /**
@@ -19,7 +19,7 @@ export const setCookie = payload => ({
  * @return {Object} - The {@link actionTypes.REMOVE_COOKIE REMOVE_COOKIE} action.
  */
 export const removeCookie = () => ({
-    type: REMOVE_COOKIE,
+    type: REMOVE_COOKIE
 });
 
 /**
@@ -29,7 +29,7 @@ export const removeCookie = () => ({
  * @return {void} The {@link actionTypes.RESET_STATE RESET_STATE} action.
  */
 export const resetSigninState = () => ({
-    type: RESET_STATE,
+    type: RESET_STATE
 });
 
 /**
@@ -39,5 +39,5 @@ export const resetSigninState = () => ({
  * @return {void} The {@link actionTypes.RESET_STATUS_STATE RESET_STATUS_STATE} action.
  */
 export const resetStatusStatus = () => ({
-    type: RESET_STATUS_STATE,
+    type: RESET_STATUS_STATE
 });

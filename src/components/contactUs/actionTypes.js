@@ -4,7 +4,7 @@
  *
  * @type {String}
  */
-export const REQUEST_SENDMAIL = "REQUEST_SENDMAIL";
+export const REQUEST_SENDMAIL = 'REQUEST_SENDMAIL';
 
 /**
  * Fired by the {@link actions.mailSent mailSent}
@@ -12,7 +12,7 @@ export const REQUEST_SENDMAIL = "REQUEST_SENDMAIL";
  *
  * @type {String}
  */
-export const MAIL_SENT = "MAIL_SENT";
+export const MAIL_SENT = 'MAIL_SENT';
 
 /**
  * Fired by the {@link actions.failedToSendmail failedToSendmail}
@@ -20,4 +20,4 @@ export const MAIL_SENT = "MAIL_SENT";
  *
  * @type {String}
  */
-export const MAIL_FAILED = "MAIL_FAILED";
+export const MAIL_FAILED = 'MAIL_FAILED';

@@ -5,7 +5,7 @@ import aboutUs from '../../aboutUs';
 import app from '../../app';
 import home from '../../home';
 import NoMatch from './NoMatch';
-import productList  from '../../productList';
+import productList from '../../productList';
 import userProfile from '../../userProfile';
 import { PATHS } from '../constants';
 
