@@ -12,6 +12,12 @@ import { PATHS } from '../constants';
 const { ABOUT, HOME, MARKET, PROFILE } = PATHS;
 const { App } = app.components;
 
+// const handleAuthentication = (nextState, replace) => {
+//     if (/access_token|id_token|error/.test(nextState.location.hash)) {
+//         auth.handleAuthentication();
+//     }
+// };
+
 const Routes = () => (
     <BrowserRouter>
         <App>
