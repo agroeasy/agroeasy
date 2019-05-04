@@ -25,6 +25,14 @@
     "src/**/*.{js,jsx,json,css,md}": [
       "eslint --fix src",
       "git add"
+    ],
+    "db/**/*.{js,json}": [
+      "eslint --fix db",
+      "git add"
+    ],
+    "routes/**/*.{js,json}": [
+      "eslint --fix routes",
+      "git add"
     ]
   },
   "author": "",
