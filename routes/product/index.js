@@ -10,7 +10,7 @@ const {
     productDetails,
     productDelete,
     productUpdate,
-    updateOrCreateItem,
+    updateOrCreateItem
 } = helpers;
 
 router.get('/findAll', allProductsDetails);

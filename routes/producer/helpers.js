@@ -14,7 +14,7 @@ export default {
             res.json({ err, success: false });
         }
     },
-    producerCreate: async(req, res) => {
+    producerCreate: async (req, res) => {
         try {
             const { typeOfProducts } = req.body;
             // TODO: check if producer already exists - use user_id
@@ -29,9 +29,12 @@ export default {
     },
 
     // deletes producer using id
-    producerDelete: async(req, res) => {
+    producerDelete: async (req, res) => {
         try {
-            const { body, params: { id: _id } } = req;
+            const {
+                body,
+                params: { id: _id }
+            } = req;
             await Producer.findOneAndRemove(_id, body);
 
             return res.json({ message: DELETE_PRODUCER, success: true });
@@ -41,7 +44,7 @@ export default {
     },
 
     // find producers by id
-    producerDetails: async(req, res) => {
+    producerDetails: async (req, res) => {
         try {
             const data = await Producer.findById({ _id: req.params.id });
             return res.json({ data, success: true });
@@ -51,14 +54,17 @@ export default {
     },
 
     // updates producer using id
-    producerUpdate: async(req, res) => {
+    producerUpdate: async (req, res) => {
         try {
-            const{ body, params:{ producersId: _id } } = req;
-            const data = await Producer.findOneAndUpdate( _id, body, { new: true });
+            const {
+                body,
+                params: { producersId: _id }
+            } = req;
+            const data = await Producer.findOneAndUpdate(_id, body, { new: true });
 
-            return res.json({ data,  message: UPDATE_PRODUCER, success: true });
+            return res.json({ data, message: UPDATE_PRODUCER, success: true });
         } catch (err) {
             res.send({ err, success: false });
         }
-    },
+    }
 };

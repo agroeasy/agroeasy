@@ -1,6 +1,6 @@
 export default {
     FAIL: 'fail',
-    INVALID_SIGNIN: "Invalid password, login unsuccessful",
+    INVALID_SIGNIN: 'Invalid password, login unsuccessful',
     LOGOUT: 'Logged out successfully',
     NO_EMAIL_PASSWORD: 'Error: Email or Password cannot be blank.',
     SUCCESS: 'success',
@@ -16,7 +16,7 @@ export default {
         'phoneNumber',
         'state',
         'updatedAt',
-        'username',
+        'username'
     ],
-    USER_NOT_FOUND: 'Cannnot find any user with the email or password',
+    USER_NOT_FOUND: 'Cannnot find any user with the email or password'
 };

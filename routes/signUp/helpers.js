@@ -13,7 +13,7 @@ const {
     USER_EXIST,
     USERINFO,
     SUCCESS,
-    SIGNED_UP,
+    SIGNED_UP
 } = CONSTANTS;
 
 export default {
@@ -22,26 +22,24 @@ export default {
         const userData = _pick(req.body, SIGN_UP_KEYS);
         const { email, password, typeOfProducts } = req.body;
 
-        if(!email || !password){
+        if (!email || !password) {
             return res.status(UNAUTHORIZED).send({
                 data: { title: NO_EMAIL_PASSWORD },
-                status: FAIL,
+                status: FAIL
             });
         }
 
-        try{
+        try {
             const previousUsers = await User.findOne({ email });
 
             if (previousUsers) {
                 return res.status(UNAUTHORIZED).json({
-                    data:{ title: USER_EXIST },
-                    status: FAIL,
+                    data: { title: USER_EXIST },
+                    status: FAIL
                 });
             }
-        } catch(error){
-            res
-                .status(INTERNAL_SERVER_ERROR)
-                .send({ error: getStatusText(INTERNAL_SERVER_ERROR) });
+        } catch (error) {
+            res.status(INTERNAL_SERVER_ERROR).send({ error: getStatusText(INTERNAL_SERVER_ERROR) });
         }
 
         try {
@@ -52,13 +50,13 @@ export default {
             });
             await user.save();
 
-            const userSession = Object.assign(new UserSession(), { userId: user._id  });
+            const userSession = Object.assign(new UserSession(), { userId: user._id });
             const doc = await userSession.save();
 
-            if(typeOfProducts) {
+            if (typeOfProducts) {
                 const producer = Object.assign(new Producer(), {
                     typeOfProducts,
-                    userId: user._id,
+                    userId: user._id
                 });
 
                 await producer.save();
@@ -68,16 +66,15 @@ export default {
                 data: {
                     title: SIGNED_UP,
                     token: doc._id,
-                    user: _pick(user, USERINFO),
+                    user: _pick(user, USERINFO)
                 },
-                status: SUCCESS,
+                status: SUCCESS
             });
-
-        } catch(error) {
+        } catch (error) {
             return res
                 .status(INTERNAL_SERVER_ERROR)
                 .json({ error: getStatusText(INTERNAL_SERVER_ERROR), success: false });
         }
-    },
+    }
     //This does not log the user in, but does create an account via API.
 };

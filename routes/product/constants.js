@@ -6,9 +6,9 @@ export default {
         'producerId',
         'quantity',
         'typeOfProduct',
-        'updatedAt',
+        'updatedAt'
     ],
     PRODUCT_CREATED: 'Product successfully added!',
     PRODUCT_DELETED: 'Product successfully deleted!',
-    PRODUCT_UPDATED: 'Product successfully updated!',
+    PRODUCT_UPDATED: 'Product successfully updated!'
 };
