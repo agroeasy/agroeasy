@@ -20,12 +20,13 @@ class ProductList extends React.Component {
     } 
 
     render() {
+        const { productList } = this.state;
         return(
             <List
                 bordered
                 className={PRODUCT_LIST_CLASSNAME}
-                dataSource={this.state.productList}
-                loading={!this.state.productList[1] && true}
+                dataSource={productList}
+                loading={productList.length <= 0 && true}
                 pagination={{ pageSize:12 }}
                 grid={{ gutter: 9, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
                 renderItem={item => (
