@@ -1,7 +1,7 @@
 import { RESET_STATE, SIGNUP_FAILURE, SIGNUP_REQUEST, SIGNUP_SUCCESS } from './actionTypes';
 
 const initialState = {
-    isLoading: false
+    isLoading: false,
 };
 
 export default (state = initialState, action) => {
@@ -9,20 +9,20 @@ export default (state = initialState, action) => {
         case SIGNUP_REQUEST:
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
             };
 
         case SIGNUP_SUCCESS: {
             return {
                 ...state,
                 isLoading: false,
-                isSuccessful: true
+                isSuccessful: true,
             };
         }
         case SIGNUP_FAILURE: {
             const {
                 status,
-                data: { title }
+                data: { title },
             } = action.payload;
 
             return {
@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
                 isLoading: false,
                 isSuccessful: false,
                 message: title,
-                status
+                status,
             };
         }
 

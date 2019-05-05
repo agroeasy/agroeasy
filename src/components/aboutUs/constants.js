@@ -4,12 +4,12 @@ export const ABOUT_US = {
         CONTENT: 'content',
         TEAM_CARD: 'team-card',
         TEAM_HEADER: 'team-header',
-        TOP_TEXT: 'top-text'
+        TOP_TEXT: 'top-text',
     },
     STRINGS: {
         FADE: 'fade',
         NEW_WINDOW: '_blank',
-        SQUARE: 'square'
+        SQUARE: 'square',
     },
     TEXTS: {
         HEADER_TEXT: 'The Team',
@@ -20,8 +20,8 @@ export const ABOUT_US = {
         them, or even how much the need to spend to do so.Through out the history of business, 
         people use data to make more informed decisions. Our goal at Agroeasy, is to make the 
         istribution of products between producers, marketers and consumers easy.We want to make
-        data / information available to as mamy as possible. `
-    }
+        data / information available to as mamy as possible. `,
+    },
 };
 
 export const TEAM_INFO = [
@@ -38,8 +38,8 @@ export const TEAM_INFO = [
         social_media: [
             { icon: 'facebook', link: 'https://www.facebook.com/joshua171/' },
             { icon: 'github', link: 'https://www.github.com/joshuaobinna/' },
-            { icon: 'linkedin', link: 'https://www.linkedin.com/in/joshua-obinna-9bb963116/' }
-        ]
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/joshua-obinna-9bb963116/' },
+        ],
     },
     {
         description: `She loves playing around with codes, encountering errors, fixing bugs,
@@ -54,8 +54,8 @@ export const TEAM_INFO = [
         social_media: [
             { icon: 'facebook', link: 'https://www.facebook.com/angela.onyekpere/' },
             { icon: 'github', link: 'https://www.github.com/Simpcyclassy/' },
-            { icon: 'linkedin', link: 'https://www.linkedin.com/in/chioma-onyekpere-127378103/' }
-        ]
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/chioma-onyekpere-127378103/' },
+        ],
     },
     {
         description: `He is a dedicated full-statck web developer, who is skilled in javascript.  
@@ -70,9 +70,9 @@ export const TEAM_INFO = [
         social_media: [
             { icon: 'facebook', link: 'https://www.facebook.com/eric.okemmadu/' },
             { icon: 'github', link: 'https://www.github.com/EngrEric/' },
-            { icon: 'linkedin', link: 'https://www.linkedin.com/in/okemmadu-eric-1a3818113/' }
-        ]
-    }
+            { icon: 'linkedin', link: 'https://www.linkedin.com/in/okemmadu-eric-1a3818113/' },
+        ],
+    },
 ];
 
 export const MARKET_SCENES = [
@@ -84,6 +84,6 @@ export const MARKET_SCENES = [
     'yam-market.jpg',
     'smoked-fishes.jpg',
     'chicken.jpg',
-    'top-products.jpg'
+    'top-products.jpg',
 ];
 export const IMAGE_STYLE = { WIDTH: '100%' };

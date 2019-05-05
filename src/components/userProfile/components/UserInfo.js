@@ -6,7 +6,7 @@ import { CONTACT, LOCATION, USER_PAGE } from '../constants';
 const { Meta } = Card;
 const {
     CLASSNAMES: { CARD_META, DATA_TITLE, HEADER_TITLE, INFO_CARD },
-    TEXTS: { CONTACT_INFO_TEXT, LOCATION_INFO_TEXT }
+    TEXTS: { CONTACT_INFO_TEXT, LOCATION_INFO_TEXT },
 } = USER_PAGE;
 
 export default class UserInfo extends React.Component {

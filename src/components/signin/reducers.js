@@ -4,21 +4,21 @@ const initialState = {
     email: '',
     error: null,
     isLoading: null,
-    password: ''
+    password: '',
 };
 
 export default (state = { ...initialState }, action) => {
     switch (action.type) {
         case SIGNIN_REQUEST: {
             const {
-                payload: { email, password }
+                payload: { email, password },
             } = action;
             return {
                 ...state,
                 email,
                 error: null,
                 isLoading: true,
-                password
+                password,
             };
         }
 
@@ -26,14 +26,14 @@ export default (state = { ...initialState }, action) => {
             return {
                 ...state,
                 isLoading: false,
-                isSuccessful: true
+                isSuccessful: true,
             };
         }
 
         case SIGNIN_FAILURE: {
             const {
                 status,
-                data: { title }
+                data: { title },
             } = action.payload;
 
             return {
@@ -41,7 +41,7 @@ export default (state = { ...initialState }, action) => {
                 isLoading: false,
                 isSuccessful: false,
                 message: title,
-                status
+                status,
             };
         }
 

@@ -6,12 +6,12 @@ export default {
 
             const imageData = {
                 imageId: public_id,
-                imageUrl: url
+                imageUrl: url,
             };
 
             return res.send({ data: imageData, success: true });
         } catch (err) {
             res.send({ err, success: false });
         }
-    }
+    },
 };

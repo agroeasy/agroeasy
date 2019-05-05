@@ -8,7 +8,7 @@ const {
     CLASSNAMES: { AVATAR, AVATAR_CARD, BASIC_INFO, HEADER_TITLE },
     PROFILE_PIX,
     STRINGS: { SQUARE },
-    TEXTS: { BASIC_INFO_TEXT }
+    TEXTS: { BASIC_INFO_TEXT },
 } = USER_PAGE;
 
 export default class UserAvatar extends React.Component {

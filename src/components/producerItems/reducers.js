@@ -43,7 +43,7 @@ export default (state = { ...INITIAL_STATE }, action) => {
 
             return {
                 ...state,
-                productList: updateProductList(payload, productList)
+                productList: updateProductList(payload, productList),
             };
         }
         case UPDATE_PRODUCT_LIST: {
@@ -51,7 +51,7 @@ export default (state = { ...INITIAL_STATE }, action) => {
 
             return {
                 ...state,
-                productList: generateItemMap(payload)
+                productList: generateItemMap(payload),
             };
         }
         default:

@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 const ProducersSchema = new Schema(
     {
         typeOfProducts: { type: Array },
-        userId: { type: String }
+        userId: { type: String },
     },
-    { versionKey: false }
+    { versionKey: false },
 );
 
 export default mongoose.model('Producer', ProducersSchema);

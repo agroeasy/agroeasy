@@ -16,9 +16,9 @@ function* contactMail(action) {
         const response = yield fetch(CONTACT_URL, {
             body: JSON.stringify(payload),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            method: 'POST'
+            method: 'POST',
         });
         if (response.ok) {
             const data = yield response.json();

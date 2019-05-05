@@ -18,16 +18,16 @@ export const MODAL_FIELDS = {
     COST: 'cost',
     NAME: 'name',
     QUANTITY: 'quantity',
-    TYPE: 'type'
+    TYPE: 'type',
 };
 
 /**@constant*/
 export const PRODUCER_ITEM = {
     BUTTON: {
         TEXT: 'Add Item',
-        TYPE: 'plus'
+        TYPE: 'plus',
     },
-    CONTAINER_CLASS: 'item-list-container'
+    CONTAINER_CLASS: 'item-list-container',
 };
 
 /**@constant*/
@@ -36,7 +36,7 @@ export const DEFAULT_FIELD_VALUES = {
     description: '',
     name: '',
     quantity: 10,
-    type: ''
+    type: '',
 };
 
 /**@constant*/
@@ -46,31 +46,31 @@ export const LIST_ITEM_CLASS = 'list-item-desc';
 export const FORM_ITEM_LAYOUT = {
     labelCol: {
         sm: { span: 8 },
-        xs: { span: 24 }
+        xs: { span: 24 },
     },
     wrapperCol: {
         sm: { span: 16 },
-        xs: { span: 24 }
-    }
+        xs: { span: 24 },
+    },
 };
 
 /**@constant*/
 export const EDITABLE_FIELDS = {
     cost: {
         label: 'Cost',
-        rules: [{ message: 'How much does a unit of this item cost?', required: true }]
+        rules: [{ message: 'How much does a unit of this item cost?', required: true }],
     },
     description: {
         label: 'Description',
-        rules: [{ message: 'You must provide a description for this item', required: true }]
+        rules: [{ message: 'You must provide a description for this item', required: true }],
     },
     name: {
         label: 'Name',
-        rules: [{ message: "What is this item's name?", required: true }]
+        rules: [{ message: "What is this item's name?", required: true }],
     },
     quantity: {
         label: 'Quantity',
-        rules: [{ message: 'How many of this item do you have in stock?', required: true }]
+        rules: [{ message: 'How many of this item do you have in stock?', required: true }],
     },
     type: {
         label: 'Type',
@@ -88,10 +88,10 @@ export const EDITABLE_FIELDS = {
             'Raw Material',
             'Seed',
             'Spice',
-            'Vegetable'
+            'Vegetable',
         ],
-        rules: [{ message: 'What type of item is this?', required: true }]
-    }
+        rules: [{ message: 'What type of item is this?', required: true }],
+    },
 };
 
 /**@constant*/
@@ -99,12 +99,12 @@ export const PRODUCER_PAGE = {
     EDIT: 'edit',
     LARGE: 'large',
     PRODUCT_ITEM: 'product-item',
-    VERTICAL: 'vertical'
+    VERTICAL: 'vertical',
 };
 
 /**@constant*/
 export const INITIAL_STATE = {
-    productList: new Map()
+    productList: new Map(),
 };
 
 export const UPLOADING = 'uploading';

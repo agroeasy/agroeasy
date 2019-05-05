@@ -14,7 +14,7 @@ const {
     LEAD,
     LEAD_TEXT,
     SMALL,
-    SUPPORT
+    SUPPORT,
 } = SUPPORT_STRINGS;
 
 //this component will contain imformation about the developter

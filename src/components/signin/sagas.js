@@ -17,9 +17,9 @@ function* signinUser(action) {
         const response = yield fetch(SIGNIN_URL, {
             body: JSON.stringify(payload),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            method: 'POST'
+            method: 'POST',
         });
 
         if (response.ok) {

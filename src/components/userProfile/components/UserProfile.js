@@ -10,7 +10,7 @@ import { USER_PAGE } from '../constants';
 
 const { Content, Sider } = Layout;
 const {
-    CLASSNAMES: { BIG_CONTENT, BIG_LAYOUT, SIDER, SM_CONTENT }
+    CLASSNAMES: { BIG_CONTENT, BIG_LAYOUT, SIDER, SM_CONTENT },
 } = USER_PAGE;
 
 class UserProfile extends React.Component {
@@ -34,7 +34,7 @@ class UserProfile extends React.Component {
 }
 
 UserProfile.propTypes = {
-    match: PropTypes.object
+    match: PropTypes.object,
 };
 
 export default UserProfile;

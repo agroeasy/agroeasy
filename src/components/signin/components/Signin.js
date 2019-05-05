@@ -11,14 +11,14 @@ import {
     getIsLoading,
     getSigninFailureMessage,
     getSigninStatus,
-    getisSuccessful
+    getisSuccessful,
 } from '../selectors';
 
 const { PRIMARY, TITLE } = SIGNIN_STRINGS;
 
 class Signin extends React.Component {
     state = {
-        visible: false
+        visible: false,
     };
 
     showModal = () => {
@@ -42,7 +42,7 @@ class Signin extends React.Component {
             form.resetFields();
             const payload = {
                 email,
-                password
+                password,
             };
             signinRequest(payload);
         });
@@ -57,7 +57,7 @@ class Signin extends React.Component {
             isSuccessful,
             actions: { resetSignState },
             signinFailMessage,
-            signinError
+            signinError,
         } = this.props;
         const { visible } = this.state;
 
@@ -95,21 +95,21 @@ Signin.propTypes = {
     isSuccessful: PropTypes.bool,
     siginData: PropTypes.object,
     signinError: PropTypes.string,
-    signinFailMessage: PropTypes.string
+    signinFailMessage: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
     isLoading: getIsLoading(state),
     isSuccessful: getisSuccessful(state),
     signinError: getSigninStatus(state),
-    signinFailMessage: getSigninFailureMessage(state)
+    signinFailMessage: getSigninFailureMessage(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(signinActions, dispatch)
+    actions: bindActionCreators(signinActions, dispatch),
 });
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(Signin);

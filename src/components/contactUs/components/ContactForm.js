@@ -20,7 +20,7 @@ function generateContactInputs(decorator) {
     return INPUTS.map(({ field, iconType, placeholder, rules }) => (
         <FormItem key={field}>
             {decorator(field, {
-                rules
+                rules,
             })(<Input placeholder={placeholder} prefix={<Icon type={iconType} />} />)}
         </FormItem>
     ));
@@ -43,7 +43,7 @@ class ContactModal extends React.Component {
                     {generateContactInputs(getFieldDecorator)}
                     <FormItem>
                         {getFieldDecorator('message', {
-                            rules: [{ required: true }]
+                            rules: [{ required: true }],
                         })(<TextArea rows={4} placeholder={PLACEHOLDER} />)}
                     </FormItem>
                 </Form>
@@ -58,7 +58,7 @@ ContactModal.propTypes = {
     form: PropTypes.object,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
-    visible: PropTypes.bool
+    visible: PropTypes.bool,
 };
 
 export default ContactForm;

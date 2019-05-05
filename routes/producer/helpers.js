@@ -33,7 +33,7 @@ export default {
         try {
             const {
                 body,
-                params: { id: _id }
+                params: { id: _id },
             } = req;
             await Producer.findOneAndRemove(_id, body);
 
@@ -58,7 +58,7 @@ export default {
         try {
             const {
                 body,
-                params: { producersId: _id }
+                params: { producersId: _id },
             } = req;
             const data = await Producer.findOneAndUpdate(_id, body, { new: true });
 
@@ -66,5 +66,5 @@ export default {
         } catch (err) {
             res.send({ err, success: false });
         }
-    }
+    },
 };

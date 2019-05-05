@@ -14,7 +14,7 @@ export default {
         'phoneNumber',
         'state',
         'updatedAt',
-        'username'
+        'username',
     ],
 
     SUCCESS: 'success',
@@ -30,7 +30,7 @@ export default {
         'phoneNumber',
         'state',
         'updatedAt',
-        'username'
+        'username',
     ],
-    USER_EXIST: 'Error: Account already exist.'
+    USER_EXIST: 'Error: Account already exist.',
 };

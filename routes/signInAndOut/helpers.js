@@ -5,7 +5,7 @@ import {
     INTERNAL_SERVER_ERROR,
     OK,
     getStatusText,
-    UNAUTHORIZED
+    UNAUTHORIZED,
 } from 'http-status-codes';
 
 import CONSTANTS from './constants';
@@ -19,7 +19,7 @@ const {
     NO_EMAIL_PASSWORD,
     SUCCESS,
     USER_NOT_FOUND,
-    USERINFO
+    USERINFO,
 } = CONSTANTS;
 
 export default {
@@ -42,19 +42,19 @@ export default {
             await UserSession.findOneAndUpdate(
                 {
                     _id: token,
-                    isDeleted: false
+                    isDeleted: false,
                 },
                 {
                     $set: {
-                        isDeleted: true
-                    }
+                        isDeleted: true,
+                    },
                 },
-                null
+                null,
             );
 
             return res.send({
                 message: LOGOUT,
-                success: true
+                success: true,
             });
         } catch (err) {
             res.send({ err, success: false });
@@ -67,7 +67,7 @@ export default {
         if (!email || !password) {
             return res.status(NOT_FOUND).json({
                 data: { title: NO_EMAIL_PASSWORD },
-                status: FAIL
+                status: FAIL,
             });
         }
 
@@ -77,7 +77,7 @@ export default {
             if (!user) {
                 return res.status(NOT_FOUND).json({
                     data: { title: USER_NOT_FOUND },
-                    status: FAIL
+                    status: FAIL,
                 });
             }
 
@@ -89,16 +89,16 @@ export default {
                     ? {
                           data: {
                               token: doc._id,
-                              user: _pick(user, USERINFO)
+                              user: _pick(user, USERINFO),
                           },
-                          status: SUCCESS
+                          status: SUCCESS,
                       }
                     : {
                           data: {
                               error,
-                              title: INVALID_SIGNIN
+                              title: INVALID_SIGNIN,
                           },
-                          status: FAIL
+                          status: FAIL,
                       };
 
                 const status = result ? OK : UNAUTHORIZED;
@@ -110,5 +110,5 @@ export default {
                 .status(INTERNAL_SERVER_ERROR)
                 .send({ error: getStatusText(INTERNAL_SERVER_ERROR), success: false });
         }
-    }
+    },
 };

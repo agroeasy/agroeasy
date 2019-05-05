@@ -8,6 +8,6 @@ mongoose.Promise = global.Promise;
 export default () => {
     mongoose.connect(MONGO_DB_URL, { useNewUrlParser: true }, () =>
         // eslint-disable-next-line no-console
-        console.error.bind(console, 'MongoDB connection error:')
+        console.error.bind(console, 'MongoDB connection error:'),
     );
 };

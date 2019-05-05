@@ -14,7 +14,7 @@ import { DEFAULT_FIELD_VALUES, PRODUCER_ITEM } from '../constants';
 
 const {
     BUTTON: { TEXT, TYPE },
-    CONTAINER_CLASS
+    CONTAINER_CLASS,
 } = PRODUCER_ITEM;
 
 /**
@@ -25,7 +25,7 @@ class ProducerItems extends React.Component {
         isModalOpen: false,
         isNewProduct: true,
         isProductUpdating: false,
-        productToEdit: DEFAULT_FIELD_VALUES
+        productToEdit: DEFAULT_FIELD_VALUES,
     };
 
     /**
@@ -39,7 +39,7 @@ class ProducerItems extends React.Component {
             isModalOpen: false,
             isNewProduct: true,
             isProductUpdating: false,
-            productToEdit: DEFAULT_FIELD_VALUES
+            productToEdit: DEFAULT_FIELD_VALUES,
         });
     };
 
@@ -63,7 +63,7 @@ class ProducerItems extends React.Component {
         this.setState({
             isModalOpen: true,
             isNewProduct,
-            productToEdit
+            productToEdit,
         });
     };
 
@@ -127,26 +127,26 @@ class ProducerItems extends React.Component {
 ProducerItems.propTypes = {
     actions: PropTypes.shape({
         requestProductList: PropTypes.func,
-        requestProductUpdate: PropTypes.func
+        requestProductUpdate: PropTypes.func,
     }),
-    productList: PropTypes.instanceOf(Map)
+    productList: PropTypes.instanceOf(Map),
 };
 
 const mapStateToProps = state => ({
-    productList: getProductList(state)
+    productList: getProductList(state),
 });
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(
         {
             requestProductList,
-            requestProductUpdate
+            requestProductUpdate,
         },
-        dispatch
-    )
+        dispatch,
+    ),
 });
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(ProducerItems);

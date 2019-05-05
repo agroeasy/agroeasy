@@ -7,7 +7,7 @@ import { USER_PAGE } from '../constants';
 
 const {
     CLASSNAMES: { PROFILE_CONTENT },
-    TEXTS: { FLEX, START }
+    TEXTS: { FLEX, START },
 } = USER_PAGE;
 
 export default class ProfileContent extends React.Component {

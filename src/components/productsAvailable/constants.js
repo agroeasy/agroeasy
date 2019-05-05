@@ -2,96 +2,96 @@
 export const FOODSITEMS = [
     {
         link: '/yam/',
-        name: 'Yams'
+        name: 'Yams',
     },
     {
         link: '/rice/',
-        name: 'Rice'
+        name: 'Rice',
     },
     {
         link: '/beans/',
-        name: 'Beans'
+        name: 'Beans',
     },
     {
         link: 'garri',
-        name: 'Garri'
+        name: 'Garri',
     },
     {
         link: '/fufu/',
-        name: 'Cassava flour (fufu)'
-    }
+        name: 'Cassava flour (fufu)',
+    },
 ];
 
 /*poultry & Livestock from ProductsAvailable */
 export const LIVESTOCK = [
     {
         link: '/fishes/',
-        name: 'Fishes'
+        name: 'Fishes',
     },
     {
         link: '/eggs/',
-        name: 'Eggs'
+        name: 'Eggs',
     },
     {
         link: '/cattle/',
-        name: 'Cattle'
+        name: 'Cattle',
     },
     {
         link: '/chicken/',
-        name: 'Chicken'
+        name: 'Chicken',
     },
     {
         link: '/ram/',
-        name: 'Ram'
-    }
+        name: 'Ram',
+    },
 ];
 
 /* Fruits & vegetables  from ProductsAvailable*/
 export const FRUITS_VEGETABLES = [
     {
         link: '/cabbage/',
-        name: 'Cabbage'
+        name: 'Cabbage',
     },
     {
         link: '/lettuse/',
-        name: 'Lettuse'
+        name: 'Lettuse',
     },
     {
         link: '/tomatoes/',
-        name: 'Tomatoes'
+        name: 'Tomatoes',
     },
     {
         link: '/oranges/',
-        name: 'Oranges'
+        name: 'Oranges',
     },
     {
         link: '/plantain/',
-        name: 'Plantain'
-    }
+        name: 'Plantain',
+    },
 ];
 
 /* spices from ProductsAvailable */
 export const SPICES = [
     {
         link: '/onions/',
-        name: 'Onions'
+        name: 'Onions',
     },
     {
         link: '/ginger/',
-        name: 'Ginger'
+        name: 'Ginger',
     },
     {
         link: '/garlic/',
-        name: 'Garlic'
+        name: 'Garlic',
     },
     {
         link: '/curry/',
-        name: 'Curry'
+        name: 'Curry',
     },
     {
         link: '/pepper/',
-        name: 'Pepper'
-    }
+        name: 'Pepper',
+    },
 ];
 
 //strings
@@ -103,5 +103,5 @@ export const PRODUCTS_AVAILABLE = {
     ITEMS: 'items',
     LIST: 'list',
     LIVE_STOCK_TEXT: 'Livestock & Poultry',
-    SPICES_TEXT: 'Spices'
+    SPICES_TEXT: 'Spices',
 };

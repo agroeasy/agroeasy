@@ -12,5 +12,5 @@ export const SUPPORT_STRINGS = {
     LEAD: 'lead',
     LEAD_TEXT: '...Your satisfaction, our priority',
     SMALL: 'small',
-    SUPPORT: 'support'
+    SUPPORT: 'support',
 };

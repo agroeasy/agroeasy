@@ -57,7 +57,7 @@ export default {
         try {
             const {
                 body,
-                params: { id: _id }
+                params: { id: _id },
             } = req;
             await Product.findByIdAndRemove(_id, body);
             return res.json({ message: PRODUCT_DELETED, success: true });
@@ -81,7 +81,7 @@ export default {
         try {
             const {
                 body,
-                params: { productsId: _id }
+                params: { productsId: _id },
             } = req;
             const data = await Product.findOneAndUpdate(_id, body, { new: true });
 
@@ -110,8 +110,8 @@ export default {
                     $and: [
                         { _id: { $eq: _id } },
                         { producerId: { $ne: null } },
-                        { producerId: { $eq: producerId } }
-                    ]
+                        { producerId: { $eq: producerId } },
+                    ],
                 };
 
                 await Product.updateOne(filter, product);
@@ -132,5 +132,5 @@ export default {
                 .status(INTERNAL_SERVER_ERROR)
                 .json({ error, message: getStatusText(INTERNAL_SERVER_ERROR), success: false });
         }
-    }
+    },
 };

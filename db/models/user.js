@@ -13,9 +13,9 @@ const UserSchema = new Schema(
         password: { required: true, type: String },
         phoneNumber: { required: true, type: String },
         state: { required: true, type: String },
-        username: { type: String }
+        username: { type: String },
     },
-    { versionKey: false }
+    { versionKey: false },
 );
 
 export default mongoose.model('User', UserSchema);

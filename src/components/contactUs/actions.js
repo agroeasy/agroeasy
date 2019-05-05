@@ -10,7 +10,7 @@ import { MAIL_SENT, MAIL_FAILED, REQUEST_SENDMAIL } from './actionTypes';
  */
 export const sendContactMail = payload => ({
     payload,
-    type: REQUEST_SENDMAIL
+    type: REQUEST_SENDMAIL,
 });
 
 /**
@@ -22,7 +22,7 @@ export const sendContactMail = payload => ({
  */
 export const mailSent = payload => ({
     payload,
-    type: MAIL_SENT
+    type: MAIL_SENT,
 });
 
 /**
@@ -35,5 +35,5 @@ export const mailSent = payload => ({
  */
 export const failedToSendmail = error => ({
     error,
-    type: MAIL_FAILED
+    type: MAIL_FAILED,
 });

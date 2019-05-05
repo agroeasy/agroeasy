@@ -2,52 +2,52 @@
 export const PRODUCTION_LOCATIONS = {
     BIG_DIV: 'main-div',
     HEADER_TEXT: 'Find Goods Near You',
-    LINK_ITEMS: 'linkItems'
+    LINK_ITEMS: 'linkItems',
 };
 
 export const PLACES = [
     {
         link: '/imo/',
-        name: 'Imo'
+        name: 'Imo',
     },
     {
         link: '/ogun/',
-        name: 'Ogun'
+        name: 'Ogun',
     },
     {
         link: '/eboyin/',
-        name: 'Eboyin'
+        name: 'Eboyin',
     },
     {
         link: '/lagos/',
-        name: 'Lagos'
+        name: 'Lagos',
     },
     {
         link: '/delta/',
-        name: 'Delta'
+        name: 'Delta',
     },
     {
         link: '/ore/',
-        name: 'Ondo (ore)'
+        name: 'Ondo (ore)',
     },
     {
         link: '/agbara/',
-        name: 'Ogun (Agbara)'
+        name: 'Ogun (Agbara)',
     },
     {
         link: '/zaria/',
-        name: 'Kaduna (Zaria)'
+        name: 'Kaduna (Zaria)',
     },
     {
         link: '/niger/',
-        name: 'Niger (Bida, Gurara)'
-    }
+        name: 'Niger (Bida, Gurara)',
+    },
 ];
 
 export const PRODUCT = {
     ACTIONS: {
         INFO_CIRCLE: 'info-circle',
-        SHOPPING: 'shopping'
+        SHOPPING: 'shopping',
     },
     BUY: 'Buy Now',
     CANCEL: 'Cancel',
@@ -61,7 +61,7 @@ export const PRODUCT = {
     PHONE: 'Phone #:',
     PRODUCERS_NAME: `Producer's Name:`,
     QUANTITY: 'Available Quantity:',
-    TAG_COLOR: 'gold'
+    TAG_COLOR: 'gold',
 };
 
 export const EXAMPLE_PRODUCTS = [
@@ -72,7 +72,7 @@ export const EXAMPLE_PRODUCTS = [
         location: 'Owerri Imo State',
         name: 'Egg crates',
         phone: ' ',
-        quantity: '1000'
+        quantity: '1000',
     },
     {
         cost: '#10,000',
@@ -81,7 +81,7 @@ export const EXAMPLE_PRODUCTS = [
         location: ' Ondo state',
         name: 'Palm oil',
         phone: ' ',
-        quantity: '500 gallons'
+        quantity: '500 gallons',
     },
     {
         cost: '#11,500',
@@ -90,7 +90,7 @@ export const EXAMPLE_PRODUCTS = [
         location: 'Zaria, Kaduna state',
         name: 'Onion bags',
         phone: ' ',
-        quantity: '100'
+        quantity: '100',
     },
     {
         cost: '#1,500',
@@ -99,7 +99,7 @@ export const EXAMPLE_PRODUCTS = [
         location: 'Shoprite, Owerri, Imo state',
         name: 'Vegetable Oil ',
         phone: ' ',
-        quantity: '600'
+        quantity: '600',
     },
     {
         cost: '#1.350',
@@ -108,7 +108,7 @@ export const EXAMPLE_PRODUCTS = [
         location: 'Niger state',
         name: "Abu's farm",
         phone: ' ',
-        quantity: '1000'
+        quantity: '1000',
     },
     {
         cost: '#500',
@@ -117,7 +117,7 @@ export const EXAMPLE_PRODUCTS = [
         location: 'Edo state',
         name: 'Green banana',
         phone: ' ',
-        quantity: '400 bunches'
+        quantity: '400 bunches',
     },
     {
         cost: '#15,500',
@@ -126,7 +126,7 @@ export const EXAMPLE_PRODUCTS = [
         location: 'Gurara, Niger state',
         name: 'Bags of rice',
         phone: ' ',
-        quantity: '87'
+        quantity: '87',
     },
     {
         cost: '#4,500',
@@ -135,7 +135,7 @@ export const EXAMPLE_PRODUCTS = [
         location: '',
         name: 'Dry pepper',
         phone: ' ',
-        quantity: '50'
+        quantity: '50',
     },
     {
         cost: '#750',
@@ -144,7 +144,7 @@ export const EXAMPLE_PRODUCTS = [
         location: '',
         name: 'Lettuses',
         phone: ' ',
-        quantity: '550'
+        quantity: '550',
     },
     {
         cost: '#5000',
@@ -153,7 +153,7 @@ export const EXAMPLE_PRODUCTS = [
         location: '',
         name: 'Fresh Farm',
         phone: ' ',
-        quantity: '150'
+        quantity: '150',
     },
     {
         cost: '#3,500',
@@ -162,7 +162,7 @@ export const EXAMPLE_PRODUCTS = [
         location: '',
         name: 'Carrot',
         phone: ' ',
-        quantity: '3000'
+        quantity: '3000',
     },
     {
         cost: '#1,299',
@@ -171,7 +171,7 @@ export const EXAMPLE_PRODUCTS = [
         location: '',
         name: 'Poultry',
         phone: ' ',
-        quantity: '2500'
+        quantity: '2500',
     },
     {
         cost: '#10,000',
@@ -180,7 +180,7 @@ export const EXAMPLE_PRODUCTS = [
         location: 'benue state',
         name: 'Tomatoes',
         phone: ' ',
-        quantity: '500  baskets'
+        quantity: '500  baskets',
     },
     {
         cost: '#15,000',
@@ -189,7 +189,7 @@ export const EXAMPLE_PRODUCTS = [
         location: 'Niger state',
         name: 'Bag of beans',
         phone: ' ',
-        quantity: '150 bags'
+        quantity: '150 bags',
     },
     {
         cost: '#2,000',
@@ -198,7 +198,7 @@ export const EXAMPLE_PRODUCTS = [
         location: 'Imo state',
         name: 'Prawn',
         phone: ' ',
-        quantity: '30bags'
+        quantity: '30bags',
     },
     {
         cost: '#500',
@@ -207,8 +207,8 @@ export const EXAMPLE_PRODUCTS = [
         location: 'Ore, ondo state',
         name: "Jamal's fruit store",
         phone: ' ',
-        quantity: ' '
-    }
+        quantity: ' ',
+    },
 ];
 
 export const PRODUCT_LIST_CLASSNAME = 'product-list';

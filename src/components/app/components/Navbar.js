@@ -28,7 +28,7 @@ const items = [
     </AppLink>,
     <AppLink key={MARKET} to={MARKET}>
         {MARKET_TEXT}
-    </AppLink>
+    </AppLink>,
 ];
 
 /*
@@ -112,18 +112,18 @@ Navbar.propTypes = {
     isLoggedIn: PropTypes.bool,
     isSignedUp: PropTypes.string,
     links: PropTypes.arrayOf(PropTypes.node),
-    match: PropTypes.object
+    match: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
-    isLoggedIn: getLoginStatus(state)
+    isLoggedIn: getLoginStatus(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ removeCookie, resetSigninState }, dispatch)
+    actions: bindActionCreators({ removeCookie, resetSigninState }, dispatch),
 });
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(Navbar);

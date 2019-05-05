@@ -17,7 +17,7 @@ export const contactUsmail = async (req, res) => {
             host: EMAIL_HOST,
             password: EMAIL_PASSWORD,
             ssl: true,
-            user: USER_EMAIL
+            user: USER_EMAIL,
         });
         const { email, name, message, subject } = req.body;
         const subjectToUpperCase = subject.toUpperCase();
@@ -25,7 +25,7 @@ export const contactUsmail = async (req, res) => {
             from: email,
             subject: subjectToUpperCase,
             text: `${name} (${email}) says: ${message}`,
-            to: USER_EMAIL
+            to: USER_EMAIL,
         };
 
         server.send(userMessage, (error, messages) => res.json({ messages, success: true }));

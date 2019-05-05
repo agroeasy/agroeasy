@@ -12,7 +12,7 @@ import { getMessage, getisLoading, getisSuccessful, getStatus } from '../selecto
 const { PRIMARY, TITLE } = SIGNUP_STRINGS;
 class Signup extends React.Component {
     state = {
-        visible: false
+        visible: false,
     };
 
     showModal = () => {
@@ -42,7 +42,7 @@ class Signup extends React.Component {
                 phoneNumber: values.phoneNumber,
                 state: values.state,
                 typeOfProducts: values.typeOfProducts,
-                username: values.username
+                username: values.username,
             };
             signupRequest(user);
         });
@@ -93,20 +93,20 @@ Signup.propTypes = {
     onCreate: PropTypes.func,
     signinfailMessage: PropTypes.string,
     signupError: PropTypes.string,
-    visible: PropTypes.bool
+    visible: PropTypes.bool,
 };
 const mapStateToProps = state => ({
     isLoading: getisLoading(state),
     isSuccessful: getisSuccessful(state),
     signinfailMessage: getMessage(state),
-    signupError: getStatus(state)
+    signupError: getStatus(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(signupActions, dispatch)
+    actions: bindActionCreators(signupActions, dispatch),
 });
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(Signup);

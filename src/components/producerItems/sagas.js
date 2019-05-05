@@ -5,7 +5,7 @@ import { updateProductDetails, updateProductList } from './actions';
 import { REQUEST_PRODUCT_LIST, REQUEST_PRODUCT_UPDATE } from './actionTypes';
 
 const {
-    selectors: { getUserData }
+    selectors: { getUserData },
 } = App;
 const headers = { 'Content-Type': 'application/json' };
 /**
@@ -18,7 +18,7 @@ function* requestProducersItems() {
         const { _id } = yield effects.select(getUserData);
         const response = yield fetch(`/product/producerId/${_id}`, {
             headers,
-            method: 'GET'
+            method: 'GET',
         });
 
         if (response.ok) {
@@ -54,7 +54,7 @@ function* requestProducersItemUpdate(action) {
         const response = yield fetch(`/product/update`, {
             body: JSON.stringify(product),
             headers,
-            method: 'PUT'
+            method: 'PUT',
         });
 
         if (response.ok) {

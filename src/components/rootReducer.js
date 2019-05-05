@@ -11,5 +11,5 @@ export default combineReducers({
     contactus: contactus.reducers,
     producerItems: producerItems.reducers,
     signin: signin.reducers,
-    signup: signUp.reducers
+    signup: signUp.reducers,
 });

@@ -18,7 +18,7 @@ function createItemDescTags(item) {
     const tags = [
         { color: '#108ee9', info: `Type: ${type}`, key: 'type' },
         { color: '#87d068', info: `Price: # ${cost}`, key: 'cost' },
-        { color: '#2db7f5', info: `Quantity: ${quantity}`, key: 'quantity' }
+        { color: '#2db7f5', info: `Quantity: ${quantity}`, key: 'quantity' },
     ];
 
     return tags.map(({ color, info, key }) => (
@@ -45,7 +45,7 @@ export default class ProductList extends React.Component {
                 renderItem={item => {
                     const { description, _id, imageUrl, name } = item;
                     const actions = [
-                        <Icon key={EDIT} onClick={() => openModal(_id)} type={EDIT} />
+                        <Icon key={EDIT} onClick={() => openModal(_id)} type={EDIT} />,
                     ];
 
                     return (
@@ -70,5 +70,5 @@ export default class ProductList extends React.Component {
 
 ProductList.propTypes = {
     list: PropTypes.array,
-    openModal: PropTypes.func
+    openModal: PropTypes.func,
 };

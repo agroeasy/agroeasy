@@ -3,16 +3,16 @@ import mongoose from 'mongoose';
 const UserSessionSchema = new mongoose.Schema({
     isDeleted: {
         default: false,
-        type: Boolean
+        type: Boolean,
     },
     timestamp: {
         default: Date.now(),
-        type: Date
+        type: Date,
     },
     userId: {
         default: '',
-        type: String
-    }
+        type: String,
+    },
 });
 
 export default mongoose.model('UserSession', UserSessionSchema);

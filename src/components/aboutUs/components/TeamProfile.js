@@ -7,7 +7,7 @@ const { Meta } = Card;
 const {
     CLASSNAMES: { AVATAR, TEAM_CARD, TEAM_HEADER },
     STRINGS: { NEW_WINDOW, SQUARE },
-    TEXTS: { HEADER_TEXT }
+    TEXTS: { HEADER_TEXT },
 } = ABOUT_US;
 
 class TeamProfile extends React.Component {

@@ -9,7 +9,7 @@ const {
     FRUITS_TEXT,
     ITEMS,
     LIVE_STOCK_TEXT,
-    SPICES_TEXT
+    SPICES_TEXT,
 } = PRODUCTS_AVAILABLE;
 
 //List of items according to groups

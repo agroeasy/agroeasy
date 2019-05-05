@@ -22,7 +22,7 @@ import {
     UPLOAD_FAILED,
     UPLOAD_TEXT,
     CREATE_IMAGE_ENDPOINT,
-    SAVE_PRODUCT_DETAILS
+    SAVE_PRODUCT_DETAILS,
 } from '../constants';
 
 const FormItem = Form.Item;
@@ -90,7 +90,7 @@ class ProductEditForm extends React.Component {
         fileDetails: [],
         formItems: [],
         previewImage: '',
-        previewVisible: false
+        previewVisible: false,
     };
 
     /**
@@ -137,8 +137,8 @@ class ProductEditForm extends React.Component {
             file: {
                 status,
                 response: { data },
-                name
-            }
+                name,
+            },
         } = info;
 
         if (status !== UPLOADING) {
@@ -155,7 +155,7 @@ class ProductEditForm extends React.Component {
     static getDerivedStateFromProps(props) {
         const {
             productToEdit,
-            form: { getFieldDecorator }
+            form: { getFieldDecorator },
         } = props;
         const formItems = generateProductEditForm(getFieldDecorator, productToEdit);
 
@@ -181,7 +181,7 @@ class ProductEditForm extends React.Component {
             name: IMAGE,
             onChange: this.handleChange,
             onPreview: () => this.setPreview(true),
-            onRemove: this.handleRemove
+            onRemove: this.handleRemove,
         };
 
         return (
@@ -224,7 +224,7 @@ ProductEditForm.propTypes = {
     isOpen: PropTypes.bool,
     isProductUpdating: PropTypes.bool,
     productToEdit: PropTypes.object,
-    updateProduct: PropTypes.func
+    updateProduct: PropTypes.func,
 };
 
 export default ProductEditModal;

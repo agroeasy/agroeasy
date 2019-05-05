@@ -21,7 +21,7 @@ class App extends React.Component {
             isLoggedIn,
             user,
             status,
-            actions: { resetStatusStatus }
+            actions: { resetStatusStatus },
         } = this.props;
 
         if (isLoggedIn && status) {
@@ -50,22 +50,22 @@ App.propTypes = {
     links: PropTypes.arrayOf(PropTypes.node),
     match: PropTypes.object,
     status: PropTypes.string,
-    user: PropTypes.object
+    user: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
     isLoggedIn: getLoginStatus(state),
     status: state.app.status,
-    user: getUserData(state)
+    user: getUserData(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ resetStatusStatus }, dispatch)
+    actions: bindActionCreators({ resetStatusStatus }, dispatch),
 });
 
 export default withRouter(
     connect(
         mapStateToProps,
-        mapDispatchToProps
-    )(App)
+        mapDispatchToProps,
+    )(App),
 );

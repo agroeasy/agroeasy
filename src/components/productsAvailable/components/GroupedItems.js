@@ -30,7 +30,7 @@ class GroupedItems extends React.Component {
 
 GroupedItems.propTypes = {
     heading: PropTypes.string,
-    items: PropTypes.array
+    items: PropTypes.array,
 };
 
 export default GroupedItems;

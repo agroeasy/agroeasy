@@ -7,7 +7,7 @@ import TeamProfile from './TeamProfile';
 const {
     CLASSNAMES: { CONTENT, TOP_TEXT },
     STRINGS: { FADE },
-    TEXTS: { TOPMOST_TEXT }
+    TEXTS: { TOPMOST_TEXT },
 } = ABOUT_US;
 const { WIDTH } = IMAGE_STYLE;
 

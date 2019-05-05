@@ -8,7 +8,7 @@ const {
     producerCreate,
     producerDetails,
     producerDelete,
-    producerUpdate
+    producerUpdate,
 } = helpers;
 
 router.get('/findAll', allProducersDetails); // find all

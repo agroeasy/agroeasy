@@ -13,7 +13,7 @@ const { BTN_MAIL, CONTACT_US, DEFAULT, LARGE, MAIL, MSG_NOT_SENT, MSG_SENT } = C
 
 class ContactUs extends React.Component {
     state = {
-        visible: false
+        visible: false,
     };
 
     showModal = () => {
@@ -39,7 +39,7 @@ class ContactUs extends React.Component {
                 email,
                 message,
                 name,
-                subject
+                subject,
             };
 
             sendContactMail(payload);
@@ -87,18 +87,18 @@ class ContactUs extends React.Component {
 
 ContactUs.propTypes = {
     actions: PropTypes.object,
-    isMailSent: PropTypes.bool
+    isMailSent: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
-    isMailSent: getStatus(state)
+    isMailSent: getStatus(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(contactMailActions, dispatch)
+    actions: bindActionCreators(contactMailActions, dispatch),
 });
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(ContactUs);

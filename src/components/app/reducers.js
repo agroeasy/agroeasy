@@ -7,7 +7,7 @@ const initialState = {
     isLoggedIn: null,
     status: '',
     token: '',
-    user: {}
+    user: {},
 };
 
 export default (state = { ...initialState }, action) => {
@@ -15,7 +15,7 @@ export default (state = { ...initialState }, action) => {
         case SET_COOKIE: {
             const {
                 data: { token, user },
-                status
+                status,
             } = action.payload;
             Cookies.set(token, { expires: EXPIRATION });
 
@@ -24,7 +24,7 @@ export default (state = { ...initialState }, action) => {
                 isLoggedIn: true,
                 status,
                 token,
-                user
+                user,
             };
         }
 
@@ -35,7 +35,7 @@ export default (state = { ...initialState }, action) => {
                 ...state,
                 isLoggedIn: false,
                 token: null,
-                user: {}
+                user: {},
             };
         }
 
@@ -45,7 +45,7 @@ export default (state = { ...initialState }, action) => {
         case RESET_STATUS_STATE:
             return {
                 ...state,
-                status: ''
+                status: '',
             };
 
         default:

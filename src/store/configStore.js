@@ -9,8 +9,8 @@ export default function configureStore(initialState) {
         ...createStore(
             rootReducer,
             initialState,
-            composeEnhancers(applyMiddleware(sagaMiddleware))
+            composeEnhancers(applyMiddleware(sagaMiddleware)),
         ),
-        runSaga: sagaMiddleware.run
+        runSaga: sagaMiddleware.run,
     };
 }

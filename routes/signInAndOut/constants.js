@@ -16,7 +16,7 @@ export default {
         'phoneNumber',
         'state',
         'updatedAt',
-        'username'
+        'username',
     ],
-    USER_NOT_FOUND: 'Cannnot find any user with the email or password'
+    USER_NOT_FOUND: 'Cannnot find any user with the email or password',
 };

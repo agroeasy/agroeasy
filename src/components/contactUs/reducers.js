@@ -3,7 +3,7 @@ import { MAIL_SENT, MAIL_FAILED, REQUEST_SENDMAIL } from './actionTypes';
 const initialState = {
     isSending: false,
     message: '',
-    senderMail: ''
+    senderMail: '',
 };
 
 export default (state = { ...initialState }, action) => {
@@ -11,7 +11,7 @@ export default (state = { ...initialState }, action) => {
         case REQUEST_SENDMAIL:
             return {
                 ...state,
-                isSending: true
+                isSending: true,
             };
         case MAIL_SENT: {
             const { email, message, name, success: isMailSent } = action.payload;
@@ -21,14 +21,14 @@ export default (state = { ...initialState }, action) => {
                 isSending: false,
                 message,
                 name,
-                senderMail: email
+                senderMail: email,
             };
         }
         case MAIL_FAILED:
             return {
                 ...state,
                 error: action.error,
-                isSending: false
+                isSending: false,
             };
         default:
             return state;

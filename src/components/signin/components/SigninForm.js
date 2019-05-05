@@ -14,13 +14,13 @@ function generateSiginInputs(decorator) {
         return (
             <FormItem key={field}>
                 {decorator(field, {
-                    rules
+                    rules,
                 })(
                     <Input
                         placeholder={placeholder}
                         prefix={<Icon type={iconType} />}
                         type={type}
-                    />
+                    />,
                 )}
             </FormItem>
         );
@@ -54,7 +54,7 @@ SigninModal.propTypes = {
     isLoading: PropTypes.bool,
     onCancel: PropTypes.func,
     onCreate: PropTypes.func,
-    visible: PropTypes.bool
+    visible: PropTypes.bool,
 };
 
 export default SigninForm;
