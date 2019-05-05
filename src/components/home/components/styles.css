@@ -226,3 +226,35 @@ img {
 .search {
     margin-top: 70px;
 }
+
+/* carousel.js */
+.ant-carousel {
+  padding: 20px 0;
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide img {
+  height: 400px;
+  width: 100%;
+}
+
+.ant-carousel .slick-slide .carousel-text {
+  position: absolute;
+  bottom: 150px;
+  width: 100%;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-family: monospace;
+}
+
+.ant-carousel .slick-dots {
+  bottom: 40px;
+}
