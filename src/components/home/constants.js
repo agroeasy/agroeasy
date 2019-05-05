@@ -21,18 +21,3 @@ export const HOME_STRINGS = {
     WELCOME_TEXT_3:
         'Dear customer, we make sure you get a discount anytime you patronize us. Give us a try.',
 };
-
-export const CAROUSEL_DATA = [
-    {
-        src: '/placeholder-carousel.png',
-        text: 'This is image 1',
-    },
-    {
-        src: '/placeholder-carousel.png',
-        text: 'This is image 2',
-    },
-    {
-        src: '/placeholder-carousel.png',
-        text: 'This is image 3',
-    },
-];
