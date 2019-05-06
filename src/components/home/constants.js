@@ -34,5 +34,5 @@ export const CAROUSEL_DATA = [
     {
         src: '/carousel-placeholder-1.png',
         text: 'This is Image 3',
-    }
+    },
 ];
