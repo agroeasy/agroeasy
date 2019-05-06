@@ -15,15 +15,15 @@ const {
 
 // React Component used to render the product item in a 'Card'
 class Product extends React.Component {
-    state = { visible: false }
+    state = { visible: false };
 
     showModal = () => {
         this.setState({ visible: true });
-    }
+    };
 
     handleCancel = () => {
         this.setState({ visible: false });
-    }
+    };
 
     render() {
         const { visible } = this.state;

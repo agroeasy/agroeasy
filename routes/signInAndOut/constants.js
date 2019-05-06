@@ -1,6 +1,6 @@
 export default {
     FAIL: 'fail',
-    INVALID_SIGNIN: "Invalid password, login unsuccessful",
+    INVALID_SIGNIN: 'Invalid password, login unsuccessful',
     LOGOUT: 'Logged out successfully',
     NO_EMAIL_PASSWORD: 'Error: Email or Password cannot be blank.',
     SUCCESS: 'success',

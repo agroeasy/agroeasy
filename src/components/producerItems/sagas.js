@@ -4,14 +4,16 @@ import App from '../app';
 import { updateProductDetails, updateProductList } from './actions';
 import { REQUEST_PRODUCT_LIST, REQUEST_PRODUCT_UPDATE } from './actionTypes';
 
-const { selectors: { getUserData } } = App;
+const {
+    selectors: { getUserData },
+} = App;
 const headers = { 'Content-Type': 'application/json' };
 /**
  * Handles requesting the list of producer items from the backend
  *
  * @return {Void} - void
  */
-function* requestProducersItems(){
+function* requestProducersItems() {
     try {
         const { _id } = yield effects.select(getUserData);
         const response = yield fetch(`/product/producerId/${_id}`, {
@@ -30,7 +32,7 @@ function* requestProducersItems(){
             // eslint-disable-next-line no-console
             console.log('ERROR', result);
         }
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
@@ -42,7 +44,7 @@ function* requestProducersItems(){
  * @param {Object} action - the data sent from the action creator
  * @return {Void} - void
  */
-function* requestProducersItemUpdate(action){
+function* requestProducersItemUpdate(action) {
     try {
         // TODO: connect saga generator to backend api
         const { _id } = yield effects.select(getUserData);
@@ -66,7 +68,7 @@ function* requestProducersItemUpdate(action){
             // eslint-disable-next-line no-console
             console.log('ERROR', result);
         }
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
@@ -79,10 +81,10 @@ function* requestProducersItemUpdate(action){
  *
  * @return {void}
  */
-function* watchRequestProductList(){
+function* watchRequestProductList() {
     try {
         yield effects.takeLatest(REQUEST_PRODUCT_LIST, requestProducersItems);
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
@@ -95,18 +97,15 @@ function* watchRequestProductList(){
  *
  * @return {void}
  */
-function* watchRequestProductUpdate(){
+function* watchRequestProductUpdate() {
     try {
         yield effects.takeLatest(REQUEST_PRODUCT_UPDATE, requestProducersItemUpdate);
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
 }
 
-export default function* (){
-    yield effects.all([
-        watchRequestProductList(),
-        watchRequestProductUpdate(),
-    ]);
+export default function*() {
+    yield effects.all([watchRequestProductList(), watchRequestProductUpdate()]);
 }

@@ -22,8 +22,10 @@ function createItemDescTags(item) {
     ];
 
     return tags.map(({ color, info, key }) => (
-        <Tag color={color} key={key}>{info}</Tag>)
-    );
+        <Tag color={color} key={key}>
+            {info}
+        </Tag>
+    ));
 }
 
 /**

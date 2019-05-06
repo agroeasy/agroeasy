@@ -12,7 +12,7 @@ export const SET_COOKIE = 'SET_COOKIE';
  * action creator.
  *
  * @type {String}
- */export const REMOVE_COOKIE = `${NAME}/REMOVE_COOKIE`;
+ */ export const REMOVE_COOKIE = `${NAME}/REMOVE_COOKIE`;
 
 /**
  * Fired by the {@link actions.resetSigninState resetSigninState}

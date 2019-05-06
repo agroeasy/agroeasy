@@ -6,7 +6,8 @@ import { FOODSITEMS, FRUITS_VEGETABLES, LIVESTOCK, SPICES, PRODUCTS_AVAILABLE } 
 const {
     AVAILABLE,
     FOOD_ITEM_TEXT,
-    FRUITS_TEXT, ITEMS,
+    FRUITS_TEXT,
+    ITEMS,
     LIVE_STOCK_TEXT,
     SPICES_TEXT,
 } = PRODUCTS_AVAILABLE;
@@ -15,7 +16,6 @@ const {
 export default class ProductsAvailable extends Component {
     render() {
         return (
-
             <Row className={AVAILABLE}>
                 <Col className={ITEMS} span={6}>
                     <GroupedItems items={FOODSITEMS} heading={FOOD_ITEM_TEXT} />
@@ -30,7 +30,6 @@ export default class ProductsAvailable extends Component {
                     <GroupedItems items={SPICES} heading={SPICES_TEXT} />
                 </Col>
             </Row>
-
         );
     }
 }

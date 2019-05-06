@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { message } from 'antd';
 
@@ -11,7 +11,7 @@ import {
     getIsLoading,
     getSigninFailureMessage,
     getSigninStatus,
-    getisSuccessful
+    getisSuccessful,
 } from '../selectors';
 
 const { PRIMARY, TITLE } = SIGNIN_STRINGS;
@@ -23,14 +23,14 @@ class Signin extends React.Component {
 
     showModal = () => {
         this.setState({ visible: true });
-    }
+    };
 
     handleCancel = () => {
         const { resetSignState } = this.props.actions;
-        
+
         this.setState({ visible: false });
         resetSignState();
-    }
+    };
 
     handleCreate = () => {
         const form = this.formRef.props.form;
@@ -46,13 +46,13 @@ class Signin extends React.Component {
             };
             signinRequest(payload);
         });
-    }
+    };
 
     saveFormRef = formRef => {
         this.formRef = formRef;
-    }
+    };
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         const {
             isSuccessful,
             actions: { resetSignState },
@@ -65,7 +65,7 @@ class Signin extends React.Component {
             this.setState({ visible: false });
             resetSignState();
         } else if (signinError) {
-            message.error(signinFailMessage,3);
+            message.error(signinFailMessage, 3);
             resetSignState();
         }
     }
@@ -74,7 +74,9 @@ class Signin extends React.Component {
         const { isLoading } = this.props;
         return (
             <div>
-                <div type={PRIMARY} onClick={this.showModal}>{TITLE}</div>
+                <div type={PRIMARY} onClick={this.showModal}>
+                    {TITLE}
+                </div>
                 <SigninForm
                     wrappedComponentRef={this.saveFormRef}
                     visible={this.state.visible}
@@ -90,7 +92,7 @@ class Signin extends React.Component {
 Signin.propTypes = {
     actions: PropTypes.object,
     isLoading: PropTypes.bool,
-    isSuccessful:PropTypes.bool,
+    isSuccessful: PropTypes.bool,
     siginData: PropTypes.object,
     signinError: PropTypes.string,
     signinFailMessage: PropTypes.string,
@@ -107,4 +109,7 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(signinActions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signin);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Signin);

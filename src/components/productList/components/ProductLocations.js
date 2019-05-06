@@ -10,15 +10,13 @@ class ProductLocations extends React.Component {
             <div className={BIG_DIV}>
                 <ul>
                     <h6>{HEADER_TEXT}</h6>
-                    {
-                        PLACES.map(row =>
-                            (<li key={row.name}>
-                                <Link to={row.link} className={LINK_ITEMS}>
-                                    {row.name}
-                                </Link>
-                            </li>)
-                        )
-                    }
+                    {PLACES.map(row => (
+                        <li key={row.name}>
+                            <Link to={row.link} className={LINK_ITEMS}>
+                                {row.name}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </div>
         );

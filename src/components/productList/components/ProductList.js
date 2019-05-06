@@ -7,7 +7,7 @@ import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from '../constants';
 // React Component used to render the list of product items
 class ProductList extends React.Component {
     render() {
-        return(
+        return (
             <List
                 bordered
                 className={PRODUCT_LIST_CLASSNAME}

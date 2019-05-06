@@ -1,11 +1,11 @@
 import bcrypt from 'bcrypt-nodejs';
 import _pick from 'lodash.pick';
-import { 
-    NOT_FOUND, 
-    INTERNAL_SERVER_ERROR, 
-    OK, 
-    getStatusText, 
-    UNAUTHORIZED 
+import {
+    NOT_FOUND,
+    INTERNAL_SERVER_ERROR,
+    OK,
+    getStatusText,
+    UNAUTHORIZED,
 } from 'http-status-codes';
 
 import CONSTANTS from './constants';
@@ -36,7 +36,7 @@ export default {
     },
 
     logout: async (req, res) => {
-        try{
+        try {
             const { token } = req.query;
 
             await UserSession.findOneAndUpdate(
@@ -44,16 +44,19 @@ export default {
                     _id: token,
                     isDeleted: false,
                 },
-                { $set: {
-                    isDeleted:true,
+                {
+                    $set: {
+                        isDeleted: true,
+                    },
                 },
-                }, null);
+                null,
+            );
 
             return res.send({
                 message: LOGOUT,
                 success: true,
             });
-        } catch(err) {
+        } catch (err) {
             res.send({ err, success: false });
         }
     },
@@ -71,37 +74,38 @@ export default {
         try {
             const user = await User.findOne({ email });
 
-            if(!user){
+            if (!user) {
                 return res.status(NOT_FOUND).json({
                     data: { title: USER_NOT_FOUND },
                     status: FAIL,
                 });
             }
 
-            const userSession = Object.assign(new UserSession(), { userId: user._id  });
+            const userSession = Object.assign(new UserSession(), { userId: user._id });
             const doc = await userSession.save();
-            
+
             bcrypt.compare(password, user.password, (error, result) => {
-                const data = result ?
-                    {
-                        data: {
-                            token: doc._id,
-                            user: _pick(user, USERINFO),
-                        },
-                        status: SUCCESS,
-                    } : { 
-                        data: {
-                            error,
-                            title: INVALID_SIGNIN,
-                        },           
-                        status: FAIL,
-                    };
+                const data = result
+                    ? {
+                          data: {
+                              token: doc._id,
+                              user: _pick(user, USERINFO),
+                          },
+                          status: SUCCESS,
+                      }
+                    : {
+                          data: {
+                              error,
+                              title: INVALID_SIGNIN,
+                          },
+                          status: FAIL,
+                      };
 
                 const status = result ? OK : UNAUTHORIZED;
 
                 return res.status(status).json(data);
             });
-        } catch(error) {
+        } catch (error) {
             return res
                 .status(INTERNAL_SERVER_ERROR)
                 .send({ error: getStatusText(INTERNAL_SERVER_ERROR), success: false });

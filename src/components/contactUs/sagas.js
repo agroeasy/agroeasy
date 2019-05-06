@@ -1,5 +1,5 @@
 import { effects } from 'redux-saga';
-import {  REQUEST_SENDMAIL } from './actionTypes';
+import { REQUEST_SENDMAIL } from './actionTypes';
 import { CONTACT_URL } from './constants';
 import { mailSent, failedToSendmail } from './actions';
 
@@ -10,7 +10,7 @@ import { mailSent, failedToSendmail } from './actions';
  *
  * @return {object} An object containing either "data" or "error"
  */
-function* contactMail(action){
+function* contactMail(action) {
     const { payload } = action;
     try {
         const response = yield fetch(CONTACT_URL, {
@@ -20,11 +20,11 @@ function* contactMail(action){
             },
             method: 'POST',
         });
-        if(response.ok){
+        if (response.ok) {
             const data = yield response.json();
             yield effects.put(mailSent(data));
         }
-    } catch(error){
+    } catch (error) {
         yield effects.put(failedToSendmail(error));
     }
 }
@@ -36,17 +36,15 @@ function* contactMail(action){
  *
  * @return {void}
  */
-function* watchContactMail(){
+function* watchContactMail() {
     try {
         yield effects.takeLatest(REQUEST_SENDMAIL, contactMail);
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
 }
 
-export default function* (){
-    yield effects.all([
-        watchContactMail(),
-    ]);
+export default function*() {
+    yield effects.all([watchContactMail()]);
 }

@@ -8,7 +8,7 @@ import { NAME } from './constants';
  * @return {Boolean} the state of the signup
  * {@link module:signup/constants::INITIAL_STATE constants::INITIAL_STATE}).
  */
-export const getisLoading = state =>  state[NAME].isLoading;
+export const getisLoading = state => state[NAME].isLoading;
 
 /**
  * Selects the <tt>message</tt> key.

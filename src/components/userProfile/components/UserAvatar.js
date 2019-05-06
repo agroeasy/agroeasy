@@ -13,24 +13,18 @@ const {
 
 export default class UserAvatar extends React.Component {
     render() {
-        return(
+        return (
             <div>
-                <Avatar
-                    className={AVATAR}
-                    src={PROFILE_PIX}
-                    shape={SQUARE}
-                />
+                <Avatar className={AVATAR} src={PROFILE_PIX} shape={SQUARE} />
                 <Card bordered={false} className={AVATAR_CARD}>
                     <Meta
                         title={<h4 className={HEADER_TITLE}>{BASIC_INFO_TEXT}</h4>}
-                        description={
-                            BASIC_INFOMATION.map(data => (
-                                <div key={data.title} className={BASIC_INFO}>
-                                    <b>{data.title}</b>
-                                    <div>{data.description}</div>
-                                </div>
-                            ))
-                        }
+                        description={BASIC_INFOMATION.map(data => (
+                            <div key={data.title} className={BASIC_INFO}>
+                                <b>{data.title}</b>
+                                <div>{data.description}</div>
+                            </div>
+                        ))}
                     />
                 </Card>
             </div>

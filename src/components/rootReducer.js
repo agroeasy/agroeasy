@@ -4,7 +4,7 @@ import app from './app';
 import contactus from './contactUs';
 import producerItems from './producerItems';
 import signin from './signin';
-import signUp  from './signup';
+import signUp from './signup';
 
 export default combineReducers({
     app: app.reducers,
