@@ -16,7 +16,10 @@ class UserInfo extends React.Component {
 
     render() {
 
-        const { user } = this.props.userData.data;
+       // const { user } = this.props.userData.data;
+       const user = {
+        address : "", city:"", country:"", email:"", phoneNumber:""
+    }
         const { address, city, country, email, phoneNumber } = user;
 
         const CONTACT = [
@@ -33,7 +36,14 @@ class UserInfo extends React.Component {
                 className={INFO_CARD}
                 bordered={false}
             >
-                   {contact.description}
+                <Meta
+                    title={<h4 className={HEADER_TITLE}>{CONTACT_INFO_TEXT}</h4>}
+                    description={
+                        CONTACT.map(contact => (
+                            <div key={contact.title} className={DATA_TITLE}>
+                                <b>{contact.title}</b>
+                                <div>
+                                    {contact.description}
                                 </div>
                             </div>
                         ))
