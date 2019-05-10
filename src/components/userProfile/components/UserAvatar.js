@@ -1,7 +1,11 @@
 import React from 'react';
 import { Avatar, Card } from 'antd';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { BASIC_INFOMATION, USER_PAGE } from '../constants';
+import { getUserData } from '../selectors';
+
+import { USER_PAGE } from '../constants';
 
 const { Meta } = Card;
 const {
@@ -11,8 +15,19 @@ const {
     TEXTS: { BASIC_INFO_TEXT },
 } = USER_PAGE;
 
-export default class UserAvatar extends React.Component {
+class UserAvatar extends React.Component {
+
     render() {
+
+        const { user } = this.props.userData.data;
+        const { firstName, lastName, username } = user;
+
+        const BASIC_INFOMATION = [
+            { description: firstName, title: "First Name" },
+            { description: lastName, title: "Last Name" },
+            { description: username, title: "Username" },
+        ];
+
         return(
             <div>
                 <Avatar
@@ -24,10 +39,10 @@ export default class UserAvatar extends React.Component {
                     <Meta
                         title={<h4 className={HEADER_TITLE}>{BASIC_INFO_TEXT}</h4>}
                         description={
-                            BASIC_INFOMATION.map(data => (
-                                <div key={data.title} className={BASIC_INFO}>
-                                    <b>{data.title}</b>
-                                    <div>{data.description}</div>
+                            BASIC_INFOMATION.map(({ description, title }) => (
+                                <div key={title} className={BASIC_INFO}>
+                                    <b>{title}</b>
+                                    <div>{description}</div>
                                 </div>
                             ))
                         }
@@ -37,3 +52,13 @@ export default class UserAvatar extends React.Component {
         );
     }
 }
+
+UserAvatar.propTypes = {
+    userData: PropTypes.object,
+};
+
+const mapStateToProps = state => ({
+    userData: getUserData(state),
+});
+
+export default connect(mapStateToProps)(UserAvatar);

@@ -78,3 +78,6 @@ export const SIDE_MENU_ITEMS = [
     { iconType: "setting", label: "Settings" },
     { iconType: "solution", label: "Help" },
 ];
+
+export const USER_DATA_URL = "http://localhost:4000/account/signin/:id";
+export const NAME = "userprofile";
