@@ -11,26 +11,11 @@ const {
 } = USER_PAGE;
 
 export default class UserInfo extends React.Component {
-    componentDidMount() {
-        const auth = new Auth();
-        auth
-            .handleAuthentication();
-        // .then(user => {
-        //     console.log(user);
-        // })
-        // .catch(err => console.log(err));
-    }
 
     logout(){
         const auth = new Auth();
         auth.logout();
     }
-
-    componentDidUpdate(){
-        const auth = new Auth();
-        console.log(auth.isAuthenticated());
-    }
-
     render() {
         return (
             <Card

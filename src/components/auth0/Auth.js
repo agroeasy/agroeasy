@@ -34,6 +34,7 @@ import history from '../history/History';
 
 // ...
 export default class Auth {
+
     accessToken;
     idToken;
     expiresAt;
@@ -91,11 +92,10 @@ export default class Auth {
         this.idToken = authResult.idToken;
         this.expiresAt = expiresAt;
 
-        console.log(expiresAt);
         // navigate to the home route
         history.replace('/profile');
     }
-
+   
     renewSession() {
         this.auth0.checkSession({}, (err, authResult) => {
             if (authResult && authResult.accessToken && authResult.idToken) {
@@ -127,6 +127,7 @@ export default class Auth {
         // Check whether the current time is past the
         // access token's expiry time
         const expiresAt = this.expiresAt;
+        // console.log(expiresAt);
         return new Date().getTime() < expiresAt;
     }
 }
