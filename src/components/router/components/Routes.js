@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import aboutUs from '../../aboutUs';
 import app from '../../app';
@@ -7,6 +7,7 @@ import home from '../../home';
 import NoMatch from './NoMatch';
 import productList  from '../../productList';
 import userProfile from '../../userProfile';
+import history from '../../history/History';
 import { PATHS } from '../constants';
 
 const { ABOUT, HOME, MARKET, PROFILE } = PATHS;
@@ -19,7 +20,7 @@ const { App } = app.components;
 // };
 
 const Routes = () => (
-    <BrowserRouter>
+    <Router history={history}>
         <App>
             <Switch>
                 <Route path={HOME} exact strict component={home.components.Home} />
@@ -29,7 +30,7 @@ const Routes = () => (
                 <Route component={NoMatch} />
             </Switch>
         </App>
-    </BrowserRouter>
+    </Router>
 );
 
 export default Routes;
