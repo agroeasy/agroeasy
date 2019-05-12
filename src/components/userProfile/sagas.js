@@ -7,18 +7,18 @@ import { REQUEST_FETCH_USER_DATA } from './actionTypes';
 const { selectors: { getUserData } } = App;
 
 function* findUserData(){
-    // try {
+    try {
         const user = yield effects.select(getUserData);
-          console.log(user);
+        console.log(user);
         if (user) {
             yield effects.put(fetchUserData(user));
         } else {
             
             console.log("User data not fetched");
         }
-    // } catch(error){
-    //     console.log(error);
-    // }
+    } catch(error){
+        console.log(error);
+    }
 }
 
 function* watchFetchUserData(){
@@ -31,6 +31,6 @@ function* watchFetchUserData(){
 
 export default function* (){
     yield effects.all([
-        watchFetchUserData()
+        watchFetchUserData(),
     ]);
 }

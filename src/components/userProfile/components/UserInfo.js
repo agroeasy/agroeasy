@@ -1,10 +1,13 @@
 import React from 'react';
 import { Card, Divider } from 'antd';
 import PropTypes from 'prop-types';
-import { USER_PAGE } from '../constants';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { getUserData } from '../selectors';
+import { requestUserdata } from '../actions';
+
+import { USER_PAGE } from '../constants';
 
 const { Meta } = Card;
 const {
@@ -14,13 +17,14 @@ const {
 
 class UserInfo extends React.Component {
 
+    componentDidMount (){
+        const { requestUserdata } = this.props.actions;
+        requestUserdata();
+    }
+
     render() {
 
-       // const { user } = this.props.userData.data;
-       const user = {
-        address : "", city:"", country:"", email:"", phoneNumber:""
-    }
-        const { address, city, country, email, phoneNumber } = user;
+        const { address, city, country, email, phoneNumber } = this.props.userData;
 
         const CONTACT = [
             { description: email, title: "Email" },
@@ -31,6 +35,7 @@ class UserInfo extends React.Component {
             { description: country, title: "Country" },
             { description: address, title: "Address" },
         ];
+
         return (
             <Card
                 className={INFO_CARD}
@@ -39,26 +44,27 @@ class UserInfo extends React.Component {
                 <Meta
                     title={<h4 className={HEADER_TITLE}>{CONTACT_INFO_TEXT}</h4>}
                     description={
-                        CONTACT.map(contact => (
-                            <div key={contact.title} className={DATA_TITLE}>
-                                <b>{contact.title}</b>
+                        CONTACT.map(({ description, title }) => (
+                            <div key={title} className={DATA_TITLE}>
+                                <b>{title}</b>
                                 <div>
-                                    {contact.description}
+                                    {description}
                                 </div>
                             </div>
                         ))
                     }
                 />
+
                 <Divider />
                 <Meta
                     className={CARD_META}
                     title={<h4 className={HEADER_TITLE}>{LOCATION_INFO_TEXT}</h4>}
                     description={
-                        LOCATION.map(location => (
-                            <div key={location.title} className={DATA_TITLE}>
-                                <b>{location.title}</b>
+                        LOCATION.map(({ description, title }) => (
+                            <div key={title} className={DATA_TITLE}>
+                                <b>{title}</b>
                                 <div>
-                                    {location.description}
+                                    {description}
                                 </div>
                             </div>
                         ))
@@ -70,6 +76,7 @@ class UserInfo extends React.Component {
 }
 
 UserInfo.propTypes = {
+    actions: PropTypes.object,
     userData: PropTypes.object,
 };
 
@@ -77,4 +84,8 @@ const mapStateToProps = state => ({
     userData: getUserData(state),
 });
 
-export default connect(mapStateToProps)(UserInfo);
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({ requestUserdata }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

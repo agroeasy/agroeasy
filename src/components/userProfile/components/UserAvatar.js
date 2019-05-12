@@ -19,11 +19,7 @@ class UserAvatar extends React.Component {
 
     render() {
 
-        //const { user } = this.props.userData.data;
-        const user = {
-            firstName: "test0", lastName: "test1", username:"test2"
-        }
-        const { firstName, lastName, username } = user;
+        const { firstName, lastName, username } = this.props.userData;
 
         const BASIC_INFOMATION = [
             { description: firstName, title: "First Name" },
