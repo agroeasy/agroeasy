@@ -13,6 +13,7 @@ const {
     PROFILE_PIX,
     STRINGS: { SQUARE },
     TEXTS: { BASIC_INFO_TEXT },
+    STRINGS: { FIRST_NAME, LAST_NAME, USER_NAME },
 } = USER_PAGE;
 
 class UserAvatar extends React.Component {
@@ -22,9 +23,9 @@ class UserAvatar extends React.Component {
         const { firstName, lastName, username } = this.props.userData;
 
         const BASIC_INFOMATION = [
-            { description: firstName, title: "First Name" },
-            { description: lastName, title: "Last Name" },
-            { description: username, title: "Username" },
+            { description: firstName, title: FIRST_NAME },
+            { description: lastName, title: LAST_NAME },
+            { description: username, title: USER_NAME },
         ];
 
         return(
@@ -40,7 +41,7 @@ class UserAvatar extends React.Component {
                         description={
                             BASIC_INFOMATION.map(({ description, title }) => (
                                 <div key={title} className={BASIC_INFO}>
-                                    <b>{title}</b>
+                                    <h4>{title}</h4>
                                     <div>{description}</div>
                                 </div>
                             ))

@@ -13,6 +13,7 @@ const { Meta } = Card;
 const {
     CLASSNAMES: { CARD_META, DATA_TITLE, HEADER_TITLE, INFO_CARD },
     TEXTS: { CONTACT_INFO_TEXT, LOCATION_INFO_TEXT },
+    STRINGS: { ADDRESS, EMAIL, CITY, COUNTRY, PHONE },
 } = USER_PAGE;
 
 class UserInfo extends React.Component {
@@ -27,13 +28,13 @@ class UserInfo extends React.Component {
         const { address, city, country, email, phoneNumber } = this.props.userData;
 
         const CONTACT = [
-            { description: email, title: "Email" },
-            { description: phoneNumber, title: "Phone" },
+            { description: email, title: EMAIL },
+            { description: phoneNumber, title: PHONE },
         ];
         const LOCATION= [
-            { description: city, title: "City" },
-            { description: country, title: "Country" },
-            { description: address, title: "Address" },
+            { description: city, title: CITY },
+            { description: country, title: COUNTRY },
+            { description: address, title: ADDRESS },
         ];
 
         return (
@@ -46,7 +47,7 @@ class UserInfo extends React.Component {
                     description={
                         CONTACT.map(({ description, title }) => (
                             <div key={title} className={DATA_TITLE}>
-                                <b>{title}</b>
+                                <h4>{title}</h4>
                                 <div>
                                     {description}
                                 </div>
@@ -62,7 +63,7 @@ class UserInfo extends React.Component {
                     description={
                         LOCATION.map(({ description, title }) => (
                             <div key={title} className={DATA_TITLE}>
-                                <b>{title}</b>
+                                <h4>{title}</h4>
                                 <div>
                                     {description}
                                 </div>

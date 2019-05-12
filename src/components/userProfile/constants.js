@@ -21,15 +21,22 @@ export const USER_PAGE = {
     },
     PROFILE_PIX: "./josh.jpg",
     STRINGS: {
+        ADDRESS: 'Address',
         CENTER: 'center',
+        CITY: 'City',
+        COUNTRY: 'Country',
         DARK: 'dark',
+        EMAIL: 'Email',
+        FIRST_NAME: 'First Name', 
         FLEX: 'flex',
         FOLDER: 'folder',
         INFO_CIRCLE: 'info-circle',
         INLINE: 'inline',
+        LAST_NAME: 'Last Name',
         MESSAGE: 'message',
         NOTIFICATION: 'notification',
         ORIENTATION: 'left',
+        PHONE: 'Phone',
         SETTING: 'setting',
         SHOPPING: 'shopping',
         SM_HEADER: 'sm-header',
@@ -37,6 +44,7 @@ export const USER_PAGE = {
         SOLUTION: 'solution',
         SQUARE: 'square',
         START: 'start',
+        USER_NAME: 'Username'
     },
     TEXTS: {
         ACCOUNT_INFO: 'Account Info',
@@ -53,21 +61,21 @@ export const USER_PAGE = {
     },
 };
 
-export const BASIC_INFOMATION = [
-    { description: 'Josh', title: "First Name:" },
-    { description: 'Obinna', title: 'Last Name:' },
-    { description: 'male', title: 'Gender:' },
-];
-export const CONTACT = [
-    { description: 'joshuaobinna@gmail.com',  title: "Email:" },
-    { description: '+2347061589692',  title: "Phone:" },
-];
+// export const BASIC_INFOMATION = [
+//     { description: 'Josh', title: "First Name:" },
+//     { description: 'Obinna', title: 'Last Name:' },
+//     { description: 'male', title: 'Gender:' },
+// ];
+// export const CONTACT = [
+//     { description: 'joshuaobinna@gmail.com',  title: "Email:" },
+//     { description: '+2347061589692',  title: "Phone:" },
+// ];
 
-export const LOCATION = [
-    { description:  '24, Wilkie Crescent, Ikeja', title: "Address:" },
-    { description: "Lagos", title: 'City:' },
-    { description: "Nigeria", title: 'Country:' },
-];
+// export const LOCATION = [
+//     { description:  '24, Wilkie Crescent, Ikeja', title: "Address:" },
+//     { description: "Lagos", title: 'City:' },
+//     { description: "Nigeria", title: 'Country:' },
+// ];
 
 export const SIDE_MENU_ITEMS = [
     { iconType: "info-circle", label: "Account", link: '/profile' },
