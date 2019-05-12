@@ -21,3 +21,4 @@ export const HOME_STRINGS = {
     WELCOME_TEXT_3: `Dear customer, we make sure you get a discount anytime you
         patronize us. Give us a try.`,
 };
+
