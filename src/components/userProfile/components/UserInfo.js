@@ -47,10 +47,8 @@ class UserInfo extends React.Component {
                     description={
                         CONTACT.map(({ description, title }) => (
                             <div key={title} className={DATA_TITLE}>
-                                <h4>{title}</h4>
-                                <div>
-                                    {description}
-                                </div>
+                                {title}
+                                <div>{description}</div>
                             </div>
                         ))
                     }
@@ -63,10 +61,8 @@ class UserInfo extends React.Component {
                     description={
                         LOCATION.map(({ description, title }) => (
                             <div key={title} className={DATA_TITLE}>
-                                <h4>{title}</h4>
-                                <div>
-                                    {description}
-                                </div>
+                                {title}
+                                <div>{description}</div>
                             </div>
                         ))
                     }

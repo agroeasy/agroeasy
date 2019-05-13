@@ -7,26 +7,26 @@
 .data-title {
     margin-top: 22px;
     margin-bottom: 19.2px;
+    font-weight: 600;
 }
 .data-title div {
      float: right;
-     font-size: 12.5px;
+     font-size: 13.5px;
      text-align: right;
+     font-weight: 300;
 }
-.data-title b {
-    font-size: 13.5px;
-}
+
 .basic-info {
     margin-top: 15px;
     padding-bottom: 17.4px;
+    font-weight: 600;
 }
-.basic-info b {
-    font-size: 13.5px;
-}
+
 .basic-info div {
     float: right;
-    font-size: 13px;
+    font-size: 13.5px;
     padding-right: 40px;
+    font-weight: 300;
 }
 .big-card {
     background-color: DodgerBlue;
