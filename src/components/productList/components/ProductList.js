@@ -1,5 +1,6 @@
 import React from 'react';
 import { List } from 'antd';
+import PropTypes from 'prop-types';
 
 import Product from './Product';
 import CarouselImages from '../../productList/components/Carousel';
@@ -15,7 +16,6 @@ class ProductList extends React.Component {
         return(
             <React.Fragment>
                 { path !== '/home' && <CarouselImages /> } 
-
                 <List
                     bordered
                     className={PRODUCT_LIST_CLASSNAME}
@@ -31,5 +31,9 @@ class ProductList extends React.Component {
         );
     }
 }
+
+ProductList.propTypes = {
+    path: PropTypes.string,
+};
 
 export default ProductList;
