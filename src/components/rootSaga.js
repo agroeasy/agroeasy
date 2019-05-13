@@ -4,7 +4,7 @@ import producerItems from './producerItems';
 import contactus from './contactUs';
 import signin  from './signin';
 import signUp  from './signup';
-import userProfile from './userProfile'
+import userProfile from './userProfile';
 
 export default function* rootSaga(){
     yield effects.all([

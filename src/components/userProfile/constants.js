@@ -44,7 +44,7 @@ export const USER_PAGE = {
         SOLUTION: 'solution',
         SQUARE: 'square',
         START: 'start',
-        USER_NAME: 'Username'
+        USER_NAME: 'Username',
     },
     TEXTS: {
         ACCOUNT_INFO: 'Account Info',
@@ -60,22 +60,6 @@ export const USER_PAGE = {
         USER_PROFILE: 'User Profile',
     },
 };
-
-// export const BASIC_INFOMATION = [
-//     { description: 'Josh', title: "First Name:" },
-//     { description: 'Obinna', title: 'Last Name:' },
-//     { description: 'male', title: 'Gender:' },
-// ];
-// export const CONTACT = [
-//     { description: 'joshuaobinna@gmail.com',  title: "Email:" },
-//     { description: '+2347061589692',  title: "Phone:" },
-// ];
-
-// export const LOCATION = [
-//     { description:  '24, Wilkie Crescent, Ikeja', title: "Address:" },
-//     { description: "Lagos", title: 'City:' },
-//     { description: "Nigeria", title: 'Country:' },
-// ];
 
 export const SIDE_MENU_ITEMS = [
     { iconType: "info-circle", label: "Account", link: '/profile' },

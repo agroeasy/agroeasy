@@ -9,14 +9,16 @@ const { selectors: { getUserData } } = App;
 function* findUserData(){
     try {
         const user = yield effects.select(getUserData);
+        // eslint-disable-next-line no-console
         console.log(user);
         if (user) {
             yield effects.put(fetchUserData(user));
         } else {
-            
+            // eslint-disable-next-line no-console
             console.log("User data not fetched");
         }
     } catch(error){
+        // eslint-disable-next-line no-console
         console.log(error);
     }
 }
@@ -25,6 +27,7 @@ function* watchFetchUserData(){
     try {
         yield effects.takeEvery(REQUEST_FETCH_USER_DATA, findUserData);
     } catch(error){
+        // eslint-disable-next-line no-console
         console.log(error);
     }
 }
