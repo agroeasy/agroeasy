@@ -18,7 +18,7 @@ const footers = FOOTER_DATA.map(footer => (
             ))
         }
     </div>
-));
+)); 
 
 class AppFoot extends React.Component {
     render () {

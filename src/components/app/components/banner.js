@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button } from 'antd';
 
-class Banner extends Component {
+class Banner extends Component { 
     render() {
         return (
                 <div id="banner" style={{height: 'auto', backgroundColor: '#106021', padding: '50px', textAlign: 'center', color: 'white',}}>

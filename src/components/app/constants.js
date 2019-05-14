@@ -13,7 +13,7 @@ export const LOGO = {
     SHAPE: "square",
     SIZE: "large",
     SOURCE: "/AgroeasyLogo.png",
-};
+}; 
 
 /** @constant */
 export const NAVBAR = {
