@@ -61,6 +61,9 @@ npm run start-all
 ### Node 8.0+
 This service leverages the `async/wait` pattern and requires a newer version of node in order to properly work.
 
+### Engineering conventions we use
+https://github.com/Enye-Cohort-1/Engineering-Conventions
+
 ## Authors
 * **Eric Okemmadu**
 * **Chioma Onyekpere**
