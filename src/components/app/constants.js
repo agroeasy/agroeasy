@@ -43,7 +43,7 @@ export const USER_AVATAR = {
     SIGN_OUT: "Sign Out",
     USER_DROP_DOWN: "user-avatar-drop-down",
     USER_PROFILE: "User Profile",
-};
+}; 
 
 /** @constant */
 export const FOOTER_DATA = [{
@@ -64,10 +64,18 @@ export const FOOTER_DATA = [{
     key: 'about',
 }, {
     header: 'Support',
-    items: [{ title: 'Contact Us' }, { title: 'FAQ' }],
+    items: [{ title: 'Contact Us' }, 
+            { title: 'Report Abuse' },
+            { title: 'FAQ' }
+           ],
     key: 'support',
-}, {
-    items: [{ title: 'All rights reserved, Copyright © 2018 Agroeasy.' }],
+},
+ {
+    header: 'AgroEasy',
+    items: [{ title: 'Privacy Policy' },
+            { title: 'Terms And Conditions' },
+            { title: 'Report Abuse' }
+           ],
     key: 'rights',
 }];
 

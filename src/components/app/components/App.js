@@ -4,16 +4,18 @@ import { connect } from 'react-redux';
 import { Layout, message } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import Footer2 from './footer2';
 
 import contactus from '../../contactUs';
 import Footer from './Footer';
+import Banner from './banner';
 import Navbar from './Navbar';
 import { getLoginStatus, getUserData } from '../selectors';
 import { SIGNIN_SUCCESS } from '../constants';
 import { resetStatusStatus } from '../actions';
 
 const { ContactUs } = contactus.components;
-const { Content } = Layout;
+const { Content } = Layout; 
 
 class App extends React.Component {
 
@@ -33,7 +35,9 @@ class App extends React.Component {
             <Layout>
                 <Navbar />
                 <Content>{children}</Content>
+                <Banner />
                 <Footer />
+                <Footer2 />
                 <ContactUs />
             </Layout>
         );

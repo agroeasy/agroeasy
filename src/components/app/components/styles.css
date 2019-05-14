@@ -1,4 +1,20 @@
 .footer-container {
     background-color: #f0f2f5;
+    text-align: center; 
+    color: green;  
+}
+
+a {
+    color: green;
+}
+
+.footer2 {
+    background-color: black;
     text-align: center;
+    height: 50px;
+    padding-top: 15px;
+    font-size: 80%;
+}
+h4 {
+    color: azure;
 }
