@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable sort-keys */
 /** @constant */
 export const NAME = 'app';
 
@@ -64,26 +66,70 @@ export const FOOTER_DATA = [{
     key: 'about',
 }, {
     header: 'Support',
-    items: [{ title: 'Contact Us' }, 
-            { title: 'Report Abuse' },
-            { title: 'FAQ' }
-           ],
+    items: [
+        { title: 'Contact Us' }, 
+        { title: 'Report Abuse' },
+        { title: 'FAQ' },
+    ],
     key: 'support',
 },
- {
+{
     header: 'AgroEasy',
-    items: [{ title: 'Privacy Policy' },
-            { title: 'Terms And Conditions' },
-            { title: 'Report Abuse' }
-           ],
+    items: [
+        { title: 'Privacy Policy' },
+        { title: 'Terms And Conditions' },
+        { title: 'Report Abuse' },
+    ],
     key: 'rights',
-}];
+},
+];
 
 /** @constant */
 export const FOOTER_CLASSNAMES = {
     CONTAINER: 'footer-container',
     DYNAMIC_FOOTER: 'ant-col-xs-24 ant-col-sm-24 ant-col-md-6',
     ROW: 'ant-row',
+};
+
+/** @constant */
+export const BANNER_DATA = [
+    {
+        icon: 'fa fa-car',
+        header: 'Fast Delivery',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        key: 'fast',
+    }, 
+    {
+        icon: 'fa fa-usd',
+        header: 'Price Minimization',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        key: 'price',
+    }, 
+    {
+        icon: 'fa fa-trash',
+        header: 'Reduce Food Wastage',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        key: 'food',
+    }, 
+    {
+        icon: 'fa fa-users',
+        header: 'Social Economic Driven',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        key: 'social',
+    }, 
+];
+
+export const BANNER_HEADING = "Why You Need Us";
+export const LEARN_MORE = "Learn More";
+export const FOOTER_STRING = "All rights reserved, Copyright © 2019 Agroeasy.";
+
+/** @constant */
+export const BANNER_CLASSNAMES = {
+    BANNER: 'banner',
+    FLEXBOX: 'flexbox',
+    BANNER_CARD: 'banner_card',
+    BANNER_ICON: 'banner_icon',
+    BANNER_COLOR: 'banner_color',
 };
 
 export const VALID_SIGNOUT = "You have been signed out";

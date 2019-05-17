@@ -18,3 +18,48 @@ a {
 h4 {
     color: azure;
 } 
+
+.banner {
+    height: auto;
+    background-color: #106021; 
+    padding: 50px; 
+    text-align: center; 
+    color: white;
+}
+.banner h2 {
+    color: white;
+    padding-bottom: 20px;
+}
+
+.flexbox {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around;
+}
+
+.banner_card {
+    width: 220px; 
+    display: block; 
+    text-align: center;
+    padding: 15px;
+    color: white;
+}
+
+.banner_icon {
+    border-radius:15px; 
+    width: 50px; 
+    height: 50px; 
+    background-color: white; 
+    margin: auto;
+
+}
+
+.banner_icon i {
+    color: #106021; 
+    font-size: 20px; 
+    padding-top: 15px;
+}
+
+.banner_color {
+    color: white;
+}
