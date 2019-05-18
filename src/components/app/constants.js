@@ -94,25 +94,25 @@ export const FOOTER_CLASSNAMES = {
 /** @constant */
 export const BANNER_DATA = [
     {
-        icon: 'fa fa-car',
+        icon: 'car',
         header: 'Fast Delivery',
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         key: 'fast',
     }, 
     {
-        icon: 'fa fa-usd',
+        icon: 'dollar',
         header: 'Price Minimization',
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         key: 'price',
     }, 
     {
-        icon: 'fa fa-trash',
+        icon: 'rest',
         header: 'Reduce Food Wastage',
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         key: 'food',
     }, 
     {
-        icon: 'fa fa-users',
+        icon: 'team',
         header: 'Social Economic Driven',
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         key: 'social',

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './styles.css';
-import { Button } from 'antd';
+import { Button, Icon } from 'antd';
 
 import { BANNER_CLASSNAMES, BANNER_DATA, BANNER_HEADING, LEARN_MORE } from '../constants';
 
@@ -9,7 +9,7 @@ const { BANNER, BANNER_FLEX, BANNER_CARD, BANNER_ICON, BANNER_COLOR } = BANNER_C
 const banners = BANNER_DATA.map(({ key, icon, header, body }) => (
     <div className={BANNER_CARD} key={key}>
         <div className={BANNER_ICON}>
-            <i className={icon} ></i>
+            <Icon type={icon} />
         </div>
         <h3 className={BANNER_COLOR}>{header}</h3>
         <h5 className={BANNER_COLOR}>{body}</h5> 
