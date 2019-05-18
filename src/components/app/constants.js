@@ -120,7 +120,7 @@ export const BANNER_DATA = [
 ];
 
 export const BANNER_HEADING = "Why You Need Us";
-export const LEARN_MORE = "Learn More";
+export const LEARN_MORE = "Learn More >>";
 export const FOOTER_STRING = "All rights reserved, Copyright © 2019 Agroeasy.";
 
 /** @constant */

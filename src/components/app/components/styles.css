@@ -63,3 +63,18 @@ h4 {
 .banner_color {
     color: white;
 }
+
+/* button_style {
+    color: white;
+    background-color: #106021;
+    float: right;
+    padding-right: 40px;
+} */
+
+.banner button {
+    color: white;
+    background-color: #106021;
+    float: right;
+    margin-right: 100px;
+    margin-top: 40px;
+}

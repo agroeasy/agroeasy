@@ -22,7 +22,7 @@ class Banner extends Component {
             <div className={BANNER}>
                 <h2>{BANNER_HEADING}</h2>
                 <div className={BANNER_FLEX}>{banners}</div>
-                <Button>{LEARN_MORE}</Button>
+                <Button >{LEARN_MORE}</Button>
             </div> 
         );
     }
