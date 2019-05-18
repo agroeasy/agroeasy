@@ -126,7 +126,7 @@ export const FOOTER_STRING = "All rights reserved, Copyright © 2019 Agroeasy.";
 /** @constant */
 export const BANNER_CLASSNAMES = {
     BANNER: 'banner',
-    FLEXBOX: 'flexbox',
+    BANNER_FLEX: 'banner_flex',
     BANNER_CARD: 'banner_card',
     BANNER_ICON: 'banner_icon',
     BANNER_COLOR: 'banner_color',
