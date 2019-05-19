@@ -15,7 +15,7 @@ import { SIGNIN_SUCCESS } from '../constants';
 import { resetStatusStatus } from '../actions';
 
 const { ContactUs } = contactus.components;
-const { Content } = Layout; 
+const { Content } = Layout;
 
 class App extends React.Component {
 

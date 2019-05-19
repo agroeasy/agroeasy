@@ -15,7 +15,7 @@ export const LOGO = {
     SHAPE: "square",
     SIZE: "large",
     SOURCE: "/AgroeasyLogo.png",
-}; 
+};
 
 /** @constant */
 export const NAVBAR = {
@@ -88,6 +88,7 @@ export const FOOTER_CLASSNAMES = {
     CONTAINER: 'footer-container',
     DYNAMIC_FOOTER: 'ant-col-xs-24 ant-col-sm-24 ant-col-md-6',
     ROW: 'ant-row',
+    FOOTER2: 'footer2',
 };
 
 /** @constant */
