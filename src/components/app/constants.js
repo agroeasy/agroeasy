@@ -81,8 +81,7 @@ export const FOOTER_DATA = [{
         { title: 'Report Abuse' },
     ],
     key: 'rights',
-},
-];
+}];
 
 /** @constant */
 export const FOOTER_CLASSNAMES = {
