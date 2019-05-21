@@ -22,7 +22,7 @@ function* requestProducersItems(){
         if (response.ok) {
             const { data } = yield response.json();
 
-            yield effects.put((data));
+            yield effects.put(updateProductList(data));
         } else {
             const result = yield response.json();
 
