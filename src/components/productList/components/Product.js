@@ -7,7 +7,7 @@ import { PRODUCT } from '../constants';
 
 const { Meta } = Card;
 const {
-    ACTIONS: { INFO_CIRCLE, SHOPPING },
+    ACTIONS: { INFO_CIRCLE },
     CARD_IMAGE,
     DEFAULT_DESCRIPTION,
     TAG_COLOR,
@@ -35,7 +35,6 @@ class Product extends React.Component {
             </div>
         );
         const actions = [
-            <Icon key={SHOPPING} type={SHOPPING} />,
             <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />,
         ];
 
