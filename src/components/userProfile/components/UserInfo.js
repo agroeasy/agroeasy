@@ -14,7 +14,7 @@ const {
         ROW_CONTAINER, 
         TITLE, 
     },
-        PROFILE_PIX,
+    PROFILE_PIX,
     STRINGS: { EDIT, GHOST, SMALL, SQUARE },
     TEXTS: { EDIT_PHOTO },
 } = USER_PAGE;
