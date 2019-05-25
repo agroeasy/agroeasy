@@ -1,60 +1,62 @@
-/*UserInfo */
-.header-title {
+/*  in userIndo.js */
+.info-div {
+    padding: 15px 20px;
+}
+
+/* heading in userInfo.js */
+h4 {
+    background-color: ghostwhite;
+    color: black;
+    font-size: 13px;
+}
+
+/* row containing title and description for user info in userInfo.js */
+.row-container {
+    padding-bottom: 4px;
+}
+
+/* edit icon in userInfo in userInfo.js */
+.icon-edit {
+    color: skyblue;
+}
+
+/* for first name, last name, gender, email... in userInfo.js */
+.title {
     color: darkgray;
-    font-size: 13px;
-    font-weight: bold;
+    font-weight: 400;
 }
-.data-title {
-    margin-top: 22px;
-    margin-bottom: 19.2px;
+
+/* container for avatar and photo edit botton in userInfo.js */
+.avatar-container {
+    background-color: white !important;
+    border-bottom: 3px solid lightgrey;
 }
-.data-title div {
-     float: right;
-     font-size: 12.5px;
-     text-align: right;
+
+/** UserAvatar in userInfo.js */
+.avatar {
+    margin-top: 50px;
+    margin-bottom: 35px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 17%;
+    border-radius: 35%;
 }
-.data-title b {
-    font-size: 13.5px;
+
+/* profile pix edit botton in userInfo.js */
+.edit-botton {
+    color: skyblue;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
 }
-.basic-info {
-    margin-top: 15px;
-    padding-bottom: 17.4px;
-}
-.basic-info b {
-    font-size: 13.5px;
-}
-.basic-info div {
-    float: right;
-    font-size: 13px;
-    padding-right: 40px;
-}
-.big-card {
-    background-color: DodgerBlue;
-    width: 1000px;
-}
-.card-header {
-    color: white;
-    font-size: 16px;
-    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-    font-weight: 600;
-    padding-left: 37px;
-}
-.inner-card {
-    padding-right: 40px;
-    padding-left: 40px;
-}
-/**UserProfile.js */
-.big-content {
-    background: white;
-}
-.big-layout {
-    background: white;
-    margin-top: 1%;
-}
+
+/* styles from userProfile.js */
 .sider {
     background: white;
-
 }
+
 .menu {
     height: 100%;
     min-height: 550px;
@@ -62,25 +64,9 @@
 }
 .sm-content {
     padding: 0 14px;
-}
-.info-card {
-    float: right;
-    width: 100%;
-}
-.card-meta {
-    margin-top: 35px;
-}
-.profile-content {
-  padding: 60px;
+    background-color: white;
 }
 
-/** UserAvatar */
-.avatar {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.avatar-card {
-    margin: -7%;
-    padding-top: 24px;
+.info-card {
+    width: auto;
 }
