@@ -5,19 +5,19 @@ import { PROFILE_INFO, USER_PAGE } from '../constants';
 
 const { 
     CLASSNAMES: { 
-    AVATAR, 
-    AVATAR_CONTAINER, 
-    EDIT_ICON, 
-    EDIT_BOTTON, 
-    INFO_CARD, 
-    INFO_DIV, 
-    ROW_CONTAINER, 
-    TITLE, 
-},
+        AVATAR, 
+        AVATAR_CONTAINER, 
+        EDIT_ICON, 
+        EDIT_BOTTON, 
+        INFO_CARD, 
+        INFO_DIV, 
+        ROW_CONTAINER, 
+        TITLE, 
+    },
         PROFILE_PIX,
-        STRINGS: { EDIT, GHOST, SMALL, SQUARE },
-        TEXTS: { EDIT_PHOTO },
-} = USER_PAGE
+    STRINGS: { EDIT, GHOST, SMALL, SQUARE },
+    TEXTS: { EDIT_PHOTO },
+} = USER_PAGE;
 
 // mapping various user information
 const profile = PROFILE_INFO.map(({ heading, info, key }) => ( 
@@ -26,14 +26,14 @@ const profile = PROFILE_INFO.map(({ heading, info, key }) => (
             {heading}  
             <Icon type={EDIT} className={EDIT_ICON} />
         </h4>
-            {
-                info.map(({ description, title }) => (
-                    <Row gutter={16} key={title} className={ROW_CONTAINER}>
-                        <Col span={12} className={TITLE}>{title}</Col>
-                        <Col span={12}>{description}</Col>
-                    </Row>
-                ))
-            }
+        {
+            info.map(({ description, title }) => (
+                <Row gutter={16} key={title} className={ROW_CONTAINER}>
+                    <Col span={12} className={TITLE}>{title}</Col>
+                    <Col span={12}>{description}</Col>
+                </Row>
+            ))
+        }
     </div>
 
 ));

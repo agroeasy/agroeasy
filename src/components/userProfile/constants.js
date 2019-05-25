@@ -25,17 +25,17 @@ export const USER_PAGE = {
     },
     TEXTS: {
         EDIT_PHOTO: 'Edit Photo',
-    }
+    },
 };
 
 export const PROFILE_INFO = [{
-     heading: "BASIC INFOMATION",
-     info: [
+    heading: "BASIC INFOMATION",
+    info: [
         { description: 'Josh', title: "First Name:" },
         { description: 'Obinna', title: 'Last Name:' },
         { description: 'male', title: 'Gender:' },  
-     ],
-     key: 'basic',
+    ],
+    key: 'basic',
 }, {
     heading: 'CONTACT INFOMATION',
     info: [
