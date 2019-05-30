@@ -78,3 +78,6 @@ export const SIDE_MENU_ITEMS = [
     { iconType: "setting", label: "Settings" },
     { iconType: "solution", label: "Help" },
 ];
+
+export const SIGN_URL = "/api/signin";
+export const NAME = "/userProfile";

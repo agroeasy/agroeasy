@@ -7,7 +7,7 @@ import contactUs from './contactUs';
 
 const router = express.Router();
 
-router.use('/account', signInAndOut);
+router.use('/api', signInAndOut);
 router.use('/account', signUp);
 router.use('/account', contactUs);
 router.use('/producer', producer);

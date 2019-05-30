@@ -9,15 +9,10 @@ import productList  from '../../productList';
 import userProfile from '../../userProfile';
 import history from '../../history/History';
 import { PATHS } from '../constants';
+import Callback from '../../auth0/Callback';
 
 const { ABOUT, HOME, MARKET, PROFILE } = PATHS;
 const { App } = app.components;
-
-// const handleAuthentication = (nextState, replace) => {
-//     if (/access_token|id_token|error/.test(nextState.location.hash)) {
-//         auth.handleAuthentication();
-//     }
-// };
 
 const Routes = () => (
     <Router history={history}>
@@ -27,6 +22,7 @@ const Routes = () => (
                 <Route path={MARKET} exact strict component={productList.components.ProductList} />
                 <Route path={PROFILE} component={userProfile.components.UserProfile} />
                 <Route path={ABOUT} exact strict component={aboutUs.components.AboutUs} />
+                <Route path={"/callback"} exact strict component={Callback} />
                 <Route component={NoMatch} />
             </Switch>
         </App>

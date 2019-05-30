@@ -1,8 +1,9 @@
 import { effects } from 'redux-saga';
-import {  SIGNUP_REQUEST } from './actionTypes';
-import { SIGNUP_URL } from './constants';
-import {  getUserData } from '../app/actions';
-import { signupFail, signupSuccess } from './actions';
+import {  REQUEST_AUTH_USER_JWT } from './actionTypes';
+import { SIGN_URL } from './constants';
+import app from '../app';
+
+const { actions: { userDataNotFound, getUserData } } = app;
 
 /**
  * Makes a request to sign up a user
@@ -11,25 +12,21 @@ import { signupFail, signupSuccess } from './actions';
  *
  * @return {object} An object containing either "data" or "error"
  */
-function* signupUser(action) {
+function* getAllUserInfo(action) {
     try {
         const { payload } = action;
-        const response = yield fetch(SIGNUP_URL, {
-            body: JSON.stringify(payload),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: 'POST',
+        const response = yield fetch(`${SIGN_URL}?idToken=${payload}`, {
+            method: 'GET',
         });
 
         if(response.ok){
             const data = yield response.json();
-            yield effects.put(signupSuccess());
             yield effects.put(getUserData(data));
         } else { 
             const data = yield response.json();
-            yield effects.put(signupFail(data));
+            yield effects.put(userDataNotFound(data));
         }
+
     } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
@@ -38,14 +35,14 @@ function* signupUser(action) {
 
 /**
  * @function
- * Watches for the {@link actionTypes.SIGNUP_REQUEST SIGNUP_REQUEST} action.
+ * Watches for the {@link actionTypes.REQUEST_AUTH_USER_MAIL REQUEST_AUTH_USER_MAIL} action.
  * Triggers request to capture data from body
  *
  * @return {void}
  */
-function* watchSignupUser() {
+function* watchgetAllUserInfo() {
     try {
-        yield effects.takeEvery(SIGNUP_REQUEST, signupUser);
+        yield effects.takeLatest(REQUEST_AUTH_USER_JWT, getAllUserInfo);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.log(Error);
@@ -54,6 +51,6 @@ function* watchSignupUser() {
 
 export default function* () {
     yield effects.all([
-        watchSignupUser(),
+        watchgetAllUserInfo(),
     ]);
 }

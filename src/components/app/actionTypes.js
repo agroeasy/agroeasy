@@ -1,31 +1,16 @@
 import { NAME } from './constants';
 /**
- * Fired by the {@link actions.setCookie setCookie}
+ * Fired by the {@link actions.getUserData getUserData}
+ * action creator.
+ *
+ * @type {String}
+ */export const GET_USER_DATA = `${NAME}/GET_USER_DATA`;
+
+/**
+ * Fired by the {@link actions.userDataNotFound userDataNotFound}
  * action creator.
  *
  * @type {String}
  */
-export const SET_COOKIE = 'SET_COOKIE';
+export const USER_DATA_NOT_FOUND = `${NAME}/USER_DATA_NOT_FOUND`;
 
-/**
- * Fired by the {@link actions.removeCookie removeCookie}
- * action creator.
- *
- * @type {String}
- */export const REMOVE_COOKIE = `${NAME}/REMOVE_COOKIE`;
-
-/**
- * Fired by the {@link actions.resetSigninState resetSigninState}
- * action creator.
- *
- * @type {String}
- */
-export const RESET_STATE = `${NAME}/RESET_STATE`;
-
-/**
- * Fired by the {@link actions.resetStatusStatus resetStatusStatus}
- * action creator.
- *
- * @type {String}
- */
-export const RESET_STATUS_STATE = `${NAME}/RESET_STATUS_STATE`;

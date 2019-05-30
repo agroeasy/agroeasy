@@ -80,6 +80,4 @@ export const FOOTER_CLASSNAMES = {
 
 export const VALID_SIGNOUT = "You have been signed out";
 
-export const SIGNIN_SUCCESS = "Hello";
-
-export const EXPIRATION = 86400000;
+export const SIGN_URL = "/api/signin";

@@ -7,6 +7,6 @@ const { allUsers, logout, signInUser } = helpers;
 
 router.get('/findusers', allUsers);
 router.get('/logout', logout);
-router.post('/signin', signInUser);
+router.get('/signin', signInUser);
 
 export default router;

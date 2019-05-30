@@ -2,12 +2,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Layout } from 'antd';
 import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import ProfileContent from './ProfileContent';
 import SideMenu from './SideMenu';
 import { ProducerItems } from '../../producerItems/components';
 import { USER_PAGE } from '../constants';
 import Auth from '../../auth0/Auth';
+import { getUserAuthJwt } from '../actions';
 
 const { Content, Sider } = Layout;
 const {
@@ -16,21 +19,15 @@ const {
 
 class UserProfile extends React.Component {
 
-    componentDidMount() {
+    componentDidMount(){
         const auth = new Auth();
-        auth
-            .handleAuthentication();
-        // .then(user => {
-        //     console.log(user);
-        // })
-        // .catch(err => console.log(err));
-        auth.isAuthenticated();
+        const { getUserAuthJwt } = this.props.actions;
+    
+        if(auth.isAuthenticated()) {
+            const idToken = auth.getIdToken();
+            getUserAuthJwt(idToken);
+        }
     }
-/* 
-    componentDidUpdate(){
-        const auth = new Auth();
-        auth.isAuthenticated();
-    } */
 
     render() {
         const { path } = this.props.match;
@@ -54,8 +51,13 @@ class UserProfile extends React.Component {
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({ getUserAuthJwt }, dispatch),
+});
+
 UserProfile.propTypes = {
+    actions: PropTypes.object,
     match: PropTypes.object,
 };
 
-export default UserProfile;
+export default connect(null, mapDispatchToProps)(UserProfile);

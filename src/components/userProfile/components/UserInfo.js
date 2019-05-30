@@ -1,8 +1,7 @@
 import React from 'react';
-import { Card, Divider, Button } from 'antd';
+import { Card, Divider } from 'antd';
 
 import { CONTACT, LOCATION, USER_PAGE } from '../constants';
-import Auth from '../../auth0/Auth';
 
 const { Meta } = Card;
 const {
@@ -12,10 +11,6 @@ const {
 
 export default class UserInfo extends React.Component {
 
-    logout(){
-        const auth = new Auth();
-        auth.logout();
-    }
     render() {
         return (
             <Card
@@ -50,7 +45,6 @@ export default class UserInfo extends React.Component {
                         ))
                     }
                 />
-                <Button onClick={this.logout}>Logout</Button>
             </Card>
         );
     }

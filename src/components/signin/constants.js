@@ -1,12 +1,7 @@
 /* Signin Form Strings*/
 export const NAME = 'signin';
 
-export const SIGNIN_STRINGS = {
-    FAIL_MESSAGE: "Unsuccessful sigin, check your email or password",
-    PRIMARY: "primary",
-    SUCCESS: "success",
-    TITLE: "Sign in",
-};
+export const SIGNIN_BUTTON = "signIn_Button";
 
 export const INPUTS = [
     {

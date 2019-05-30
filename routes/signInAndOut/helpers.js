@@ -1,11 +1,10 @@
-import bcrypt from 'bcrypt-nodejs';
 import _pick from 'lodash.pick';
+import jwtDecode from 'jwt-decode';
 import { 
     NOT_FOUND, 
     INTERNAL_SERVER_ERROR, 
     OK, 
-    getStatusText, 
-    UNAUTHORIZED 
+    getStatusText
 } from 'http-status-codes';
 
 import CONSTANTS from './constants';
@@ -14,7 +13,6 @@ import models from '../../db/models/';
 const { User, UserSession } = models;
 const {
     FAIL,
-    INVALID_SIGNIN,
     LOGOUT,
     NO_EMAIL_PASSWORD,
     SUCCESS,
@@ -59,9 +57,10 @@ export default {
     },
 
     signInUser: async (req, res) => {
-        const { email, password } = req.body;
+        const { idToken } = req.query;
+        const { email } = jwtDecode(idToken);
 
-        if (!email || !password) {
+        if (!email) {
             return res.status(NOT_FOUND).json({
                 data: { title: NO_EMAIL_PASSWORD },
                 status: FAIL,
@@ -71,36 +70,24 @@ export default {
         try {
             const user = await User.findOne({ email });
 
+            const status = user ? OK : NOT_FOUND;
+            
             if(!user){
-                return res.status(NOT_FOUND).json({
+                //TODO: Grab the email and the name of the user to open a new account for the 
+                //user, user can then update other informations later.
+                return res.status(status).json({
                     data: { title: USER_NOT_FOUND },
                     status: FAIL,
                 });
+            } else {
+                return res.status(status).json({
+                    data: {
+                        user: _pick(user, USERINFO),
+                    },
+                    status: SUCCESS,
+                });
             }
 
-            const userSession = Object.assign(new UserSession(), { userId: user._id  });
-            const doc = await userSession.save();
-            
-            bcrypt.compare(password, user.password, (error, result) => {
-                const data = result ?
-                    {
-                        data: {
-                            token: doc._id,
-                            user: _pick(user, USERINFO),
-                        },
-                        status: SUCCESS,
-                    } : { 
-                        data: {
-                            error,
-                            title: INVALID_SIGNIN,
-                        },           
-                        status: FAIL,
-                    };
-
-                const status = result ? OK : UNAUTHORIZED;
-
-                return res.status(status).json(data);
-            });
         } catch(error) {
             return res
                 .status(INTERNAL_SERVER_ERROR)

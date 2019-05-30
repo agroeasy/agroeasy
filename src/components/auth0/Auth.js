@@ -1,38 +1,7 @@
 import auth0 from 'auth0-js';
 import history from '../history/History';
+import jwtDecode from 'jwt-decode';
 
-// export default class Auth {
-//   auth0 = new auth0.WebAuth({
-//       clientID: 'vAkAOPDvC9MNzvi4EU-0pW9DSuiOP1w8',
-//       domain: 'agroeasy.auth0.com',
-//       redirectUri: 'http://localhost:4000/profile',
-//       responseType: 'token id_token',
-//       scope: 'openid profile',
-//   });
-
-//   login() {
-//       this.auth0.authorize();
-//   }
-//   parseTokens() {
-//       return new Promise((resolve, reject) => this.auth0.parseHash((err, result) => {
-//           if (err) {
-//               reject(err);
-//           } else {
-//               resolve({ ...result, expiresAt: (result.expiresIn * 1000) + new 
-//               Date().getTime() });
-//           }
-//       }
-//       ));
-//   }
-
-//   logout(){
-//       this.auth0.logout();
-//   }
-// }
-
-// src/Auth/Auth.js
-
-// ...
 export default class Auth {
 
     accessToken;
@@ -40,11 +9,12 @@ export default class Auth {
     expiresAt;
 
     auth0 = new auth0.WebAuth({
+        audience: "https://agroeasy.auth0.com/userinfo",
         clientID: 'vAkAOPDvC9MNzvi4EU-0pW9DSuiOP1w8',
         domain: 'agroeasy.auth0.com',
-        redirectUri: 'http://localhost:4000/profile',
+        redirectUri: 'http://localhost:4000/callback',
         responseType: 'token id_token',
-        scope: 'openid profile',
+        scope: 'openid email meta_data profile',
     });
 
     constructor() {
@@ -63,23 +33,30 @@ export default class Auth {
 
     handleAuthentication() {
         this.auth0.parseHash((err, authResult) => {
-            console.log(authResult);
             if (authResult && authResult.accessToken && authResult.idToken) {
                 this.setSession(authResult);
             } else if (err) {
                 history.replace('/');
-                console.log(err);
                 alert(`Error: ${err.error}. Check the console for further details.`);
             }
         });
     }
 
+    getUserProfile(){
+        const idToken = this.getIdToken();
+        if(idToken){
+            return jwtDecode(idToken);
+        }else {
+            return {};
+        }
+    }
+
     getAccessToken() {
-        return this.accessToken;
+        return localStorage.getItem("accessToken");
     }
 
     getIdToken() {
-        return this.idToken;
+        return localStorage.getItem("idToken");
     }
 
     setSession(authResult) {
@@ -88,11 +65,14 @@ export default class Auth {
 
         // Set the time that the Access Token will expire at
         const expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
-        this.accessToken = authResult.accessToken;
-        this.idToken = authResult.idToken;
-        this.expiresAt = expiresAt;
+        const accessToken = authResult.accessToken;
+        const idToken = authResult.idToken;
 
-        // navigate to the home route
+        localStorage.setItem('expiresAt', expiresAt);
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('idToken', idToken);
+        
+        // navigate to the profile route
         history.replace('/profile');
     }
    
@@ -102,21 +82,20 @@ export default class Auth {
                 this.setSession(authResult);
             } else if (err) {
                 this.logout();
-                console.log(err);
                 alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
             }
         });
     }
 
     logout() {
-        // Remove tokens and expiry time
-        this.accessToken = null;
-        this.idToken = null;
-        this.expiresAt = 0;
 
+        // Remove tokens and expiry time
         // Remove isLoggedIn flag from localStorage
         localStorage.removeItem('isLoggedIn');
-
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('idToken');
+        localStorage.removeItem('expiresAt');
+        
         this.auth0.logout();
 
         // navigate to the home route
@@ -126,7 +105,7 @@ export default class Auth {
     isAuthenticated() {
         // Check whether the current time is past the
         // access token's expiry time
-        const expiresAt = this.expiresAt;
+        const expiresAt = JSON.parse(localStorage.getItem("expiresAt"));
         // console.log(expiresAt);
         return new Date().getTime() < expiresAt;
     }
