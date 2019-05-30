@@ -20,7 +20,7 @@ const Routes = () => (
             <Switch>
                 <Route path={HOME} exact strict component={home.components.Home} />
                 <Route path={MARKET} exact strict component={productList.components.ProductList} />
-                <Route path={PROFILE} component={userProfile.components.UserProfile} />
+                <Route path={PROFILE} component= {userProfile.components.UserProfile} />
                 <Route path={ABOUT} exact strict component={aboutUs.components.AboutUs} />
                 <Route path={"/callback"} exact strict component={Callback} />
                 <Route component={NoMatch} />
