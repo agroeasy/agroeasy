@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Skeleton, List, Avatar } from 'antd';
 
 import Auth from './Auth';
-import { skeletonData } from './constants';
+import { SKELETON_DATA } from './constants';
 
 const listData = [];
 for (let i = 0; i < 3; i++) {
-    listData.push(skeletonData(i));
+    listData.push(SKELETON_DATA);
 }
 
 //Component that shows faint user profile when auth0 is authenticating user
