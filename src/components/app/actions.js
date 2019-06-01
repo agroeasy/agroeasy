@@ -21,3 +21,6 @@ export const userDataNotFound = error => ({
     error,
     type: USER_DATA_NOT_FOUND,
 });
+
+//TODO: when ever userDataNotFound action is called
+//call an action to request the user to register 

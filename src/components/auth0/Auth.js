@@ -14,7 +14,7 @@ export default class Auth {
         domain: 'agroeasy.auth0.com',
         redirectUri: 'http://localhost:4000/callback',
         responseType: 'token id_token',
-        scope: 'openid email meta_data profile',
+        scope: 'openid email profile',
     });
 
     constructor() {
