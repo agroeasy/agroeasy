@@ -59,7 +59,7 @@ class Navbar extends React.Component {
                 </Item>
             </Menu>
         );
-        const isLoggedIn = localStorage.getItem("isLoggedIn");
+        const { isLoggedIn } = this.props;
 
         return (
             <Header className={MAIN_NAV}>
@@ -103,7 +103,6 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
     actions: PropTypes.object,
     isLoggedIn:PropTypes.bool,
-    isSignedUp: PropTypes.string,
     links: PropTypes.arrayOf(PropTypes.node),
     match: PropTypes.object,
 };

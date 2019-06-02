@@ -10,10 +10,9 @@ import {
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
-const { User, UserSession } = models;
+const { User } = models;
 const {
     FAIL,
-    LOGOUT,
     NO_EMAIL_PASSWORD,
     SUCCESS,
     USER_NOT_FOUND,
@@ -33,29 +32,10 @@ export default {
         }
     },
 
-    logout: async (req, res) => {
-        try{
-            const { token } = req.query;
-
-            await UserSession.findOneAndUpdate(
-                {
-                    _id: token,
-                    isDeleted: false,
-                },
-                { $set: {
-                    isDeleted:true,
-                },
-                }, null);
-
-            return res.send({
-                message: LOGOUT,
-                success: true,
-            });
-        } catch(err) {
-            res.send({ err, success: false });
-        }
-    },
-
+    /**
+     * Grabes the user id_token from query and returns user full profile info
+     * Signs user up if user does not exist
+     */
     signInUser: async (req, res) => {
         const { idToken } = req.query;
         const { email } = jwtDecode(idToken);
@@ -73,7 +53,8 @@ export default {
             const status = user ? OK : NOT_FOUND;
             
             if(!user){
-                //TODO: Grab the email and the name of the user to open a new account for the 
+                //TODO: If user is not found in our db, Grab the email 
+                //and the name of the user to open a new account for the 
                 //user, user can then update other informations later.
                 return res.status(status).json({
                     data: { title: USER_NOT_FOUND },

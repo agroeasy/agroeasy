@@ -5,3 +5,12 @@ export const SKELETON_DATA = {
     href: 'http://ant.design',
     title: 'ant design part',
 };
+
+export const AUTH0 = {
+    AUDIENCE: "https://agroeasy.auth0.com/userinfo",
+    CLIENTID: 'vAkAOPDvC9MNzvi4EU-0pW9DSuiOP1w8',
+    DOMAIN: 'agroeasy.auth0.com',
+    REDIRECTURI: 'http://localhost:4000/callback',
+    RESPONSETYPE: 'token id_token',
+    SCOPE: 'openid email profile',
+};

@@ -1,6 +1,10 @@
 import auth0 from 'auth0-js';
+import { message } from 'antd';
+
 import history from '../history/History';
-import jwtDecode from 'jwt-decode';
+import { AUTH0 }from './constants';
+
+const { AUDIENCE, CLIENTID, DOMAIN, REDIRECTURI, RESPONSETYPE, SCOPE } = AUTH0;
 
 export default class Auth {
 
@@ -9,12 +13,12 @@ export default class Auth {
     expiresAt;
 
     auth0 = new auth0.WebAuth({
-        audience: "https://agroeasy.auth0.com/userinfo",
-        clientID: 'vAkAOPDvC9MNzvi4EU-0pW9DSuiOP1w8',
-        domain: 'agroeasy.auth0.com',
-        redirectUri: 'http://localhost:4000/callback',
-        responseType: 'token id_token',
-        scope: 'openid email profile',
+        audience: AUDIENCE,
+        clientID: CLIENTID,
+        domain: DOMAIN,
+        redirectUri: REDIRECTURI,
+        responseType: RESPONSETYPE,
+        scope: SCOPE,
     });
 
     constructor() {
@@ -37,18 +41,9 @@ export default class Auth {
                 this.setSession(authResult);
             } else if (err) {
                 history.replace('/');
-                alert(`Error: ${err.error}. Check the console for further details.`);
+                message(`Error: ${err.error}. Check the console for further details.`);
             }
         });
-    }
-
-    getUserProfile(){
-        const idToken = this.getIdToken();
-        if(idToken){
-            return jwtDecode(idToken);
-        }else {
-            return {};
-        }
     }
 
     getAccessToken() {
@@ -82,7 +77,7 @@ export default class Auth {
                 this.setSession(authResult);
             } else if (err) {
                 this.logout();
-                alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+                message(`Could not get a new token (${err.error}: ${err.error_description}).`);
             }
         });
     }
