@@ -6,6 +6,7 @@ export const USER_PAGE = {
         BIG_LAYOUT: 'big-layout',
         EDIT_BOTTON: 'edit-botton',
         EDIT_ICON: 'icon-edit',
+        HEADER_INFO: 'header-info',
         INFO_CARD: 'info-card',
         INFO_DIV: 'info-div',
         MENU: 'menu',

@@ -8,7 +8,8 @@ const {
         AVATAR, 
         AVATAR_CONTAINER, 
         EDIT_ICON, 
-        EDIT_BOTTON, 
+        EDIT_BOTTON,
+        HEADER_INFO, 
         INFO_CARD, 
         INFO_DIV, 
         ROW_CONTAINER, 
@@ -22,7 +23,7 @@ const {
 // mapping various user information
 const profile = PROFILE_INFO.map(({ heading, info, key }) => ( 
     <div key={key} className={INFO_DIV}>
-        <h4>
+        <h4 className={HEADER_INFO}>
             {heading}  
             <Icon type={EDIT} className={EDIT_ICON} />
         </h4>
