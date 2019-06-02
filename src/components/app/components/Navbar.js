@@ -59,7 +59,7 @@ class Navbar extends React.Component {
                 </Item>
             </Menu>
         );
-        const { isLoggedIn } = this.props;
+        const isLoggedIn = localStorage.getItem("isLoggedIn");
 
         return (
             <Header className={MAIN_NAV}>
