@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 import { withRouter } from 'react-router-dom';
-import Footer2 from './footer2';
+import { connect } from 'react-redux';
 
+import Footer2 from './footer2';
 import contactus from '../../contactUs';
+import { setLoginStatus } from '../actions';
+import { bindActionCreators } from 'redux';
 import Footer from './Footer';
 import Banner from './banner';
 import Navbar from './Navbar';
@@ -13,7 +16,10 @@ const { ContactUs } = contactus.components;
 const { Content } = Layout;
 
 class App extends React.Component {
-
+    componentDidMount() {
+        const { setLoginStatus } = this.props.actions;
+        setLoginStatus();
+    }
     render() {
         const { children } = this.props;
         return (
@@ -40,4 +46,8 @@ App.propTypes = {
     match: PropTypes.object,
 };
 
-export default withRouter(App);
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({ setLoginStatus }, dispatch),
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(App));

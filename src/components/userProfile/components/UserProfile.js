@@ -9,7 +9,7 @@ import ProfileContent from './ProfileContent';
 import SideMenu from './SideMenu';
 import { ProducerItems } from '../../producerItems/components';
 import { USER_PAGE } from '../constants';
-import Auth from '../../auth0/Auth';
+import Auth from '../../../auth0';
 import { getUserAuthJwt } from '../actions';
 
 const { Content, Sider } = Layout;
@@ -18,7 +18,6 @@ const {
 } = USER_PAGE;
 
 class UserProfile extends React.Component {
-
     componentDidMount(){
         const auth = new Auth();
         const { getUserAuthJwt } = this.props.actions;

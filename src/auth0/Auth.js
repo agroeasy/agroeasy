@@ -1,16 +1,12 @@
 import auth0 from 'auth0-js';
 import { message } from 'antd';
 
-import history from '../history/History';
+import history from '../components/history/History';
 import { AUTH0 }from './constants';
 
 const { AUDIENCE, CLIENTID, DOMAIN, REDIRECTURI, RESPONSETYPE, SCOPE } = AUTH0;
 
 export default class Auth {
-
-    accessToken;
-    idToken;
-    expiresAt;
 
     auth0 = new auth0.WebAuth({
         audience: AUDIENCE,
@@ -44,6 +40,10 @@ export default class Auth {
                 message(`Error: ${err.error}. Check the console for further details.`);
             }
         });
+    }
+
+    getExpiresAt() {
+        return localStorage.getItem("expiresAt");
     }
 
     getAccessToken() {
@@ -101,7 +101,6 @@ export default class Auth {
         // Check whether the current time is past the
         // access token's expiry time
         const expiresAt = JSON.parse(localStorage.getItem("expiresAt"));
-        // console.log(expiresAt);
         return new Date().getTime() < expiresAt;
     }
 }

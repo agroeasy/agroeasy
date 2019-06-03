@@ -8,7 +8,7 @@ import { getLoginStatus } from '../selectors';
 
 import signin from '../../signin';
 import signup from '../../signup';
-import Auth from '../../auth0/Auth';
+import Auth from '../../../auth0/Auth';
 import { 
     LOGO, 
     MARKET_TEXT, 
@@ -59,7 +59,7 @@ class Navbar extends React.Component {
                 </Item>
             </Menu>
         );
-        const isLoggedIn = localStorage.getItem("isLoggedIn");
+        const { isLoggedIn } = this.props;
 
         return (
             <Header className={MAIN_NAV}>

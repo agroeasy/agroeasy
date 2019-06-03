@@ -14,3 +14,4 @@ import { NAME } from './constants';
  */
 export const USER_DATA_NOT_FOUND = `${NAME}/USER_DATA_NOT_FOUND`;
 
+export const SET_LOGIN_STATUS = `${NAME}/SET_LOGIN_STATUS`;

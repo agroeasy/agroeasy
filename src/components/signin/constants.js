@@ -1,7 +1,9 @@
 /* Signin Form Strings*/
 export const NAME = 'signin';
 
-export const SIGNIN_BUTTON = "signIn_Button";
+export const SIGNIN_BUTTON = "signin_button";
+export const SIGNIN_URL = "/account/signin";
+export const SIGN = "Signin";
 
 export const INPUTS = [
     {
@@ -17,5 +19,3 @@ export const INPUTS = [
         type: "password",
     },
 ];
-
-export const SIGNIN_URL = "/account/signin";

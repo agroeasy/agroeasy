@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Auth from '../../auth0';
-import { SIGNIN_BUTTON } from '../constants';
+import Auth from '../../../auth0';
+import { SIGNIN_BUTTON, SIGN } from '../constants';
 
 export default class Signin extends React.Component {
 
@@ -13,7 +13,7 @@ export default class Signin extends React.Component {
     render() {
         return (
             <div>
-                <button className = {SIGNIN_BUTTON} onClick = {this.handleAuth}>{"Signin"}</button>
+                <button className = {SIGNIN_BUTTON} onClick = {this.handleAuth}>{SIGN}</button>
             </div>
         );
     }

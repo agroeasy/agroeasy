@@ -49,19 +49,17 @@ export default {
 
         try {
             const user = await User.findOne({ email });
-
-            const status = user ? OK : NOT_FOUND;
             
-            if(!user){
+            if(!user) {
                 //TODO: If user is not found in our db, Grab the email 
                 //and the name of the user to open a new account for the 
                 //user, user can then update other informations later.
-                return res.status(status).json({
+                return res.status(NOT_FOUND).json({
                     data: { title: USER_NOT_FOUND },
                     status: FAIL,
                 });
             } else {
-                return res.status(status).json({
+                return res.status(OK).json({
                     data: {
                         user: _pick(user, USERINFO),
                     },

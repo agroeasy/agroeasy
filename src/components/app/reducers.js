@@ -1,9 +1,9 @@
-import { GET_USER_DATA } from './actionTypes';
-import Auth from '../auth0/Auth';
+import { GET_USER_DATA, SET_LOGIN_STATUS } from './actionTypes';
+import Auth from '../../auth0/Auth';
 const auth = new Auth();
 
 const initialState = {
-    isLoggedIn: auth.isAuthenticated(),
+    isLoggedIn: null,
     user: {},
 };
 
@@ -15,7 +15,15 @@ export default ( state = { ...initialState }, action) => {
         const { data: { user } } = action.payload; 
         return { 
             ...state,
+            isLoggedIn: auth.isAuthenticated(),
             user,
+        };
+    }
+
+    case SET_LOGIN_STATUS: {
+        return { 
+            ...state,
+            isLoggedIn: auth.isAuthenticated(),
         };
     }
     

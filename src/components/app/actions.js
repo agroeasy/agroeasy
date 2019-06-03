@@ -1,4 +1,4 @@
-import { GET_USER_DATA, USER_DATA_NOT_FOUND } from './actionTypes';
+import { GET_USER_DATA, USER_DATA_NOT_FOUND, SET_LOGIN_STATUS } from './actionTypes';
 
 /**
  * Triggers request to get user data 
@@ -20,6 +20,10 @@ export const getUserData = payload => ({
 export const userDataNotFound = error => ({
     error,
     type: USER_DATA_NOT_FOUND,
+});
+
+export const setLoginStatus = () => ({
+    type: SET_LOGIN_STATUS,
 });
 
 //TODO: when ever userDataNotFound action is called
