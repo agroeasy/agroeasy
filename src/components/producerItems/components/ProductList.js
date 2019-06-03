@@ -4,7 +4,7 @@ import { Avatar, Icon, List, Tag } from 'antd';
 
 import { LIST_ITEM_CLASS, PRODUCER_PAGE } from '../constants';
 
-const { EDIT, LARGE, PRODUCT_ITEM, VERTICAL } = PRODUCER_PAGE;
+const { DELETE, EDIT, LARGE, PRODUCT_ITEM, VERTICAL } = PRODUCER_PAGE;
 
 /**
  * Helper function used to generate tags for the item meta descrition section.
@@ -31,7 +31,7 @@ function createItemDescTags(item) {
  */
 export default class ProductList extends React.Component {
     render() {
-        const { list, openModal } = this.props;
+        const { list, openModal, deleteProduct } = this.props;
         return (
             <List
                 bordered={true}
@@ -43,7 +43,16 @@ export default class ProductList extends React.Component {
                 renderItem={item => {
                     const { description, _id, imageUrl, name } = item;
                     const actions = [
-                        <Icon key={EDIT} onClick={() => openModal(_id)} type={EDIT} />,
+                        <Icon
+                            key={EDIT}
+                            onClick={() => openModal(_id)}
+                            type={EDIT}
+                        />,
+                        <Icon
+                            key={DELETE}
+                            onClick={() => deleteProduct(_id)}
+                            type={DELETE}
+                        />,
                     ];
 
                     return (
@@ -67,6 +76,7 @@ export default class ProductList extends React.Component {
 }
 
 ProductList.propTypes = {
+    deleteProduct: PropTypes.func, 
     list: PropTypes.array,
-    openModal: PropTypes.func,
+    openModal: PropTypes.func,     
 };

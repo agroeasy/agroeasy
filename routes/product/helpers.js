@@ -56,7 +56,7 @@ export default {
     productDelete: async (req, res) => {
         try {
             const { body, params: { id: _id } } =  req;
-            await Product.findByIdAndRemove(_id, body);
+            await Product.findByIdAndDelete(_id, body);
             return res.json({ message: PRODUCT_DELETED, success: true });
         } catch (err) {
             res.send({ err, success: false });

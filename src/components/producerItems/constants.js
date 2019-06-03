@@ -96,6 +96,7 @@ export const EDITABLE_FIELDS = {
 
 /**@constant*/
 export const PRODUCER_PAGE = {
+    DELETE: 'delete',
     EDIT: 'edit',
     LARGE: 'large',
     PRODUCT_ITEM: 'product-item',
@@ -104,7 +105,9 @@ export const PRODUCER_PAGE = {
 
 /**@constant*/
 export const INITIAL_STATE = {
+    errorMessage: null,
     productList: new Map(),
+    successMessage: null,
 };
 
 export const UPLOADING = 'uploading';
@@ -121,3 +124,4 @@ export const IMAGE = 'image';
 export const CLEARFIX = "clearfix";
 export const IMAGE_WIDTH = "image-width";
 export const NUM_OF_IMAGES = 0; 
+

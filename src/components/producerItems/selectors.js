@@ -1,4 +1,4 @@
-import { NAME } from './constants';
+import { NAME } from "./constants";
 
 /**
  * Selects the <tt>productList</tt> key.
@@ -9,3 +9,6 @@ import { NAME } from './constants';
  * {@link module:home/constants::INITIAL_STATE constants::INITIAL_STATE}).
  */
 export const getProductList = state => state[NAME].productList;
+export const getSuccessMessage = state => state[NAME].successMessage;
+export const getErrorMessage = state => state[NAME].errorMessage;
+

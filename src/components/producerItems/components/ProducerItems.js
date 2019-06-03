@@ -8,8 +8,12 @@ import { Button, Icon } from 'antd';
 import ProductList from './ProductList';
 import ProductEditModal from './ProductEditModal';
 
-import { requestProductList, requestProductUpdate } from '../actions';
-import { getProductList } from '../selectors';
+import {
+    requestProductDelete,
+    requestProductList,
+    requestProductUpdate
+} from "../actions";
+import { getProductList, getSuccessMessage, getErrorMessage } from '../selectors';
 import { DEFAULT_FIELD_VALUES, PRODUCER_ITEM } from '../constants';
 
 const {
@@ -85,6 +89,15 @@ class ProducerItems extends React.Component {
         }
     }
 
+    deleteProduct = id => {
+        const { requestProductDelete } = this.props.actions;
+        if(confirm("Do you really want to delete this product?")){
+            requestProductDelete(id);
+        } else{
+            alert("Action Cancelled");
+        }
+    }
+
     componentDidMount() {
         const { requestProductList } = this.props.actions;
 
@@ -92,12 +105,17 @@ class ProducerItems extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        const { productList: newList } = this.props;
-        const { productList: oldList } = prevProp;
+        const { productList: newList, successMessage: newMessage } = this.props;
+        const { productList: oldList, successMessage: oldMessage } = prevProp;
         const { isProductUpdating } = this.state;
         const hasNewProductList = newList !== oldList && isProductUpdating;
 
         hasNewProductList && this.closeProductModal();
+        if (newMessage != oldMessage) {
+            alert(newMessage);
+            const { requestProductList } = this.props.actions;
+            requestProductList();
+        }
     }
 
     render() {
@@ -114,6 +132,7 @@ class ProducerItems extends React.Component {
                 <ProductList
                     list={[...productList.values()]}
                     openModal={this.openProductModal}
+                    deleteProduct={this.deleteProduct}
                 />
                 <ProductEditModal
                     closeModal={this.closeProductModal}
@@ -130,18 +149,24 @@ class ProducerItems extends React.Component {
 
 ProducerItems.propTypes = {
     actions: PropTypes.shape({
+        requestProductDelete: PropTypes.func,
         requestProductList: PropTypes.func,
         requestProductUpdate: PropTypes.func,
     }),
+    errorMessage: PropTypes.string,
     productList: PropTypes.instanceOf(Map),
+    successMessage: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
+    errorMessage: getErrorMessage(state),
     productList: getProductList(state),
+    successMessage: getSuccessMessage(state),
 });
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({
+        requestProductDelete,
         requestProductList,
         requestProductUpdate,
     }, dispatch),

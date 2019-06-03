@@ -1,11 +1,16 @@
 import { effects } from 'redux-saga';
 
 import App from '../app';
-import { updateProductDetails, updateProductList } from './actions';
-import { REQUEST_PRODUCT_LIST, REQUEST_PRODUCT_UPDATE } from './actionTypes';
+import { updateProductDetails, updateProductList, successMessage, errorMessage } from './actions';
+import { 
+    REQUEST_PRODUCT_LIST, 
+    REQUEST_PRODUCT_UPDATE, 
+    REQUEST_PRODUCT_DELETE 
+} from './actionTypes';
 
 const { selectors: { getUserData } } = App;
 const headers = { 'Content-Type': 'application/json' };
+
 /**
  * Handles requesting the list of producer items from the backend
  *
@@ -73,6 +78,38 @@ function* requestProducersItemUpdate(action){
 }
 
 /**
+ * Handles requesting product updates to the backend
+ *
+ * @param {Object} action - the data sent from the action creator
+ * @return {Void} - void
+ */
+function* requestProducerItemDelete(action) {
+    try {
+    // TODO: connect saga generator to backend api
+        const { payload } = action;
+
+        const response = yield fetch(`/product/${payload}`, {
+            headers,
+            method: "DELETE",
+        });
+
+        if (response.ok) {
+            const { message } = yield response.json();
+            yield effects.put(successMessage(message));
+        } else {
+            const result = yield response.json();
+            yield effects.put(errorMessage(result));
+            // TODO: update state to reflect error on fetch item list
+            // eslint-disable-next-line no-console
+            console.log("ERROR", result);
+        }
+    } catch (error) {
+    // eslint-disable-next-line no-console
+        console.log(error);
+    }
+}
+
+/**
  * @function
  * Watches for the {@link actionTypes.REQUEST_PRODUCT_LIST REQUEST_PRODUCT_LIST} action.
  * Triggers request to pull the products list of items
@@ -104,9 +141,26 @@ function* watchRequestProductUpdate(){
     }
 }
 
+/**
+ * @function
+ * Watches for the {@link actionTypes.REQUEST_PRODUCT_LIST REQUEST_PRODUCT_LIST} action.
+ * Triggers request to pull the products list of items
+ *
+ * @return {void}
+ */
+function* watchRequestProductItemDelete() {
+    try {
+        yield effects.takeLatest(REQUEST_PRODUCT_DELETE, requestProducerItemDelete);
+    } catch (error) {
+    // eslint-disable-next-line no-console
+        console.log(error);
+    }
+}
+
 export default function* (){
     yield effects.all([
         watchRequestProductList(),
         watchRequestProductUpdate(),
+        watchRequestProductItemDelete(),
     ]);
 }
