@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Avatar, Icon, List, Tag } from 'antd';
+import { Avatar, Icon, List, Tag, Popconfirm } from "antd";
 
 import { LIST_ITEM_CLASS, PRODUCER_PAGE } from '../constants';
 
@@ -31,7 +31,7 @@ function createItemDescTags(item) {
  */
 export default class ProductList extends React.Component {
     render() {
-        const { list, openModal, deleteProduct } = this.props;
+        const { list, openModal, onConfirm, onCancel } = this.props;
         return (
             <List
                 bordered={true}
@@ -48,11 +48,18 @@ export default class ProductList extends React.Component {
                             onClick={() => openModal(_id)}
                             type={EDIT}
                         />,
-                        <Icon
+                        <Popconfirm
                             key={DELETE}
-                            onClick={() => deleteProduct(_id)}
-                            type={DELETE}
-                        />,
+                            title="Are you sure delete this product?"
+                            onConfirm={() => onConfirm(_id)}
+                            onCancel={() => onCancel()}
+                            okText="Yes"
+                            cancelText="No"
+                        >
+                            <Icon
+                                type={DELETE}
+                            />
+                        </Popconfirm>,
                     ];
 
                     return (
@@ -75,8 +82,9 @@ export default class ProductList extends React.Component {
     }
 }
 
-ProductList.propTypes = {
-    deleteProduct: PropTypes.func, 
+ProductList.propTypes = { 
     list: PropTypes.array,
-    openModal: PropTypes.func,     
+    onCancel: PropTypes.func, 
+    onConfirm: PropTypes.func,   
+    openModal: PropTypes.func,  
 };

@@ -3,7 +3,7 @@ import React from 'react';
 import shallowCompare from 'shallow-equal/objects';
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import { Button, Icon } from 'antd';
+import { Button, Icon,  message } from 'antd';
 
 import ProductList from './ProductList';
 import ProductEditModal from './ProductEditModal';
@@ -89,14 +89,14 @@ class ProducerItems extends React.Component {
         }
     }
 
-    deleteProduct = id => {
+    confirm = id => {
         const { requestProductDelete } = this.props.actions;
-        if(confirm("Do you really want to delete this product?")){
-            requestProductDelete(id);
-        } else{
-            alert("Action Cancelled");
-        }
-    }
+        requestProductDelete(id);
+    };
+
+    cancel = () => {
+        message.error("Action Cancelled.");
+    };
 
     componentDidMount() {
         const { requestProductList } = this.props.actions;
@@ -105,14 +105,27 @@ class ProducerItems extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        const { productList: newList, successMessage: newMessage } = this.props;
-        const { productList: oldList, successMessage: oldMessage } = prevProp;
+        const { 
+            productList: newList, 
+            successMessage: newSuccesMessage, 
+            errorMessage: newErrorMessage,
+        } = this.props;
+        const { 
+            productList: oldList, 
+            successMessage: oldSuccessMessage, 
+            errorMessage: oldErrorMessage,
+        } = prevProp;
         const { isProductUpdating } = this.state;
         const hasNewProductList = newList !== oldList && isProductUpdating;
 
         hasNewProductList && this.closeProductModal();
-        if (newMessage != oldMessage) {
-            alert(newMessage);
+        if (newSuccesMessage != oldSuccessMessage) {
+            message.success(newSuccesMessage);
+            const { requestProductList } = this.props.actions;
+            requestProductList();
+        }
+        if (newErrorMessage != oldErrorMessage) {
+            message.error(newErrorMessage);
             const { requestProductList } = this.props.actions;
             requestProductList();
         }
@@ -132,7 +145,8 @@ class ProducerItems extends React.Component {
                 <ProductList
                     list={[...productList.values()]}
                     openModal={this.openProductModal}
-                    deleteProduct={this.deleteProduct}
+                    onConfirm={this.confirm}
+                    onCancel={this.cancel}
                 />
                 <ProductEditModal
                     closeModal={this.closeProductModal}
