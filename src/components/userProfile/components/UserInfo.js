@@ -4,20 +4,20 @@ import { Avatar, Card, Col, Icon, Row, Button } from 'antd';
 import { PROFILE_INFO, USER_PAGE } from '../constants';
 
 const { 
-    CLASSNAMES: { 
-        AVATAR, 
-        AVATAR_CONTAINER, 
-        EDIT_ICON, 
+    CLASSNAMES: {  
         EDIT_BOTTON,
-        HEADER_INFO, 
+        EDIT_PROFILE_BUTTON,
+        HEADER_INFO,
+        IMAGE_CONTAINER,  
         INFO_CARD, 
-        INFO_DIV, 
+        INFO_DIV,
+        PROFILE_IMAGE, 
         ROW_CONTAINER, 
         TITLE, 
     },
     PROFILE_PIX,
-    STRINGS: { EDIT, GHOST, SMALL, SQUARE },
-    TEXTS: { EDIT_PHOTO },
+    STRINGS: { EDIT, GHOST, MEDIUM, PRIMARY, SMALL, SQUARE },
+    TEXTS: { EDIT_PHOTO, EDIT_PROFILE },
 } = USER_PAGE;
 
 // mapping various user information
@@ -25,7 +25,6 @@ const profile = PROFILE_INFO.map(({ heading, info, key }) => (
     <div key={key} className={INFO_DIV}>
         <h4 className={HEADER_INFO}>
             {heading}  
-            <Icon type={EDIT} className={EDIT_ICON} />
         </h4>
         {
             info.map(({ description, title }) => (
@@ -47,10 +46,11 @@ export default class UserInfo extends React.Component {
                 className={INFO_CARD}
                 bordered={false}
             >
-                <div className={AVATAR_CONTAINER}>
+                <div className={IMAGE_CONTAINER}>
                     <Avatar
-                        className={AVATAR}
+                        className={PROFILE_IMAGE}
                         src={PROFILE_PIX}
+                        size={180}
                         shape={SQUARE}
                     />
                     <Button type={GHOST} size={SMALL} className={EDIT_BOTTON}>
@@ -59,6 +59,9 @@ export default class UserInfo extends React.Component {
                     </Button>
                 </div>
                 {profile}
+                <Button type={PRIMARY} size={MEDIUM} className={EDIT_PROFILE_BUTTON}>
+                    {EDIT_PROFILE}
+                </Button>
             </Card>
         );
     }

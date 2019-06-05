@@ -20,6 +20,11 @@
     color: skyblue;
 }
 
+.edit-profile-button {
+    float: right;
+    border-radius: 9px 0 9px 0;
+}
+
 /* for first name, last name, gender, email... in userInfo.js */
 .title {
     color: darkgray;
@@ -27,19 +32,19 @@
 }
 
 /* container for avatar and photo edit botton in userInfo.js */
-.avatar-container {
-    background-color: white !important;
+.image-container {
+    background-color: white;
     border-bottom: 3px solid lightgrey;
 }
 
 /** UserAvatar in userInfo.js */
-.avatar {
+.profile-image {
     margin-top: 50px;
     margin-bottom: 35px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 17%;
+    width: 20%;
     border-radius: 35%;
 }
 

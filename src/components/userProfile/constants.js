@@ -1,15 +1,16 @@
 export const USER_PAGE = {
     CLASSNAMES: {
-        AVATAR: 'avatar',
-        AVATAR_CONTAINER: 'avatar-container',
         BIG_CONTENT: 'big-content',
         BIG_LAYOUT: 'big-layout',
         EDIT_BOTTON: 'edit-botton',
         EDIT_ICON: 'icon-edit',
+        EDIT_PROFILE_BUTTON: 'edit-profile-button',
         HEADER_INFO: 'header-info',
+        IMAGE_CONTAINER: 'image-container',
         INFO_CARD: 'info-card',
         INFO_DIV: 'info-div',
         MENU: 'menu',
+        PROFILE_IMAGE: 'profile-image',
         ROW_CONTAINER: 'row-container',
         SIDER: 'sider',
         SM_CONTENT: 'sm-content',
@@ -21,11 +22,14 @@ export const USER_PAGE = {
         EDIT: 'edit',
         GHOST: 'ghost',
         INLINE: 'inline',
+        MEDIUM: 'medium',
+        PRIMARY: 'primary',
         SMALL: 'small',
         SQUARE: 'square',
     },
     TEXTS: {
         EDIT_PHOTO: 'Edit Photo',
+        EDIT_PROFILE: '  Edit Profile',
     },
 };
 
