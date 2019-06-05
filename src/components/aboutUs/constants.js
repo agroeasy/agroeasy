@@ -2,7 +2,7 @@ export const ABOUT_US = {
     CLASSNAMES: {
         CONTENT: 'content',
         NAME: 'name',
-        PHOTO: 'photo'
+        PHOTO: 'photo',
         TEAM_CARD: 'team-card',
         TEAM_HEADER: 'team-header',
         TOP_TEXT: 'top-text',
