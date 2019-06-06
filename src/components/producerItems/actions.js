@@ -1,11 +1,11 @@
 import {
+    ERROR_MESSAGE,
+    REQUEST_PRODUCT_DELETE,
     REQUEST_PRODUCT_LIST,
     REQUEST_PRODUCT_UPDATE,
-    REQUEST_PRODUCT_DELETE,
-    UPDATE_PRODUCT_DETAILS,
-    UPDATE_PRODUCT_LIST,
     SUCCESS_MESSAGE,
-    ERROR_MESSAGE
+    UPDATE_PRODUCT_DETAILS,
+    UPDATE_PRODUCT_LIST
 } from "./actionTypes";
 
 /**
@@ -34,7 +34,7 @@ export const requestProductUpdate = payload => ({
 });
 
 /**
- * Triggers request to update product item details in the database
+ * Triggers request to delete product item in the database
  *
  * @function
  *
@@ -42,8 +42,8 @@ export const requestProductUpdate = payload => ({
  * @return {Object} The {@link actionTypes.REQUEST_ITEM_DELETE REQUEST_ITEM_DELETE}
  * action.
  */
-export const requestProductDelete = payload => ({
-    payload,
+export const requestProductDelete = id => ({
+    payload: id,
     type: REQUEST_PRODUCT_DELETE,
 });
 
@@ -76,7 +76,7 @@ export const updateProductList = payload => ({
 });
 
 /**
- * Update the product list in the redux store
+ * Update the success message in the redux store
  *
  * @function
  *
@@ -90,7 +90,7 @@ export const successMessage = payload => ({
 });
 
 /**
- * Update the product list in the redux store
+ * Update the error message in the redux store
  *
  * @function
  *

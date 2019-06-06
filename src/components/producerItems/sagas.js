@@ -86,9 +86,9 @@ function* requestProducersItemUpdate(action){
 function* requestProducerItemDelete(action) {
     try {
     // TODO: connect saga generator to backend api
-        const { payload } = action;
+        const { id } = action.payload;
 
-        const response = yield fetch(`/product/${payload}`, {
+        const response = yield fetch(`/product/${id}`, {
             headers,
             method: "DELETE",
         });

@@ -1,8 +1,8 @@
-import { 
+import {
+    ERROR_MESSAGE,
     UPDATE_PRODUCT_DETAILS, 
     UPDATE_PRODUCT_LIST, 
-    SUCCESS_MESSAGE,
-    ERROR_MESSAGE 
+    SUCCESS_MESSAGE
 } from './actionTypes';
 import { INITIAL_STATE } from './constants';
 

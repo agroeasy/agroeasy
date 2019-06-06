@@ -91,7 +91,7 @@ class ProducerItems extends React.Component {
 
     confirm = id => {
         const { requestProductDelete } = this.props.actions;
-        requestProductDelete(id);
+        requestProductDelete({ id });
     };
 
     cancel = () => {

@@ -1,4 +1,4 @@
-import { NAME } from "./constants";
+import { NAME } from './constants';
 
 /**
  * Selects the <tt>productList</tt> key.

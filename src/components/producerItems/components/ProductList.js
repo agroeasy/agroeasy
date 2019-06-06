@@ -4,7 +4,7 @@ import { Avatar, Icon, List, Tag, Popconfirm } from "antd";
 
 import { LIST_ITEM_CLASS, PRODUCER_PAGE } from '../constants';
 
-const { DELETE, EDIT, LARGE, PRODUCT_ITEM, VERTICAL } = PRODUCER_PAGE;
+const { CONFIRM_MESSAGE, DELETE, EDIT, LARGE, NO, PRODUCT_ITEM, VERTICAL, YES } = PRODUCER_PAGE;
 
 /**
  * Helper function used to generate tags for the item meta descrition section.
@@ -50,15 +50,13 @@ export default class ProductList extends React.Component {
                         />,
                         <Popconfirm
                             key={DELETE}
-                            title="Are you sure delete this product?"
+                            title={CONFIRM_MESSAGE}
                             onConfirm={() => onConfirm(_id)}
-                            onCancel={() => onCancel()}
-                            okText="Yes"
-                            cancelText="No"
+                            onCancel={onCancel}
+                            okText={YES}
+                            cancelText={NO}
                         >
-                            <Icon
-                                type={DELETE}
-                            />
+                            <Icon type={DELETE} />
                         </Popconfirm>,
                     ];
 
@@ -82,7 +80,7 @@ export default class ProductList extends React.Component {
     }
 }
 
-ProductList.propTypes = { 
+ProductList.propTypes = {
     list: PropTypes.array,
     onCancel: PropTypes.func, 
     onConfirm: PropTypes.func,   
