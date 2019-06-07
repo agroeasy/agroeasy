@@ -14,7 +14,7 @@ const footers = FOOTER_DATA.map(footer => (
             <div key={title}>{link ? <Link to={link}>{title}</Link> : title}</div>
         ))}
     </div>
-));
+)); 
 
 class AppFoot extends React.Component {
     render() {

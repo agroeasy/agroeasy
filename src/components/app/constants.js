@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable sort-keys */
 /** @constant */
 export const NAME = 'app';
 
@@ -77,6 +79,48 @@ export const FOOTER_CLASSNAMES = {
     CONTAINER: 'footer-container',
     DYNAMIC_FOOTER: 'ant-col-xs-24 ant-col-sm-24 ant-col-md-6',
     ROW: 'ant-row',
+    FOOTER2: 'footer2',
+};
+
+/** @constant */
+export const BANNER_DATA = [
+    {
+        icon: 'car',
+        header: 'Fast Delivery',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        key: 'fast',
+    }, 
+    {
+        icon: 'dollar',
+        header: 'Price Minimization',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        key: 'price',
+    }, 
+    {
+        icon: 'rest',
+        header: 'Reduce Food Wastage',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        key: 'food',
+    }, 
+    {
+        icon: 'team',
+        header: 'Social Economic Driven',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        key: 'social',
+    }, 
+];
+
+export const BANNER_HEADING = "Why You Need Us";
+export const LEARN_MORE = "Learn More >>";
+export const FOOTER_STRING = "All rights reserved, Copyright © 2019 Agroeasy.";
+
+/** @constant */
+export const BANNER_CLASSNAMES = {
+    BANNER: 'banner',
+    BANNER_FLEX: 'banner_flex',
+    BANNER_CARD: 'banner_card',
+    BANNER_ICON: 'banner_icon',
+    BANNER_COLOR: 'banner_color',
 };
 
 export const VALID_SIGNOUT = 'You have been signed out';

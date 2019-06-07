@@ -27,7 +27,7 @@ class Home extends React.Component {
                         </Col>
                     </Row>
                 </div>
-                <ProductList />
+                <ProductList path = {'/home'} />
             </div>
         );
     }
