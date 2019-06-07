@@ -8,11 +8,7 @@ import { Button, Icon,  message } from 'antd';
 import ProductList from './ProductList';
 import ProductEditModal from './ProductEditModal';
 
-import {
-    requestProductDelete,
-    requestProductList,
-    requestProductUpdate
-} from "../actions";
+import * as actions from "../actions";
 import { getProductList, getSuccessMessage, getErrorMessage } from '../selectors';
 import { DEFAULT_FIELD_VALUES, PRODUCER_ITEM } from '../constants';
 
@@ -179,11 +175,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-        requestProductDelete,
-        requestProductList,
-        requestProductUpdate,
-    }, dispatch),
+    actions: bindActionCreators(actions, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProducerItems);
