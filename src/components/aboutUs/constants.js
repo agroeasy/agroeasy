@@ -1,7 +1,8 @@
 export const ABOUT_US = {
     CLASSNAMES: {
-        AVATAR: 'avatar',
         CONTENT: 'content',
+        NAME: 'name',
+        PHOTO: 'photo',
         TEAM_CARD: 'team-card',
         TEAM_HEADER: 'team-header',
         TOP_TEXT: 'top-text',
