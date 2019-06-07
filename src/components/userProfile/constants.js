@@ -33,30 +33,33 @@ export const USER_PAGE = {
     },
 };
 
-export const PROFILE_INFO = [{
-    heading: "BASIC INFOMATION",
-    info: [
-        { description: 'Josh', title: "First Name:" },
-        { description: 'Obinna', title: 'Last Name:' },
-        { description: 'male', title: 'Gender:' },  
-    ],
-    key: 'basic',
-}, {
-    heading: 'CONTACT INFOMATION',
-    info: [
-        { description: 'joshuaobinna@gmail.com',  title: "Email:" },
-        { description: '+2347061589692',  title: "Phone:" },
-    ],
-    key: "contact",
-}, {
-    heading: "LOCATION",
-    info: [
-        { description:  '24, Wilkie Crescent, Ikeja', title: "Address:" },
-        { description: "Lagos", title: 'City:' },
-        { description: "Nigeria", title: 'Country:' }, 
-    ],
-    key: "location",
-},
+export const PROFILE_INFO = [
+    {
+        heading: 'BASIC INFOMATION',
+        info: [
+            { description: 'Josh', title: 'First Name:' },
+            { description: 'Obinna', title: 'Last Name:' },
+            { description: 'male', title: 'Gender:' },
+        ],
+        key: 'basic',
+    },
+    {
+        heading: 'CONTACT INFOMATION',
+        info: [
+            { description: 'joshuaobinna@gmail.com', title: 'Email:' },
+            { description: '+2347061589692', title: 'Phone:' },
+        ],
+        key: 'contact',
+    },
+    {
+        heading: 'LOCATION',
+        info: [
+            { description: '24, Wilkie Crescent, Ikeja', title: 'Address:' },
+            { description: 'Lagos', title: 'City:' },
+            { description: 'Nigeria', title: 'Country:' },
+        ],
+        key: 'location',
+    },
 ];
 
 export const SIDE_MENU_ITEMS = [

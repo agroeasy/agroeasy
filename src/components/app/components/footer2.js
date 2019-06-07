@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import './styles.css';
 import { FOOTER_STRING, FOOTER_CLASSNAMES } from '../constants';
 
@@ -14,5 +14,4 @@ class Footer2 extends Component {
     }
 }
 
-export default Footer2; 
-
+export default Footer2;

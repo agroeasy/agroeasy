@@ -34,9 +34,7 @@ class Product extends React.Component {
                 {DEFAULT_DESCRIPTION}
             </div>
         );
-        const actions = [
-            <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />,
-        ];
+        const actions = [<Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />];
 
         return (
             <div>

@@ -48,14 +48,7 @@ class ProductModal extends React.Component {
                 title={title}
                 visible={visible}
             >
-<<<<<<< HEAD
-                <Card
-                    actions={actions}
-                    cover={<img src={image} />}
-                >                    
-=======
                 <Card actions={actions} cover={<img src={image} />}>
->>>>>>> cd097bdbcf08f267ebb9d71bce67b8c387f77002
                     {generateDescription(data)}
                 </Card>
             </Modal>

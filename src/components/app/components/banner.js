@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import './styles.css';
 import { Button, Icon } from 'antd';
 
@@ -12,21 +12,20 @@ const banners = BANNER_DATA.map(({ key, icon, header, body }) => (
             <Icon type={icon} />
         </div>
         <h3 className={BANNER_COLOR}>{header}</h3>
-        <h5 className={BANNER_COLOR}>{body}</h5> 
-    </div> 
-)); 
+        <h5 className={BANNER_COLOR}>{body}</h5>
+    </div>
+));
 
-class Banner extends Component { 
+class Banner extends Component {
     render() {
         return (
             <div className={BANNER}>
                 <h2>{BANNER_HEADING}</h2>
                 <div className={BANNER_FLEX}>{banners}</div>
-                <Button >{LEARN_MORE}</Button>
-            </div> 
+                <Button>{LEARN_MORE}</Button>
+            </div>
         );
     }
 }
 
 export default Banner;
-
