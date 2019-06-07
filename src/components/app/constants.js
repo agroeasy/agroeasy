@@ -65,11 +65,16 @@ export const FOOTER_DATA = [
     },
     {
         header: 'Support',
-        items: [{ title: 'Contact Us' }, { title: 'FAQ' }],
+        items: [{ title: 'Contact Us' }, { title: 'Report Abuse' }, { title: 'FAQ' }],
         key: 'support',
     },
     {
-        items: [{ title: 'All rights reserved, Copyright © 2018 Agroeasy.' }],
+        header: 'AgroEasy',
+        items: [
+            { title: 'Privacy Policy' },
+            { title: 'Terms And Conditions' },
+            { title: 'Report Abuse' },
+        ],
         key: 'rights',
     },
 ];
@@ -87,32 +92,36 @@ export const BANNER_DATA = [
     {
         icon: 'car',
         header: 'Fast Delivery',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        body:
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         key: 'fast',
-    }, 
+    },
     {
         icon: 'dollar',
         header: 'Price Minimization',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        body:
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         key: 'price',
-    }, 
+    },
     {
         icon: 'rest',
         header: 'Reduce Food Wastage',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        body:
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         key: 'food',
-    }, 
+    },
     {
         icon: 'team',
         header: 'Social Economic Driven',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        body:
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
         key: 'social',
-    }, 
+    },
 ];
 
-export const BANNER_HEADING = "Why You Need Us";
-export const LEARN_MORE = "Learn More >>";
-export const FOOTER_STRING = "All rights reserved, Copyright © 2019 Agroeasy.";
+export const BANNER_HEADING = 'Why You Need Us';
+export const LEARN_MORE = 'Learn More >>';
+export const FOOTER_STRING = 'All rights reserved, Copyright © 2019 Agroeasy.';
 
 /** @constant */
 export const BANNER_CLASSNAMES = {
