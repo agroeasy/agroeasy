@@ -15,12 +15,17 @@
     font-style: italic;
 }
 .team-card {
-    text-align: center;
+    text-align: justify;
     margin: 20px 30px;
 }
-.avatar {
+.photo {
     width: 55%;
+    margin: 0 22%;
     height: 50%;
+}
+.name {
+    text-align: center;
+    font-size: 17px;
 }
 .team-header {
     text-align: center;
