@@ -23,7 +23,7 @@ class UserProfile extends React.Component {
         const { getUserAuthJwt } = this.props.actions;
     
         if(auth.isAuthenticated()) {
-            const idToken = auth.getIdToken();
+            const idToken = auth.getTokens().idToken;
             getUserAuthJwt(idToken);
         }
     }

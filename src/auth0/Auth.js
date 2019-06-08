@@ -1,5 +1,6 @@
 import auth0 from 'auth0-js';
 import { message } from 'antd';
+import Cookies from 'js-cookie';
 
 import history from '../components/history/History';
 import { AUTH0 }from './constants';
@@ -22,8 +23,7 @@ export default class Auth {
         this.logout = this.logout.bind(this);
         this.handleAuthentication = this.handleAuthentication.bind(this);
         this.isAuthenticated = this.isAuthenticated.bind(this);
-        this.getAccessToken = this.getAccessToken.bind(this);
-        this.getIdToken = this.getIdToken.bind(this);
+        this.getTokens = this.getTokens.bind(this);
         this.renewSession = this.renewSession.bind(this);
     }
 
@@ -42,31 +42,21 @@ export default class Auth {
         });
     }
 
-    getExpiresAt() {
-        return localStorage.getItem("expiresAt");
-    }
-
-    getAccessToken() {
-        return localStorage.getItem("accessToken");
-    }
-
-    getIdToken() {
-        return localStorage.getItem("idToken");
+    getTokens() {
+        return Cookies.getJSON('tokens');
     }
 
     setSession(authResult) {
-        // Set isLoggedIn flag in localStorage
-        localStorage.setItem('isLoggedIn', 'true');
-
         // Set the time that the Access Token will expire at
-        const expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
+        const expiresAt = new Date((authResult.expiresIn * 1000) + new Date().getTime());
+        //The Access Token is a credential that can be used by an application to access an API.
         const accessToken = authResult.accessToken;
+        //The id_token contains user profile attributes represented in the form of claims. 
+        //The ID Token is consumed by the application and used to get user information like 
+        //the user's name, email, and so forth, typically used for UI display.
         const idToken = authResult.idToken;
 
-        localStorage.setItem('expiresAt', expiresAt);
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem('idToken', idToken);
-        
+        Cookies.set('tokens', { accessToken, idToken }, { expires: expiresAt });
         // navigate to the profile route
         history.replace('/profile');
     }
@@ -83,14 +73,9 @@ export default class Auth {
     }
 
     logout() {
+        // Remove tokens
+        Cookies.remove('tokens');
 
-        // Remove tokens and expiry time
-        // Remove isLoggedIn flag from localStorage
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('idToken');
-        localStorage.removeItem('expiresAt');
-        
         this.auth0.logout();
 
         // navigate to the home route
@@ -98,9 +83,9 @@ export default class Auth {
     }
 
     isAuthenticated() {
-        // Check whether the current time is past the
-        // access token's expiry time
-        const expiresAt = JSON.parse(localStorage.getItem("expiresAt"));
-        return new Date().getTime() < expiresAt;
+        //TODO: check if there is any accessToken from the cookie
+        //if yes, user is authenticated else user is not authenticated
+        const tokens = this.getTokens();
+        return tokens !== undefined;
     }
 }
