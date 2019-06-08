@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { getUserData } from '../selectors';
+import App from '../../app';
 import { requestUserdata } from '../actions';
 
 import { USER_PAGE } from '../constants';
 
+const { selectors: { getUserData } } = App;
 const { 
     CLASSNAMES: {  
         EDIT_BOTTON,

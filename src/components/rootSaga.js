@@ -4,7 +4,6 @@ import producerItems from './producerItems';
 import contactus from './contactUs';
 import signin  from './signin';
 import signUp  from './signup';
-import userProfile from './userProfile';
 
 export default function* rootSaga(){
     yield effects.all([
@@ -12,6 +11,5 @@ export default function* rootSaga(){
         producerItems.sagas(),
         signin.sagas(),
         signUp.sagas(),
-        userProfile.sagas(),
     ]);
 }
