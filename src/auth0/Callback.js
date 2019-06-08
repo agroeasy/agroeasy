@@ -15,25 +15,23 @@ class Callback extends Component {
 
     render() {
         return (
-            <div>  
-                <List
-                    itemLayout="vertical"
-                    size="large"
-                    dataSource={skeletonData}
-                    renderItem={item => (
-                        <List.Item key={item.title}>
-                            <Skeleton active avatar>
-                                <List.Item.Meta
-                                    avatar={<Avatar src={item.avatar} />}
-                                    title={<a href={item.href}>{item.title}</a>}
-                                    description={item.description}
-                                />
-                                {item.content}
-                            </Skeleton>
-                        </List.Item>
-                    )}
-                />
-            </div>
+            <List
+                itemLayout="vertical"
+                size="large"
+                dataSource={skeletonData}
+                renderItem={item => (
+                    <List.Item key={item.title}>
+                        <Skeleton active avatar>
+                            <List.Item.Meta
+                                avatar={<Avatar src={item.avatar} />}
+                                title={<a href={item.href}>{item.title}</a>}
+                                description={item.description}
+                            />
+                            {item.content}
+                        </Skeleton>
+                    </List.Item>
+                )}
+            />
         );
     }
 }

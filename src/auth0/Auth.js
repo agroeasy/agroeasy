@@ -18,15 +18,6 @@ export default class Auth {
         scope: SCOPE,
     });
 
-    constructor() {
-        this.login = this.login.bind(this);
-        this.logout = this.logout.bind(this);
-        this.handleAuthentication = this.handleAuthentication.bind(this);
-        this.isAuthenticated = this.isAuthenticated.bind(this);
-        this.getTokens = this.getTokens.bind(this);
-        this.renewSession = this.renewSession.bind(this);
-    }
-
     login() {
         this.auth0.authorize();
     }
