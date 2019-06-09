@@ -3,7 +3,7 @@ import {  REQUEST_AUTH_USER_JWT } from './actionTypes';
 import { SIGN_URL } from './constants';
 import app from '../app';
 
-const { actions: { userDataNotFound, getUserData } } = app;
+const { actions: { userDataNotFound, setUserData } } = app;
 
 /**
  * Makes a request to sign up a user
@@ -12,14 +12,14 @@ const { actions: { userDataNotFound, getUserData } } = app;
  */
 function* getAllUserInfo(action) {
     try {
-        const { payload } = action;
-        const response = yield fetch(`${SIGN_URL}?idToken=${payload}`, {
+        const { idToken } = action.payload;
+        const response = yield fetch(`${SIGN_URL}?idToken=${idToken}`, {
             method: 'GET',
         });
 
         if(response.ok){
             const data = yield response.json();
-            yield effects.put(getUserData(data));
+            yield effects.put(setUserData(data));
         } else { 
             const data = yield response.json();
             yield effects.put(userDataNotFound(data));

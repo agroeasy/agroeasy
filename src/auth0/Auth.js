@@ -74,8 +74,6 @@ export default class Auth {
     }
 
     isAuthenticated() {
-        //TODO: check if there is any accessToken from the cookie
-        //if yes, user is authenticated else user is not authenticated
         const tokens = this.getTokens();
         return tokens !== undefined;
     }

@@ -1,14 +1,14 @@
-import { GET_USER_DATA, USER_DATA_NOT_FOUND, SET_LOGIN_STATUS } from './actionTypes';
+import { SET_USER_DATA, USER_DATA_NOT_FOUND, SET_LOGIN_STATUS } from './actionTypes';
 
 /**
  * Triggers request to get user data 
  *
  * @function
- * @return {Object} - The {@link actionTypes.GET_USER_DATA GET_USER_DATA} action.
+ * @return {Object} - The {@link actionTypes.SET_USER_DATA SET_USER_DATA} action.
  */
-export const getUserData = payload => ({
+export const setUserData = payload => ({
     payload,
-    type: GET_USER_DATA,
+    type: SET_USER_DATA,
 });
 
 /**
