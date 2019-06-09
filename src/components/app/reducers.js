@@ -1,51 +1,32 @@
-import Cookies from 'cookies-js';
-
-import { SET_COOKIE, REMOVE_COOKIE, RESET_STATE, RESET_STATUS_STATE } from './actionTypes';
-import { EXPIRATION } from './constants';
+import { SET_USER_DATA, SET_LOGIN_STATUS } from './actionTypes';
+import Auth from '../../auth0/Auth';
+const auth = new Auth();
 
 const initialState = {
     isLoggedIn: null,
-    status: "",
-    token: "",
     user: {},
 };
 
 export default ( state = { ...initialState }, action) => {
     
     switch (action.type) {
-    case SET_COOKIE:    {
-        const { data: { token, user }, status } = action.payload;
-        Cookies.set(token, { expires: EXPIRATION });
 
-        return {
+    case SET_USER_DATA: {
+        const { data: { user } } = action.payload; 
+        return { 
             ...state,
-            isLoggedIn: true,
-            status,
-            token,
+            isLoggedIn: auth.isAuthenticated(),
             user,
         };
     }
 
-    case REMOVE_COOKIE: {
-        Cookies.expire(state.token);
-        
+    case SET_LOGIN_STATUS: {
         return { 
             ...state,
-            isLoggedIn: false,
-            token: null,
-            user: {},
+            isLoggedIn: auth.isAuthenticated(),
         };
     }
-
-    case RESET_STATE:
-        return { ...initialState };
-
-    case RESET_STATUS_STATE:
-        return {
-            ...state,
-            status: "",
-        };
-
+    
     default:
         return state;
     }

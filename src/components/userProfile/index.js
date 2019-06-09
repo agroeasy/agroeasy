@@ -1,3 +1,6 @@
+import * as actions from './actions';
 import * as components from './components';
+import reducers from './reducers';
+import sagas from './sagas';
 
-export default { components };
+export default { actions, components, reducers, sagas };

@@ -1,22 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
-import { Avatar, Dropdown, Layout, Menu, message } from 'antd';
+import { Avatar, Dropdown, Layout, Menu } from 'antd';
 
 import AppLink from './AppLink';
 import { getLoginStatus } from '../selectors';
-import { removeCookie, resetSigninState } from '../actions';
 
 import signin from '../../signin';
 import signup from '../../signup';
+import Auth from '../../../auth0/Auth';
 import { 
     LOGO, 
     MARKET_TEXT, 
     NAVBAR, 
     PATHS, 
-    USER_AVATAR, 
-    VALID_SIGNOUT 
+    USER_AVATAR
 } from '../constants';
 
 const { Item } = Menu;
@@ -44,12 +42,9 @@ class Navbar extends React.Component {
     logout = ({ key }) => {
         const { isLoggedIn } = this.props;
 
-        if (isLoggedIn && key === SIGN_OUT) {
-            const { removeCookie, resetSigninState } = this.props.actions;
-
-            removeCookie();
-            message.info(VALID_SIGNOUT, 5);
-            resetSigninState();
+        if (isLoggedIn && key === SIGN_OUT ) {
+            const auth = new Auth();
+            auth.logout();
         }
     }
 
@@ -86,7 +81,7 @@ class Navbar extends React.Component {
                     }
                 </Menu>
                 {
-                    isLoggedIn === true?
+                    isLoggedIn ?
                         <Dropdown overlay={UserMenu} className={USER_DROP_DOWN}>
                             <Avatar icon={ICON_TYPE} />
                         </Dropdown> :
@@ -108,7 +103,6 @@ class Navbar extends React.Component {
 Navbar.propTypes = {
     actions: PropTypes.object,
     isLoggedIn:PropTypes.bool,
-    isSignedUp: PropTypes.string,
     links: PropTypes.arrayOf(PropTypes.node),
     match: PropTypes.object,
 };
@@ -117,8 +111,4 @@ const mapStateToProps = state => ({
     isLoggedIn: getLoginStatus(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ removeCookie, resetSigninState }, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, null)(Navbar);
