@@ -21,7 +21,8 @@ const {
     },
     PROFILE_PIX,
     STRINGS: { 
-        ADDRESS, 
+        ADDRESS,
+        DEFAULT, 
         EMAIL, 
         CITY, 
         COUNTRY, 
@@ -29,7 +30,6 @@ const {
         FIRST_NAME,  
         GHOST, 
         LAST_NAME, 
-        MEDIUM, 
         PHONE, 
         PRIMARY, 
         SMALL, 
@@ -114,7 +114,7 @@ class UserInfo extends React.Component {
                     </Button>
                 </div>
                 {profile}
-                <Button type={PRIMARY} size={MEDIUM} className={EDIT_PROFILE_BUTTON}>
+                <Button type={PRIMARY} size={DEFAULT} className={EDIT_PROFILE_BUTTON}>
                     {EDIT_PROFILE}
                 </Button>
             </Card>
