@@ -28,7 +28,7 @@ export const USER_PAGE = {
         GHOST: 'ghost',
         INLINE: 'inline',
         LAST_NAME: 'Last Name :',
-        MEDIUM: 'medium',
+        MEDIUM: 'small',
         PHONE: 'Phone :',
         PRIMARY: 'primary',
         SMALL: 'small',
