@@ -18,11 +18,11 @@ const {
 } = USER_PAGE;
 
 class UserProfile extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
         const auth = new Auth();
         const { getUserAuthJwt } = this.props.actions;
-    
-        if(auth.isAuthenticated()) {
+
+        if (auth.isAuthenticated()) {
             const tokens = auth.getTokens();
             getUserAuthJwt(tokens);
         }
@@ -56,4 +56,7 @@ UserProfile.propTypes = {
     match: PropTypes.object,
 };
 
-export default connect(null, mapDispatchToProps)(UserProfile);
+export default connect(
+    null,
+    mapDispatchToProps,
+)(UserProfile);
