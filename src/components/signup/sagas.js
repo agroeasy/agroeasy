@@ -1,8 +1,14 @@
 import { effects } from 'redux-saga';
 import { SIGNUP_REQUEST } from './actionTypes';
 import { SIGNUP_URL } from './constants';
+<<<<<<< HEAD
 import { setCookie } from '../app/actions';
+=======
+>>>>>>> master
 import { signupFail, signupSuccess } from './actions';
+import Auth from '../../auth0/Auth';
+
+const auth = new Auth();
 
 /**
  * Makes a request to sign up a user
@@ -22,11 +28,17 @@ function* signupUser(action) {
             method: 'POST',
         });
 
+<<<<<<< HEAD
         if (response.ok) {
             const data = yield response.json();
             yield effects.put(signupSuccess());
             yield effects.put(setCookie(data));
         } else {
+=======
+        if(response.ok){
+            yield effects.put(signupSuccess()) && auth.login();
+        } else { 
+>>>>>>> master
             const data = yield response.json();
             yield effects.put(signupFail(data));
         }

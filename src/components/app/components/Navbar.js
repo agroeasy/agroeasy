@@ -1,16 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Avatar, Dropdown, Layout, Menu, message } from 'antd';
+import { Avatar, Dropdown, Layout, Menu } from 'antd';
 
 import AppLink from './AppLink';
 import { getLoginStatus } from '../selectors';
-import { removeCookie, resetSigninState } from '../actions';
 
 import signin from '../../signin';
 import signup from '../../signup';
-import { LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR, VALID_SIGNOUT } from '../constants';
+import Auth from '../../../auth0/Auth';
+import { 
+    LOGO, 
+    MARKET_TEXT, 
+    NAVBAR, 
+    PATHS, 
+    USER_AVATAR
+} from '../constants';
 
 const { Item } = Menu;
 const { Header } = Layout;
@@ -38,12 +43,9 @@ class Navbar extends React.Component {
     logout = ({ key }) => {
         const { isLoggedIn } = this.props;
 
-        if (isLoggedIn && key === SIGN_OUT) {
-            const { removeCookie, resetSigninState } = this.props.actions;
-
-            removeCookie();
-            message.info(VALID_SIGNOUT, 5);
-            resetSigninState();
+        if (isLoggedIn && key === SIGN_OUT ) {
+            const auth = new Auth();
+            auth.logout();
         }
     };
 
@@ -83,25 +85,21 @@ class Navbar extends React.Component {
                         );
                     })}
                 </Menu>
-                {isLoggedIn === true ? (
-                    <Dropdown overlay={UserMenu} className={USER_DROP_DOWN}>
-                        <Avatar icon={ICON_TYPE} />
-                    </Dropdown>
-                ) : (
-                    <Menu
-                        className={LEFT_NAV_MENU}
-                        mode={NAV_MODE}
-                        theme={NAV_THEME}
-                        selectedKeys={[location.pathname]}
-                    >
-                        <Item key={SIGN_IN}>
-                            <Signin />
-                        </Item>
-                        <Item key={SIGN_UP}>
-                            <Signup />
-                        </Item>
-                    </Menu>
-                )}
+                {
+                    isLoggedIn ?
+                        <Dropdown overlay={UserMenu} className={USER_DROP_DOWN}>
+                            <Avatar icon={ICON_TYPE} />
+                        </Dropdown> :
+                        <Menu
+                            className={LEFT_NAV_MENU}
+                            mode={NAV_MODE}
+                            theme={NAV_THEME}
+                            selectedKeys={[location.pathname]}
+                        >
+                            <Item key={SIGN_IN}><Signin /></Item>
+                            <Item key={SIGN_UP}><Signup /></Item>
+                        </Menu>
+                }
             </Header>
         );
     }
@@ -109,8 +107,7 @@ class Navbar extends React.Component {
 
 Navbar.propTypes = {
     actions: PropTypes.object,
-    isLoggedIn: PropTypes.bool,
-    isSignedUp: PropTypes.string,
+    isLoggedIn:PropTypes.bool,
     links: PropTypes.arrayOf(PropTypes.node),
     match: PropTypes.object,
 };
@@ -119,11 +116,4 @@ const mapStateToProps = state => ({
     isLoggedIn: getLoginStatus(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({ removeCookie, resetSigninState }, dispatch),
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(Navbar);
+export default connect(mapStateToProps, null)(Navbar);

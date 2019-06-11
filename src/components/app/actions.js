@@ -1,43 +1,36 @@
-import { SET_COOKIE, REMOVE_COOKIE, RESET_STATE, RESET_STATUS_STATE } from './actionTypes';
+import { SET_USER_DATA, USER_DATA_NOT_FOUND, SET_LOGIN_STATUS } from './actionTypes';
 
 /**
- * Triggers request to set cookie
+ * Triggers request to get user data 
  *
  * @function
- * @params {String} payload - The data passed into the the action
- * @return {Object} The {@link actionTypes.SET_COOKIE SET_COOKIE} action.
+ * @return {Object} - The {@link actionTypes.SET_USER_DATA SET_USER_DATA} action.
  */
-export const setCookie = payload => ({
+export const setUserData = payload => ({
     payload,
-    type: SET_COOKIE,
+    type: SET_USER_DATA,
 });
 
 /**
- * Triggers request to remove cookie
+ * Triggers request to get error data if authenticated user is not found 
  *
  * @function
- * @return {Object} - The {@link actionTypes.REMOVE_COOKIE REMOVE_COOKIE} action.
+ * @return {object} The {@link actionTypes.USER_DATA_NOT_FOUND USER_DATA_NOT_FOUND} action.
  */
-export const removeCookie = () => ({
-    type: REMOVE_COOKIE,
+export const userDataNotFound = error => ({
+    error,
+    type: USER_DATA_NOT_FOUND,
 });
 
 /**
- * Triggers request to reset redux state to initial
+ * Triggers request to get login status
  *
  * @function
- * @return {void} The {@link actionTypes.RESET_STATE RESET_STATE} action.
+ * @return {void} The {@link actionTypes.SET_LOGIN_STATUS SET_LOGIN_STATUS} action.
  */
-export const resetSigninState = () => ({
-    type: RESET_STATE,
+export const setLoginStatus = () => ({
+    type: SET_LOGIN_STATUS,
 });
 
-/**
- * Triggers request to reset redux Status key of the state
- *
- * @function
- * @return {void} The {@link actionTypes.RESET_STATUS_STATE RESET_STATUS_STATE} action.
- */
-export const resetStatusStatus = () => ({
-    type: RESET_STATUS_STATE,
-});
+//TODO: when ever userDataNotFound action is called
+//call an action to request the user to register 

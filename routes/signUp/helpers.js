@@ -5,7 +5,7 @@ import { INTERNAL_SERVER_ERROR, OK, getStatusText, UNAUTHORIZED } from 'http-sta
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
-const { Producer, User, UserSession } = models;
+const { Producer, User } = models;
 const {
     FAIL,
     NO_EMAIL_PASSWORD,
@@ -50,10 +50,7 @@ export default {
             });
             await user.save();
 
-            const userSession = Object.assign(new UserSession(), { userId: user._id });
-            const doc = await userSession.save();
-
-            if (typeOfProducts) {
+            if(typeOfProducts) {
                 const producer = Object.assign(new Producer(), {
                     typeOfProducts,
                     userId: user._id,
@@ -65,7 +62,6 @@ export default {
             return res.status(OK).json({
                 data: {
                     title: SIGNED_UP,
-                    token: doc._id,
                     user: _pick(user, USERINFO),
                 },
                 status: SUCCESS,
