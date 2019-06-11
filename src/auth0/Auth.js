@@ -3,12 +3,11 @@ import { message } from 'antd';
 import Cookies from 'js-cookie';
 
 import history from '../components/history/History';
-import { AUTH0 }from './constants';
+import { AUTH0 } from './constants';
 
 const { AUDIENCE, CLIENTID, DOMAIN, REDIRECTURI, RESPONSETYPE, SCOPE } = AUTH0;
 
 export default class Auth {
-
     auth0 = new auth0.WebAuth({
         audience: AUDIENCE,
         clientID: CLIENTID,
@@ -39,11 +38,11 @@ export default class Auth {
 
     setSession(authResult) {
         // Set the time that the Access Token will expire at
-        const expiresAt = new Date((authResult.expiresIn * 1000) + new Date().getTime());
+        const expiresAt = new Date(authResult.expiresIn * 1000 + new Date().getTime());
         //The Access Token is a credential that can be used by an application to access an API.
         const accessToken = authResult.accessToken;
-        //The id_token contains user profile attributes represented in the form of claims. 
-        //The ID Token is consumed by the application and used to get user information like 
+        //The id_token contains user profile attributes represented in the form of claims.
+        //The ID Token is consumed by the application and used to get user information like
         //the user's name, email, and so forth, typically used for UI display.
         const idToken = authResult.idToken;
 
@@ -51,7 +50,7 @@ export default class Auth {
         // navigate to the profile route
         history.replace('/profile');
     }
-   
+
     renewSession() {
         this.auth0.checkSession({}, (err, authResult) => {
             if (authResult && authResult.accessToken && authResult.idToken) {

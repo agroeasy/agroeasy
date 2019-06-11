@@ -18,11 +18,11 @@ const {
 } = USER_PAGE;
 
 class UserProfile extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
         const auth = new Auth();
         const { getUserAuthJwt } = this.props.actions;
-    
-        if(auth.isAuthenticated()) {
+
+        if (auth.isAuthenticated()) {
             const tokens = auth.getTokens();
             getUserAuthJwt(tokens);
         }
@@ -31,7 +31,7 @@ class UserProfile extends React.Component {
     render() {
         const { path } = this.props.match;
 
-        return(
+        return (
             <Content className={BIG_CONTENT}>
                 <Layout className={BIG_LAYOUT}>
                     <Sider width={200} className={SIDER}>
@@ -39,10 +39,7 @@ class UserProfile extends React.Component {
                     </Sider>
                     <Content className={SM_CONTENT}>
                         <Route path={path} exact strict component={ProfileContent} />
-                        <Route
-                            path={`${path}/items`}
-                            component={ProducerItems}
-                        />
+                        <Route path={`${path}/items`} component={ProducerItems} />
                     </Content>
                 </Layout>
             </Content>
@@ -59,4 +56,7 @@ UserProfile.propTypes = {
     match: PropTypes.object,
 };
 
-export default connect(null, mapDispatchToProps)(UserProfile);
+export default connect(
+    null,
+    mapDispatchToProps,
+)(UserProfile);

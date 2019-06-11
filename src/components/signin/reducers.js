@@ -1,25 +1,36 @@
-import { RESET_STATE, SIGNUP_FAILURE, SIGNUP_REQUEST, SIGNUP_SUCCESS } from './actionTypes';
+import { RESET_STATE, SIGNIN_FAILURE, SIGNIN_REQUEST, SIGNIN_SUCCESS } from './actionTypes';
 
 const initialState = {
-    isLoading: false,
+    email: '',
+    error: null,
+    isLoading: null,
+    password: '',
 };
 
-export default (state = initialState, action) => {
+export default (state = { ...initialState }, action) => {
     switch (action.type) {
-        case SIGNUP_REQUEST:
+        case SIGNIN_REQUEST: {
+            const {
+                payload: { email, password },
+            } = action;
             return {
                 ...state,
+                email,
+                error: null,
                 isLoading: true,
+                password,
             };
+        }
 
-        case SIGNUP_SUCCESS: {
+        case SIGNIN_SUCCESS: {
             return {
                 ...state,
                 isLoading: false,
                 isSuccessful: true,
             };
         }
-        case SIGNUP_FAILURE: {
+
+        case SIGNIN_FAILURE: {
             const {
                 status,
                 data: { title },

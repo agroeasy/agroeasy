@@ -22,26 +22,24 @@ export default {
         const userData = _pick(req.body, SIGN_UP_KEYS);
         const { email, password, typeOfProducts } = req.body;
 
-        if(!email || !password){
+        if (!email || !password) {
             return res.status(UNAUTHORIZED).send({
                 data: { title: NO_EMAIL_PASSWORD },
                 status: FAIL,
             });
         }
 
-        try{
+        try {
             const previousUsers = await User.findOne({ email });
 
             if (previousUsers) {
                 return res.status(UNAUTHORIZED).json({
-                    data:{ title: USER_EXIST },
+                    data: { title: USER_EXIST },
                     status: FAIL,
                 });
             }
-        } catch(error){
-            res
-                .status(INTERNAL_SERVER_ERROR)
-                .send({ error: getStatusText(INTERNAL_SERVER_ERROR) });
+        } catch (error) {
+            res.status(INTERNAL_SERVER_ERROR).send({ error: getStatusText(INTERNAL_SERVER_ERROR) });
         }
 
         try {
@@ -52,7 +50,7 @@ export default {
             });
             await user.save();
 
-            if(typeOfProducts) {
+            if (typeOfProducts) {
                 const producer = Object.assign(new Producer(), {
                     typeOfProducts,
                     userId: user._id,
@@ -68,8 +66,7 @@ export default {
                 },
                 status: SUCCESS,
             });
-
-        } catch(error) {
+        } catch (error) {
             return res
                 .status(INTERNAL_SERVER_ERROR)
                 .json({ error: getStatusText(INTERNAL_SERVER_ERROR), success: false });

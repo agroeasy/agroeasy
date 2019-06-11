@@ -1,7 +1,7 @@
 /** @constant */
 export const PATHS = {
     ABOUT: '/about',
-    CALLBACK: "/callback",
+    CALLBACK: '/callback',
     HOME: '/',
     MARKET: '/market',
     PROFILE: '/profile',

@@ -1,22 +1,20 @@
 import { effects } from 'redux-saga';
-import { SIGNUP_REQUEST } from './actionTypes';
-import { SIGNUP_URL } from './constants';
-import { signupFail, signupSuccess } from './actions';
-import Auth from '../../auth0/Auth';
-
-const auth = new Auth();
+import { setCookie } from '../app/actions';
+import { SIGNIN_REQUEST } from './actionTypes';
+import { SIGNIN_URL } from './constants';
+import { signinSuccess, signinFail } from './actions';
 
 /**
- * Makes a request to sign up a user
+ * Makes a request to sign in a user
  *
  * @param {object} [action] The data passed from the watcher generator
  *
  * @return {object} An object containing either "data" or "error"
  */
-function* signupUser(action) {
+function* signinUser(action) {
+    const { payload } = action;
     try {
-        const { payload } = action;
-        const response = yield fetch(SIGNUP_URL, {
+        const response = yield fetch(SIGNIN_URL, {
             body: JSON.stringify(payload),
             headers: {
                 'Content-Type': 'application/json',
@@ -25,33 +23,34 @@ function* signupUser(action) {
         });
 
         if (response.ok) {
-            yield effects.put(signupSuccess()) && auth.login();
+            const data = yield response.json();
+            yield effects.put(signinSuccess());
+            yield effects.put(setCookie(data));
         } else {
             const data = yield response.json();
-            yield effects.put(signupFail(data));
+            yield effects.put(signinFail(data));
         }
     } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
 }
-
 /**
  * @function
- * Watches for the {@link actionTypes.SIGNUP_REQUEST SIGNUP_REQUEST} action.
+ * Watches for the {@link actionTypes.SIGNIN_REQUEST SIGNIN_REQUEST} action.
  * Triggers request to capture data from body
  *
  * @return {void}
  */
-function* watchSignupUser() {
+function* watchSigninUser() {
     try {
-        yield effects.takeEvery(SIGNUP_REQUEST, signupUser);
+        yield effects.takeLatest(SIGNIN_REQUEST, signinUser);
     } catch (error) {
         // eslint-disable-next-line no-console
-        console.log(Error);
+        console.log(error);
     }
 }
 
 export default function*() {
-    yield effects.all([watchSignupUser()]);
+    yield effects.all([watchSigninUser()]);
 }

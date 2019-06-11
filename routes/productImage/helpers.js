@@ -8,7 +8,7 @@ export default {
                 imageId: public_id,
                 imageUrl: url,
             };
-            
+
             return res.send({ data: imageData, success: true });
         } catch (err) {
             res.send({ err, success: false });

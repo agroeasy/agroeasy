@@ -5,9 +5,8 @@ import Auth from './Auth';
 import { skeletonData } from './constants';
 
 //Component that shows faint user profile when auth0 is authenticating user
- 
-class Callback extends Component {
 
+class Callback extends Component {
     componentDidMount() {
         const auth = new Auth();
         auth.handleAuthentication();

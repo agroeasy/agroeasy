@@ -35,26 +35,26 @@ function updateProductList(product, list) {
     return newList;
 }
 
-export default (state = { ...INITIAL_STATE }, action ) => {
+export default (state = { ...INITIAL_STATE }, action) => {
     switch (action.type) {
-    case UPDATE_PRODUCT_DETAILS: {
-        const { payload } = action;
-        const { productList } = state;
+        case UPDATE_PRODUCT_DETAILS: {
+            const { payload } = action;
+            const { productList } = state;
 
-        return {
-            ...state,
-            productList: updateProductList(payload, productList),
-        };
-    }
-    case UPDATE_PRODUCT_LIST: {
-        const { payload } = action;
+            return {
+                ...state,
+                productList: updateProductList(payload, productList),
+            };
+        }
+        case UPDATE_PRODUCT_LIST: {
+            const { payload } = action;
 
-        return {
-            ...state,
-            productList: generateItemMap(payload),
-        };
-    }
-    default:
-        return state;
+            return {
+                ...state,
+                productList: generateItemMap(payload),
+            };
+        }
+        default:
+            return state;
     }
 };

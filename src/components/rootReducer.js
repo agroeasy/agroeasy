@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import app from './app';
 import contactus from './contactUs';
 import producerItems from './producerItems';
-import signUp  from './signup';
+import signUp from './signup';
 import userProfile from './userProfile';
 
 export default combineReducers({

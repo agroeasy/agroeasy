@@ -38,10 +38,7 @@ class App extends React.Component {
 App.propTypes = {
     actions: PropTypes.object,
     auth: PropTypes.object,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     links: PropTypes.arrayOf(PropTypes.node),
     match: PropTypes.object,
 };
@@ -50,4 +47,9 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators({ setLoginStatus }, dispatch),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(
+    connect(
+        null,
+        mapDispatchToProps,
+    )(App),
+);
