@@ -50,7 +50,7 @@ export default {
             });
             await user.save();
 
-            if(typeOfProducts) {
+            if (typeOfProducts) {
                 const producer = Object.assign(new Producer(), {
                     typeOfProducts,
                     userId: user._id,

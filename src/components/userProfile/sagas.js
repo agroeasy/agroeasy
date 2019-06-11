@@ -1,9 +1,11 @@
 import { effects } from 'redux-saga';
-import {  REQUEST_AUTH_USER_JWT } from './actionTypes';
+import { REQUEST_AUTH_USER_JWT } from './actionTypes';
 import { SIGN_URL } from './constants';
 import app from '../app';
 
-const { actions: { userDataNotFound, setUserData } } = app;
+const {
+    actions: { userDataNotFound, setUserData },
+} = app;
 
 /**
  * Makes a request to sign up a user
@@ -17,18 +19,17 @@ function* getAllUserInfo(action) {
             method: 'GET',
         });
 
-        if(response.ok){
+        if (response.ok) {
             const data = yield response.json();
             yield effects.put(setUserData(data));
-        } else { 
+        } else {
             const data = yield response.json();
             yield effects.put(userDataNotFound(data));
         }
-
     } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
-    } 
+    }
 }
 
 /**
@@ -47,8 +48,6 @@ function* watchgetAllUserInfo() {
     }
 }
 
-export default function* () {
-    yield effects.all([
-        watchgetAllUserInfo(),
-    ]);
+export default function*() {
+    yield effects.all([watchgetAllUserInfo()]);
 }

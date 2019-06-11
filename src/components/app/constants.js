@@ -134,4 +134,4 @@ export const BANNER_CLASSNAMES = {
 
 export const VALID_SIGNOUT = 'You have been signed out';
 
-export const SIGN_URL = "/api/signin";
+export const SIGN_URL = '/api/signin';

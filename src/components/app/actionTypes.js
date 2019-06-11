@@ -1,10 +1,12 @@
 import { NAME } from './constants';
+
 /**
  * Fired by the {@link actions.setUserData setUserData}
  * action creator.
  *
  * @type {String}
- */export const SET_USER_DATA = `${NAME}/SET_USER_DATA`;
+ */
+export const SET_USER_DATA = `${NAME}/SET_USER_DATA`;
 
 /**
  * Fired by the {@link actions.userDataNotFound userDataNotFound}

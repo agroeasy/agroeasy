@@ -1,9 +1,9 @@
 /* Signin Form Strings*/
 export const NAME = 'signin';
 
-export const SIGNIN_BUTTON = "signin_button";
-export const SIGNIN_URL = "/account/signin";
-export const SIGN = "Signin";
+export const SIGNIN_BUTTON = 'signin_button';
+export const SIGNIN_URL = '/account/signin';
+export const SIGN = 'Signin';
 
 export const INPUTS = [
     {

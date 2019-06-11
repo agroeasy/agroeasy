@@ -37,7 +37,6 @@ const profile = PROFILE_INFO.map(({ heading, info, key }) => (
 
 // react component used to render user information
 export default class UserInfo extends React.Component {
-
     render() {
         return (
             <Card className={INFO_CARD} bordered={false}>

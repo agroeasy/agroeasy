@@ -1,7 +1,7 @@
 import { SET_USER_DATA, USER_DATA_NOT_FOUND, SET_LOGIN_STATUS } from './actionTypes';
 
 /**
- * Triggers request to get user data 
+ * Triggers request to get user data
  *
  * @function
  * @return {Object} - The {@link actionTypes.SET_USER_DATA SET_USER_DATA} action.
@@ -12,7 +12,7 @@ export const setUserData = payload => ({
 });
 
 /**
- * Triggers request to get error data if authenticated user is not found 
+ * Triggers request to get error data if authenticated user is not found
  *
  * @function
  * @return {object} The {@link actionTypes.USER_DATA_NOT_FOUND USER_DATA_NOT_FOUND} action.
@@ -33,4 +33,4 @@ export const setLoginStatus = () => ({
 });
 
 //TODO: when ever userDataNotFound action is called
-//call an action to request the user to register 
+//call an action to request the user to register

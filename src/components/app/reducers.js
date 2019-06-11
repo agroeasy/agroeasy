@@ -9,24 +9,25 @@ const initialState = {
 
 export default (state = { ...initialState }, action) => {
     switch (action.type) {
+        case SET_USER_DATA: {
+            const {
+                data: { user },
+            } = action.payload;
+            return {
+                ...state,
+                isLoggedIn: auth.isAuthenticated(),
+                user,
+            };
+        }
 
-    case SET_USER_DATA: {
-        const { data: { user } } = action.payload; 
-        return { 
-            ...state,
-            isLoggedIn: auth.isAuthenticated(),
-            user,
-        };
-    }
+        case SET_LOGIN_STATUS: {
+            return {
+                ...state,
+                isLoggedIn: auth.isAuthenticated(),
+            };
+        }
 
-    case SET_LOGIN_STATUS: {
-        return { 
-            ...state,
-            isLoggedIn: auth.isAuthenticated(),
-        };
+        default:
+            return state;
     }
-    
-    default:
-        return state;
-    }
-}; 
+};
