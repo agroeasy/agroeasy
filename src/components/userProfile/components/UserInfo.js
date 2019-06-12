@@ -7,6 +7,7 @@ import App from '../../app';
 import { USER_PAGE } from '../constants';
 
 const { selectors: { getUserData } } = App;
+
 const { 
     CLASSNAMES: {  
         EDIT_BOTTON,
@@ -41,9 +42,8 @@ const {
 
 // react component used to render user information
 class UserInfo extends React.Component {
-
-    render() {
-
+    
+    generateProfileInfo() {
         const { 
             address, 
             city, 
@@ -80,7 +80,7 @@ class UserInfo extends React.Component {
         ];
       
         // mapping various user information
-        const profile = PROFILE_INFO.map(({ heading, info }) => ( 
+        return PROFILE_INFO.map(({ heading, info }) => ( 
             <div key={heading} className={INFO_DIV}>
                 <h4 className={HEADER_INFO}>
                     {heading}  
@@ -95,7 +95,11 @@ class UserInfo extends React.Component {
                 }
             </div>
         ));
- 
+    }
+    
+    render() {
+        const profile = this.generateProfileInfo();
+
         return (
             <Card
                 className={INFO_CARD}
