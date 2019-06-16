@@ -4,7 +4,7 @@ import { Card, Icon, Modal } from 'antd';
 
 import { PRODUCT } from '../constants';
 
-const { 
+const {
     ACTIONS: { SHOPPING, SHOPPING_CART },
     MODAL_INFO: { BUY, CANCEL, COST, EMAIL, LOCATION, PHONE, PRODUCERS_NAME, QUANTITY },
 } = PRODUCT;
@@ -20,7 +20,11 @@ const generateDescription = data => {
         { key: EMAIL, value: email },
     ];
 
-    return keyValuePairs.map(({ key, value }) => <p key={key}><b>{key}</b> {value}</p>);
+    return keyValuePairs.map(({ key, value }) => (
+        <p key={key}>
+            <b>{key}</b> {value}
+        </p>
+    ));
 };
 
 // React Component used to render the product detail information in a 'Modal'
@@ -44,10 +48,7 @@ class ProductModal extends React.Component {
                 title={title}
                 visible={visible}
             >
-                <Card
-                    actions={actions}
-                    cover={<img src={image} />}
-                >                    
+                <Card actions={actions} cover={<img src={image} />}>
                     {generateDescription(data)}
                 </Card>
             </Modal>

@@ -16,7 +16,7 @@ export const USER_PAGE = {
         SM_CONTENT: 'sm-content',
         TITLE: 'title',
     },
-    PROFILE_PIX: "./josh.jpg",
+    PROFILE_PIX: './josh.jpg',
     STRINGS: {
         ADDRESS: 'Address :',
         CITY: 'City :',
@@ -44,12 +44,47 @@ export const USER_PAGE = {
     },
 };
 
-export const SIDE_MENU_ITEMS = [
-    { iconType: "info-circle", label: "Account", link: '/profile' },
-    { iconType: "message", label: "Messages" },
-    { iconType: "notification", label: "Notifications" },
-    { iconType: "shopping", label: "Purchases" },
-    { iconType: "folder", label: "Items", link: "/profile/items" },
-    { iconType: "setting", label: "Settings" },
-    { iconType: "solution", label: "Help" },
+<<<<<<< HEAD
+=======
+export const PROFILE_INFO = [
+    {
+        heading: 'BASIC INFOMATION',
+        info: [
+            { description: 'Josh', title: 'First Name:' },
+            { description: 'Obinna', title: 'Last Name:' },
+            { description: 'male', title: 'Gender:' },
+        ],
+        key: 'basic',
+    },
+    {
+        heading: 'CONTACT INFOMATION',
+        info: [
+            { description: 'joshuaobinna@gmail.com', title: 'Email:' },
+            { description: '+2347061589692', title: 'Phone:' },
+        ],
+        key: 'contact',
+    },
+    {
+        heading: 'LOCATION',
+        info: [
+            { description: '24, Wilkie Crescent, Ikeja', title: 'Address:' },
+            { description: 'Lagos', title: 'City:' },
+            { description: 'Nigeria', title: 'Country:' },
+        ],
+        key: 'location',
+    },
 ];
+
+>>>>>>> master
+export const SIDE_MENU_ITEMS = [
+    { iconType: 'info-circle', label: 'Account', link: '/profile' },
+    { iconType: 'message', label: 'Messages' },
+    { iconType: 'notification', label: 'Notifications' },
+    { iconType: 'shopping', label: 'Purchases' },
+    { iconType: 'folder', label: 'Items', link: '/profile/items' },
+    { iconType: 'setting', label: 'Settings' },
+    { iconType: 'solution', label: 'Help' },
+];
+
+export const SIGN_URL = '/api/signin';
+export const NAME = '/userProfile';

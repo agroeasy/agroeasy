@@ -12,20 +12,16 @@ function generateSiginInputs(decorator) {
         const { field, iconType, placeholder, rules, type } = input;
 
         return (
-            <FormItem
-                key={field}
-            >
-                {
-                    decorator(field, {
-                        rules,
-                    })(
-                        <Input
-                            placeholder={placeholder}
-                            prefix={<Icon type={iconType} />}
-                            type={type}
-                        />
-                    )
-                }
+            <FormItem key={field}>
+                {decorator(field, {
+                    rules,
+                })(
+                    <Input
+                        placeholder={placeholder}
+                        prefix={<Icon type={iconType} />}
+                        type={type}
+                    />,
+                )}
             </FormItem>
         );
     });
@@ -45,9 +41,7 @@ class SigninModal extends React.Component {
                 onOk={onCreate}
                 confirmLoading={isLoading}
             >
-                <Form>
-                    {generateSiginInputs(getFieldDecorator)}
-                </Form>
+                <Form>{generateSiginInputs(getFieldDecorator)}</Form>
             </Modal>
         );
     }

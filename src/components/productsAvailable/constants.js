@@ -1,24 +1,24 @@
 /*food stuffs strings of ProductsAvailable*/
 export const FOODSITEMS = [
     {
-        link: "/yam/",
-        name: "Yams",
+        link: '/yam/',
+        name: 'Yams',
     },
     {
-        link: "/rice/",
-        name: "Rice",
+        link: '/rice/',
+        name: 'Rice',
     },
     {
-        link: "/beans/",
-        name: "Beans",
+        link: '/beans/',
+        name: 'Beans',
     },
     {
-        link: "garri",
-        name: "Garri",
+        link: 'garri',
+        name: 'Garri',
     },
     {
-        link: "/fufu/",
-        name: "Cassava flour (fufu)",
+        link: '/fufu/',
+        name: 'Cassava flour (fufu)',
     },
 ];
 
@@ -29,7 +29,7 @@ export const LIVESTOCK = [
         name: 'Fishes',
     },
     {
-        link: "/eggs/",
+        link: '/eggs/',
         name: 'Eggs',
     },
     {
@@ -53,7 +53,7 @@ export const FRUITS_VEGETABLES = [
         name: 'Cabbage',
     },
     {
-        link: "/lettuse/",
+        link: '/lettuse/',
         name: 'Lettuse',
     },
     {
@@ -96,12 +96,12 @@ export const SPICES = [
 
 //strings
 export const PRODUCTS_AVAILABLE = {
-    AVAILABLE: "productsAvailable",
+    AVAILABLE: 'productsAvailable',
     FOOD_ITEM_TEXT: 'Food Items',
-    FRUITS_TEXT: "Fruits & Vegetables",
+    FRUITS_TEXT: 'Fruits & Vegetables',
     GROUPED_ITEMS: 'groupedItems',
     ITEMS: 'items',
     LIST: 'list',
-    LIVE_STOCK_TEXT: "Livestock & Poultry",
+    LIVE_STOCK_TEXT: 'Livestock & Poultry',
     SPICES_TEXT: 'Spices',
 };

@@ -8,10 +8,10 @@ cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
 });
 const storage = cloudinaryStorage({
-    allowedFormats: ["jpg", "png"],
+    allowedFormats: ['jpg', 'png'],
     cloudinary: cloudinary,
-    folder: "image",
-    transformation: [{ crop: "limit", height: 500, width: 500 }],
+    folder: 'image',
+    transformation: [{ crop: 'limit', height: 500, width: 500 }],
 });
 
 export default multer({ storage: storage });

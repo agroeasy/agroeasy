@@ -17,11 +17,9 @@ class AboutUs extends React.Component {
             <div className={CONTENT}>
                 <h5 className={TOP_TEXT}>{TOPMOST_TEXT}</h5>
                 <Carousel autoplay effect={FADE}>
-                    {
-                        MARKET_SCENES.map(scenes => (
-                            <img src={scenes} width={WIDTH} key={scenes} />
-                        ))
-                    }
+                    {MARKET_SCENES.map(scenes => (
+                        <img src={scenes} width={WIDTH} key={scenes} />
+                    ))}
                 </Carousel>
                 <TeamProfile />
             </div>

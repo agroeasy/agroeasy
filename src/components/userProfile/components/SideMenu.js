@@ -11,26 +11,25 @@ const {
 
 export default class SideMenu extends React.Component {
     render() {
-        return(
-            <Menu
-                className={MENU}
-                theme={DARK}
-                mode={INLINE}
-                selectedKeys={[location.pathname]}
-            >
-                {
-                    SIDE_MENU_ITEMS.map(({ iconType, label, link }) => (
-                        <Menu.Item key={link || label}>
-                            {
-                                link ?
-                                    <AppLink to={link}>
-                                        <span><Icon type={iconType} />{label}</span>
-                                    </AppLink> :
-                                    <span><Icon type={iconType} />{label}</span>
-                            }
-                        </Menu.Item>
-                    ))
-                }
+        return (
+            <Menu className={MENU} theme={DARK} mode={INLINE} selectedKeys={[location.pathname]}>
+                {SIDE_MENU_ITEMS.map(({ iconType, label, link }) => (
+                    <Menu.Item key={link || label}>
+                        {link ? (
+                            <AppLink to={link}>
+                                <span>
+                                    <Icon type={iconType} />
+                                    {label}
+                                </span>
+                            </AppLink>
+                        ) : (
+                            <span>
+                                <Icon type={iconType} />
+                                {label}
+                            </span>
+                        )}
+                    </Menu.Item>
+                ))}
             </Menu>
         );
     }

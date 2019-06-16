@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import shallowCompare from 'shallow-equal/objects';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Button, Icon } from 'antd';
 
@@ -24,7 +24,7 @@ class ProducerItems extends React.Component {
     state = {
         isModalOpen: false,
         isNewProduct: true,
-        isProductUpdating : false,
+        isProductUpdating: false,
         productToEdit: DEFAULT_FIELD_VALUES,
     };
 
@@ -41,7 +41,7 @@ class ProducerItems extends React.Component {
             isProductUpdating: false,
             productToEdit: DEFAULT_FIELD_VALUES,
         });
-    }
+    };
 
     /**
      * Controls opening the ProductEditModal by setting the `isModalOpen`
@@ -65,7 +65,7 @@ class ProducerItems extends React.Component {
             isNewProduct,
             productToEdit,
         });
-    }
+    };
 
     /**
      * Checks to see if the new product details differs from the current product
@@ -83,7 +83,7 @@ class ProducerItems extends React.Component {
             this.setState({ isProductUpdating: true });
             requestProductUpdate(newProductDetails);
         }
-    }
+    };
 
     componentDidMount() {
         const { requestProductList } = this.props.actions;
@@ -106,15 +106,11 @@ class ProducerItems extends React.Component {
 
         return (
             <div className={CONTAINER_CLASS}>
-                <Button
-                    onClick={() => this.openProductModal()}
-                >
-                    <Icon type={TYPE} />{TEXT}
+                <Button onClick={() => this.openProductModal()}>
+                    <Icon type={TYPE} />
+                    {TEXT}
                 </Button>
-                <ProductList
-                    list={[...productList.values()]}
-                    openModal={this.openProductModal}
-                />
+                <ProductList list={[...productList.values()]} openModal={this.openProductModal} />
                 <ProductEditModal
                     closeModal={this.closeProductModal}
                     isNewProduct={isNewProduct}
@@ -141,10 +137,16 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-        requestProductList,
-        requestProductUpdate,
-    }, dispatch),
+    actions: bindActionCreators(
+        {
+            requestProductList,
+            requestProductUpdate,
+        },
+        dispatch,
+    ),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProducerItems);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(ProducerItems);

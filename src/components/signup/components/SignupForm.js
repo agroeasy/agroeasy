@@ -24,18 +24,10 @@ const {
 
 function generateSignupInputs(decorator) {
     return INPUTS.map(({ field, inputType, label, rules }) => (
-        <FormItem
-            key={field}
-            {...FORM_ITEM_LAYOUT}
-            label={label}
-        >
-            {
-                decorator(field, {
-                    rules,
-                })(
-                    <Input type={inputType} />
-                )
-            }
+        <FormItem key={field} {...FORM_ITEM_LAYOUT} label={label}>
+            {decorator(field, {
+                rules,
+            })(<Input type={inputType} />)}
         </FormItem>
     ));
 }
@@ -56,18 +48,18 @@ class SignupModal extends React.Component {
     };
 
     toggleIsProducer = e => {
-        this.setState ({
+        this.setState({
             isProducer: e.target.value,
         });
-    }
+    };
 
     render() {
         const { form, isLoading, onCancel, onCreate, visible } = this.props;
         const { getFieldDecorator } = form;
         const { isProducer } = this.state;
-        const createCategories = PRODUCTS.map(({ category, value }) =>
-            <Option key={value} >{category}</Option>
-        );
+        const createCategories = PRODUCTS.map(({ category, value }) => (
+            <Option key={value}>{category}</Option>
+        ));
 
         return (
             <Modal
@@ -93,30 +85,23 @@ class SignupModal extends React.Component {
                             <Radio.Button value={false}>{NO}</Radio.Button>
                         </Radio.Group>
                     </FormItem>
-                    {
-                        isProducer &&
-                        <FormItem
-                            {...FORM_ITEM_LAYOUT}
-                            label={PRODUCT_TYPE}
-                        >
-                            {
-                                getFieldDecorator('typeOfProducts', {
-                                    rules:
-                                    [{ message: MESSAGE, required: true }],
-                                })(
-                                    <Select
-                                        showSearch
-                                        mode={MODE}
-                                        placeholder={CATEGORIES}
-                                        onChange={handleChange}
-                                        filterOption={generateFilterOption}
-                                    >
-                                        {createCategories}
-                                    </Select>
-                                )
-                            }
+                    {isProducer && (
+                        <FormItem {...FORM_ITEM_LAYOUT} label={PRODUCT_TYPE}>
+                            {getFieldDecorator('typeOfProducts', {
+                                rules: [{ message: MESSAGE, required: true }],
+                            })(
+                                <Select
+                                    showSearch
+                                    mode={MODE}
+                                    placeholder={CATEGORIES}
+                                    onChange={handleChange}
+                                    filterOption={generateFilterOption}
+                                >
+                                    {createCategories}
+                                </Select>,
+                            )}
                         </FormItem>
-                    }
+                    )}
                     {generateSignupInputs(getFieldDecorator)}
                 </Form>
             </Modal>

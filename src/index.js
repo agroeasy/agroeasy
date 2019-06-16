@@ -13,5 +13,5 @@ ReactDOM.render(
         <Favicon url="/favicon.png" />
         <App />
     </Provider>,
-    document.getElementById('app')
+    document.getElementById('app'),
 );

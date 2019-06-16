@@ -12,7 +12,7 @@ const {
 
 class TeamProfile extends React.Component {
     render() {
-        return(
+        return (
             <List
                 dataSource={TEAM_INFO}
                 header={<h5 className={TEAM_HEADER}>{HEADER_TEXT}</h5>}
@@ -25,17 +25,15 @@ class TeamProfile extends React.Component {
                             bordered={false}
                             className={TEAM_CARD}
                             cover={<Avatar src={photo} shape={SQUARE} className={PHOTO} />}
-                            actions={
-                                social_media.map(({ icon, link }) => (
-                                    <a href={link} key={icon} target={NEW_WINDOW}>
-                                        <Icon type={icon} />
-                                    </a>
-                                ))
-                            }
+                            actions={social_media.map(({ icon, link }) => (
+                                <a href={link} key={icon} target={NEW_WINDOW}>
+                                    <Icon type={icon} />
+                                </a>
+                            ))}
                         >
                             <Meta
                                 title={<h5 className={NAME}>{name}</h5>}
-                                description={description }
+                                description={description}
                             />
                         </Card>
                     </List.Item>

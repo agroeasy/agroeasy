@@ -1,4 +1,4 @@
-import { applyMiddleware, compose, createStore } from "redux";
+import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../components/rootReducer';
 
@@ -9,11 +9,7 @@ export default function configureStore(initialState) {
         ...createStore(
             rootReducer,
             initialState,
-            composeEnhancers(
-                applyMiddleware(
-                    sagaMiddleware
-                )
-            )
+            composeEnhancers(applyMiddleware(sagaMiddleware)),
         ),
         runSaga: sagaMiddleware.run,
     };
