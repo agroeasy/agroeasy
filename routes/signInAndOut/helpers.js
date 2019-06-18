@@ -1,26 +1,12 @@
-import bcrypt from 'bcrypt-nodejs';
 import _pick from 'lodash.pick';
-import {
-    NOT_FOUND,
-    INTERNAL_SERVER_ERROR,
-    OK,
-    getStatusText,
-    UNAUTHORIZED,
-} from 'http-status-codes';
+import jwtDecode from 'jwt-decode';
+import { NOT_FOUND, INTERNAL_SERVER_ERROR, OK, getStatusText } from 'http-status-codes';
 
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
-const { User, UserSession } = models;
-const {
-    FAIL,
-    INVALID_SIGNIN,
-    LOGOUT,
-    NO_EMAIL_PASSWORD,
-    SUCCESS,
-    USER_NOT_FOUND,
-    USERINFO,
-} = CONSTANTS;
+const { User } = models;
+const { FAIL, NO_EMAIL_PASSWORD, SUCCESS, USER_NOT_FOUND, USERINFO } = CONSTANTS;
 
 export default {
     // finds all users in the db
@@ -35,36 +21,15 @@ export default {
         }
     },
 
-    logout: async (req, res) => {
-        try {
-            const { token } = req.query;
-
-            await UserSession.findOneAndUpdate(
-                {
-                    _id: token,
-                    isDeleted: false,
-                },
-                {
-                    $set: {
-                        isDeleted: true,
-                    },
-                },
-                null,
-            );
-
-            return res.send({
-                message: LOGOUT,
-                success: true,
-            });
-        } catch (err) {
-            res.send({ err, success: false });
-        }
-    },
-
+    /**
+     * Grabes the user id_token from query and returns user full profile info
+     * Signs user up if user does not exist
+     */
     signInUser: async (req, res) => {
-        const { email, password } = req.body;
+        const { idToken } = req.query;
+        const { email } = jwtDecode(idToken);
 
-        if (!email || !password) {
+        if (!email) {
             return res.status(NOT_FOUND).json({
                 data: { title: NO_EMAIL_PASSWORD },
                 status: FAIL,
@@ -75,36 +40,21 @@ export default {
             const user = await User.findOne({ email });
 
             if (!user) {
+                //TODO: If user is not found in our db, Grab the email
+                //and the name of the user to open a new account for the
+                //user, user can then update other informations later.
                 return res.status(NOT_FOUND).json({
                     data: { title: USER_NOT_FOUND },
                     status: FAIL,
                 });
+            } else {
+                return res.status(OK).json({
+                    data: {
+                        user: _pick(user, USERINFO),
+                    },
+                    status: SUCCESS,
+                });
             }
-
-            const userSession = Object.assign(new UserSession(), { userId: user._id });
-            const doc = await userSession.save();
-
-            bcrypt.compare(password, user.password, (error, result) => {
-                const data = result
-                    ? {
-                          data: {
-                              token: doc._id,
-                              user: _pick(user, USERINFO),
-                          },
-                          status: SUCCESS,
-                      }
-                    : {
-                          data: {
-                              error,
-                              title: INVALID_SIGNIN,
-                          },
-                          status: FAIL,
-                      };
-
-                const status = result ? OK : UNAUTHORIZED;
-
-                return res.status(status).json(data);
-            });
         } catch (error) {
             return res
                 .status(INTERNAL_SERVER_ERROR)

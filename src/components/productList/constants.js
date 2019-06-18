@@ -48,25 +48,26 @@ export const PRODUCT = {
     ACTIONS: {
         INFO_CIRCLE: 'info-circle',
         SHOPPING: 'shopping',
+        SHOPPING_CART: 'shopping-cart',
     },
-    BUY: 'Buy Now',
-    CANCEL: 'Cancel',
     CARD_IMAGE: 'card-image',
-    COST: 'Cost:',
     DEFAULT_DESCRIPTION: 'This is the product description',
-    EMAIL: 'Email:',
-    LOCATION: 'Location:',
-    MORE: 'More Info',
-    NAME: 'Name:',
-    PHONE: 'Phone #:',
-    PRODUCERS_NAME: `Producer's Name:`,
-    QUANTITY: 'Available Quantity:',
+    MODAL_INFO: {
+        BUY: 'Buy Now',
+        CANCEL: 'Cancel',
+        COST: 'Cost:',
+        EMAIL: 'Email:',
+        LOCATION: 'Location:',
+        PHONE: 'Phone #:',
+        PRODUCERS_NAME: `Producer's Name:`,
+        QUANTITY: 'Available Quantity:',
+    },
     TAG_COLOR: 'gold',
 };
 
 export const EXAMPLE_PRODUCTS = [
     {
-        cost: '#1,200',
+        cost: '₦1,200',
         email: ' ',
         image: '/egg-crates.jpeg',
         location: 'Owerri Imo State',
@@ -75,7 +76,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '1000',
     },
     {
-        cost: '#10,000',
+        cost: '₦10,000',
         email: ' ',
         image: '/PalmOil.JPG',
         location: ' Ondo state',
@@ -84,7 +85,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '500 gallons',
     },
     {
-        cost: '#11,500',
+        cost: '₦11,500',
         email: ' ',
         image: '/onion-bags.jpg',
         location: 'Zaria, Kaduna state',
@@ -93,7 +94,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '100',
     },
     {
-        cost: '#1,500',
+        cost: '₦1,500',
         email: ' ',
         image: '/GroundnutOil.jpeg',
         location: 'Shoprite, Owerri, Imo state',
@@ -102,7 +103,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '600',
     },
     {
-        cost: '#1.350',
+        cost: '₦1.350',
         email: 'myemail@example.com',
         image: '/poultry-chicken.jpg',
         location: 'Niger state',
@@ -111,7 +112,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '1000',
     },
     {
-        cost: '#500',
+        cost: '₦500',
         email: 'myemail@example.com',
         image: '/greenBanana.jpeg',
         location: 'Edo state',
@@ -120,7 +121,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '400 bunches',
     },
     {
-        cost: '#15,500',
+        cost: '₦15,500',
         email: 'myemail@example.com',
         image: '/bagsofrice.jpg',
         location: 'Gurara, Niger state',
@@ -129,7 +130,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '87',
     },
     {
-        cost: '#4,500',
+        cost: '₦4,500',
         email: 'myemail@example.com',
         image: '/Drypepper.jpg',
         location: '',
@@ -138,7 +139,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '50',
     },
     {
-        cost: '#750',
+        cost: '₦750',
         email: 'myemail@example.com',
         image: '/lettuse.jpg',
         location: '',
@@ -147,7 +148,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '550',
     },
     {
-        cost: '#5000',
+        cost: '₦5000',
         email: 'myemail@example.com',
         image: '/freshfarm.JPG',
         location: '',
@@ -156,7 +157,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '150',
     },
     {
-        cost: '#3,500',
+        cost: '₦3,500',
         email: 'myemail@example.com',
         image: '/carrot.jpg',
         location: '',
@@ -165,7 +166,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '3000',
     },
     {
-        cost: '#1,299',
+        cost: '₦1,299',
         email: 'myemail@example.com',
         image: '/poultry.jpg',
         location: '',
@@ -174,7 +175,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '2500',
     },
     {
-        cost: '#10,000',
+        cost: '₦10,000',
         email: 'myemail@example.com',
         image: '/tomatoes.jpg',
         location: 'benue state',
@@ -183,7 +184,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '500  baskets',
     },
     {
-        cost: '#15,000',
+        cost: '₦15,000',
         email: 'myemail@example.com',
         image: '/beans.jpg',
         location: 'Niger state',
@@ -192,7 +193,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '150 bags',
     },
     {
-        cost: '#2,000',
+        cost: '₦2,000',
         email: 'myemail@example.com',
         image: '/prawn.jpg',
         location: 'Imo state',
@@ -201,7 +202,7 @@ export const EXAMPLE_PRODUCTS = [
         quantity: '30bags',
     },
     {
-        cost: '#500',
+        cost: '₦500',
         email: 'myemail@example.com',
         image: '/Fruits.jpg',
         location: 'Ore, ondo state',

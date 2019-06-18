@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Card, Modal } from 'antd';
+import { Card, Icon, Modal } from 'antd';
 
 import { PRODUCT } from '../constants';
 
-const { BUY, CANCEL, COST, EMAIL, LOCATION, PHONE, PRODUCERS_NAME, QUANTITY } = PRODUCT;
+const {
+    ACTIONS: { SHOPPING, SHOPPING_CART },
+    MODAL_INFO: { BUY, CANCEL, COST, EMAIL, LOCATION, PHONE, PRODUCERS_NAME, QUANTITY },
+} = PRODUCT;
 
 const generateDescription = data => {
     const { cost, email, location, quantity, phone, producerName } = data;
@@ -29,6 +32,10 @@ class ProductModal extends React.Component {
     render() {
         const { data, handleCancel, visible } = this.props;
         const { image, title } = data;
+        const actions = [
+            <Icon key={SHOPPING} type={SHOPPING} />,
+            <Icon key={SHOPPING_CART} type={SHOPPING_CART} />,
+        ];
 
         return (
             <Modal
@@ -41,7 +48,9 @@ class ProductModal extends React.Component {
                 title={title}
                 visible={visible}
             >
-                <Card cover={<img src={image} />}>{generateDescription(data)}</Card>
+                <Card actions={actions} cover={<img src={image} />}>
+                    {generateDescription(data)}
+                </Card>
             </Modal>
         );
     }

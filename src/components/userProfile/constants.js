@@ -1,72 +1,65 @@
-//userpage string
 export const USER_PAGE = {
     CLASSNAMES: {
-        AVATAR: 'avatar',
-        AVATAR_CARD: 'avatar-card',
-        BASIC_INFO: 'basic-info',
-        BIG_CARD: 'big-card',
         BIG_CONTENT: 'big-content',
         BIG_LAYOUT: 'big-layout',
-        CARD_HEADER: 'card-header',
-        CARD_META: 'card-meta',
-        DATA_TITLE: 'data-title',
-        HEADER_TITLE: 'header-title',
+        EDIT_BOTTON: 'edit-botton',
+        EDIT_ICON: 'icon-edit',
+        EDIT_PROFILE_BUTTON: 'edit-profile-button',
+        HEADER_INFO: 'header-info',
+        IMAGE_CONTAINER: 'image-container',
         INFO_CARD: 'info-card',
-        INNER_CARD: 'inner-card',
-        ITEM_LAYOUT: 'horizontal',
+        INFO_DIV: 'info-div',
         MENU: 'menu',
-        PROFILE_CONTENT: 'profile-content',
+        PROFILE_IMAGE: 'profile-image',
+        ROW_CONTAINER: 'row-container',
         SIDER: 'sider',
         SM_CONTENT: 'sm-content',
+        TITLE: 'title',
     },
     PROFILE_PIX: './josh.jpg',
     STRINGS: {
-        CENTER: 'center',
         DARK: 'dark',
-        FLEX: 'flex',
-        FOLDER: 'folder',
-        INFO_CIRCLE: 'info-circle',
+        EDIT: 'edit',
+        GHOST: 'ghost',
         INLINE: 'inline',
-        MESSAGE: 'message',
-        NOTIFICATION: 'notification',
-        ORIENTATION: 'left',
-        SETTING: 'setting',
-        SHOPPING: 'shopping',
-        SM_HEADER: 'sm-header',
-        SM_HEADER_DIV: 'sm-header-div',
-        SOLUTION: 'solution',
+        MEDIUM: 'medium',
+        PRIMARY: 'primary',
+        SMALL: 'small',
         SQUARE: 'square',
-        START: 'start',
     },
     TEXTS: {
-        ACCOUNT_INFO: 'Account Info',
-        BASIC_INFO_TEXT: 'BASIC INFORMATION',
-        CONTACT_INFO_TEXT: 'CONTACT INFORMATION',
-        HELP: 'Help',
-        LOCATION_INFO_TEXT: 'LOCATION',
-        MESSAGES: 'Messages',
-        NOTIFICATIONS: 'Notifications',
-        PURCHASES: 'Purchases',
-        SAVED_ITEMS: 'Saved Items',
-        SETTINGS: 'Settings',
-        USER_PROFILE: 'User Profile',
+        EDIT_PHOTO: 'Edit Photo',
+        EDIT_PROFILE: '  Edit Profile',
     },
 };
 
-export const BASIC_INFOMATION = [
-    { description: 'Josh', title: 'First Name:' },
-    { description: 'Obinna', title: 'Last Name:' },
-    { description: 'male', title: 'Gender:' },
-];
-export const CONTACT = [
-    { description: 'joshuaobinna@gmail.com', title: 'Email:' },
-    { description: '+2347061589692', title: 'Phone:' },
-];
-
-export const LOCATION = [
-    { description: '24, Wilkie Crescent, Ikeja', title: 'Address:' },
-    { description: 'Lagos', title: 'City:' },
-    { description: 'Nigeria', title: 'Country:' },
+export const PROFILE_INFO = [
+    {
+        heading: 'BASIC INFOMATION',
+        info: [
+            { description: 'Josh', title: 'First Name:' },
+            { description: 'Obinna', title: 'Last Name:' },
+            { description: 'male', title: 'Gender:' },
+        ],
+        key: 'basic',
+    },
+    {
+        heading: 'CONTACT INFOMATION',
+        info: [
+            { description: 'joshuaobinna@gmail.com', title: 'Email:' },
+            { description: '+2347061589692', title: 'Phone:' },
+        ],
+        key: 'contact',
+    },
+    {
+        heading: 'LOCATION',
+        info: [
+            { description: '24, Wilkie Crescent, Ikeja', title: 'Address:' },
+            { description: 'Lagos', title: 'City:' },
+            { description: 'Nigeria', title: 'Country:' },
+        ],
+        key: 'location',
+    },
 ];
 
 export const SIDE_MENU_ITEMS = [
@@ -78,3 +71,6 @@ export const SIDE_MENU_ITEMS = [
     { iconType: 'setting', label: 'Settings' },
     { iconType: 'solution', label: 'Help' },
 ];
+
+export const SIGN_URL = '/api/signin';
+export const NAME = '/userProfile';
