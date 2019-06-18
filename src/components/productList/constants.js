@@ -212,3 +212,18 @@ export const EXAMPLE_PRODUCTS = [
 ];
 
 export const PRODUCT_LIST_CLASSNAME = 'product-list';
+
+export const CAROUSEL_DATA = [
+    {
+        src: '/carousel-placeholder-1.png',
+        text: 'This is Image 1',
+    },
+    {
+        src: '/carousel-placeholder-1.png',
+        text: 'This is Image 2',
+    },
+    {
+        src: '/carousel-placeholder-1.png',
+        text: 'This is Image 3',
+    },
+];

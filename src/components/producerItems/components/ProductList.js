@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Avatar, Icon, List, Tag } from 'antd';
+import { Avatar, Icon, List, Tag, Popconfirm } from 'antd';
 
 import { LIST_ITEM_CLASS, PRODUCER_PAGE } from '../constants';
 
-const { EDIT, LARGE, PRODUCT_ITEM, VERTICAL } = PRODUCER_PAGE;
+const { CONFIRM_MESSAGE, DELETE, EDIT, LARGE, NO, PRODUCT_ITEM, VERTICAL, YES } = PRODUCER_PAGE;
 
 /**
  * Helper function used to generate tags for the item meta descrition section.
@@ -33,7 +33,7 @@ function createItemDescTags(item) {
  */
 export default class ProductList extends React.Component {
     render() {
-        const { list, openModal } = this.props;
+        const { list, openModal, onConfirm, onCancel } = this.props;
         return (
             <List
                 bordered={true}
@@ -46,6 +46,16 @@ export default class ProductList extends React.Component {
                     const { description, _id, imageUrl, name } = item;
                     const actions = [
                         <Icon key={EDIT} onClick={() => openModal(_id)} type={EDIT} />,
+                        <Popconfirm
+                            key={DELETE}
+                            title={CONFIRM_MESSAGE}
+                            onConfirm={() => onConfirm(_id)}
+                            onCancel={onCancel}
+                            okText={YES}
+                            cancelText={NO}
+                        >
+                            <Icon type={DELETE} />
+                        </Popconfirm>,
                     ];
 
                     return (
@@ -70,5 +80,7 @@ export default class ProductList extends React.Component {
 
 ProductList.propTypes = {
     list: PropTypes.array,
+    onCancel: PropTypes.func,
+    onConfirm: PropTypes.func,
     openModal: PropTypes.func,
 };

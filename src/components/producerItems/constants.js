@@ -96,15 +96,21 @@ export const EDITABLE_FIELDS = {
 
 /**@constant*/
 export const PRODUCER_PAGE = {
+    CONFIRM_MESSAGE: 'Are you sure delete this product?',
+    DELETE: 'delete',
     EDIT: 'edit',
     LARGE: 'large',
+    NO: 'No',
     PRODUCT_ITEM: 'product-item',
     VERTICAL: 'vertical',
+    YES: 'Yes',
 };
 
 /**@constant*/
 export const INITIAL_STATE = {
+    errorMessage: null,
     productList: new Map(),
+    successMessage: null,
 };
 
 export const UPLOADING = 'uploading';
