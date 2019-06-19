@@ -1,4 +1,9 @@
-import { UPDATE_PRODUCT_DETAILS, UPDATE_PRODUCT_LIST } from './actionTypes';
+import {
+    ERROR_MESSAGE,
+    UPDATE_PRODUCT_DETAILS,
+    UPDATE_PRODUCT_LIST,
+    SUCCESS_MESSAGE,
+} from './actionTypes';
 import { INITIAL_STATE } from './constants';
 
 /**
@@ -9,7 +14,6 @@ import { INITIAL_STATE } from './constants';
  */
 function generateItemMap(products) {
     const setOfProducts = new Map();
-
     products.forEach(product => {
         const { _id } = product;
 
@@ -52,6 +56,22 @@ export default (state = { ...INITIAL_STATE }, action) => {
             return {
                 ...state,
                 productList: generateItemMap(payload),
+            };
+        }
+        case SUCCESS_MESSAGE: {
+            const { payload } = action;
+
+            return {
+                ...state,
+                successMessage: payload,
+            };
+        }
+        case ERROR_MESSAGE: {
+            const { payload } = action;
+
+            return {
+                ...state,
+                errorMessage: payload,
             };
         }
         default:
