@@ -99,6 +99,7 @@ export const PRODUCER_PAGE = {
     CONFIRM_MESSAGE: 'Are you sure delete this product?',
     DELETE: 'delete',
     EDIT: 'edit',
+    EDIT_PRODUCT: 'Edit Product',
     LARGE: 'large',
     NO: 'No',
     PRODUCT_ITEM: 'product-item',

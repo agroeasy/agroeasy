@@ -29,5 +29,5 @@ export const AUTH0 = {
     DOMAIN: 'agroeasy.auth0.com',
     REDIRECTURI: 'http://localhost:4000/callback',
     RESPONSETYPE: 'token id_token',
-    SCOPE: 'openid email profile',
+    SCOPE: 'openid email profile user_metadata',
 };

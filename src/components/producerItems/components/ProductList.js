@@ -1,10 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Avatar, Icon, List, Tag, Popconfirm } from 'antd';
+import { Avatar, Icon, List, Tag, Popconfirm, Tooltip } from 'antd';
 
 import { LIST_ITEM_CLASS, PRODUCER_PAGE } from '../constants';
 
-const { CONFIRM_MESSAGE, DELETE, EDIT, LARGE, NO, PRODUCT_ITEM, VERTICAL, YES } = PRODUCER_PAGE;
+const {
+    CONFIRM_MESSAGE,
+    DELETE,
+    EDIT,
+    EDIT_PRODUCT,
+    LARGE,
+    NO,
+    PRODUCT_ITEM,
+    VERTICAL,
+    YES,
+} = PRODUCER_PAGE;
 
 /**
  * Helper function used to generate tags for the item meta descrition section.
@@ -45,7 +55,9 @@ export default class ProductList extends React.Component {
                 renderItem={item => {
                     const { description, _id, imageUrl, name } = item;
                     const actions = [
-                        <Icon key={EDIT} onClick={() => openModal(_id)} type={EDIT} />,
+                        <Tooltip title={EDIT_PRODUCT}>
+                            <Icon key={EDIT} onClick={() => openModal(_id)} type={EDIT} />
+                        </Tooltip>,
                         <Popconfirm
                             key={DELETE}
                             title={CONFIRM_MESSAGE}
@@ -54,7 +66,9 @@ export default class ProductList extends React.Component {
                             okText={YES}
                             cancelText={NO}
                         >
-                            <Icon type={DELETE} />
+                            <Tooltip title={DELETE}>
+                                <Icon type={DELETE} />
+                            </Tooltip>
                         </Popconfirm>,
                     ];
 
