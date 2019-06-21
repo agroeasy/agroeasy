@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import App from '../../app';
 import { USER_PAGE } from '../constants';
 
-const { selectors: { getUserData } } = App;
+const {
+    selectors: { getUserData },
+} = App;
 
 const {
     CLASSNAMES: {
@@ -21,106 +23,85 @@ const {
         TITLE,
     },
     PROFILE_PIX,
-    STRINGS: { 
+    STRINGS: {
         ADDRESS,
-        DEFAULT, 
-        EMAIL, 
-        CITY, 
-        COUNTRY, 
-        EDIT, 
-        FIRST_NAME,  
-        GHOST, 
-        LAST_NAME, 
-        PHONE, 
-        PRIMARY, 
-        SMALL, 
+        DEFAULT,
+        EMAIL,
+        CITY,
+        COUNTRY,
+        EDIT,
+        FIRST_NAME,
+        GHOST,
+        LAST_NAME,
+        PHONE,
+        PRIMARY,
+        SMALL,
         SQUARE,
-        USERNAME, 
+        USERNAME,
     },
     TEXTS: { BASIC_INFO_TEXT, CONTACT_INFO_TEXT, EDIT_PHOTO, EDIT_PROFILE, LOCATION_INFO_TEXT },
 } = USER_PAGE;
 
-<<<<<<< HEAD
-=======
-// mapping various user information
-const profile = PROFILE_INFO.map(({ heading, info, key }) => (
-    <div key={key} className={INFO_DIV}>
-        <h4 className={HEADER_INFO}>{heading}</h4>
-        {info.map(({ description, title }) => (
-            <Row gutter={16} key={title} className={ROW_CONTAINER}>
-                <Col span={12} className={TITLE}>
-                    {title}
-                </Col>
-                <Col span={12}>{description}</Col>
-            </Row>
-        ))}
-    </div>
-));
-
->>>>>>> master
 // react component used to render user information
 class UserInfo extends React.Component {
-    
     generateProfileInfo() {
-        const { 
-            address, 
-            city, 
-            country, 
-            email, 
-            firstName,  
-            lastName, 
+        const {
+            address,
+            city,
+            country,
+            email,
+            firstName,
+            lastName,
             phoneNumber,
-            username, 
+            username,
         } = this.props.userData;
 
         //This is the user information
-        const PROFILE_INFO = [{
-            heading: BASIC_INFO_TEXT,
-            info: [
-                { description: firstName, title: FIRST_NAME },
-                { description: lastName, title: LAST_NAME },
-                { description: username, title: USERNAME },  
-            ],
-        }, {
-            heading: CONTACT_INFO_TEXT,
-            info: [
-                { description: email,  title: EMAIL },
-                { description: phoneNumber,  title: PHONE },
-            ],
-        }, {
-            heading: LOCATION_INFO_TEXT,
-            info: [
-                { description: address, title: ADDRESS },
-                { description: city, title: CITY },
-                { description: country, title: COUNTRY }, 
-            ],
-        },
+        const PROFILE_INFO = [
+            {
+                heading: BASIC_INFO_TEXT,
+                info: [
+                    { description: firstName, title: FIRST_NAME },
+                    { description: lastName, title: LAST_NAME },
+                    { description: username, title: USERNAME },
+                ],
+            },
+            {
+                heading: CONTACT_INFO_TEXT,
+                info: [
+                    { description: email, title: EMAIL },
+                    { description: phoneNumber, title: PHONE },
+                ],
+            },
+            {
+                heading: LOCATION_INFO_TEXT,
+                info: [
+                    { description: address, title: ADDRESS },
+                    { description: city, title: CITY },
+                    { description: country, title: COUNTRY },
+                ],
+            },
         ];
-      
+
         // mapping various user information
-        return PROFILE_INFO.map(({ heading, info }) => ( 
+        return PROFILE_INFO.map(({ heading, info }) => (
             <div key={heading} className={INFO_DIV}>
-                <h4 className={HEADER_INFO}>
-                    {heading}  
-                </h4>
-                {
-                    info.map(({ description, title }) => (
-                        <Row gutter={16} key={title} className={ROW_CONTAINER}>
-                            <Col span={12} className={TITLE}>{title}</Col>
-                            <Col span={12}>{description}</Col>
-                        </Row>
-                    ))
-                }
+                <h4 className={HEADER_INFO}>{heading}</h4>
+                {info.map(({ description, title }) => (
+                    <Row gutter={16} key={title} className={ROW_CONTAINER}>
+                        <Col span={12} className={TITLE}>
+                            {title}
+                        </Col>
+                        <Col span={12}>{description}</Col>
+                    </Row>
+                ))}
             </div>
         ));
     }
-    
+
     render() {
-<<<<<<< HEAD
         const profile = this.generateProfileInfo();
 
-=======
->>>>>>> master
         return (
             <Card className={INFO_CARD} bordered={false}>
                 <div className={IMAGE_CONTAINER}>
