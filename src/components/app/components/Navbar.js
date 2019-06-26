@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Avatar, Dropdown, Layout, Menu } from 'antd';
+import { Avatar, Badge, Dropdown, Layout, Menu } from 'antd';
 
 import AppLink from './AppLink';
 import { getLoginStatus } from '../selectors';
@@ -14,7 +14,7 @@ import { LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
 const { Item } = Menu;
 const { Header } = Layout;
 const { AVATAR, SHAPE, SIZE, SOURCE } = LOGO;
-const { LEFT_NAV_MENU, MAIN_NAV, NAV_MODE, NAV_THEME, RIGHT_NAV_MENU } = NAVBAR;
+const { CART_AVATAR, LEFT_NAV_MENU, MAIN_NAV, NAV_MODE, NAV_THEME, RIGHT_NAV_MENU } = NAVBAR;
 const { HOME, MARKET, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
 const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AVATAR;
 
@@ -63,7 +63,7 @@ class Navbar extends React.Component {
         return (
             <Header className={MAIN_NAV}>
                 <Menu
-                    className={RIGHT_NAV_MENU}
+                    className={LEFT_NAV_MENU}
                     mode={NAV_MODE}
                     theme={NAV_THEME}
                     selectedKeys={[location.pathname]}
@@ -85,7 +85,7 @@ class Navbar extends React.Component {
                     </Dropdown>
                 ) : (
                     <Menu
-                        className={LEFT_NAV_MENU}
+                        className={RIGHT_NAV_MENU}
                         mode={NAV_MODE}
                         theme={NAV_THEME}
                         selectedKeys={[location.pathname]}
@@ -98,6 +98,18 @@ class Navbar extends React.Component {
                         </Item>
                     </Menu>
                 )}
+                <Menu
+                    className={RIGHT_NAV_MENU}
+                    mode={NAV_MODE}
+                    theme={NAV_THEME}
+                    selectedKeys={[location.pathname]}
+                >
+                    <Item>
+                        <Badge count={0} showZero>
+                            <Avatar icon="shopping-cart" className={CART_AVATAR}  />
+                        </Badge>
+                    </Item>
+                </Menu>
             </Header>
         );
     }

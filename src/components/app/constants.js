@@ -1,3 +1,5 @@
+import { Avatar } from 'antd';
+
 /* eslint-disable max-len */
 /* eslint-disable sort-keys */
 /** @constant */
@@ -19,6 +21,7 @@ export const LOGO = {
 
 /** @constant */
 export const NAVBAR = {
+    CART_AVATAR: 'cart-avatar',
     LEFT_NAV_MENU: 'left-nav-menu',
     MAIN_NAV: 'main-nav',
     MARKET_TEXT: 'Market',
@@ -31,6 +34,7 @@ export const NAVBAR = {
 /** @constant */
 export const PATHS = {
     CONTACT: '/contact',
+    CART: '/cart',
     HOME: '/',
     MARKET: '/market',
     PROFILE: '/profile',
