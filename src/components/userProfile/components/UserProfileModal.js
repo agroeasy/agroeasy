@@ -10,52 +10,43 @@ const {
 } = USER_PAGE;
 
 const UserProfileModal = Form.create({ name: 'form_in_modal' })(
-//   eslint-disable-next-line
+    //   eslint-disable-next-line
     class extends React.Component {
         render() {
             const { visible, onCancel, onCreate } = this.props;
             const PROFILE_INFO = [
                 {
                     heading: BASIC_INFO_TEXT,
-                    info: [
-                        { title: FIRST_NAME },
-                        { title: LAST_NAME },
-                        { title: USERNAME },
-                    ],
+                    info: [{ title: FIRST_NAME }, { title: LAST_NAME }, { title: USERNAME }],
                 },
                 {
                     heading: CONTACT_INFO_TEXT,
-                    info: [
-                        { title: EMAIL },
-                        { title: PHONE },
-                    ],
+                    info: [{ title: EMAIL }, { title: PHONE }],
                 },
                 {
                     heading: LOCATION_INFO_TEXT,
-                    info: [
-                        { title: ADDRESS },
-                        { title: CITY },
-                        { title: COUNTRY },
-                    ],
+                    info: [{ title: ADDRESS }, { title: CITY }, { title: COUNTRY }],
                 },
             ];
 
             const editProfile = PROFILE_INFO.map(({ heading, info }) => (
                 <div key={heading} className={INFO_DIV}>
-                <h4 className={HEADER_INFO}>{heading}</h4>
-                {info.map(({title }) => (
-                    <Row gutter={16} key={title} className={ROW_CONTAINER}>
-                        <Col span={12} className={TITLE}>{title}</Col>
-                        <Col span={12}>
-                            <Form>
-                                <Form.Item>
-                                    <Input />
-                                </Form.Item>
-                            </Form>
-                        </Col>
-                    </Row>
-                ))}
-            </div>
+                    <h4 className={HEADER_INFO}>{heading}</h4>
+                    {info.map(({ title }) => (
+                        <Row gutter={16} key={title} className={ROW_CONTAINER}>
+                            <Col span={12} className={TITLE}>
+                                {title}
+                            </Col>
+                            <Col span={12}>
+                                <Form>
+                                    <Form.Item>
+                                        <Input />
+                                    </Form.Item>
+                                </Form>
+                            </Col>
+                        </Row>
+                    ))}
+                </div>
             ));
             return (
                 <Modal
@@ -72,6 +63,6 @@ const UserProfileModal = Form.create({ name: 'form_in_modal' })(
                 </Modal>
             );
         }
-    }
+    },
 );
 export default UserProfileModal;

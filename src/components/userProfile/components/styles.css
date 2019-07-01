@@ -57,6 +57,7 @@
     margin-bottom: 15px;
 }
 
+/* css for modal scroll */
 .scroll {
     overflow-y:auto;
     max-height:90%;

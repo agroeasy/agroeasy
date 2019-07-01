@@ -149,15 +149,14 @@ class UserInfo extends React.Component {
                 >
                     {EDIT_PROFILE}
                 </Button>
-                {
-                    visible && 
+                {visible && (
                     <UserProfileModal
                         wrappedComponentRef={this.saveFormRef}
                         visible={visible}
                         onCancel={this.handleCancel}
                         onCreate={this.handleCreate}
                     />
-                }
+                )}
             </Card>
         );
     }
