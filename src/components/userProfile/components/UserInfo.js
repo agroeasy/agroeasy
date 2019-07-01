@@ -1,7 +1,14 @@
 import React from 'react';
 import { Avatar, Card, Col, Icon, Row, Button } from 'antd';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { PROFILE_INFO, USER_PAGE } from '../constants';
+import App from '../../app';
+import { USER_PAGE } from '../constants';
+
+const {
+    selectors: { getUserData },
+} = App;
 
 const {
     CLASSNAMES: {
@@ -16,28 +23,85 @@ const {
         TITLE,
     },
     PROFILE_PIX,
-    STRINGS: { EDIT, GHOST, MEDIUM, PRIMARY, SMALL, SQUARE },
-    TEXTS: { EDIT_PHOTO, EDIT_PROFILE },
+    STRINGS: {
+        ADDRESS,
+        DEFAULT,
+        EMAIL,
+        CITY,
+        COUNTRY,
+        EDIT,
+        FIRST_NAME,
+        GHOST,
+        LAST_NAME,
+        PHONE,
+        PRIMARY,
+        SMALL,
+        SQUARE,
+        USERNAME,
+    },
+    TEXTS: { BASIC_INFO_TEXT, CONTACT_INFO_TEXT, EDIT_PHOTO, EDIT_PROFILE, LOCATION_INFO_TEXT },
 } = USER_PAGE;
 
-// mapping various user information
-const profile = PROFILE_INFO.map(({ heading, info, key }) => (
-    <div key={key} className={INFO_DIV}>
-        <h4 className={HEADER_INFO}>{heading}</h4>
-        {info.map(({ description, title }) => (
-            <Row gutter={16} key={title} className={ROW_CONTAINER}>
-                <Col span={12} className={TITLE}>
-                    {title}
-                </Col>
-                <Col span={12}>{description}</Col>
-            </Row>
-        ))}
-    </div>
-));
-
 // react component used to render user information
-export default class UserInfo extends React.Component {
+class UserInfo extends React.Component {
+    generateProfileInfo() {
+        const {
+            address,
+            city,
+            country,
+            email,
+            firstName,
+            lastName,
+            phoneNumber,
+            username,
+        } = this.props.userData;
+
+        //This is the user information
+        const PROFILE_INFO = [
+            {
+                heading: BASIC_INFO_TEXT,
+                info: [
+                    { description: firstName, title: FIRST_NAME },
+                    { description: lastName, title: LAST_NAME },
+                    { description: username, title: USERNAME },
+                ],
+            },
+            {
+                heading: CONTACT_INFO_TEXT,
+                info: [
+                    { description: email, title: EMAIL },
+                    { description: phoneNumber, title: PHONE },
+                ],
+            },
+            {
+                heading: LOCATION_INFO_TEXT,
+                info: [
+                    { description: address, title: ADDRESS },
+                    { description: city, title: CITY },
+                    { description: country, title: COUNTRY },
+                ],
+            },
+        ];
+
+        // mapping various user information
+        return PROFILE_INFO.map(({ heading, info }) => (
+            <div key={heading} className={INFO_DIV}>
+                <h4 className={HEADER_INFO}>{heading}</h4>
+                {info.map(({ description, title }) => (
+                    <Row gutter={16} key={title} className={ROW_CONTAINER}>
+                        <Col span={12} className={TITLE}>
+                            {title}
+                        </Col>
+                        <Col span={12}>{description}</Col>
+                    </Row>
+                ))}
+            </div>
+        ));
+    }
+
     render() {
+        const profile = this.generateProfileInfo();
+
         return (
             <Card className={INFO_CARD} bordered={false}>
                 <div className={IMAGE_CONTAINER}>
@@ -48,10 +112,20 @@ export default class UserInfo extends React.Component {
                     </Button>
                 </div>
                 {profile}
-                <Button type={PRIMARY} size={MEDIUM} className={EDIT_PROFILE_BUTTON}>
+                <Button type={PRIMARY} size={DEFAULT} className={EDIT_PROFILE_BUTTON}>
                     {EDIT_PROFILE}
                 </Button>
             </Card>
         );
     }
 }
+
+UserInfo.propTypes = {
+    userData: PropTypes.object,
+};
+
+const mapStateToProps = state => ({
+    userData: getUserData(state),
+});
+
+export default connect(mapStateToProps)(UserInfo);

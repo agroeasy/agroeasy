@@ -18,49 +18,31 @@ export const USER_PAGE = {
     },
     PROFILE_PIX: './josh.jpg',
     STRINGS: {
+        ADDRESS: 'Address :',
+        CITY: 'City :',
+        COUNTRY: 'Country :',
         DARK: 'dark',
+        DEFAULT: 'default',
         EDIT: 'edit',
+        EMAIL: 'Email :',
+        FIRST_NAME: 'First Name :',
         GHOST: 'ghost',
         INLINE: 'inline',
-        MEDIUM: 'medium',
+        LAST_NAME: 'Last Name :',
+        PHONE: 'Phone :',
         PRIMARY: 'primary',
         SMALL: 'small',
         SQUARE: 'square',
+        USERNAME: 'Username',
     },
     TEXTS: {
+        BASIC_INFO_TEXT: 'BASIC INFORMATION',
+        CONTACT_INFO_TEXT: 'CONTACT INFORMATION',
         EDIT_PHOTO: 'Edit Photo',
         EDIT_PROFILE: '  Edit Profile',
+        LOCATION_INFO_TEXT: 'LOCATION',
     },
 };
-
-export const PROFILE_INFO = [
-    {
-        heading: 'BASIC INFOMATION',
-        info: [
-            { description: 'Josh', title: 'First Name:' },
-            { description: 'Obinna', title: 'Last Name:' },
-            { description: 'male', title: 'Gender:' },
-        ],
-        key: 'basic',
-    },
-    {
-        heading: 'CONTACT INFOMATION',
-        info: [
-            { description: 'joshuaobinna@gmail.com', title: 'Email:' },
-            { description: '+2347061589692', title: 'Phone:' },
-        ],
-        key: 'contact',
-    },
-    {
-        heading: 'LOCATION',
-        info: [
-            { description: '24, Wilkie Crescent, Ikeja', title: 'Address:' },
-            { description: 'Lagos', title: 'City:' },
-            { description: 'Nigeria', title: 'Country:' },
-        ],
-        key: 'location',
-    },
-];
 
 export const SIDE_MENU_ITEMS = [
     { iconType: 'info-circle', label: 'Account', link: '/profile' },
