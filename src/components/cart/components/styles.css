@@ -1,0 +1,67 @@
+.ant-menu-item .cart-icon .anticon {
+  margin-right: 0;
+}
+
+.cart-icon .ant-badge {
+  top: 7px;
+}
+
+.cart-icon .ant-badge-count {
+  min-width: 15px;
+  height: 15px;
+  padding: 0 3px;
+  font-size: 10px;
+}
+
+.cart-icon .ant-scroll-number-only {
+  margin-top: -3px;
+}
+
+.cart-icon .anticon-shopping-cart {
+  font-size: 25px;
+}
+
+.cart-page {
+  margin-top: 60px;
+  padding: 50px 200px;
+  background: white;
+}
+
+.cart-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cart-heading .ant-badge {
+  margin-left: 5px;
+  margin-top: -3px;
+}
+
+.product-display img {
+  width: 100px;
+  margin-right: unset;
+}
+
+.quantity-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-value {
+  padding-right: 10px;
+}
+
+.quantity-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-table {
+  text-align: center !important;
+}
+
+a.danger {
+  color: #f5222d;
+}

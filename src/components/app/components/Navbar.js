@@ -1,14 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { Avatar, Dropdown, Layout, Menu } from 'antd';
 
 import AppLink from './AppLink';
-import { getLoginStatus } from '../selectors';
+
+import { setCartCount } from '../actions';
+import { getLoginStatus, getCartCount } from '../selectors';
 
 import signin from '../../signin';
 import signup from '../../signup';
 import Auth from '../../../auth0/Auth';
+import cart from '../../cart';
 import { LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
 
 const { Item } = Menu;
@@ -20,6 +25,7 @@ const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AV
 
 const { Signin } = signin.components;
 const { Signup } = signup.components;
+const { CartBadgeIcon } = cart.components;
 
 const items = [
     <AppLink key={AVATAR} to={HOME}>
@@ -34,6 +40,13 @@ const items = [
  * this is the the navigation bar at the top of the home page
  */
 class Navbar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            cartCount: 0,
+        };
+    }
+
     logout = ({ key }) => {
         const { isLoggedIn } = this.props;
 
@@ -43,7 +56,24 @@ class Navbar extends React.Component {
         }
     };
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.cartCount !== prevState.cartCount) {
+            return {
+                cartCount: nextProps.cartCount,
+            };
+        }
+        return null;
+    }
+
+    componentDidMount() {
+        setInterval(() => {
+            const newCount = Number(JSON.parse(window.localStorage.getItem('cart')).length || 0);
+            this.props.setCartCount(newCount);
+        }, 100);
+    }
+
     render() {
+        console.log(this.props);
         const UserMenu = (
             <Menu onClick={this.logout}>
                 <Item key={USER_PROFILE}>
@@ -98,6 +128,18 @@ class Navbar extends React.Component {
                         </Item>
                     </Menu>
                 )}
+                <Menu
+                    key="cart"
+                    className={`${LEFT_NAV_MENU} cart-count-nav`}
+                    mode={NAV_MODE}
+                    theme={NAV_THEME}
+                >
+                    <Item key="cart" className={'bg-transparent'}>
+                        <NavLink to="/cart" className={'cart-icon'}>
+                            <CartBadgeIcon count={this.state.cartCount} />
+                        </NavLink>
+                    </Item>
+                </Menu>
             </Header>
         );
     }
@@ -105,16 +147,20 @@ class Navbar extends React.Component {
 
 Navbar.propTypes = {
     actions: PropTypes.object,
+    cartCount: PropTypes.number,
     isLoggedIn: PropTypes.bool,
     links: PropTypes.arrayOf(PropTypes.node),
     match: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
+    cartCount: getCartCount(state),
     isLoggedIn: getLoginStatus(state),
 });
 
 export default connect(
     mapStateToProps,
-    null,
+    {
+        setCartCount,
+    },
 )(Navbar);
