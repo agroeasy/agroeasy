@@ -8,4 +8,3 @@ import { NAME } from './constants';
  * {@link module:app/constants::INITIAL_STATE constants::INITIAL_STATE}).
  */
 export const RemoveCartItem = state => state[NAME].removeCartItem;
-
