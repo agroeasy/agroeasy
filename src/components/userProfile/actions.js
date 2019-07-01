@@ -1,4 +1,4 @@
-import { REQUEST_AUTH_USER_JWT } from './actionTypes';
+import { REQUEST_AUTH_USER_JWT, UPDATER_USER_INFO } from './actionTypes';
 
 /**
  * Triggers request to get auth user email
