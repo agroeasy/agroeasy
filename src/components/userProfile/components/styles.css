@@ -57,6 +57,11 @@
     margin-bottom: 15px;
 }
 
+.scroll {
+    overflow-y:auto;
+    max-height:90%;
+}
+
 /* styles from userProfile.js */
 .sider {
     background: white;
