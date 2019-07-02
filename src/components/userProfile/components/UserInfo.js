@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import App from '../../app';
+import UserProfileModal from './UserProfileModal';
 import { USER_PAGE } from '../constants';
 
 const {
@@ -44,6 +45,35 @@ const {
 
 // react component used to render user information
 class UserInfo extends React.Component {
+    state = {
+        visible: false,
+    };
+
+    showModal = () => {
+        this.setState({ visible: true });
+    };
+
+    handleCancel = () => {
+        this.setState({ visible: false });
+    };
+
+    handleCreate = () => {
+        const { form } = this.formRef.props;
+        form.validateFields((err, values) => {
+            if (err) {
+                return;
+            }
+
+            // console.log('Received values of form: ', values);
+            form.resetFields();
+            this.setState({ visible: false });
+        });
+    };
+
+    saveFormRef = formRef => {
+        this.formRef = formRef;
+    };
+
     generateProfileInfo() {
         const {
             address,
@@ -55,7 +85,6 @@ class UserInfo extends React.Component {
             phoneNumber,
             username,
         } = this.props.userData;
-
         //This is the user information
         const PROFILE_INFO = [
             {
@@ -101,7 +130,7 @@ class UserInfo extends React.Component {
 
     render() {
         const profile = this.generateProfileInfo();
-
+        const { visible } = this.state;
         return (
             <Card className={INFO_CARD} bordered={false}>
                 <div className={IMAGE_CONTAINER}>
@@ -112,9 +141,22 @@ class UserInfo extends React.Component {
                     </Button>
                 </div>
                 {profile}
-                <Button type={PRIMARY} size={DEFAULT} className={EDIT_PROFILE_BUTTON}>
+                <Button
+                    type={PRIMARY}
+                    size={DEFAULT}
+                    className={EDIT_PROFILE_BUTTON}
+                    onClick={this.showModal}
+                >
                     {EDIT_PROFILE}
                 </Button>
+                {visible && (
+                    <UserProfileModal
+                        wrappedComponentRef={this.saveFormRef}
+                        visible={visible}
+                        onCancel={this.handleCancel}
+                        onCreate={this.handleCreate}
+                    />
+                )}
             </Card>
         );
     }
