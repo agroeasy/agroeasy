@@ -14,6 +14,7 @@ const {
     USERINFO,
     SUCCESS,
     SIGNED_UP,
+    USER_UPDATED,
 } = CONSTANTS;
 
 export default {
@@ -73,4 +74,24 @@ export default {
         }
     },
     //This does not log the user in, but does create an account via API.
+
+    updateUser: async (req, res) => {
+        try {
+            const { body: user } = req;
+            const { userId } = req.query;
+
+            const userData = await User.findOneAndUpdate(userId, user, { new: true });
+
+            return res.status(OK).json({
+                data: {
+                    user: _pick(userData, USERINFO),
+                },
+                status: SUCCESS,
+            });
+        } catch (error) {
+            return res
+                .status(INTERNAL_SERVER_ERROR)
+                .json({ error, message: getStatusText(INTERNAL_SERVER_ERROR), success: false });
+        }
+    },
 };
