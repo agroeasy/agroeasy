@@ -76,3 +76,11 @@ Button {
 .item_t {
     margin: 10px;
 }
+
+.item_t b {
+    display: block;
+}
+
+.item_t i {
+    display: block;
+}

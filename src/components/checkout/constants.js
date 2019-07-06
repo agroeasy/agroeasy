@@ -18,20 +18,6 @@ export const TOTALS = 'TOTAL';
 export const INFORMATION = 'Shipping Information';
 export const INFO = 'Your Order Is Not Complete Until You Confirm Your Buy By Clicking Buy Now';
 
-export const CLASS_NAMES = {
-    ALL: 'all',
-    IMAGE: 'image',
-    TOP_INFO: 'top_info',
-    ITEM: 'item',
-    QUANTITY: 'quantity',
-    TOTAL: 'total',
-    ITEM_T: 'item_t',
-    PRICE: 'price',
-    P_TOTAL: 'p_total',
-    INFO_FLEX: 'info_flex',
-    HEADER: 'header',
-    TOP_ADDRESS: 'top_address',
-};
 export const CHECKOUT_INFO = [
     {
         product: 'ijebo garri like no other',

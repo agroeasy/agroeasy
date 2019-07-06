@@ -13,46 +13,22 @@ import {
     TOTAL_A,
     INFORMATION,
     INFO,
-    CLASS_NAMES,
     CHECKOUT_INFO,
     ADDRESS,
     TOTALS,
 } from '../constants';
 
-const {
-    ALL,
-    IMAGE,
-    TOP_INFO,
-    ITEM,
-    QUANTITY,
-    TOTAL,
-    ITEM_T,
-    PRICE,
-    P_TOTAL,
-    INFO_FLEX,
-    HEADER,
-    TOP_ADDRESS,
-} = CLASS_NAMES;
-
 const addresses = ADDRESS.map(({ name, company, street, city, state, country, number, place }) => (
-    <span className={ITEM_T}>
+    <span className="item_t">
         <tr>
             <b>{place}</b>
-            <br />
-            {name}
-            <br />
-            {company}
-            <br />
-            {street}
-            <br />
-            {city}
-            <br />
-            {state}
-            <br />
-            {country}
-            <br />
-            {number}
-            <br />
+            <i>{name}</i>
+            <i>{company}</i>
+            <i>{street}</i>
+            <i>{city}</i>
+            <i>{state}</i>
+            <i>{country}</i>
+            <i>{number}</i>
         </tr>
     </span>
 ));
@@ -60,7 +36,7 @@ const addresses = ADDRESS.map(({ name, company, street, city, state, country, nu
 const items = CHECKOUT_INFO.map(({ product, photo, price, total, quantity }) => (
     <tr>
         <td>
-            <img src={photo} className={IMAGE}></img>
+            <img src={photo} className="image"></img>
             <br />
             {product}
         </td>
@@ -74,28 +50,28 @@ class Checkout extends React.Component {
     render() {
         return (
             <div>
-                <div className={HEADER}></div>
-                <div className={TOP_INFO}>{INFO}</div>
-                <div className={ALL}>
-                    <div className={INFO_FLEX}>
-                        <div className={TOP_ADDRESS}>
+                <div className="header"></div>
+                <div className="top_info">{INFO}</div>
+                <div className="all">
+                    <div className="info_flex">
+                        <div className="top_address">
                             <h5>{INFORMATION}</h5>
                             <table>{addresses}</table>
                             <Button type={BUTTON_TYPE1}>{BUTTON_WORD1}</Button>
                         </div>
                         <div>
-                            <table className={TABLE}>
+                            <table className="table">
                                 <tr>
-                                    <th className={ITEM}>{ITEM_A}</th>
-                                    <th className={QUANTITY}>{QUANTITY_A}</th>
-                                    <th className={PRICE}>{PRICE_A}</th>
-                                    <th className={TOTAL}>{TOTALS}</th>
+                                    <th className="item">{ITEM_A}</th>
+                                    <th className="quantity">{QUANTITY_A}</th>
+                                    <th className="price">{PRICE_A}</th>
+                                    <th className="total">{TOTALS}</th>
                                 </tr>
                                 {items}
                             </table>
                         </div>
                     </div>
-                    <div className={P_TOTAL}>
+                    <div className="p_total">
                         <i>{TOTAL_W}</i>
                         <b>{TOTAL_A}</b>
                     </div>
