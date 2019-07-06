@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { Avatar, Dropdown, Layout, Menu } from 'antd';
 
 import AppLink from './AppLink';
-
 import { setCartCount } from '../actions';
 import { getLoginStatus, getCartCount } from '../selectors';
 
@@ -73,7 +71,6 @@ class Navbar extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         const UserMenu = (
             <Menu onClick={this.logout}>
                 <Item key={USER_PROFILE}>
@@ -135,9 +132,9 @@ class Navbar extends React.Component {
                     theme={NAV_THEME}
                 >
                     <Item key="cart" className={'bg-transparent'}>
-                        <NavLink to="/cart" className={'cart-icon'}>
+                        <AppLink to="/cart" className={'cart-icon'}>
                             <CartBadgeIcon count={this.state.cartCount} />
-                        </NavLink>
+                        </AppLink>
                     </Item>
                 </Menu>
             </Header>
