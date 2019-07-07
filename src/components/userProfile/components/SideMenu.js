@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Icon } from 'antd';
+import { Menu, Icon, Tooltip } from 'antd';
 
 import { AppLink } from '../../app/components';
 import { SIDE_MENU_ITEMS, USER_PAGE } from '../constants';
@@ -23,10 +23,12 @@ export default class SideMenu extends React.Component {
                                 </span>
                             </AppLink>
                         ) : (
-                            <span>
-                                <Icon type={iconType} />
-                                {label}
-                            </span>
+                            <Tooltip title={'Coming Soon'}>
+                                <span>
+                                    <Icon type={iconType} />
+                                    {label}
+                                </span>
+                            </Tooltip>
                         )}
                     </Menu.Item>
                 ))}
