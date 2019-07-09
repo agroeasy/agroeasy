@@ -16,16 +16,8 @@ export const USER_PAGE = {
         SM_CONTENT: 'sm-content',
         TITLE: 'title',
     },
-    FIELDS: {
-        FIELD_ADDRESS: 'address',
-        FIELD_CITY: 'city',
-        FIELD_COUNTRY: 'country',
-        FIELD_EMAIL: 'email',
-        FIRSTNAME: 'firstName',
-        LASTNAME: 'lastName',
-        PHONE_NUMBER: 'phoneNumber',
-    },
 
+    FIELD_EMAIL: 'email',
     PROFILE_PIX: './josh.jpg',
     STRINGS: {
         ADDRESS: 'Address :',
@@ -39,9 +31,11 @@ export const USER_PAGE = {
         FIRST_NAME: 'First Name :',
         FORM_IN_MODAL: 'form_in_modal',
         GHOST: 'ghost',
+        INFO_CIRCLE: 'info-circle',
         INLINE: 'inline',
         LAST_NAME: 'Last Name :',
         MODAL_WIDTH: '50%',
+        NOT_EDITABLE_TEXT: 'This is not editable for now',
         PHONE: 'Phone :',
         PRIMARY: 'primary',
         SMALL: 'small',
@@ -70,3 +64,30 @@ export const SIDE_MENU_ITEMS = [
 
 export const SIGN_URL = '/api/signin';
 export const NAME = '/userProfile';
+
+export const PROFILE_INFO = [
+    {
+        heading: 'BASIC INFORMATION',
+        info: [
+            { field: 'firstName', title: 'First Name :' },
+            { field: 'lastName', title: 'Last Name :' },
+            { field: 'username', title: 'Username :' },
+        ],
+    },
+    {
+        heading: 'CONTACT INFORMATION',
+        // eslint-disable-next-line prettier/prettier
+        info: [
+            { field: 'email', title: 'Email :' }, 
+            { field: 'phoneNumber', title: 'Phone :' },
+    ],
+    },
+    {
+        heading: 'LOCATION',
+        info: [
+            { field: 'address', title: 'Address :' },
+            { field: 'city', title: 'city :' },
+            { field: 'country', title: 'Country' },
+        ],
+    },
+];

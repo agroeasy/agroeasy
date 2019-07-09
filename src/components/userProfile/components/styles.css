@@ -82,3 +82,7 @@
     width: auto;
      background-color: white;
 }
+
+.tooltip-icon {
+    color: rgba(0,0,0,.45);
+}
