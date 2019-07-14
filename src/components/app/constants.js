@@ -7,9 +7,6 @@ export const NAME = 'app';
 export const PROFILE = '/profile/';
 
 /** @constant */
-export const MARKET_TEXT = 'Market';
-
-/** @constant */
 export const LOGO = {
     AVATAR: 'home-avatar',
     SHAPE: 'square',
@@ -18,10 +15,9 @@ export const LOGO = {
 };
 
 /** @constant */
-export const NAVBAR = {
+export const NAVBAR_STYLE = {
     LEFT_NAV_MENU: 'left-nav-menu',
     MAIN_NAV: 'main-nav',
-    MARKET_TEXT: 'Market',
     NAV_MENU: 'nav-menu',
     NAV_MODE: 'horizontal',
     NAV_THEME: 'dark',
@@ -30,12 +26,21 @@ export const NAVBAR = {
 
 /** @constant */
 export const PATHS = {
+    CART: '/cart',
     CONTACT: '/contact',
     HOME: '/',
     MARKET: '/market',
     PROFILE: '/profile',
     SIGN_IN: '/signin',
     SIGN_UP: '/signup',
+};
+
+/** @constant */
+export const NAVBAR_STRINGS = {
+    BADGE: 'badge',
+    CART_ICON: 'cart-icon',
+    TRANSPARENT: 'bg-transparent',
+    MARKET_TEXT: 'Market',
 };
 
 /** @constant */

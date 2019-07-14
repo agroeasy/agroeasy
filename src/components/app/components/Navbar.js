@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Avatar, Dropdown, Layout, Menu } from 'antd';
 
 import AppLink from './AppLink';
+
 import { setCartCount } from '../actions';
 import { getLoginStatus, getCartCount } from '../selectors';
 
@@ -12,13 +13,14 @@ import signin from '../../signin';
 import signup from '../../signup';
 import Auth from '../../../auth0/Auth';
 import cart from '../../cart';
-import { LOGO, MARKET_TEXT, NAVBAR, PATHS, USER_AVATAR } from '../constants';
+import { LOGO, NAVBAR_STRINGS, NAVBAR_STYLE, PATHS, USER_AVATAR } from '../constants';
 
 const { Item } = Menu;
 const { Header } = Layout;
 const { AVATAR, SHAPE, SIZE, SOURCE } = LOGO;
-const { LEFT_NAV_MENU, MAIN_NAV, NAV_MODE, NAV_THEME, RIGHT_NAV_MENU } = NAVBAR;
-const { HOME, MARKET, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
+const { BADGE, CART_ICON, TRANSPARENT, MARKET_TEXT } = NAVBAR_STRINGS;
+const { LEFT_NAV_MENU, MAIN_NAV, NAV_MODE, NAV_THEME, RIGHT_NAV_MENU } = NAVBAR_STYLE;
+const { CART, HOME, MARKET, PROFILE, SIGN_IN, SIGN_UP } = PATHS;
 const { CONTAINER, ICON_TYPE, SIGN_OUT, USER_DROP_DOWN, USER_PROFILE } = USER_AVATAR;
 
 const { Signin } = signin.components;
@@ -65,12 +67,13 @@ class Navbar extends React.Component {
 
     componentDidMount() {
         setInterval(() => {
-            const newCount = Number(JSON.parse(window.localStorage.getItem('cart')).length || 0);
+            const newCount = Number(JSON.parse(window.localStorage.getItem(CART)).length || 0);
             this.props.setCartCount(newCount);
         }, 100);
     }
 
     render() {
+        console.log(this.props);
         const UserMenu = (
             <Menu onClick={this.logout}>
                 <Item key={USER_PROFILE}>
@@ -126,13 +129,12 @@ class Navbar extends React.Component {
                     </Menu>
                 )}
                 <Menu
-                    key="cart"
                     className={`${LEFT_NAV_MENU} cart-count-nav`}
                     mode={NAV_MODE}
                     theme={NAV_THEME}
                 >
-                    <Item key="cart" className={'bg-transparent'}>
-                        <AppLink to="/cart" className={'cart-icon'}>
+                    <Item key={BADGE} className={TRANSPARENT}>
+                        <AppLink to={CART} className={CART_ICON}>
                             <CartBadgeIcon count={this.state.cartCount} />
                         </AppLink>
                     </Item>
@@ -157,7 +159,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    {
-        setCartCount,
-    },
+    { setCartCount },
 )(Navbar);
