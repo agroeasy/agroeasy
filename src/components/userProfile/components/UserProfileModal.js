@@ -1,15 +1,22 @@
 import React from 'react';
-import { Modal, Form, Input, Row, Col, Tooltip, Icon } from 'antd';
+import { Modal, Form, Icon, Input, Row, Col, Tooltip } from 'antd';
 
-import { USER_PAGE } from '../constants';
+import { PROFILE_INFO, USER_PAGE } from '../constants';
 
 const {
     CLASSNAMES: { HEADER_INFO, INFO_DIV, ROW_CONTAINER, TITLE },
-    STRINGS: { ADDRESS, EMAIL, CITY, COUNTRY, FIRST_NAME, LAST_NAME, PHONE, USERNAME },
-    TEXTS: { BASIC_INFO_TEXT, CONTACT_INFO_TEXT, LOCATION_INFO_TEXT },
+    FIELD_EMAIL,
+    STRINGS: {
+        EDIT_USER_PROFILE,
+        FORM_IN_MODAL,
+        INFO_CIRCLE,
+        MODAL_WIDTH,
+        NOT_EDITABLE_TEXT,
+        UPDATE,
+    },
 } = USER_PAGE;
 
-const UserProfileModal = Form.create({ name: 'form_in_modal' })(
+const UserProfileModal = Form.create({ name: FORM_IN_MODAL })(
     //   eslint-disable-next-line
     class extends React.Component {
         render() {
@@ -18,83 +25,27 @@ const UserProfileModal = Form.create({ name: 'form_in_modal' })(
                 visible,
                 onCancel,
                 onCreate,
-                userData: {
-                    address,
-                    city,
-                    country,
-                    email,
-                    firstName,
-                    lastName,
-                    phoneNumber,
-                    username,
-                },
+                userData,
             } = this.props;
-
-            const PROFILE_INFO = [
-                {
-                    heading: BASIC_INFO_TEXT,
-                    info: [
-                        {
-                            field: 'firstName',
-                            initialValue: firstName,
-                            title: FIRST_NAME,
-                        },
-                        {
-                            field: 'lastName',
-                            initialValue: lastName,
-                            title: LAST_NAME,
-                        },
-                        {
-                            field: 'username',
-                            initialValue: username,
-                            title: USERNAME,
-                        },
-                    ],
-                },
-                {
-                    heading: CONTACT_INFO_TEXT,
-                    info: [
-                        {
-                            field: 'email',
-                            initialValue: email,
-                            title: EMAIL,
-                        },
-                        {
-                            field: 'phoneNumber',
-                            initialValue: phoneNumber,
-                            title: PHONE,
-                        },
-                    ],
-                },
-                {
-                    heading: LOCATION_INFO_TEXT,
-                    info: [
-                        {
-                            field: 'address',
-                            initialValue: address,
-                            title: ADDRESS,
-                        },
-                        {
-                            field: 'city',
-                            initialValue: city,
-                            title: CITY,
-                        },
-                        {
-                            field: 'country',
-                            initialValue: country,
-                            title: COUNTRY,
-                        },
-                    ],
-                },
-            ];
 
             let inputField;
             const editProfile = PROFILE_INFO.map(({ heading, info }) => (
                 <div key={heading} className={INFO_DIV}>
                     <h4 className={HEADER_INFO}>{heading}</h4>
-                    {info.map(({ title, initialValue, field }) => {
-                        if (field === 'email') {
-                            inputField = <Input disabled />;
+                    {info.map(({ title, field }) => {
+                        const initialValue = userData[field];
+
+                        if (field === FIELD_EMAIL) {
+                            inputField = (
+                                <Input
+                                    disabled
+                                    suffix={
+                                        <Tooltip title={NOT_EDITABLE_TEXT}>
+                                            <Icon type={INFO_CIRCLE} className="tooltip-icon" />
+                                        </Tooltip>
+                                    }
+                                />
+                            );
                         } else {
                             inputField = <Input />;
                         }
@@ -117,9 +68,9 @@ const UserProfileModal = Form.create({ name: 'form_in_modal' })(
                 <Modal
                     centered={true}
                     visible={visible}
-                    width="50%"
-                    title="User Profile"
-                    okText="Update"
+                    width={MODAL_WIDTH}
+                    title={EDIT_USER_PROFILE}
+                    okText={UPDATE}
                     onCancel={onCancel}
                     onOk={onCreate}
                     className="scroll"
