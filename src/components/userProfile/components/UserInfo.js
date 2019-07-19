@@ -2,9 +2,12 @@ import React from 'react';
 import { Avatar, Card, Col, Icon, Row, Button } from 'antd';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import App from '../../app';
+import UserProfileModal from './UserProfileModal';
 import { USER_PAGE } from '../constants';
+import { requestUserUpdate } from '../actions';
 
 const {
     selectors: { getUserData },
@@ -44,6 +47,39 @@ const {
 
 // react component used to render user information
 class UserInfo extends React.Component {
+    state = {
+        visible: false,
+    };
+
+    showModal = () => {
+        this.setState({ visible: true });
+    };
+
+    handleCancel = () => {
+        this.setState({ visible: false });
+    };
+
+    handleCreate = () => {
+        const { form } = this.formRef.props;
+        form.validateFields((err, values) => {
+            if (err) {
+                return;
+            }
+            const {
+                requestUserUpdate,
+                userData: { _id },
+            } = this.props;
+
+            requestUserUpdate({ user: values, userId: _id });
+            form.resetFields();
+            this.setState({ visible: false });
+        });
+    };
+
+    saveFormRef = formRef => {
+        this.formRef = formRef;
+    };
+
     generateProfileInfo() {
         const {
             address,
@@ -55,7 +91,6 @@ class UserInfo extends React.Component {
             phoneNumber,
             username,
         } = this.props.userData;
-
         //This is the user information
         const PROFILE_INFO = [
             {
@@ -101,7 +136,8 @@ class UserInfo extends React.Component {
 
     render() {
         const profile = this.generateProfileInfo();
-
+        const { visible } = this.state;
+        const { userData } = this.props;
         return (
             <Card className={INFO_CARD} bordered={false}>
                 <div className={IMAGE_CONTAINER}>
@@ -112,9 +148,23 @@ class UserInfo extends React.Component {
                     </Button>
                 </div>
                 {profile}
-                <Button type={PRIMARY} size={DEFAULT} className={EDIT_PROFILE_BUTTON}>
+                <Button
+                    type={PRIMARY}
+                    size={DEFAULT}
+                    className={EDIT_PROFILE_BUTTON}
+                    onClick={this.showModal}
+                >
                     {EDIT_PROFILE}
                 </Button>
+                {visible && (
+                    <UserProfileModal
+                        wrappedComponentRef={this.saveFormRef}
+                        visible={visible}
+                        onCancel={this.handleCancel}
+                        onCreate={this.handleCreate}
+                        userData={userData}
+                    />
+                )}
             </Card>
         );
     }
@@ -128,4 +178,9 @@ const mapStateToProps = state => ({
     userData: getUserData(state),
 });
 
-export default connect(mapStateToProps)(UserInfo);
+const mapDispatchToProps = dispatch => bindActionCreators({ requestUserUpdate }, dispatch);
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(UserInfo);
