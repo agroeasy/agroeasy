@@ -80,7 +80,7 @@ export default {
             const { body: user } = req;
             const { userId } = req.query;
 
-            const userData = await User.findOneAndUpdate(userId, user, { new: true });
+            const userData = await User.findOneAndUpdate(userId, user, { returnNewDocument: true });
 
             return res.status(OK).json({
                 data: {

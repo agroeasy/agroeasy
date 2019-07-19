@@ -94,7 +94,7 @@ const UserProfileModal = Form.create({ name: 'form_in_modal' })(
                     <h4 className={HEADER_INFO}>{heading}</h4>
                     {info.map(({ title, initialValue, field }) => {
                         if (field === 'email') {
-                            inputField = <input disabled={true} />;
+                            inputField = <Input disabled />;
                         } else {
                             inputField = <Input />;
                         }
