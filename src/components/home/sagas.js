@@ -5,8 +5,9 @@ import { updateSearchResult } from './actions';
 
 function* searchProduct(action) {
     try {
-        const { payload } = action;
-        const response = yield fetch(`${SEARCH_URL}?name=${payload}`, {
+        const { payload:{ searchTerm, value } } = action;
+
+        const response = yield fetch(`${SEARCH_URL}?${searchTerm}=${value}`, {
             method: 'GET',
         });
 

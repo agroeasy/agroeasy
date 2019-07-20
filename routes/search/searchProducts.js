@@ -12,17 +12,16 @@ export default {
     searchProducts:  async (req, res) => {
         try {
             const products = await productSearchAsync(
-                { term: req.query },
+                { match: req.query },
                 { stored_fields : ["_id"] },
                 
             );
-
             const esFoundProductIds = products.hits.hits.map(({ _id }) => _id);
             const foundProducts = await Product
                 .find({ _id: { $in: esFoundProductIds } })
                 .populate('producerId', PRODUCER_DATA);
 
-            return res.status(OK).json({ foundProducts, numOfFoundProducts: products.hits.total });
+            return res.status(OK).send({ foundProducts, numOfFoundProducts: products.hits.total });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send(error);
         }

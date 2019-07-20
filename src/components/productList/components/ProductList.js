@@ -1,16 +1,17 @@
 import React from 'react';
-import { List } from 'antd';
+import { List, message } from 'antd';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Product from './Product';
 import CarouselImages from '../../productList/components/Carousel';
-
+import { getSearchProducts } from '../../home/selectors';
 import { PRODUCT_LIST_CLASSNAME } from '../constants';
 
 // React Component used to render the list of product items
 
 class ProductList extends React.Component {
-
+    
     state = {
         productList: [],
     }
@@ -18,9 +19,27 @@ class ProductList extends React.Component {
     async componentDidMount() {
         const response = await fetch('/product/productsWithRelatedProducers', { method: 'post' });
         const json = await response.json();
-
+        
         this.setState({ productList: json.data });
-    } 
+    }
+
+    static getDerivedStateFromProps(props) {
+        const { userSearchedProducts } = props;
+
+        if(userSearchedProducts.length) {
+            const { foundProducts, numOfFoundProducts } = userSearchedProducts[0];
+
+            if(foundProducts.length > 0){
+                const productList = foundProducts;
+                
+                return message.info(`We found ${numOfFoundProducts} results for your search`, 3) && 
+                { productList };
+            } else {
+                message.info(`We found ${numOfFoundProducts} results for your search`, 3);
+            }
+        }
+        return null;
+    }
 
     render() {
         const { productList } = this.state;
@@ -49,6 +68,11 @@ class ProductList extends React.Component {
 
 ProductList.propTypes = {
     path: PropTypes.string,
+    userSearchedProducts: PropTypes.array,
 };
 
-export default ProductList;
+const mapStateToProps = state => ({
+    userSearchedProducts: getSearchProducts(state),
+});
+
+export default connect(mapStateToProps,null)(ProductList);
