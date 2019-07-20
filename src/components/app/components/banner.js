@@ -12,7 +12,7 @@ const banners = BANNER_DATA.map(({ key, icon, header, body }) => (
             <Icon type={icon} />
         </div>
         <h3 className={BANNER_COLOR}>{header}</h3>
-        <h5 className={BANNER_COLOR}>{body}</h5>
+        <h5 className="banner_body">{body}</h5>
     </div>
 ));
 
