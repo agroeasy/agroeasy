@@ -6,7 +6,7 @@ import { SIDE_MENU_ITEMS, USER_PAGE } from '../constants';
 
 const {
     CLASSNAMES: { MENU },
-    STRINGS: { DARK, INLINE },
+    STRINGS: { COMING_SOON, DARK, INLINE },
 } = USER_PAGE;
 
 export default class SideMenu extends React.Component {
@@ -23,7 +23,7 @@ export default class SideMenu extends React.Component {
                                 </span>
                             </AppLink>
                         ) : (
-                            <Tooltip title={'Coming Soon'}>
+                            <Tooltip title={COMING_SOON}>
                                 <span>
                                     <Icon type={iconType} />
                                     {label}
