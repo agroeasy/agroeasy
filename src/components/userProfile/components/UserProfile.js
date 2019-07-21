@@ -15,14 +15,12 @@ import { getUserAuthJwt } from '../actions';
 const { Header, Content, Sider } = Layout;
 const {
     CLASSNAMES: { BIG_CONTENT, BIG_LAYOUT, SIDER, SM_CONTENT },
-    STRINGS: { BOTTOM_LEFT, CLOSE, MENU_FOLD, MENU_UNFOLD, OPEN }
+    STRINGS: { BOTTOM_LEFT, CLOSE, MENU_FOLD, MENU_UNFOLD, OPEN },
 } = USER_PAGE;
 
 class UserProfile extends React.Component {
-    state = {
-        collapsed: false,
-    };
-    
+    state = { collapsed: false };
+
     toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
@@ -46,18 +44,9 @@ class UserProfile extends React.Component {
         return (
             <Content className={BIG_CONTENT}>
                 <Layout className={BIG_LAYOUT}>
-                    <Sider 
-                        width={200} 
-                        className={SIDER} 
-                        trigger={null} 
-                        collapsible 
-                        collapsed={collapsed} 
-                        collapsedWidth='0'
+                    <Sider width={200} className={SIDER} trigger={null} collapsible  collapsed={collapsed} collapsedWidth="0"
                     >
-                        <SideMenu 
-                            collapsed={collapsed}
-                            toggle={this.toggle}
-                        />
+                        <SideMenu collapsed={collapsed} toggle={this.toggle} />
                     </Sider>
                     <Header className="collapse-sidebar">
                         <Tooltip placement={BOTTOM_LEFT} title={collapsed ? OPEN : CLOSE}>
