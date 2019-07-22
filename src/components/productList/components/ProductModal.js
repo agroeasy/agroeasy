@@ -10,15 +10,11 @@ const {
 } = PRODUCT;
 
 const generateDescription = data => {
-    const { cost, quantity, producerId: {
-        email,
-        firstName, 
-        lastName,
-        phoneNumber,
-        state, 
-        address, 
-        city,
-    }  } = data;
+    const {
+        cost,
+        quantity,
+        producerId: { email, firstName, lastName, phoneNumber, state, address, city },
+    } = data;
     const keyValuePairs = [
         { key: PRODUCERS_NAME, value: `${lastName} ${firstName}` },
         { key: LOCATION, value: `${address} ${city} ${state}` },
@@ -40,7 +36,7 @@ class ProductModal extends React.Component {
     render() {
         const { data, handleCancel, visible } = this.props;
         const { imageUrl, title } = data;
-        
+
         const actions = [
             <Icon key={SHOPPING} type={SHOPPING} />,
             <Icon key={SHOPPING_CART} type={SHOPPING_CART} />,

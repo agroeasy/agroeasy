@@ -11,16 +11,15 @@ import { PRODUCT_LIST_CLASSNAME } from '../constants';
 // React Component used to render the list of product items
 
 class ProductList extends React.Component {
-    
     state = {
-        productList: [],
         noProductsFromSearch: false,
-    }
+        productList: [],
+    };
 
     async componentDidMount() {
         const response = await fetch('/product/productsWithRelatedProducers', { method: 'post' });
         const json = await response.json();
-        
+
         this.setState({ productList: json.data });
     }
 
@@ -35,14 +34,17 @@ class ProductList extends React.Component {
         const { userSearchedProducts } = nextProps;
         const { productList } = prevState;
 
-        if(userSearchedProducts.length) {
+        if (userSearchedProducts.length) {
             const { foundProducts, numOfFoundProducts } = userSearchedProducts[0];
 
-            if(foundProducts.length > 0){
+            if (foundProducts.length > 0) {
                 const productList = foundProducts;
 
-                return message.info(`We found ${numOfFoundProducts} results for your search`, 3) && 
-                { productList };
+                return (
+                    message.info(`We found ${numOfFoundProducts} results for your search`, 3) && {
+                        productList,
+                    }
+                );
             } else {
                 return { noProductsFromSearch: true };
             }
@@ -53,27 +55,25 @@ class ProductList extends React.Component {
     render() {
         const { productList } = this.state;
         const { path } = this.props;
-        return(
+        return (
             <React.Fragment>
-                { path !== '/home' && <CarouselImages /> } 
-              {/*   {this.state.noProductsFromSearch ?
+                {path !== '/home' && <CarouselImages />}
+                {/*   {this.state.noProductsFromSearch ?
                     <Empty  /> : */}
-                    <List
-                        bordered
-                        className={PRODUCT_LIST_CLASSNAME}
-                        dataSource={productList}
-                        loading={productList.length <= 0 && true}
-                        pagination={{ pageSize:12 }}
-                        grid={{ gutter: 9, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
-                        renderItem={item => (
-                            <List.Item>
-                                <Product data={item} />
-                            </List.Item>
-                        )}
-                    />
-                
+                <List
+                    bordered
+                    className={PRODUCT_LIST_CLASSNAME}
+                    dataSource={productList}
+                    loading={productList.length <= 0 && true}
+                    pagination={{ pageSize: 12 }}
+                    grid={{ gutter: 9, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
+                    renderItem={item => (
+                        <List.Item>
+                            <Product data={item} />
+                        </List.Item>
+                    )}
+                />
             </React.Fragment>
-
         );
     }
 }
@@ -87,4 +87,7 @@ const mapStateToProps = state => ({
     userSearchedProducts: getSearchProducts(state),
 });
 
-export default connect(mapStateToProps,null)(ProductList);
+export default connect(
+    mapStateToProps,
+    null,
+)(ProductList);

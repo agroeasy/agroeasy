@@ -22,5 +22,5 @@ export const HOME_STRINGS = {
         'Dear customer, we make sure you get a discount anytime you patronize us. Give us a try.',
 };
 
-export const SEARCH_URL = "/api/searching";
+export const SEARCH_URL = '/api/searching';
 export const NAME = 'home';

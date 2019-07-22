@@ -1,5 +1,5 @@
 import React from 'react';
-import  { Col, Input, Row, Select } from 'antd';
+import { Col, Input, Row, Select } from 'antd';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -19,22 +19,23 @@ const { CENTER, FLEX, LARGE, SEARCH_PRODUCTS } = SEARCH;
 class SearchItems extends React.Component {
     state = {
         selectedTerm: 'description',
-    }
+    };
 
     handleChange = value => {
-        this.setState({ selectedTerm:value });
-    }
+        this.setState({ selectedTerm: value });
+    };
 
     render() {
+        const {
+            actions: { searchQuery },
+        } = this.props;
 
-        const { actions: { searchQuery } } = this.props;
-
-        return(
+        return (
             <Row type={FLEX} justify={CENTER}>
                 <Col span={11}>
                     <InputGroup size={LARGE} compact>
                         <Select
-                            className= 'select-category'
+                            className="select-category"
                             placeholder="Select Category"
                             onChange={value => this.handleChange(value)}
                         >
@@ -44,10 +45,12 @@ class SearchItems extends React.Component {
                             <Option value="type">{'Type'}</Option>
                             <Option value="description">{'Description'}</Option>
                         </Select>
-                        <Search style={{ width: '70%' }}  placeholder={SEARCH_PRODUCTS}
-                            onSearch={value => searchQuery(
-                                { searchTerm: this.state.selectedTerm, value }
-                            )}
+                        <Search
+                            style={{ width: '70%' }}
+                            placeholder={SEARCH_PRODUCTS}
+                            onSearch={value =>
+                                searchQuery({ searchTerm: this.state.selectedTerm, value })
+                            }
                         />
                     </InputGroup>
                 </Col>
@@ -67,4 +70,7 @@ const mapStateToProps = state => ({
     searchResults: getSearchProducts(state),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchItems);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(SearchItems);
