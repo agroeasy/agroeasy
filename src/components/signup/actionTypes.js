@@ -4,7 +4,7 @@
  *
  * @type {String}
  */
-export const SIGNUP_REQUEST = 'SIGNUP_REQUEST'; 
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 
 /**
  * Fired by the {@link actions.signupSuccess signupSuccess}
@@ -20,7 +20,7 @@ export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
  *
  * @type {String}
  */
-export const SIGNUP_FAILURE = "SIGNUP_FAILURE";
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 
 /**
  * Fired by the {@link actions.resetState resetState}
@@ -28,4 +28,4 @@ export const SIGNUP_FAILURE = "SIGNUP_FAILURE";
  *
  * @type {String}
  */
-export const RESET_STATE = "RESET_STATE";
+export const RESET_STATE = 'RESET_STATE';

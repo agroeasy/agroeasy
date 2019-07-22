@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import shallowCompare from 'shallow-equal/objects';
-import { bindActionCreators } from "redux";
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button, Icon } from 'antd';
+import { Button, Icon, message } from 'antd';
 
 import ProductList from './ProductList';
 import ProductEditModal from './ProductEditModal';
 
-import { requestProductList, requestProductUpdate } from '../actions';
-import { getProductList } from '../selectors';
+import * as actions from '../actions';
+import { getProductList, getSuccessMessage, getErrorMessage } from '../selectors';
 import { DEFAULT_FIELD_VALUES, PRODUCER_ITEM } from '../constants';
 
 const {
@@ -24,7 +24,7 @@ class ProducerItems extends React.Component {
     state = {
         isModalOpen: false,
         isNewProduct: true,
-        isProductUpdating : false,
+        isProductUpdating: false,
         productToEdit: DEFAULT_FIELD_VALUES,
     };
 
@@ -41,7 +41,7 @@ class ProducerItems extends React.Component {
             isProductUpdating: false,
             productToEdit: DEFAULT_FIELD_VALUES,
         });
-    }
+    };
 
     /**
      * Controls opening the ProductEditModal by setting the `isModalOpen`
@@ -65,7 +65,7 @@ class ProducerItems extends React.Component {
             isNewProduct,
             productToEdit,
         });
-    }
+    };
 
     /**
      * Checks to see if the new product details differs from the current product
@@ -83,7 +83,16 @@ class ProducerItems extends React.Component {
             this.setState({ isProductUpdating: true });
             requestProductUpdate(newProductDetails);
         }
-    }
+    };
+
+    confirm = id => {
+        const { requestProductDelete } = this.props.actions;
+        requestProductDelete({ id });
+    };
+
+    cancel = () => {
+        message.error('Action Cancelled.');
+    };
 
     componentDidMount() {
         const { requestProductList } = this.props.actions;
@@ -92,12 +101,30 @@ class ProducerItems extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        const { productList: newList } = this.props;
-        const { productList: oldList } = prevProp;
+        const {
+            productList: newList,
+            successMessage: newSuccesMessage,
+            errorMessage: newErrorMessage,
+        } = this.props;
+        const {
+            productList: oldList,
+            successMessage: oldSuccessMessage,
+            errorMessage: oldErrorMessage,
+        } = prevProp;
         const { isProductUpdating } = this.state;
         const hasNewProductList = newList !== oldList && isProductUpdating;
 
         hasNewProductList && this.closeProductModal();
+        if (newSuccesMessage != oldSuccessMessage) {
+            message.success(newSuccesMessage);
+            const { requestProductList } = this.props.actions;
+            requestProductList();
+        }
+        if (newErrorMessage != oldErrorMessage) {
+            message.error(newErrorMessage);
+            const { requestProductList } = this.props.actions;
+            requestProductList();
+        }
     }
 
     render() {
@@ -106,14 +133,15 @@ class ProducerItems extends React.Component {
 
         return (
             <div className={CONTAINER_CLASS}>
-                <Button
-                    onClick={() => this.openProductModal()}
-                >
-                    <Icon type={TYPE} />{TEXT}
+                <Button onClick={() => this.openProductModal()}>
+                    <Icon type={TYPE} />
+                    {TEXT}
                 </Button>
                 <ProductList
                     list={[...productList.values()]}
                     openModal={this.openProductModal}
+                    onConfirm={this.confirm}
+                    onCancel={this.cancel}
                 />
                 <ProductEditModal
                     closeModal={this.closeProductModal}
@@ -130,21 +158,26 @@ class ProducerItems extends React.Component {
 
 ProducerItems.propTypes = {
     actions: PropTypes.shape({
+        requestProductDelete: PropTypes.func,
         requestProductList: PropTypes.func,
         requestProductUpdate: PropTypes.func,
     }),
+    errorMessage: PropTypes.string,
     productList: PropTypes.instanceOf(Map),
+    successMessage: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
+    errorMessage: getErrorMessage(state),
     productList: getProductList(state),
+    successMessage: getSuccessMessage(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators({
-        requestProductList,
-        requestProductUpdate,
-    }, dispatch),
+    actions: bindActionCreators(actions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProducerItems);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(ProducerItems);

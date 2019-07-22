@@ -1,80 +1,93 @@
-//userpage string
 export const USER_PAGE = {
     CLASSNAMES: {
-        AVATAR: 'avatar',
-        AVATAR_CARD: 'avatar-card',
-        BASIC_INFO: 'basic-info',
-        BIG_CARD: 'big-card',
         BIG_CONTENT: 'big-content',
         BIG_LAYOUT: 'big-layout',
-        CARD_HEADER: 'card-header',
-        CARD_META: 'card-meta',
-        DATA_TITLE: 'data-title',
-        HEADER_TITLE: 'header-title',
+        EDIT_BOTTON: 'edit-botton',
+        EDIT_ICON: 'icon-edit',
+        EDIT_PROFILE_BUTTON: 'edit-profile-button',
+        HEADER_INFO: 'header-info',
+        IMAGE_CONTAINER: 'image-container',
         INFO_CARD: 'info-card',
-        INNER_CARD: 'inner-card',
-        ITEM_LAYOUT: 'horizontal',
+        INFO_DIV: 'info-div',
         MENU: 'menu',
-        PROFILE_CONTENT: 'profile-content',
+        PROFILE_IMAGE: 'profile-image',
+        ROW_CONTAINER: 'row-container',
         SIDER: 'sider',
         SM_CONTENT: 'sm-content',
+        TITLE: 'title',
     },
-    PROFILE_PIX: "./josh.jpg",
+
+    FIELD_EMAIL: 'email',
+    PROFILE_PIX: './josh.jpg',
     STRINGS: {
-        CENTER: 'center',
+        ADDRESS: 'Address :',
+        CITY: 'City :',
+        COUNTRY: 'Country :',
         DARK: 'dark',
-        FLEX: 'flex',
-        FOLDER: 'folder',
+        DEFAULT: 'default',
+        EDIT: 'edit',
+        EDIT_USER_PROFILE: 'Edit User Profile',
+        EMAIL: 'Email :',
+        FIRST_NAME: 'First Name :',
+        FORM_IN_MODAL: 'form_in_modal',
+        GHOST: 'ghost',
         INFO_CIRCLE: 'info-circle',
         INLINE: 'inline',
-        MESSAGE: 'message',
-        NOTIFICATION: 'notification',
-        ORIENTATION: 'left',
-        SETTING: 'setting',
-        SHOPPING: 'shopping',
-        SM_HEADER: 'sm-header',
-        SM_HEADER_DIV: 'sm-header-div',
-        SOLUTION: 'solution',
+        LAST_NAME: 'Last Name :',
+        MODAL_WIDTH: '50%',
+        NOT_EDITABLE_TEXT: 'This is not editable for now',
+        PHONE: 'Phone :',
+        PRIMARY: 'primary',
+        SMALL: 'small',
         SQUARE: 'square',
-        START: 'start',
+        UPDATE: 'Update',
+        USERNAME: 'Username',
     },
     TEXTS: {
-        ACCOUNT_INFO: 'Account Info',
         BASIC_INFO_TEXT: 'BASIC INFORMATION',
         CONTACT_INFO_TEXT: 'CONTACT INFORMATION',
-        HELP: 'Help',
+        EDIT_PHOTO: 'Edit Photo',
+        EDIT_PROFILE: '  Edit Profile',
         LOCATION_INFO_TEXT: 'LOCATION',
-        MESSAGES: 'Messages',
-        NOTIFICATIONS: 'Notifications',
-        PURCHASES: 'Purchases',
-        SAVED_ITEMS: 'Saved Items',
-        SETTINGS: 'Settings',
-        USER_PROFILE: 'User Profile',
     },
 };
 
-export const BASIC_INFOMATION = [
-    { description: 'Josh', title: "First Name:" },
-    { description: 'Obinna', title: 'Last Name:' },
-    { description: 'male', title: 'Gender:' },
-];
-export const CONTACT = [
-    { description: 'joshuaobinna@gmail.com',  title: "Email:" },
-    { description: '+2347061589692',  title: "Phone:" },
-];
-
-export const LOCATION = [
-    { description:  '24, Wilkie Crescent, Ikeja', title: "Address:" },
-    { description: "Lagos", title: 'City:' },
-    { description: "Nigeria", title: 'Country:' },
-];
-
 export const SIDE_MENU_ITEMS = [
-    { iconType: "info-circle", label: "Account", link: '/profile' },
-    { iconType: "message", label: "Messages" },
-    { iconType: "notification", label: "Notifications" },
-    { iconType: "shopping", label: "Purchases" },
-    { iconType: "folder", label: "Items", link: "/profile/items" },
-    { iconType: "setting", label: "Settings" },
-    { iconType: "solution", label: "Help" },
+    { iconType: 'info-circle', label: 'Account', link: '/profile' },
+    { iconType: 'message', label: 'Messages' },
+    { iconType: 'notification', label: 'Notifications' },
+    { iconType: 'shopping', label: 'Purchases' },
+    { iconType: 'folder', label: 'Items', link: '/profile/items' },
+    { iconType: 'setting', label: 'Settings' },
+    { iconType: 'solution', label: 'Help' },
+];
+
+export const SIGN_URL = '/api/signin';
+export const NAME = '/userProfile';
+
+export const PROFILE_INFO = [
+    {
+        heading: 'BASIC INFORMATION',
+        info: [
+            { field: 'firstName', title: 'First Name :' },
+            { field: 'lastName', title: 'Last Name :' },
+            { field: 'username', title: 'Username :' },
+        ],
+    },
+    {
+        heading: 'CONTACT INFORMATION',
+        // eslint-disable-next-line prettier/prettier
+        info: [
+            { field: 'email', title: 'Email :' }, 
+            { field: 'phoneNumber', title: 'Phone :' },
+    ],
+    },
+    {
+        heading: 'LOCATION',
+        info: [
+            { field: 'address', title: 'Address :' },
+            { field: 'city', title: 'city :' },
+            { field: 'country', title: 'Country' },
+        ],
+    },
 ];

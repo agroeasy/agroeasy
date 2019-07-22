@@ -27,14 +27,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', router);
-app.use('/', expressStaticGzip(appPath, {
-    enableBrotli: true,
-    orderPreference: ['br', 'gz'],
-}));
+app.use(
+    '/',
+    expressStaticGzip(appPath, {
+        enableBrotli: true,
+        orderPreference: ['br', 'gz'],
+    }),
+);
 
 app.get('*', (req, res) => res.sendFile(path.resolve(appPath, 'index.html')));
 
-server.listen(PORT, async() => {
+server.listen(PORT, async () => {
     await connectToDb();
     console.log(`Listening on port ${PORT}`); // eslint-disable-line no-console
 });

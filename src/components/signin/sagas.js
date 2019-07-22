@@ -1,6 +1,6 @@
 import { effects } from 'redux-saga';
 import { setCookie } from '../app/actions';
-import {  SIGNIN_REQUEST } from './actionTypes';
+import { SIGNIN_REQUEST } from './actionTypes';
 import { SIGNIN_URL } from './constants';
 import { signinSuccess, signinFail } from './actions';
 
@@ -11,7 +11,7 @@ import { signinSuccess, signinFail } from './actions';
  *
  * @return {object} An object containing either "data" or "error"
  */
-function* signinUser(action){
+function* signinUser(action) {
     const { payload } = action;
     try {
         const response = yield fetch(SIGNIN_URL, {
@@ -26,12 +26,11 @@ function* signinUser(action){
             const data = yield response.json();
             yield effects.put(signinSuccess());
             yield effects.put(setCookie(data));
-
         } else {
             const data = yield response.json();
             yield effects.put(signinFail(data));
         }
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
@@ -43,17 +42,15 @@ function* signinUser(action){
  *
  * @return {void}
  */
-function* watchSigninUser(){
+function* watchSigninUser() {
     try {
         yield effects.takeLatest(SIGNIN_REQUEST, signinUser);
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
 }
 
-export default function* (){
-    yield effects.all([
-        watchSigninUser(),
-    ]);
+export default function*() {
+    yield effects.all([watchSigninUser()]);
 }

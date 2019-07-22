@@ -1,8 +1,10 @@
 import { effects } from 'redux-saga';
-import {  SIGNUP_REQUEST } from './actionTypes';
+import { SIGNUP_REQUEST } from './actionTypes';
 import { SIGNUP_URL } from './constants';
-import {  setCookie } from '../app/actions';
 import { signupFail, signupSuccess } from './actions';
+import Auth from '../../auth0/Auth';
+
+const auth = new Auth();
 
 /**
  * Makes a request to sign up a user
@@ -22,18 +24,16 @@ function* signupUser(action) {
             method: 'POST',
         });
 
-        if(response.ok){
-            const data = yield response.json();
-            yield effects.put(signupSuccess());
-            yield effects.put(setCookie(data));
-        } else { 
+        if (response.ok) {
+            yield effects.put(signupSuccess()) && auth.login();
+        } else {
             const data = yield response.json();
             yield effects.put(signupFail(data));
         }
     } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
-    } 
+    }
 }
 
 /**
@@ -52,8 +52,6 @@ function* watchSignupUser() {
     }
 }
 
-export default function* () {
-    yield effects.all([
-        watchSignupUser(),
-    ]);
+export default function*() {
+    yield effects.all([watchSignupUser()]);
 }

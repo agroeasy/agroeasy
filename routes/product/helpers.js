@@ -45,7 +45,7 @@ export default {
      * @param {Object} res - the response object
      * @return {Object} - the response after processing the request
      */
-    getProductsByUserId: async(req, res) => {
+    getProductsByUserId: async (req, res) => {
         try {
             const data = await Product.find({ producerId: req.params.id });
             return res.json({ data, success: true });
@@ -72,8 +72,11 @@ export default {
     // deletes products using id
     productDelete: async (req, res) => {
         try {
-            const { body, params: { id: _id } } =  req;
-            await Product.findByIdAndRemove(_id, body);
+            const {
+                body,
+                params: { id: _id },
+            } = req;
+            await Product.findByIdAndDelete(_id, body);
             return res.json({ message: PRODUCT_DELETED, success: true });
         } catch (err) {
             res.send({ err, success: false });
@@ -93,10 +96,13 @@ export default {
     // updates products using id
     productUpdate: async (req, res) => {
         try {
-            const { body, params:{ productsId: _id } } = req;
-            const data = await Product.findOneAndUpdate(_id, body, { new: true } );
+            const {
+                body,
+                params: { productsId: _id },
+            } = req;
+            const data = await Product.findOneAndUpdate(_id, body, { new: true });
 
-            return res.json ({ data, message: PRODUCT_UPDATED, success: true });
+            return res.json({ data, message: PRODUCT_UPDATED, success: true });
         } catch (err) {
             res.send({ err, success: false });
         }
@@ -123,7 +129,7 @@ export default {
      * @param {Object} res - the response object
      * @return {Object} - the response after processing the request
      */
-    updateOrCreateItem: async(req, res) => {
+    updateOrCreateItem: async (req, res) => {
         try {
             const { body: product } = req;
             const { _id, producerId } = product;
@@ -145,7 +151,7 @@ export default {
             } else {
                 // Redundancy: deletes possible invalid/valid '_id'
                 delete product._id;
-                
+
                 data = await Product.create(product);
                 message = PRODUCT_CREATED;
             }

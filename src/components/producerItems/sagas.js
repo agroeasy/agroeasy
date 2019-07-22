@@ -1,17 +1,24 @@
 import { effects } from 'redux-saga';
 
 import App from '../app';
-import { updateProductDetails, updateProductList } from './actions';
-import { REQUEST_PRODUCT_LIST, REQUEST_PRODUCT_UPDATE } from './actionTypes';
+import { updateProductDetails, updateProductList, successMessage, errorMessage } from './actions';
+import {
+    REQUEST_PRODUCT_LIST,
+    REQUEST_PRODUCT_UPDATE,
+    REQUEST_PRODUCT_DELETE,
+} from './actionTypes';
 
-const { selectors: { getUserData } } = App;
+const {
+    selectors: { getUserData },
+} = App;
 const headers = { 'Content-Type': 'application/json' };
+
 /**
  * Handles requesting the list of producer items from the backend
  *
  * @return {Void} - void
  */
-function* requestProducersItems(){
+function* requestProducersItems() {
     try {
         const { _id } = yield effects.select(getUserData);
         const response = yield fetch(`/product/producerId/${_id}`, {
@@ -30,7 +37,7 @@ function* requestProducersItems(){
             // eslint-disable-next-line no-console
             console.log('ERROR', result);
         }
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
@@ -42,7 +49,7 @@ function* requestProducersItems(){
  * @param {Object} action - the data sent from the action creator
  * @return {Void} - void
  */
-function* requestProducersItemUpdate(action){
+function* requestProducersItemUpdate(action) {
     try {
         // TODO: connect saga generator to backend api
         const { _id } = yield effects.select(getUserData);
@@ -66,7 +73,39 @@ function* requestProducersItemUpdate(action){
             // eslint-disable-next-line no-console
             console.log('ERROR', result);
         }
-    } catch(error){
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
+    }
+}
+
+/**
+ * Handles requesting product updates to the backend
+ *
+ * @param {Object} action - the data sent from the action creator
+ * @return {Void} - void
+ */
+function* requestProducerItemDelete(action) {
+    try {
+        // TODO: connect saga generator to backend api
+        const { id } = action.payload;
+
+        const response = yield fetch(`/product/${id}`, {
+            headers,
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            const { message } = yield response.json();
+            yield effects.put(successMessage(message));
+        } else {
+            const result = yield response.json();
+            yield effects.put(errorMessage(result));
+            // TODO: update state to reflect error on fetch item list
+            // eslint-disable-next-line no-console
+            console.log('ERROR', result);
+        }
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
@@ -79,10 +118,10 @@ function* requestProducersItemUpdate(action){
  *
  * @return {void}
  */
-function* watchRequestProductList(){
+function* watchRequestProductList() {
     try {
         yield effects.takeLatest(REQUEST_PRODUCT_LIST, requestProducersItems);
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
@@ -95,18 +134,35 @@ function* watchRequestProductList(){
  *
  * @return {void}
  */
-function* watchRequestProductUpdate(){
+function* watchRequestProductUpdate() {
     try {
         yield effects.takeLatest(REQUEST_PRODUCT_UPDATE, requestProducersItemUpdate);
-    } catch(error){
+    } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
     }
 }
 
-export default function* (){
+/**
+ * @function
+ * Watches for the {@link actionTypes.REQUEST_PRODUCT_LIST REQUEST_PRODUCT_LIST} action.
+ * Triggers request to pull the products list of items
+ *
+ * @return {void}
+ */
+function* watchRequestProductItemDelete() {
+    try {
+        yield effects.takeLatest(REQUEST_PRODUCT_DELETE, requestProducerItemDelete);
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
+    }
+}
+
+export default function*() {
     yield effects.all([
         watchRequestProductList(),
         watchRequestProductUpdate(),
+        watchRequestProductItemDelete(),
     ]);
 }

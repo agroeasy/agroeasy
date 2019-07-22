@@ -7,22 +7,22 @@ import { PRODUCT } from '../constants';
 
 const { Meta } = Card;
 const {
-    ACTIONS: { INFO_CIRCLE, SHOPPING },
+    ACTIONS: { INFO_CIRCLE },
     CARD_IMAGE,
     TAG_COLOR,
 } = PRODUCT;
 
 // React Component used to render the product item in a 'Card'
 class Product extends React.Component {
-    state = { visible: false }
+    state = { visible: false };
 
     showModal = () => {
         this.setState({ visible: true });
-    }
+    };
 
     handleCancel = () => {
         this.setState({ visible: false });
-    }
+    };
 
     render() {
         const { visible } = this.state;
@@ -34,10 +34,7 @@ class Product extends React.Component {
                 {description}
             </div>
         );
-        const actions = [
-            <Icon key={SHOPPING} type={SHOPPING} />,
-            <Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />,
-        ];
+        const actions = [<Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />];
 
         return (
             <div>

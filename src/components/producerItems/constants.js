@@ -58,11 +58,11 @@ export const FORM_ITEM_LAYOUT = {
 export const EDITABLE_FIELDS = {
     cost: {
         label: 'Cost',
-        rules: [{ message: "How much does a unit of this item cost?", required: true }],
+        rules: [{ message: 'How much does a unit of this item cost?', required: true }],
     },
     description: {
         label: 'Description',
-        rules: [{ message: "You must provide a description for this item", required: true }],
+        rules: [{ message: 'You must provide a description for this item', required: true }],
     },
     name: {
         label: 'Name',
@@ -70,7 +70,7 @@ export const EDITABLE_FIELDS = {
     },
     quantity: {
         label: 'Quantity',
-        rules: [{ message: "How many of this item do you have in stock?", required: true }],
+        rules: [{ message: 'How many of this item do you have in stock?', required: true }],
     },
     type: {
         label: 'Type',
@@ -90,21 +90,28 @@ export const EDITABLE_FIELDS = {
             'Spice',
             'Vegetable',
         ],
-        rules: [{ message: "What type of item is this?", required: true }],
+        rules: [{ message: 'What type of item is this?', required: true }],
     },
 };
 
 /**@constant*/
 export const PRODUCER_PAGE = {
+    CONFIRM_MESSAGE: 'Are you sure delete this product?',
+    DELETE: 'delete',
     EDIT: 'edit',
+    EDIT_PRODUCT: 'Edit Product',
     LARGE: 'large',
+    NO: 'No',
     PRODUCT_ITEM: 'product-item',
     VERTICAL: 'vertical',
+    YES: 'Yes',
 };
 
 /**@constant*/
 export const INITIAL_STATE = {
+    errorMessage: null,
     productList: new Map(),
+    successMessage: null,
 };
 
 export const UPLOADING = 'uploading';
@@ -118,6 +125,6 @@ export const PLUS = 'plus';
 export const CREATE_IMAGE_ENDPOINT = 'http://localhost:4000/api/createImage';
 export const PICTURE_CARD = 'picture-card';
 export const IMAGE = 'image';
-export const CLEARFIX = "clearfix";
-export const IMAGE_WIDTH = "image-width";
-export const NUM_OF_IMAGES = 0; 
+export const CLEARFIX = 'clearfix';
+export const IMAGE_WIDTH = 'image-width';
+export const NUM_OF_IMAGES = 0;

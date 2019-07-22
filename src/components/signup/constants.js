@@ -1,22 +1,22 @@
 /* Signup Form Strings*/
-export const NAME =  "signup";
+export const NAME = 'signup';
 
 export const SIGNUP_STRINGS = {
-    CATEGORIES: "Select Categories",
-    MESSAGE: "Please select category",
-    MODE: "multiple",
-    NO: "No",
-    PRIMARY: "primary",
-    PRODUCER: "Are you a producer?",
-    PRODUCT_TYPE: "Product Type",
-    RADIO_BUTTONS: "radio-buttons",
-    RADIO_GROUP_FORM: "radio-group-form",
-    REGISTER: "Register",
-    SCROLLBAR: "scroll-bar",
-    SMALL: "small",
-    SOLID: "solid",
-    TITLE: "Sign up",
-    YES: "Yes",
+    CATEGORIES: 'Select Categories',
+    MESSAGE: 'Please select category',
+    MODE: 'multiple',
+    NO: 'No',
+    PRIMARY: 'primary',
+    PRODUCER: 'Are you a producer?',
+    PRODUCT_TYPE: 'Product Type',
+    RADIO_BUTTONS: 'radio-buttons',
+    RADIO_GROUP_FORM: 'radio-group-form',
+    REGISTER: 'Register',
+    SCROLLBAR: 'scroll-bar',
+    SMALL: 'small',
+    SOLID: 'solid',
+    TITLE: 'Sign up',
+    YES: 'Yes',
 };
 
 export const FORM_ITEM_LAYOUT = {
@@ -32,124 +32,129 @@ export const FORM_ITEM_LAYOUT = {
 
 export const INPUTS = [
     {
-        field: "email",
-        label: "E-mail",
-        rules: [{
-            message: "The input is not valid E-mail!", type: "email",
-        }, {
-            message: "Please input your E-mail!", required: true,
-        }],
+        field: 'email',
+        label: 'E-mail',
+        rules: [
+            {
+                message: 'The input is not valid E-mail!',
+                type: 'email',
+            },
+            {
+                message: 'Please input your E-mail!',
+                required: true,
+            },
+        ],
     },
     {
-        field: "firstName",
-        label: "First name",
-        rules: [{ message: "Please input your first name!", required: true }],
+        field: 'firstName',
+        label: 'First name',
+        rules: [{ message: 'Please input your first name!', required: true }],
     },
     {
-        field: "lastName",
-        label: "Last name",
-        rules: [{ message: "Please input your last name!", required: true }],
+        field: 'lastName',
+        label: 'Last name',
+        rules: [{ message: 'Please input your last name!', required: true }],
     },
     {
-        field: "username",
-        label: "Username",
-        rules: [{ message: "Please input your username!", required: true  }],
+        field: 'username',
+        label: 'Username',
+        rules: [{ message: 'Please input your username!', required: true }],
     },
     {
-        field: "city",
-        label: "City",
-        rules: [{ message: "Please input your city!", required: true }],
+        field: 'city',
+        label: 'City',
+        rules: [{ message: 'Please input your city!', required: true }],
     },
     {
-        field: "country",
-        label: "Country",
-        rules: [{ message: "Please input your Country!", required: true }],
+        field: 'country',
+        label: 'Country',
+        rules: [{ message: 'Please input your Country!', required: true }],
     },
     {
-        field: "state",
-        label: "State",
-        rules: [{ message: "Please input your State!", required: true }],
+        field: 'state',
+        label: 'State',
+        rules: [{ message: 'Please input your State!', required: true }],
     },
     {
-        field: "address",
-        label: "Street Address",
-        rules: [{ message: "Please input your Street Address!", required: true }],
+        field: 'address',
+        label: 'Street Address',
+        rules: [{ message: 'Please input your Street Address!', required: true }],
     },
     {
-        field: "phoneNumber",
-        label: "Mobile Number",
-        rules: [{ message: "Please input your Country!", required: true }],
+        field: 'phoneNumber',
+        label: 'Mobile Number',
+        rules: [{ message: 'Please input your Country!', required: true }],
     },
     {
         field: 'password',
-        inputType: "password",
-        label: "Password",
-        rules: [{ message: "Please input your password!", required: true } ],
+        inputType: 'password',
+        label: 'Password',
+        rules: [{ message: 'Please input your password!', required: true }],
     },
     {
         field: 'confirm',
-        inputType: "password",
-        label: "Confirm password",
-        rules: [{ message: "Please confirm your password!", required: true }],
+        inputType: 'password',
+        label: 'Confirm password',
+        rules: [{ message: 'Please confirm your password!', required: true }],
     },
 ];
 
 export const PRODUCTS = [
     {
-        category: "Agrochemicals",
-        value: "agrochemicals",
+        category: 'Agrochemicals',
+        value: 'agrochemicals',
     },
     {
-        category: "Beans",
-        value: "beans",
-    },
-    {    
-        category: "Fruits",
-        value: "fruits",
+        category: 'Beans',
+        value: 'beans',
     },
     {
-        category: "Grains",
-        value: "grains",
+        category: 'Fruits',
+        value: 'fruits',
     },
     {
-        category: "Nuts",
-        value: "nuts",
+        category: 'Grains',
+        value: 'grains',
     },
     {
-        category: "Pesticides",
-        value: "pesticides",
+        category: 'Nuts',
+        value: 'nuts',
     },
     {
-        category: "Plants",
-        value: "plants",
+        category: 'Pesticides',
+        value: 'pesticides',
     },
     {
-        category: "Rice",
-        value: "rice",
+        category: 'Plants',
+        value: 'plants',
     },
     {
-        category: "Seeds",
-        value: "seeds",
+        category: 'Rice',
+        value: 'rice',
     },
     {
-        category: "Seedlings",
-        value: "seedlingss",
+        category: 'Seeds',
+        value: 'seeds',
     },
     {
-        category: "Vegetable",
-        value: "vegetable",
+        category: 'Seedlings',
+        value: 'seedlingss',
     },
     {
-        category: "Wheat",
-        value: "wheat",
+        category: 'Vegetable',
+        value: 'vegetable',
     },
     {
-        category: "Other",
-        value: "other",
+        category: 'Wheat',
+        value: 'wheat',
+    },
+    {
+        category: 'Other',
+        value: 'other',
     },
 ];
 
-export const SUCCESS = "success";
-export const FAIL = "fail";
+export const SUCCESS = 'success';
+export const FAIL = 'fail';
 
 export const SIGNUP_URL = '/account/signup';

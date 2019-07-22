@@ -5,7 +5,7 @@ import { INTERNAL_SERVER_ERROR, OK, getStatusText, UNAUTHORIZED } from 'http-sta
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
-const { Producer, User, UserSession } = models;
+const { Producer, User } = models;
 const {
     FAIL,
     NO_EMAIL_PASSWORD,
@@ -14,6 +14,7 @@ const {
     USERINFO,
     SUCCESS,
     SIGNED_UP,
+    USER_UPDATED,
 } = CONSTANTS;
 
 export default {
@@ -22,26 +23,24 @@ export default {
         const userData = _pick(req.body, SIGN_UP_KEYS);
         const { email, password, typeOfProducts } = req.body;
 
-        if(!email || !password){
+        if (!email || !password) {
             return res.status(UNAUTHORIZED).send({
                 data: { title: NO_EMAIL_PASSWORD },
                 status: FAIL,
             });
         }
 
-        try{
+        try {
             const previousUsers = await User.findOne({ email });
 
             if (previousUsers) {
                 return res.status(UNAUTHORIZED).json({
-                    data:{ title: USER_EXIST },
+                    data: { title: USER_EXIST },
                     status: FAIL,
                 });
             }
-        } catch(error){
-            res
-                .status(INTERNAL_SERVER_ERROR)
-                .send({ error: getStatusText(INTERNAL_SERVER_ERROR) });
+        } catch (error) {
+            res.status(INTERNAL_SERVER_ERROR).send({ error: getStatusText(INTERNAL_SERVER_ERROR) });
         }
 
         try {
@@ -52,10 +51,7 @@ export default {
             });
             await user.save();
 
-            const userSession = Object.assign(new UserSession(), { userId: user._id  });
-            const doc = await userSession.save();
-
-            if(typeOfProducts) {
+            if (typeOfProducts) {
                 const producer = Object.assign(new Producer(), {
                     typeOfProducts,
                     userId: user._id,
@@ -67,17 +63,35 @@ export default {
             return res.status(OK).json({
                 data: {
                     title: SIGNED_UP,
-                    token: doc._id,
                     user: _pick(user, USERINFO),
                 },
                 status: SUCCESS,
             });
-
-        } catch(error) {
+        } catch (error) {
             return res
                 .status(INTERNAL_SERVER_ERROR)
                 .json({ error: getStatusText(INTERNAL_SERVER_ERROR), success: false });
         }
     },
     //This does not log the user in, but does create an account via API.
+
+    updateUser: async (req, res) => {
+        try {
+            const { body: user } = req;
+            const { userId } = req.query;
+
+            const userData = await User.findOneAndUpdate(userId, user, { returnNewDocument: true });
+
+            return res.status(OK).json({
+                data: {
+                    user: _pick(userData, USERINFO),
+                },
+                status: SUCCESS,
+            });
+        } catch (error) {
+            return res
+                .status(INTERNAL_SERVER_ERROR)
+                .json({ error, message: getStatusText(INTERNAL_SERVER_ERROR), success: false });
+        }
+    },
 };

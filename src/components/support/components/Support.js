@@ -24,10 +24,14 @@ export default class About extends React.Component {
             <Row type={FLEX} justify={CENTER}>
                 <Col className={SUPPORT}>
                     <h1 className={DISPLAY}>{DISPLAY_TEXT}</h1>
-                    <p className={LEAD}><i>{LEAD_TEXT}</i></p>
+                    <p className={LEAD}>
+                        <i>{LEAD_TEXT}</i>
+                    </p>
                     <p className={LEAD}>
                         <Link to={HOME}>
-                            <Button size={SMALL} type={DANGER}>{BOTTON_TEXT}</Button>
+                            <Button size={SMALL} type={DANGER}>
+                                {BOTTON_TEXT}
+                            </Button>
                         </Link>
                     </p>
                 </Col>

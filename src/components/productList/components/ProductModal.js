@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Card, Modal } from 'antd';
+import { Card, Icon, Modal } from 'antd';
 
 import { PRODUCT } from '../constants';
 
-const { BUY, CANCEL, COST, EMAIL, LOCATION, PHONE, PRODUCERS_NAME, QUANTITY } = PRODUCT;
+const {
+    ACTIONS: { SHOPPING, SHOPPING_CART },
+    MODAL_INFO: { BUY, CANCEL, COST, EMAIL, LOCATION, PHONE, PRODUCERS_NAME, QUANTITY },
+} = PRODUCT;
 
 const generateDescription = data => {
     const { cost, quantity, producerId: {
@@ -25,7 +28,11 @@ const generateDescription = data => {
         { key: EMAIL, value: email },
     ];
 
-    return keyValuePairs.map(({ key, value }) => <p key={key}><b>{key}</b> {value}</p>);
+    return keyValuePairs.map(({ key, value }) => (
+        <p key={key}>
+            <b>{key}</b> {value}
+        </p>
+    ));
 };
 
 // React Component used to render the product detail information in a 'Modal'
@@ -33,6 +40,11 @@ class ProductModal extends React.Component {
     render() {
         const { data, handleCancel, visible } = this.props;
         const { imageUrl, title } = data;
+        
+        const actions = [
+            <Icon key={SHOPPING} type={SHOPPING} />,
+            <Icon key={SHOPPING_CART} type={SHOPPING_CART} />,
+        ];
 
         return (
             <Modal
@@ -45,7 +57,7 @@ class ProductModal extends React.Component {
                 title={title}
                 visible={visible}
             >
-                <Card cover={<img src={imageUrl} />}>
+                <Card actions={actions} cover={<img src={imageUrl} />}>
                     {generateDescription(data)}
                 </Card>
             </Modal>
