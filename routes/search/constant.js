@@ -1,11 +1,11 @@
 export const PRODUCER_DATA = [
     'email',
-    'firstName', 
+    'firstName',
     'lastName',
     'phoneNumber',
-    'state', 
-    'address', 
-    'country', 
-    'address', 
+    'state',
+    'address',
+    'country',
+    'address',
     'city',
 ];

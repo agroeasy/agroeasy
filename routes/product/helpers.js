@@ -163,5 +163,4 @@ export default {
                 .json({ error, message: getStatusText(INTERNAL_SERVER_ERROR), success: false });
         }
     },
-
 };
