@@ -14,6 +14,7 @@ class ProductList extends React.Component {
     
     state = {
         productList: [],
+        noProductsFromSearch: false,
     }
 
     async componentDidMount() {
@@ -23,22 +24,30 @@ class ProductList extends React.Component {
         this.setState({ productList: json.data });
     }
 
-    static getDerivedStateFromProps(props) {
-        const { userSearchedProducts } = props;
+    // componentDidUpdate(){
+    //     const { userSearchedProducts } = this.props;
+    //     if(!userSearchedProducts.length) {
+    //         userSearchedProducts[0].foundProducts.length > 0 && this.setState();
+    //     }
+    // }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        const { userSearchedProducts } = nextProps;
+        const { productList } = prevState;
 
         if(userSearchedProducts.length) {
             const { foundProducts, numOfFoundProducts } = userSearchedProducts[0];
 
             if(foundProducts.length > 0){
                 const productList = foundProducts;
-                
+
                 return message.info(`We found ${numOfFoundProducts} results for your search`, 3) && 
                 { productList };
             } else {
-                message.info(`We found ${numOfFoundProducts} results for your search`, 3);
+                return { noProductsFromSearch: true };
             }
         }
-        return null;
+        return { productList };
     }
 
     render() {
@@ -47,19 +56,22 @@ class ProductList extends React.Component {
         return(
             <React.Fragment>
                 { path !== '/home' && <CarouselImages /> } 
-                <List
-                    bordered
-                    className={PRODUCT_LIST_CLASSNAME}
-                    dataSource={productList}
-                    loading={productList.length <= 0 && true}
-                    pagination={{ pageSize:12 }}
-                    grid={{ gutter: 9, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
-                    renderItem={item => (
-                        <List.Item>
-                            <Product data={item} />
-                        </List.Item>
-                    )}
-                />
+              {/*   {this.state.noProductsFromSearch ?
+                    <Empty  /> : */}
+                    <List
+                        bordered
+                        className={PRODUCT_LIST_CLASSNAME}
+                        dataSource={productList}
+                        loading={productList.length <= 0 && true}
+                        pagination={{ pageSize:12 }}
+                        grid={{ gutter: 9, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
+                        renderItem={item => (
+                            <List.Item>
+                                <Product data={item} />
+                            </List.Item>
+                        )}
+                    />
+                
             </React.Fragment>
 
         );
