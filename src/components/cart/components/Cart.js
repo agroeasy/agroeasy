@@ -24,13 +24,13 @@ const data = [
         quantity: 1,
     },
 ];
-
+const initState = {
+    cart: [],
+    cartCount: 0,
+    totalAmount: 0,
+};
 class Cart extends Component {
-    state = {
-        cart: [],
-        cartCount: 0,
-        totalAmount: 0,
-    };
+    state = { ...initState };
 
     componentDidMount() {
         let total = 0;
@@ -90,11 +90,7 @@ class Cart extends Component {
     }
 
     handleClearCart() {
-        this.setState({
-            cart: [],
-            cartCount: 0,
-            totalAmount: 0,
-        });
+        this.setState(initState);
     }
 
     handleClickRoute = destination => {

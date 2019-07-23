@@ -1,4 +1,7 @@
 /** @constant */
+export const NAME = 'cart';
+
+/** @constant */
 export const CART_STRINGS = {
     CART: 'cart',
     CHECKOUT: 'Checkout',
