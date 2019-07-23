@@ -47,6 +47,6 @@ export const setLoginStatus = () => ({
  * @return {void} The {@link actionTypes.SET_CART_COUNT SET_CART_COUNT} action.
  */
 export const setCartCount = cartCount => ({
-    payload: cartCount,
+    payload,
     type: SET_CART_COUNT,
 });

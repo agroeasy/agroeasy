@@ -26,16 +26,11 @@ const data = [
 ];
 
 class Cart extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [],
-            cartCount: 0,
-            totalAmount: sessionStorage.getItem('cartTotal')
-                ? sessionStorage.getItem('cartTotal')
-                : 0,
-        };
-    }
+    state = {
+        cart: [],
+        cartCount: 0,
+        totalAmount: 0,
+    };
 
     componentDidMount() {
         let total = 0;
@@ -43,11 +38,7 @@ class Cart extends Component {
         newCart.some(entry => {
             total += entry.price * entry.quantity;
         });
-        window.localStorage.setItem('cart', JSON.stringify(newCart));
-        window.sessionStorage.setItem('cartTotal', total);
-        const count = localStorage.getItem('cart')
-            ? JSON.parse(localStorage.getItem('cart')).length
-            : 0;
+        const count = 0;
         this.setState({
             cart: data,
             cartCount: count,
@@ -63,8 +54,6 @@ class Cart extends Component {
         newCart.some(entry => {
             total += entry.price * entry.quantity;
         });
-        window.localStorage.setItem('cart', JSON.stringify(newCart));
-        window.sessionStorage.setItem('cartTotal', total);
         this.setState({
             cart: newCart,
             cartCount: newCart.length,
@@ -90,8 +79,6 @@ class Cart extends Component {
                         : newCart[index].quantity,
             };
         }
-        window.localStorage.setItem('cart', JSON.stringify(newCart));
-        window.sessionStorage.setItem('cartTotal', total);
         newCart.some(entry => {
             total += entry.price * entry.quantity;
         });
@@ -103,8 +90,6 @@ class Cart extends Component {
     }
 
     handleClearCart() {
-        window.localStorage.setItem('cart', JSON.stringify([]));
-        window.sessionStorage.setItem('cartTotal', 0);
         this.setState({
             cart: [],
             cartCount: 0,
@@ -132,6 +117,7 @@ class Cart extends Component {
                             />
                         </h2>
                     </div>
+
                     <div className="cart-clear">
                         <Popconfirm
                             title="Are you sure you want to remove item?"
@@ -141,6 +127,7 @@ class Cart extends Component {
                         </Popconfirm>
                     </div>
                 </div>
+
                 <div className="cart-top">
                     <div className="cart-heading">
                         <Button type="dashed" onClick={() => this.handleClickRoute('market')}>
@@ -153,6 +140,7 @@ class Cart extends Component {
                         </Button>
                     </div>
                 </div>
+
                 <div className="cart-table">
                     <Table
                         columns={[
@@ -233,3 +221,40 @@ class Cart extends Component {
 }
 
 export default Cart;
+// const dataSource = [
+//     {
+//         key: '1',
+//         name: 'Mike',
+//         age: 32,
+//         address: '10 Downing Street',
+//     },
+//     {
+//         key: '2',
+//         name: 'John',
+//         age: 42,
+//         address: '10 Downing Street',
+//     },
+// ];
+
+// const columns = [
+//     {
+//         title: 'Name',
+//         dataIndex: 'name',
+//         key: 'name',
+//     },
+//     {
+//         title: 'Age',
+//         dataIndex: 'age',
+//         key: 'age',
+//     },
+//     {
+//         title: 'Address',
+//         dataIndex: 'address',
+//         key: 'address',
+//     },
+// ];
+// export default class Cart extends Component {
+//     render() {
+//         return <Table dataSource={dataSource} columns={columns} />;
+//     }
+// }

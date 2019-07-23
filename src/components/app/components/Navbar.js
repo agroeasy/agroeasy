@@ -40,13 +40,6 @@ const items = [
  * this is the the navigation bar at the top of the home page
  */
 class Navbar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cartCount: 0,
-        };
-    }
-
     logout = ({ key }) => {
         const { isLoggedIn } = this.props;
 
@@ -56,21 +49,15 @@ class Navbar extends React.Component {
         }
     };
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (nextProps.cartCount !== prevState.cartCount) {
-            return {
-                cartCount: nextProps.cartCount,
-            };
-        }
-        return null;
-    }
+    // componentDidUpdate() {
 
-    componentDidMount() {
-        setInterval(() => {
-            const newCount = Number(JSON.parse(window.localStorage.getItem(CART)).length || 0);
-            this.props.setCartCount(newCount);
-        }, 100);
-    }
+    // }
+    // componentDidMount() {
+    //     setInterval(() => {
+    //         const newCount = Number(JSON.parse(window.localStorage.getItem(CART)).length || 0);
+    //         this.props.setCartCount(newCount);
+    //     }, 100);
+    // }
 
     render() {
         console.log(this.props);
@@ -135,7 +122,7 @@ class Navbar extends React.Component {
                 >
                     <Item key={BADGE} className={TRANSPARENT}>
                         <AppLink to={CART} className={CART_ICON}>
-                            <CartBadgeIcon count={this.state.cartCount} />
+                            <CartBadgeIcon count={0} />
                         </AppLink>
                     </Item>
                 </Menu>
