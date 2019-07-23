@@ -57,6 +57,12 @@
     margin-bottom: 15px;
 }
 
+/* css for modal scroll */
+.scroll {
+    overflow-y:auto;
+    max-height:90%;
+}
+
 /* styles from userProfile.js */
 .sider {
     background: white;
@@ -75,4 +81,8 @@
 .info-card {
     width: auto;
      background-color: white;
+}
+
+.tooltip-icon {
+    color: rgba(0,0,0,.45);
 }
