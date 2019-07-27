@@ -1,124 +1,33 @@
 import React, { Component } from 'react';
 import { Table, Badge, Button, Popconfirm, Icon } from 'antd';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-const data = [
-    {
-        id: '1',
-        image: '/rice.jpg',
-        price: 32,
-        product: 'Yellow Corn',
-        quantity: 2,
-    },
-    {
-        id: '2',
-        image: '/rice.jpg',
-        price: 400,
-        product: 'Beans',
-        quantity: 5,
-    },
-    {
-        id: '3',
-        image: '/rice.jpg',
-        price: 32,
-        product: 'Banana',
-        quantity: 1,
-    },
-];
-const initState = {
-    cart: [],
-    cartCount: 0,
-    totalAmount: 0,
-};
+import * as actions from '../actions';
+import { getCart } from '../selectors';
+
 class Cart extends Component {
-    state = { ...initState };
-
     componentDidMount() {
-        let total = 0;
-        const newCart = [...data];
-        newCart.some(entry => {
-            total += entry.price * entry.quantity;
-        });
-        const count = 0;
-        this.setState({
-            cart: data,
-            cartCount: count,
-            totalAmount: total,
-        });
+        const { updateCart } = this.props.actions;
+        updateCart();
     }
-
-    handleRemoveRow(row) {
-        let total = 0;
-        const newCart = [...this.state.cart];
-        const index = newCart.findIndex(item => row.id === item.id);
-        newCart.splice(index, 1);
-        newCart.some(entry => {
-            total += entry.price * entry.quantity;
-        });
-        this.setState({
-            cart: newCart,
-            cartCount: newCart.length,
-            totalAmount: total,
-        });
-    }
-
-    handleQuantityChange(row, action) {
-        let total = 0;
-        const newCart = [...this.state.cart];
-        const index = newCart.findIndex(item => row.id === item.id);
-        if (action === 'add') {
-            newCart[index] = {
-                ...newCart[index],
-                quantity: newCart[index].quantity + 1,
-            };
-        } else {
-            newCart[index] = {
-                ...newCart[index],
-                quantity:
-                    newCart[index].quantity > 1
-                        ? newCart[index].quantity - 1
-                        : newCart[index].quantity,
-            };
-        }
-        newCart.some(entry => {
-            total += entry.price * entry.quantity;
-        });
-        this.setState({
-            cart: newCart,
-            cartCount: newCart.length,
-            totalAmount: total,
-        });
-    }
-
-    handleClearCart() {
-        this.setState(initState);
-    }
-
-    handleClickRoute = destination => {
-        this.props.history.push(`/${destination}`);
-    };
 
     render() {
+        const { cart } = this.props;
+        const values = [...cart.values()];
+
         return (
             <div className="cart-page">
                 <div className="cart-top">
                     <div className="cart-heading">
                         <h2>
                             {`Cart`}
-                            <Badge
-                                count={this.state.cartCount}
-                                title={`${this.state.cartCount} item${
-                                    this.state.cartCount > 1 ? 's' : ''
-                                }`}
-                                style={{ backgroundColor: '#001529' }}
-                            />
+                            <Badge style={{ backgroundColor: '#001529' }} />
                         </h2>
                     </div>
 
                     <div className="cart-clear">
-                        <Popconfirm
-                            title="Are you sure you want to remove item?"
-                            onConfirm={() => this.handleClearCart()}
-                        >
+                        <Popconfirm title="Are you sure you want to remove item?">
                             <Button type="danger">{'Clear Cart'}</Button>
                         </Popconfirm>
                     </div>
@@ -126,14 +35,10 @@ class Cart extends Component {
 
                 <div className="cart-top">
                     <div className="cart-heading">
-                        <Button type="dashed" onClick={() => this.handleClickRoute('market')}>
-                            {'Continue Shopping'}
-                        </Button>
+                        <Button type="dashed">{'Continue Shopping'}</Button>
                     </div>
                     <div className="cart-checkout">
-                        <Button type="primary" onClick={() => this.handleClickRoute('checkout')}>
-                            {'Cheackout'}
-                        </Button>
+                        <Button type="primary">{'Cheackout'}</Button>
                     </div>
                 </div>
 
@@ -167,20 +72,8 @@ class Cart extends Component {
                                     <div className="quantity-container">
                                         <div className="quantity-value">{record.quantity}</div>
                                         <div className="quantity-actions">
-                                            <Icon
-                                                type="caret-up"
-                                                title="Add"
-                                                onClick={() =>
-                                                    this.handleQuantityChange(record, 'add')
-                                                }
-                                            />
-                                            <Icon
-                                                type="caret-down"
-                                                title="Reduce"
-                                                onClick={() =>
-                                                    this.handleQuantityChange(record, 'sub')
-                                                }
-                                            />
+                                            <Icon type="caret-up" title="Add" />
+                                            <Icon type="caret-down" title="Reduce" />
                                         </div>
                                     </div>
                                 ),
@@ -197,17 +90,14 @@ class Cart extends Component {
                                 className: 'cart-table',
                                 key: 'action',
                                 render: (text, record) => (
-                                    <Popconfirm
-                                        title="Are you sure you want to remove item?"
-                                        onConfirm={() => this.handleRemoveRow(record)}
-                                    >
+                                    <Popconfirm title="Are you sure you want to remove item?">
                                         <a href="javascript:;" className="danger">{`Remove`}</a>
                                     </Popconfirm>
                                 ),
                                 title: 'Action',
                             },
                         ]}
-                        dataSource={this.state.cart}
+                        dataSource={values}
                         rowKey={record => record.id}
                     />
                 </div>
@@ -216,4 +106,15 @@ class Cart extends Component {
     }
 }
 
-export default Cart;
+const mapStateToProps = state => ({
+    cart: getCart(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(actions, dispatch),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Cart);

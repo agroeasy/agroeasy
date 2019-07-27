@@ -28,4 +28,29 @@ export const CART_STYLE = {
 export const SHOPPING_CART = 'shopping-cart';
 
 /** @constant */
-export const ITEM = item;
+export const ITEM = 'item';
+
+/** @constant */
+export const dataList = [
+    {
+        id: '1',
+        image: '/rice.jpg',
+        price: 32,
+        product: 'Yellow Corn',
+        quantity: 2,
+    },
+    {
+        id: '2',
+        image: '/rice.jpg',
+        price: 400,
+        product: 'Beans',
+        quantity: 5,
+    },
+    {
+        id: '3',
+        image: '/rice.jpg',
+        price: 32,
+        product: 'Banana',
+        quantity: 1,
+    },
+];

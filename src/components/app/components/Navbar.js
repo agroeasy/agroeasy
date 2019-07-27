@@ -60,7 +60,6 @@ class Navbar extends React.Component {
     // }
 
     render() {
-        console.log(this.props);
         const UserMenu = (
             <Menu onClick={this.logout}>
                 <Item key={USER_PROFILE}>
