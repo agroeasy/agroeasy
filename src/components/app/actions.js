@@ -1,9 +1,4 @@
-import {
-    SET_USER_DATA,
-    USER_DATA_NOT_FOUND,
-    SET_LOGIN_STATUS,
-    SET_CART_COUNT,
-} from './actionTypes';
+import { SET_USER_DATA, USER_DATA_NOT_FOUND, SET_LOGIN_STATUS } from './actionTypes';
 
 /**
  * Triggers request to get user data
@@ -39,14 +34,3 @@ export const setLoginStatus = () => ({
 
 //TODO: when ever userDataNotFound action is called
 //call an action to request the user to register
-
-/**
- * Triggers request to get login status
- *
- * @function
- * @return {void} The {@link actionTypes.SET_CART_COUNT SET_CART_COUNT} action.
- */
-export const setCartCount = cartCount => ({
-    payload,
-    type: SET_CART_COUNT,
-});

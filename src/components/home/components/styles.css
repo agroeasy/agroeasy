@@ -84,6 +84,8 @@ ul li {
   float: right;
   top: 50%;
   transform: translateY(-50%);
+  /* background-color: transparent !important; */
+
 }
 .user-avatar-drop-down {
   background-color: #f56a00;

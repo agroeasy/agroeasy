@@ -7,7 +7,7 @@ import { Avatar, Dropdown, Layout, Menu } from 'antd';
 import AppLink from './AppLink';
 
 import { setCartCount } from '../actions';
-import { getLoginStatus, getCartCount } from '../selectors';
+import { getLoginStatus } from '../selectors';
 
 import signin from '../../signin';
 import signup from '../../signup';
@@ -48,16 +48,6 @@ class Navbar extends React.Component {
             auth.logout();
         }
     };
-
-    // componentDidUpdate() {
-
-    // }
-    // componentDidMount() {
-    //     setInterval(() => {
-    //         const newCount = Number(JSON.parse(window.localStorage.getItem(CART)).length || 0);
-    //         this.props.setCartCount(newCount);
-    //     }, 100);
-    // }
 
     render() {
         const UserMenu = (
@@ -114,11 +104,7 @@ class Navbar extends React.Component {
                         </Item>
                     </Menu>
                 )}
-                <Menu
-                    className={`${LEFT_NAV_MENU} cart-count-nav`}
-                    mode={NAV_MODE}
-                    theme={NAV_THEME}
-                >
+                <Menu className={LEFT_NAV_MENU} mode={NAV_MODE} theme={NAV_THEME}>
                     <Item key={BADGE} className={TRANSPARENT}>
                         <AppLink to={CART} className={CART_ICON}>
                             <CartBadgeIcon count={0} />
@@ -139,11 +125,10 @@ Navbar.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    cartCount: getCartCount(state),
     isLoggedIn: getLoginStatus(state),
 });
 
 export default connect(
     mapStateToProps,
-    { setCartCount },
+    null,
 )(Navbar);

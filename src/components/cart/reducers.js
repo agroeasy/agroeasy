@@ -1,8 +1,9 @@
-import { CART_TOTAL_AMOUNT, UPDATE_CART } from './actionTypes';
+import { CART_TOTAL_AMOUNT, UPDATE_CART, SET_CART_COUNT } from './actionTypes';
 import { dataList } from './constants';
 
 const initialState = {
     cart: new Map(),
+    cartCount: 0,
     totalAmount: 0,
 };
 
@@ -29,6 +30,13 @@ export default (state = { ...initialState }, action) => {
             return {
                 ...state,
                 cart: generateCartsMap(),
+            };
+        }
+
+        case SET_CART_COUNT: {
+            return {
+                ...state,
+                cartCount: action.payload,
             };
         }
 
