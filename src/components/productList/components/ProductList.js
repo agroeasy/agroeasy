@@ -23,13 +23,6 @@ class ProductList extends React.Component {
         this.setState({ productList: json.data });
     }
 
-    // componentDidUpdate(){
-    //     const { userSearchedProducts } = this.props;
-    //     if(!userSearchedProducts.length) {
-    //         userSearchedProducts[0].foundProducts.length > 0 && this.setState();
-    //     }
-    // }
-
     static getDerivedStateFromProps(nextProps, prevState) {
         const { userSearchedProducts } = nextProps;
         const { productList } = prevState;
@@ -58,8 +51,7 @@ class ProductList extends React.Component {
         return (
             <React.Fragment>
                 {path !== '/home' && <CarouselImages />}
-                {/*   {this.state.noProductsFromSearch ?
-                    <Empty  /> : */}
+
                 <List
                     bordered
                     className={PRODUCT_LIST_CLASSNAME}

@@ -1,4 +1,4 @@
-import { REQUEST_SEARCH, UPDATE_SEARCH } from './actionTypes';
+import { UPDATE_SEARCH } from './actionTypes';
 const initialState = {
     isloading: false,
     results: [],
@@ -6,14 +6,6 @@ const initialState = {
 
 export default (state = { ...initialState }, action) => {
     switch (action.type) {
-        case REQUEST_SEARCH: {
-            const { payload } = action;
-            return {
-                ...state,
-                isloading: true,
-                payload,
-            };
-        }
         case UPDATE_SEARCH: {
             const { payload } = action;
             return {

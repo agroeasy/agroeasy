@@ -2,8 +2,9 @@ import { OK, INTERNAL_SERVER_ERROR } from 'http-status-codes';
 import { promisify } from 'util';
 
 import models from '../../db/models';
-import { PRODUCER_DATA } from './constant';
+import constants from '../product/constants';
 
+const { PRODUCER_DATA } = constants;
 const { Product } = models;
 
 const productSearchAsync = promisify(Product.search).bind(Product);
@@ -21,7 +22,13 @@ export default {
                 PRODUCER_DATA,
             );
 
-            return res.status(OK).send({ foundProducts, numOfFoundProducts: products.hits.total });
+            return res.status(OK).send({
+                data: {
+                    foundProducts,
+                    numOfFoundProducts: products.hits.total,
+                },
+                status: 'success',
+            });
         } catch (error) {
             return res.status(INTERNAL_SERVER_ERROR).send(error);
         }

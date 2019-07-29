@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import mongoosastic from 'mongoosastic';
 
 import esClient from '../../esClient';
-//import User from './user';
 
 const Schema = mongoose.Schema;
 

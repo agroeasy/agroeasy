@@ -1,6 +1,6 @@
 import elasticSearch from 'elasticsearch';
 
 export default new elasticSearch.Client({
-    host: 'http://localhost:9200',
+    host: process.env.ELASTIC_SEARCH_SERVER,
     log: 'trace',
 });

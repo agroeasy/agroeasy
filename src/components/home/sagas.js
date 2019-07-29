@@ -6,15 +6,13 @@ import { updateSearchResult } from './actions';
 function* searchProduct(action) {
     try {
         const {
-            payload: { searchTerm, value },
+            payload: { selectedTerm, value },
         } = action;
 
-        const response = yield fetch(`${SEARCH_URL}?${searchTerm}=${value}`, {
-            method: 'GET',
-        });
+        const response = yield fetch(`${SEARCH_URL}?${selectedTerm}=${value}`);
 
         if (response.ok) {
-            const data = yield response.json();
+            const { data } = yield response.json();
             yield effects.put(updateSearchResult(data));
         }
     } catch (error) {
