@@ -174,4 +174,3 @@ export const EXAMPLE_PRODUCTS = [
 ];
 
 export const PRODUCT_LIST_CLASSNAME = 'product-list';
-
