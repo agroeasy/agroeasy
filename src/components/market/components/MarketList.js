@@ -2,17 +2,17 @@ import React from 'react';
 import { List } from 'antd';
 import PropTypes from 'prop-types';
 
-import Product from './Product';
+import Market from './Market';
+import CarouselImages from './Carousel';
 
 import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from '../constants';
 
-// React Component used to render the list of product items
-class ProductList extends React.Component {
+// React Component used to render the list of market items
+class MarketList extends React.Component {
     render() {
-        const { path } = this.props;
-
         return (
             <React.Fragment>
+                <CarouselImages />
                 <List
                     bordered
                     className={PRODUCT_LIST_CLASSNAME}
@@ -20,7 +20,7 @@ class ProductList extends React.Component {
                     grid={{ gutter: 12, lg: 4, md: 4, sm: 2, xs: 1, xxl: 3 }}
                     renderItem={item => (
                         <List.Item>
-                            <Product data={item} />
+                            <Market data={item} />
                         </List.Item>
                     )}
                 />
@@ -29,8 +29,8 @@ class ProductList extends React.Component {
     }
 }
 
-ProductList.propTypes = {
+MarketList.propTypes = {
     path: PropTypes.string,
 };
 
-export default ProductList;
+export default MarketList;
