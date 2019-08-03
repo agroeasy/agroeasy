@@ -8,10 +8,12 @@ const {
     FIELD_EMAIL,
     STRINGS: {
         EDIT_USER_PROFILE,
+        FLEX,
         FORM_IN_MODAL,
         INFO_CIRCLE,
-        MODAL_WIDTH,
-        NOT_EDITABLE_TEXT,
+        MIDDLE,
+        NOT_EDITABLE_FIELD,
+        SPACE_AROUND,
         UPDATE,
     },
 } = USER_PAGE;
@@ -40,7 +42,7 @@ const UserProfileModal = Form.create({ name: FORM_IN_MODAL })(
                                 <Input
                                     disabled
                                     suffix={
-                                        <Tooltip title={NOT_EDITABLE_TEXT}>
+                                        <Tooltip title={NOT_EDITABLE_FIELD}>
                                             <Icon type={INFO_CIRCLE} className="tooltip-icon" />
                                         </Tooltip>
                                     }
@@ -50,7 +52,14 @@ const UserProfileModal = Form.create({ name: FORM_IN_MODAL })(
                             inputField = <Input />;
                         }
                         return (
-                            <Row gutter={16} key={title} className={ROW_CONTAINER}>
+                            <Row
+                                gutter={16}
+                                key={title}
+                                className={ROW_CONTAINER}
+                                type={FLEX}
+                                justify={SPACE_AROUND}
+                                align={MIDDLE}
+                            >
                                 <Col span={12} className={TITLE}>
                                     {title}
                                 </Col>
@@ -68,7 +77,7 @@ const UserProfileModal = Form.create({ name: FORM_IN_MODAL })(
                 <Modal
                     centered={true}
                     visible={visible}
-                    width={MODAL_WIDTH}
+                    // width={MODAL_WIDTH}
                     title={EDIT_USER_PROFILE}
                     okText={UPDATE}
                     onCancel={onCancel}

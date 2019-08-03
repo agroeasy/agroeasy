@@ -30,15 +30,18 @@ const {
         ADDRESS,
         DEFAULT,
         EMAIL,
+        FLEX,
         CITY,
         COUNTRY,
         EDIT,
         FIRST_NAME,
         GHOST,
         LAST_NAME,
+        MIDDLE,
         PHONE,
         PRIMARY,
         SMALL,
+        SPACE_AROUND,
         SQUARE,
         USERNAME,
     },
@@ -123,7 +126,14 @@ class UserInfo extends React.Component {
             <div key={heading} className={INFO_DIV}>
                 <h4 className={HEADER_INFO}>{heading}</h4>
                 {info.map(({ description, title }) => (
-                    <Row gutter={16} key={title} className={ROW_CONTAINER}>
+                    <Row
+                        gutter={16}
+                        key={title}
+                        className={ROW_CONTAINER}
+                        type={FLEX}
+                        justify={SPACE_AROUND}
+                        align={MIDDLE}
+                    >
                         <Col span={12} className={TITLE}>
                             {title}
                         </Col>
