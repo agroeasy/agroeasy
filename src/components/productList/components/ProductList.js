@@ -68,7 +68,6 @@ class ProductList extends React.Component {
 
 ProductList.propTypes = {
     path: PropTypes.string,
-    userSearchedProducts: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
