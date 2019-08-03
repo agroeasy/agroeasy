@@ -12,7 +12,7 @@ function* searchProduct(action) {
         const response = yield fetch(`${SEARCH_URL}?${selectedTerm}=${value}`);
 
         if (response.ok) {
-            const { data } = yield response.json();
+            const data = yield response.json();
             yield effects.put(updateSearchResult(data));
         }
     } catch (error) {

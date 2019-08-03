@@ -12,7 +12,6 @@ import { PRODUCT_LIST_CLASSNAME } from '../constants';
 
 class ProductList extends React.Component {
     state = {
-        noProductsFromSearch: false,
         productList: [],
     };
 
@@ -27,19 +26,15 @@ class ProductList extends React.Component {
         const { userSearchedProducts } = nextProps;
         const { productList } = prevState;
 
-        if (userSearchedProducts.length) {
-            const { foundProducts, numOfFoundProducts } = userSearchedProducts[0];
-
+        console.log(userSearchedProducts);
+        if (userSearchedProducts.status === 'success') {
+            const { foundProducts, numOfFoundProducts } = userSearchedProducts.data;
+            foundProducts.length > 0
+                ? message.info(`We found ${numOfFoundProducts} results for your search`, 3)
+                : message.info(`No result found`, 3);
             if (foundProducts.length > 0) {
                 const productList = foundProducts;
-
-                return (
-                    message.info(`We found ${numOfFoundProducts} results for your search`, 3) && {
-                        productList,
-                    }
-                );
-            } else {
-                return { noProductsFromSearch: true };
+                return { productList };
             }
         }
         return { productList };
