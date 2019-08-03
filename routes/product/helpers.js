@@ -7,13 +7,30 @@ import models from '../../db/models/';
 
 const { Product } = models;
 const { ObjectID } = mongodb;
-const { CREATE_KEYS, PRODUCT_CREATED, PRODUCT_DELETED, PRODUCT_UPDATED } = CONSTANTS;
+const { CREATE_KEYS, PRODUCT_CREATED, PRODUCT_DELETED, PRODUCT_UPDATED, PRODUCER_DATA } = CONSTANTS;
 
 export default {
     // finds all products in the db
     allProductsDetails: async (req, res) => {
         try {
             const data = await Product.find();
+            return res.json({ data, success: true });
+        } catch (error) {
+            return res.json({ error, success: false });
+        }
+    },
+    //clean up invalid products and producers
+    cleanProductsWithInvalidProducerId: async (req, res) => {
+        try {
+            const data = await Product.find();
+            const invalidProducer = data.map(dataitem => {
+                if (!ObjectID.isValid(dataitem.producerId) || !ObjectID.isValid(dataitem._id)) {
+                    return dataitem._id;
+                }
+            });
+
+            await Product.deleteMany({ _id: { $in: invalidProducer } });
+
             return res.json({ data, success: true });
         } catch (error) {
             return res.json({ error, success: false });
@@ -88,6 +105,19 @@ export default {
             return res.json({ data, message: PRODUCT_UPDATED, success: true });
         } catch (err) {
             res.send({ err, success: false });
+        }
+    },
+
+    // finds products with associated producers
+    productsWithRelatedProducers: async (req, res) => {
+        try {
+            const data = await Product.find()
+                .populate('producerId', PRODUCER_DATA)
+                .exec();
+
+            return res.json({ data, success: true });
+        } catch (error) {
+            return res.json({ error, success: false });
         }
     },
 
