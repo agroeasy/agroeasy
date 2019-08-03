@@ -1,0 +1,86 @@
+.header {
+    background: url("/balaji-malliswamy-1281466-unsplash.jpg");
+    width: 100%;
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.top_info {
+    background-color: #106021;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+
+
+}
+
+.all {
+    margin: auto;
+    width: 90%;
+}
+
+.top_address {
+    background-color: #bbbebc;
+    border-radius: 10px;
+    padding:20px;
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.info_flex {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+
+.item {
+    width: 400px;
+}
+
+.quantity {
+    width: 100px;
+}
+
+.price {
+    width: 100px;
+}
+
+.total {
+    width: 100px;
+}
+
+.p_total {
+    float: right;
+    background-color: #106021;
+    color: white;
+    padding: 14px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+Button {
+    margin: 25px;
+    margin-left: 50px;
+}
+
+.item_t {
+    margin: 10px;
+}
+
+.item_t b {
+    display: block;
+}
+
+.item_t i {
+    display: block;
+}
