@@ -15,7 +15,7 @@
     "watch:frontend": "webpack --watch --mode development --config webpack.base.config.js",
     "prestart-all": "npm run build-dev",
     "start-all": "npm-run-all -p nodemon watch:backend watch:frontend",
-    "lint": "eslint src db server.js routes"
+    "lint": "eslint src db server.js routes --fix"
   },
   "repository": {
     "type": "git",
