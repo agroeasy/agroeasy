@@ -4,5 +4,6 @@ export const PATHS = {
     CALLBACK: '/callback',
     HOME: '/',
     MARKET: '/market',
+    MORE: '/learn-more',
     PROFILE: '/profile',
 };
