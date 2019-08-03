@@ -26,12 +26,13 @@ class ProductList extends React.Component {
         const { userSearchedProducts } = nextProps;
         const { productList } = prevState;
 
-        console.log(userSearchedProducts);
         if (userSearchedProducts.status === 'success') {
             const { foundProducts, numOfFoundProducts } = userSearchedProducts.data;
+
             foundProducts.length > 0
                 ? message.info(`We found ${numOfFoundProducts} results for your search`, 3)
                 : message.info(`No result found`, 3);
+
             if (foundProducts.length > 0) {
                 const productList = foundProducts;
                 return { productList };
@@ -67,7 +68,7 @@ class ProductList extends React.Component {
 
 ProductList.propTypes = {
     path: PropTypes.string,
-    userSearchedProducts: PropTypes.array,
+    userSearchedProducts: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
