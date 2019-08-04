@@ -69,7 +69,7 @@ class Navbar extends React.Component {
         return (
             <Header className={MAIN_NAV}>
                 <Menu
-                    className={RIGHT_NAV_MENU}
+                    className={LEFT_NAV_MENU}
                     mode={NAV_MODE}
                     theme={NAV_THEME}
                     selectedKeys={[location.pathname]}
@@ -91,7 +91,7 @@ class Navbar extends React.Component {
                     </Dropdown>
                 ) : (
                     <Menu
-                        className={LEFT_NAV_MENU}
+                        className={RIGHT_NAV_MENU}
                         mode={NAV_MODE}
                         theme={NAV_THEME}
                         selectedKeys={[location.pathname]}
@@ -104,7 +104,7 @@ class Navbar extends React.Component {
                         </Item>
                     </Menu>
                 )}
-                <Menu className={LEFT_NAV_MENU} mode={NAV_MODE} theme={NAV_THEME}>
+                <Menu className={RIGHT_NAV_MENU} mode={NAV_MODE} theme={NAV_THEME}>
                     <Item key={BADGE} className={TRANSPARENT}>
                         <AppLink to={CART} className={CART_ICON}>
                             <CartBadgeIcon count={0} />

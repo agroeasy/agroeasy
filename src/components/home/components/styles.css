@@ -64,7 +64,7 @@ ul li {
   z-index: 1;
 }
 
-.right-nav-menu {
+.left-nav-menu {
   position: relative;
   float: left;
   top: 50%;
@@ -79,12 +79,12 @@ ul li {
   width: 55px;
 }
 
-.left-nav-menu {
+.right-nav-menu {
   position: relative;
   float: right;
   top: 50%;
   transform: translateY(-50%);
-  /* background-color: transparent !important; */
+  background-color: transparent;
 
 }
 .user-avatar-drop-down {

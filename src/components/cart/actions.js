@@ -1,36 +1,25 @@
-import { CART_TOTAL_AMOUNT, UPDATE_CART, SET_CART_COUNT } from './actionTypes';
+import { UPDATE_CART_INFO, UPDATE_CART_LIST } from './actionTypes';
 
 /**
  * Triggers request to update cart items
  *
  * @function
- * @param {Object} payload An object of user details captured from body
- * @return {void} The {@link actionTypes.UPDATE_CART UPDATE_CART} action.
+ * @param {Object} payload An object of cart dataSource
+ * @return {void} The {@link actionTypes.UPDATE_CART_LIST UPDATE_CART_LIST} action.
  */
-export const updateCart = payload => ({
+export const updateCartList = payload => ({
     payload,
-    type: UPDATE_CART,
+    type: UPDATE_CART_LIST,
 });
 
 /**
- * Triggers request to update cart total amount
+ * Triggers request to update cart details
  *
  * @function
- * @param {Object} payload An object of user details captured from body
- * @return {void} The {@link actionTypes.CART_TOTAL_AMOUNT CART_TOTAL_AMOUNT} action.
+ * @param {Object} payload An object of captured cart details
+ * @return {void} The {@link actionTypes.UPDATE_CART_INFO UPDATE_CART_INFO} action.
  */
-export const cartTotalAmount = payload => ({
+export const updateCartInfo = payload => ({
     payload,
-    type: CART_TOTAL_AMOUNT,
-});
-
-/**
- * Triggers request to count cart items
- *
- * @function
- * @return {void} The {@link actionTypes.SET_CART_COUNT SET_CART_COUNT} action.
- */
-export const setCartCount = cartCount => ({
-    payload,
-    type: SET_CART_COUNT,
+    type: UPDATE_CART_INFO,
 });

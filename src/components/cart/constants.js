@@ -1,5 +1,6 @@
 /** @constant */
 export const NAME = 'cart';
+export const MARKET = '/market';
 
 /** @constant */
 export const CART_STRINGS = {

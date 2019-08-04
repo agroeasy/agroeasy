@@ -1,45 +1,62 @@
-import { CART_TOTAL_AMOUNT, UPDATE_CART, SET_CART_COUNT } from './actionTypes';
+import { UPDATE_CART_INFO, UPDATE_CART_LIST } from './actionTypes';
 import { dataList } from './constants';
 
 const initialState = {
-    cart: new Map(),
-    cartCount: 0,
-    totalAmount: 0,
+    cartData: new Map(),
 };
 
+/**
+ * Creates a Javascript Map with the cart's items mapped by id
+ *
+ * @param {Array} cartData - a cart item
+ * @return {Map} - the new cart data list
+ */
+
 function generateCartsMap() {
-    const cart = new Map();
+    const cartData = new Map();
 
     dataList.forEach(list => {
         const { id } = list;
-        cart.set(id, list);
+        cartData.set(id, list);
     });
-    console.log(cart);
-    return cart;
+
+    return cartData;
+}
+
+/**
+ * Updates the data in the cart list
+ *
+ * @param {Object} cartItem - the cart item to be updated
+ * @param {Map} list - the list of producer products
+ * @return {Map} - the updated dataSource
+ */
+function updateCartInfo(cartItem, list) {
+    const { id } = cartItem;
+    const newList = new Map([...list.entries()]);
+
+    newList.set(id, cartItem);
+
+    return newList;
 }
 
 export default (state = { ...initialState }, action) => {
     switch (action.type) {
-        case CART_TOTAL_AMOUNT: {
+        case UPDATE_CART_LIST: {
             return {
                 ...state,
+                cartData: generateCartsMap(),
             };
         }
 
-        case UPDATE_CART: {
+        case UPDATE_CART_INFO: {
+            const { payload } = action;
+            const { cartData } = state;
+
             return {
                 ...state,
-                cart: generateCartsMap(),
+                cartData: updateCartInfo(payload, cartData),
             };
         }
-
-        case SET_CART_COUNT: {
-            return {
-                ...state,
-                cartCount: action.payload,
-            };
-        }
-
         default:
             return state;
     }
