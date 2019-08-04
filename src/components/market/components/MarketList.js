@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Market from './Market';
 import CarouselImages from './Carousel';
-import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from '../constants';
+import { PRODUCT_LIST_CLASSNAME } from '../constants';
 
 // React Component used to render the list of market items
 class MarketList extends React.Component {
@@ -13,13 +13,11 @@ class MarketList extends React.Component {
     };
 
     async componentDidMount() {
-        const response = await fetch('/product/productsWithRealtedProducers', { method: 'post' });
+        const response = await fetch('/product/productsWithRelatedProducers', { method: 'post' });
         const json = await response.json();
 
         this.setState({ productList: json.data });
-        console.log(productList);
     }
-
     render() {
         const { productList } = this.state;
         return (
