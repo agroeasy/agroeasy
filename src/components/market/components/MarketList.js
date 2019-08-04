@@ -4,11 +4,18 @@ import PropTypes from 'prop-types';
 
 import Market from './Market';
 import CarouselImages from './Carousel';
-
 import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from '../constants';
 
 // React Component used to render the list of market items
 class MarketList extends React.Component {
+    async componentDidMount() {
+        const response = await fetch('/product/productsWithRealtedProducers', { method: 'post' });
+        const json = await response.json();
+        console.log(json);
+
+        this.setState({ productList: json.data });
+    }
+
     render() {
         return (
             <React.Fragment>

@@ -39,6 +39,7 @@ class ProductModal extends React.Component {
 
         return (
             <Modal
+                centered={true}
                 cancelText={CANCEL}
                 closable={false}
                 destroyOnClose

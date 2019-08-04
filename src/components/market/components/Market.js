@@ -28,9 +28,9 @@ class Market extends React.Component {
     render() {
         const { visible } = this.state;
         const { cost, image, name } = this.props.data;
-        const description = tag => (
+        const description =  (
             <div>
-                <Tag color={TAG_COLOR}>{tag}</Tag>
+                <Tag color={TAG_COLOR}>{cost}</Tag>
                 {DEFAULT_DESCRIPTION}
             </div>
         );
@@ -47,7 +47,7 @@ class Market extends React.Component {
                     <Meta
                         avatar={<Avatar src={image} />}
                         title={name}
-                        description={description(cost)}
+                        description={description}
                     />
                 </Card>
                 <MarketModal
