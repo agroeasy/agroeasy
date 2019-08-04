@@ -10,13 +10,17 @@ const {
 } = PRODUCT;
 
 const generateDescription = data => {
-    const { cost, email, location, quantity, phone, producerName } = data;
+    const {
+        cost,
+        quantity,
+        producerId: { email, firstName, lastName, phoneNumber, state, address, city },
+    } = data;
     const keyValuePairs = [
-        { key: PRODUCERS_NAME, value: producerName },
-        { key: LOCATION, value: location },
+        { key: PRODUCERS_NAME, value: `${lastName} ${firstName}` },
+        { key: LOCATION, value: `${address} ${city} ${state}` },
         { key: COST, value: cost },
         { key: QUANTITY, value: quantity },
-        { key: PHONE, value: phone },
+        { key: PHONE, value: phoneNumber },
         { key: EMAIL, value: email },
     ];
 
@@ -31,7 +35,8 @@ const generateDescription = data => {
 class ProductModal extends React.Component {
     render() {
         const { data, handleCancel, visible } = this.props;
-        const { image, title } = data;
+        const { imageUrl, title } = data;
+
         const actions = [
             <Icon key={SHOPPING} type={SHOPPING} />,
             <Icon key={SHOPPING_CART} type={SHOPPING_CART} />,
@@ -49,7 +54,7 @@ class ProductModal extends React.Component {
                 title={title}
                 visible={visible}
             >
-                <Card actions={actions} cover={<img src={image} />}>
+                <Card actions={actions} cover={<img src={imageUrl} />}>
                     {generateDescription(data)}
                 </Card>
             </Modal>

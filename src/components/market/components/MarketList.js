@@ -8,22 +8,27 @@ import { EXAMPLE_PRODUCTS, PRODUCT_LIST_CLASSNAME } from '../constants';
 
 // React Component used to render the list of market items
 class MarketList extends React.Component {
+    state = {
+        productList: [],
+    };
+
     async componentDidMount() {
         const response = await fetch('/product/productsWithRealtedProducers', { method: 'post' });
         const json = await response.json();
-        console.log(json);
 
         this.setState({ productList: json.data });
+        console.log(productList);
     }
 
     render() {
+        const { productList } = this.state;
         return (
             <React.Fragment>
                 <CarouselImages />
                 <List
                     bordered
                     className={PRODUCT_LIST_CLASSNAME}
-                    dataSource={EXAMPLE_PRODUCTS}
+                    dataSource={productList}
                     grid={{ gutter: 12, lg: 4, md: 4, sm: 2, xs: 1, xxl: 3 }}
                     renderItem={item => (
                         <List.Item>

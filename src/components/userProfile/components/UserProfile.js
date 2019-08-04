@@ -44,12 +44,12 @@ class UserProfile extends React.Component {
         return (
             <Content className={BIG_CONTENT}>
                 <Layout className={BIG_LAYOUT}>
-                    <Sider 
-                        width={200} 
-                        className={SIDER} 
-                        trigger={null} 
-                        collapsible 
-                        collapsed={collapsed} 
+                    <Sider
+                        width={200}
+                        className={SIDER}
+                        trigger={null}
+                        collapsible
+                        collapsed={collapsed}
                         collapsedWidth="0"
                     >
                         <SideMenu collapsed={collapsed} toggle={this.toggle} />
