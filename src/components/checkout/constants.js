@@ -16,45 +16,8 @@ export const TOTAL_W = 'TOTAL';
 export const TOTAL_A = ':  36,000';
 export const TOTALS = 'TOTAL';
 export const INFORMATION = 'Shipping Information';
-export const INFO = 'Your Order Is Not Complete Until You Confirm Your Buy By Clicking Buy Now';
+export const INFO = 'Your Order Is Not Complete Until You Confirm By Clicking Buy Now';
 
-export const CHECKOUT_INFO = [
-    {
-        product: 'ijebo garri like no other',
-        photo: '/beans.jpg',
-        price: '8000',
-        total: '2400',
-        quantity: '3',
-    },
-    {
-        product: 'fried banana',
-        photo: '/ripeBanana.jpg',
-        price: '1000',
-        total: '4000',
-        quantity: '4',
-    },
-    {
-        product: 'fresh casava from the farm',
-        photo: '/yam-market.jpg',
-        price: '4000',
-        total: '8000',
-        quantity: '2',
-    },
-    {
-        product: 'fresh crates of Eggs',
-        photo: '/egg-crates.jpeg',
-        price: '4000',
-        total: '8000',
-        quantity: '2',
-    },
-    {
-        product: 'fresh fish from spring water',
-        photo: '/yam-market.jpg',
-        price: '4000',
-        total: '8000',
-        quantity: '2',
-    },
-];
 export const ADDRESS = [
     {
         name: 'Mcbobby Madu',

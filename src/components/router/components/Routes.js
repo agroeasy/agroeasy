@@ -18,7 +18,6 @@ const { App } = app.components;
 
 const Routes = () => (
     <Router history={history}>
-<<<<<<< HEAD
         <ScrollToTop>
             <App>
                 <Switch>
@@ -31,24 +30,12 @@ const Routes = () => (
                     />
                     <Route path={PROFILE} component={userProfile.components.UserProfile} />
                     <Route path={ABOUT} exact strict component={aboutUs.components.AboutUs} />
+                    <Route path={CHECKOUT} exact strict component={checkout.components.Checkout} />
                     <Route path={CALLBACK} exact strict component={Callback} />
                     <Route component={NoMatch} />
                 </Switch>
             </App>
         </ScrollToTop>
-=======
-        <App>
-            <Switch>
-                <Route path={HOME} exact strict component={home.components.Home} />
-                <Route path={MARKET} exact strict component={productList.components.ProductList} />
-                <Route path={PROFILE} component={userProfile.components.UserProfile} />
-                <Route path={ABOUT} exact strict component={aboutUs.components.AboutUs} />
-                <Route path={CHECKOUT} exact strict component={checkout.components.Checkout} />
-                <Route path={CALLBACK} exact strict component={Callback} />
-                <Route component={NoMatch} />
-            </Switch>
-        </App>
->>>>>>> bc457bf8b0762a79ad214096a5529125c6431c3f
     </Router>
 );
 
