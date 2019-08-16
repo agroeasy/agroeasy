@@ -1,4 +1,5 @@
 import express from 'express';
+import cart from './cart';
 import signInAndOut from './signInAndOut';
 import signUp from './signUp';
 import producer from './producer';
@@ -8,6 +9,7 @@ import productImage from './productImage';
 
 const router = express.Router();
 
+router.use('/cart', cart);
 router.use('/api', signInAndOut);
 router.use('/account', signUp);
 router.use('/account', contactUs);
