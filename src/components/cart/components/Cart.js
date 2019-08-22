@@ -15,18 +15,22 @@ class Cart extends Component {
         updateCartList();
     }
 
-    countCart = () => {
-        const { cart } = this.props;
-
-        cart.length;
+    handleRemove = id => {
+        const { removeItem } = this.props.actions;
+        const payload = { id };
+        removeItem(payload);
     };
 
-    // handleClearCart = () => {
-    // }
+    handleQuantityChange = (row, action) => {};
+
+    handleClearCart = () => {
+        const { clearCart } = this.props.actions;
+        clearCart();
+    };
 
     render() {
         const { cart } = this.props;
-        const values = [...cart.values()];
+        const values = Object.values(cart);
 
         return (
             <div className="cart-page">
@@ -34,7 +38,7 @@ class Cart extends Component {
                     <h2 className="cart-heading">
                         {`Cart`}
                         <Badge
-                            count={this.countCart}
+                            count={values.length}
                             // title={}
                             style={{ backgroundColor: '#001529' }}
                         />
@@ -43,6 +47,7 @@ class Cart extends Component {
                     <Popconfirm
                         className="cart-clear"
                         title="Are you sure you want to remove item?"
+                        onConfirm={() => this.handleClearCart()}
                     >
                         <Button type="danger">{'Clear Cart'}</Button>
                     </Popconfirm>
@@ -53,7 +58,7 @@ class Cart extends Component {
                         <Button className="cart-heading">{`Continue Shopping`}</Button>
                     </AppLink>
                     <AppLink key={'checkout'} to={'./'}>
-                        <Button className="cart-checkout">{'Cheackout'}</Button>
+                        <Button className="cart-checkout">{'Checkout'}</Button>
                     </AppLink>
                 </div>
 
@@ -87,8 +92,16 @@ class Cart extends Component {
                                 <div className="quantity-container">
                                     <div className="quantity-value">{record.quantity}</div>
                                     <div className="quantity-actions">
-                                        <Icon type="caret-up" title="Add" />
-                                        <Icon type="caret-down" title="Reduce" />
+                                        <Icon
+                                            type="caret-up"
+                                            title="Add"
+                                            onClick={() => this.handleQuantityChange(record, 'add')}
+                                        />
+                                        <Icon
+                                            type="caret-down"
+                                            title="Reduce"
+                                            onClick={() => this.handleQuantityChange(record, 'sub')}
+                                        />
                                     </div>
                                 </div>
                             ),
@@ -105,7 +118,10 @@ class Cart extends Component {
                             className: 'cart-table',
                             key: 'action',
                             render: (text, record) => (
-                                <Popconfirm title="Are you sure you want to remove item?">
+                                <Popconfirm
+                                    title="Are you sure you want to remove item?"
+                                    onConfirm={() => this.handleRemove(record.id)}
+                                >
                                     <a href="javascript:;" className="danger">{`Remove`}</a>
                                 </Popconfirm>
                             ),

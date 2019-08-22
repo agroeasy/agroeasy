@@ -1,62 +1,74 @@
-import { UPDATE_CART_INFO, UPDATE_CART_LIST } from './actionTypes';
+import { CLEAR_CART, UPDATE_CART_LIST, REMOVE_ITEM, QUANTITY_CHANGE } from './actionTypes';
 import { dataList } from './constants';
 
 const initialState = {
-    cartData: new Map(),
+    cart: {},
 };
 
-/**
- * Creates a Javascript Map with the cart's items mapped by id
- *
- * @param {Array} cartData - a cart item
- * @return {Map} - the new cart data list
- */
+const generateCartsObject = array =>
+    array.reduce((obj, item) => {
+        obj[item.id] = item;
+        return obj;
+    }, {});
 
-function generateCartsMap() {
-    const cartData = new Map();
+const removeItem = (items, id) => {
+    items[id] && delete items[id];
+    return { ...items };
+};
 
-    dataList.forEach(list => {
-        const { id } = list;
-        cartData.set(id, list);
-    });
+const clearCart = items => ({});
 
-    return cartData;
-}
+const quantityChange = (row, action, items) => {
+    const updatedItem = { ...items };
+    //get object by key/id
 
-/**
- * Updates the data in the cart list
- *
- * @param {Object} cartItem - the cart item to be updated
- * @param {Map} list - the list of producer products
- * @return {Map} - the updated dataSource
- */
-function updateCartInfo(cartItem, list) {
-    const { id } = cartItem;
-    const newList = new Map([...list.entries()]);
-
-    newList.set(id, cartItem);
-
-    return newList;
-}
+    if (action === 'add') {
+        item.quantity[type] += 1;
+    } else {
+        item.quantity[type] -= 1;
+    }
+    return updatedItem;
+};
 
 export default (state = { ...initialState }, action) => {
     switch (action.type) {
         case UPDATE_CART_LIST: {
             return {
                 ...state,
-                cartData: generateCartsMap(),
+                cart: generateCartsObject(dataList),
             };
         }
 
-        case UPDATE_CART_INFO: {
-            const { payload } = action;
-            const { cartData } = state;
+        case REMOVE_ITEM: {
+            const { cart } = state;
+            const {
+                payload: { id },
+            } = action;
 
             return {
                 ...state,
-                cartData: updateCartInfo(payload, cartData),
+                cart: removeItem(cart, id),
             };
         }
+
+        case CLEAR_CART: {
+            const { cart } = state;
+
+            return {
+                ...state,
+                cart: clearCart(cart),
+            };
+        }
+
+        case QUANTITY_CHANGE: {
+            const { cart } = state;
+
+            return {
+                ...state,
+                cart: quantityChange(cart),
+            };
+        }
+
         default:
             return state;
     }

@@ -8,4 +8,4 @@ import { NAME } from './constants';
  * @return {Number} the state data of the signin which contains user data
  * {@link module:cart/constants::INITIAL_STATE constants::INITIAL_STATE}).
  */
-export const getCart = state => state[NAME].cartData;
+export const getCart = state => state[NAME].cart;

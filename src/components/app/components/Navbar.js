@@ -50,6 +50,10 @@ class Navbar extends React.Component {
     };
 
     render() {
+        const { cart } = this.props;
+        // console.log(cart);
+        // const values = Object.values(cart);
+
         const UserMenu = (
             <Menu onClick={this.logout}>
                 <Item key={USER_PROFILE}>
