@@ -33,4 +33,5 @@ export default {
         'username',
     ],
     USER_EXIST: 'Error: Account already exist.',
+    USER_UPDATED: 'You details has been updated',
 };
