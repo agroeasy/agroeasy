@@ -24,16 +24,14 @@ const getUserCart = async user => {
             { $unwind: '$product' },
             {
                 $project: {
-                    cost: '$product.cost',
-                    createdAt: 0,
+                    amount: 1,
                     imageUrl: '$product.imageUrl',
                     name: '$product.name',
-                    updatedAt: 0,
-                    user: 0,
+                    quantity: 1,
                 },
             },
         ];
-        return await Cart.aggregate(query).exec();
+        return await Cart.aggregate(query);
     } catch (error) {
         return error;
     }
@@ -43,11 +41,11 @@ export default {
     // create/adds a new item to the cart
     cartCreate: async (req, res) => {
         try {
-            const cartData = _pick(req.body, CREATE_KEYS);
-            new Cart(cartData);
-            await Cart.save();
-            const cart = await getUserCart(req.user._id);
-            return res.json({ cart, message: CART_CREATED, success: true });
+            const cartItem = _pick(req.body, CREATE_KEYS);
+            const cart = new Cart(cartItem);
+            await cart.save();
+            const cartData = await getUserCart(ObjectID(req.body.user));
+            return res.json({ cartData, message: CART_CREATED, success: true });
         } catch (err) {
             res.send({ err, success: false });
         }
@@ -56,7 +54,7 @@ export default {
     // deletes all cart items of a particuler user
     cartDeleteAll: async (req, res) => {
         try {
-            await Cart.deleteMany({ user: req.user._id });
+            await Cart.deleteMany({ user: req.params.userId });
             return res.json({ cart: [], message: CART_REMOVED_ALL, success: true });
         } catch (err) {
             res.send({ err, success: false });
@@ -66,8 +64,8 @@ export default {
     // delete cart item using id
     cartDeleteOne: async (req, res) => {
         try {
-            await Cart.deleteOne({ _id: req.params._id });
-            const cart = await getUserCart(req.user._id);
+            const deletedData = await Cart.findByIdAndRemove(req.params.id);
+            const cart = await getUserCart(deletedData.user);
             return res.json({ cart, message: CART_REMOVED_ONE, success: true });
         } catch (err) {
             res.send({ err, success: false });
@@ -79,10 +77,14 @@ export default {
         try {
             const {
                 body: { quantity, amount },
-                params: { cartId: _id },
+                params: { id },
             } = req;
-            await Cart.updateOne(_id, { amount, quantity });
-            const cart = await getUserCart(req.user._id);
+            const updatedItem = await Cart.findByIdAndUpdate(
+                id,
+                { amount, quantity },
+                { new: true },
+            );
+            const cart = await getUserCart(updatedItem.user);
             return res.json({ cart, message: CART_UPDATED, success: true });
         } catch (err) {
             res.send({ err, success: false });
@@ -99,7 +101,7 @@ export default {
      */
     getCartsByUserId: async (req, res) => {
         try {
-            const cart = await getUserCart(req.user._id);
+            const cart = await getUserCart(ObjectID(req.params.userId));
             return res.json({ cart, success: true });
         } catch (error) {
             return res

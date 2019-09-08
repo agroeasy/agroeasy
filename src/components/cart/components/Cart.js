@@ -1,29 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Table, Badge, Button, Popconfirm, Icon } from 'antd';
 
-const data = [
-    {
-        id: '1',
-        image: '/rice.jpg',
-        price: 32,
-        product: 'Yellow Corn',
-        quantity: 2,
-    },
-    {
-        id: '2',
-        image: '/rice.jpg',
-        price: 400,
-        product: 'Beans',
-        quantity: 5,
-    },
-    {
-        id: '3',
-        image: '/rice.jpg',
-        price: 32,
-        product: 'Banana',
-        quantity: 1,
-    },
-];
+import * as actions from '../actions';
+import { getCart, getSuccessMessage, getErrorMessage } from '../selectors';
 
 class Cart extends Component {
     constructor(props) {
@@ -39,11 +21,11 @@ class Cart extends Component {
 
     componentDidMount() {
         let total = 0;
-        const newCart = [...data];
+        const newCart = [...this.state.cart];
         newCart.some(entry => {
-            total += entry.price * entry.quantity;
+            total += entry.cost * entry.quantity;
         });
-        window.localStorage.setItem('cart', JSON.stringify(newCart));
+        // window.localStorage.setItem('cart', JSON.stringify(newCart));
         window.sessionStorage.setItem('cartTotal', total);
         const count = localStorage.getItem('cart')
             ? JSON.parse(localStorage.getItem('cart')).length
@@ -232,4 +214,30 @@ class Cart extends Component {
     }
 }
 
-export default Cart;
+Cart.propTypes = {
+    actions: PropTypes.shape({
+        addItemToCart: PropTypes.func,
+        deleteItemInCart: PropTypes.func,
+        deleteItemsInCart: PropTypes.func,
+        getUserCartItems: PropTypes.func,
+        updateItemInCart: PropTypes.func,
+    }),
+    cart: PropTypes.array,
+    errorMessage: PropTypes.string,
+    successMessage: PropTypes.string,
+};
+
+const mapStateToProps = state => ({
+    cart: getCart(state),
+    errorMessage: getErrorMessage(state),
+    successMessage: getSuccessMessage(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(actions, dispatch),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(Cart);

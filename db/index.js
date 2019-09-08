@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 
 // Set up mongoose connection
 export default () => {
-    mongoose.connect(MONGO_DB_URL, { useNewUrlParser: true }, () =>
+    mongoose.connect(MONGO_DB_URL, { useFindAndModify: false, useNewUrlParser: true }, () =>
         // eslint-disable-next-line no-console
         console.error.bind(console, 'MongoDB connection error:'),
     );
