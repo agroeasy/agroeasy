@@ -1,26 +1,23 @@
-/* eslint-disable max-len */
-/* eslint-disable sort-keys */
-
 /** @constant */
 export const LERAN_MORE_DATA = [
     {
-        image: 'car',
         header: 'Fast Delivery',
+        image: 'car',
         key: 'fast',
     },
     {
-        image: 'dollar',
         header: 'Price Minimization',
+        image: 'dollar',
         key: 'price',
     },
     {
-        image: 'rest',
         header: 'Reduce Food Wastage',
+        image: 'rest',
         key: 'food',
     },
     {
-        image: 'team',
         header: 'Social Economic Driven',
+        image: 'team',
         key: 'social',
     },
 ];
