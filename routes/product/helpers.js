@@ -1,19 +1,55 @@
 import _pick from 'lodash.pick';
 import mongodb from 'mongodb';
-import { INTERNAL_SERVER_ERROR, getStatusText } from 'http-status-codes';
+import { INTERNAL_SERVER_ERROR, getStatusText, PROCESSING } from 'http-status-codes';
+const uuidv4 = require('uuid/v4');
+const algoliasearch = require('algoliasearch');
 
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
+const client = algoliasearch(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_APP_ADMIN_KEY);
+const index = client.initIndex('products');
+
 const { Product } = models;
 const { ObjectID } = mongodb;
-const { CREATE_KEYS, PRODUCT_CREATED, PRODUCT_DELETED, PRODUCT_UPDATED } = CONSTANTS;
+const { CREATE_KEYS, PRODUCT_CREATED, PRODUCT_DELETED, PRODUCT_UPDATED, PRODUCER_DATA } = CONSTANTS;
 
 export default {
     // finds all products in the db
     allProductsDetails: async (req, res) => {
         try {
             const data = await Product.find();
+            const objects = data.map(
+                ({ _id, cost, description, name, quantity, type, producerId }) => ({
+                    _id,
+                    cost,
+                    description,
+                    name,
+                    objectID: _id,
+                    producerId,
+                    quantity,
+                    type,
+                }),
+            );
+            //index all products in algolia
+            await index.addObjects(objects);
+            return res.json({ data, success: true });
+        } catch (error) {
+            return res.json({ error, success: false });
+        }
+    },
+    //clean up invalid products and producers
+    cleanProductsWithInvalidProducerId: async (req, res) => {
+        try {
+            const data = await Product.find();
+            const invalidProducer = data.map(dataitem => {
+                if (!ObjectID.isValid(dataitem.producerId) || !ObjectID.isValid(dataitem._id)) {
+                    return dataitem._id;
+                }
+            });
+
+            await Product.deleteMany({ _id: { $in: invalidProducer } });
+
             return res.json({ data, success: true });
         } catch (error) {
             return res.json({ error, success: false });
@@ -91,6 +127,19 @@ export default {
         }
     },
 
+    // finds products with associated producers
+    productsWithRelatedProducers: async (req, res) => {
+        try {
+            const data = await Product.find()
+                .populate('producerId', PRODUCER_DATA)
+                .exec();
+
+            return res.json({ data, success: true });
+        } catch (error) {
+            return res.json({ error, success: false });
+        }
+    },
+
     /**
      * Either updates an item or creates an entirely new item for a given producer.
      *
@@ -116,6 +165,13 @@ export default {
 
                 await Product.updateOne(filter, product);
 
+                const objectForSearch = {
+                    ...product,
+                    objectID: product._id,
+                };
+
+                await index.partialUpdateObject(objectForSearch);
+
                 data = product;
                 message = PRODUCT_UPDATED;
             } else {
@@ -124,6 +180,8 @@ export default {
 
                 data = await Product.create(product);
                 message = PRODUCT_CREATED;
+
+                await index.addObject({ ...data._doc, objectID: data._id });
             }
 
             return res.json({ data, message, success: true });

@@ -10,22 +10,30 @@ import userProfile from '../../userProfile';
 import history from '../../history/History';
 import { PATHS } from '../constants';
 import Callback from '../../../auth0/Callback';
+import ScrollToTop from './ScrollToTop';
 
 const { CALLBACK, ABOUT, HOME, MARKET, PROFILE } = PATHS;
 const { App } = app.components;
 
 const Routes = () => (
     <Router history={history}>
-        <App>
-            <Switch>
-                <Route path={HOME} exact strict component={home.components.Home} />
-                <Route path={MARKET} exact strict component={productList.components.ProductList} />
-                <Route path={PROFILE} component={userProfile.components.UserProfile} />
-                <Route path={ABOUT} exact strict component={aboutUs.components.AboutUs} />
-                <Route path={CALLBACK} exact strict component={Callback} />
-                <Route component={NoMatch} />
-            </Switch>
-        </App>
+        <ScrollToTop>
+            <App>
+                <Switch>
+                    <Route path={HOME} exact strict component={home.components.Home} />
+                    <Route
+                        path={MARKET}
+                        exact
+                        strict
+                        component={productList.components.ProductList}
+                    />
+                    <Route path={PROFILE} component={userProfile.components.UserProfile} />
+                    <Route path={ABOUT} exact strict component={aboutUs.components.AboutUs} />
+                    <Route path={CALLBACK} exact strict component={Callback} />
+                    <Route component={NoMatch} />
+                </Switch>
+            </App>
+        </ScrollToTop>
     </Router>
 );
 

@@ -15,7 +15,7 @@
     "watch:frontend": "webpack --watch --mode development --config webpack.base.config.js",
     "prestart-all": "npm run build-dev",
     "start-all": "npm-run-all -p nodemon watch:backend watch:frontend",
-    "lint": "eslint src db server.js routes"
+    "lint": "eslint src db server.js routes --fix"
   },
   "repository": {
     "type": "git",
@@ -42,6 +42,7 @@
   },
   "homepage": "https://github.com/Enye-Cohort-1/Agroeasy#readme",
   "dependencies": {
+    "algoliasearch": "^3.34.0",
     "antd": "^3.10.7",
     "auth0-js": "^9.10.2",
     "bcrypt-nodejs": "0.0.3",
@@ -74,7 +75,8 @@
     "react-scripts": "^2.1.5",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
-    "shallow-equal": "^1.1.0"
+    "shallow-equal": "^1.1.0",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -95,7 +97,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-stage-2": "^7.0.0",
     "@babel/runtime": "^7.1.2",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.4",
     "babel-plugin-import": "^1.11.0",
     "brotli-webpack-plugin": "^1.0.0",

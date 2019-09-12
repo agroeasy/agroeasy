@@ -9,7 +9,6 @@ const { Meta } = Card;
 const {
     ACTIONS: { INFO_CIRCLE },
     CARD_IMAGE,
-    DEFAULT_DESCRIPTION,
     TAG_COLOR,
 } = PRODUCT;
 
@@ -27,11 +26,12 @@ class Product extends React.Component {
 
     render() {
         const { visible } = this.state;
-        const { cost, image, name } = this.props.data;
-        const description = tag => (
+        const { cost, description, imageUrl, name } = this.props.data;
+
+        const productDescription = (tag, description) => (
             <div>
                 <Tag color={TAG_COLOR}>{tag}</Tag>
-                {DEFAULT_DESCRIPTION}
+                {description}
             </div>
         );
         const actions = [<Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />];
@@ -40,14 +40,14 @@ class Product extends React.Component {
             <div>
                 <Card
                     actions={actions}
-                    cover={<img className={CARD_IMAGE} src={image} />}
+                    cover={<img className={CARD_IMAGE} src={imageUrl} />}
                     hoverable
                     key={name}
                 >
                     <Meta
-                        avatar={<Avatar src={image} />}
+                        avatar={<Avatar src={imageUrl} />}
                         title={name}
-                        description={description(cost)}
+                        description={productDescription(cost, description)}
                     />
                 </Card>
                 <ProductModal

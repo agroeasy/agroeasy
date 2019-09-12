@@ -59,6 +59,7 @@
 
 /* css for modal scroll */
 .scroll {
+    max-width: 50%;
     overflow-y:auto;
     max-height:90%;
 }
@@ -86,3 +87,25 @@
 .tooltip-icon {
     color: rgba(0,0,0,.45);
 }
+
+.collapse-sidebar {
+    background-color: white; 
+    padding: 0; 
+    margin-top: 44px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .row-container {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 5px;
+    }
+    .info-div {
+        text-align: center;
+    }
+    .scroll {
+      max-width: 80%;
+      overflow-y:auto;
+      max-height:75%;
+    }
+  }
