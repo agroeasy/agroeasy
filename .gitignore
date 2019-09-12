@@ -2,3 +2,5 @@ package-lock.json
 node_modules
 dist
 .env
+agroeasy_v1_instance_key.pem
+.aws-credentials.csv
