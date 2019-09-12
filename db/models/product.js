@@ -1,7 +1,4 @@
 import mongoose from 'mongoose';
-import mongoosastic from 'mongoosastic';
-
-import esClient from '../../esClient';
 
 const Schema = mongoose.Schema;
 
@@ -18,12 +15,6 @@ const ProductsSchema = new Schema(
     },
     { versionKey: false },
 );
-
-ProductsSchema.plugin(mongoosastic, {
-    esClient,
-    index: 'productindex',
-    type: 'products',
-});
 
 const Product = mongoose.model('Product', ProductsSchema);
 
