@@ -27,7 +27,7 @@ class MarketList extends React.Component {
                     bordered
                     className={PRODUCT_LIST_CLASSNAME}
                     dataSource={productList}
-                    grid={{ gutter: 12, lg: 4, md: 4, sm: 2, xs: 1, xxl: 3 }}
+                    grid={{ gutter: 12, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
                     renderItem={item => (
                         <List.Item>
                             <Market data={item} />

@@ -27,11 +27,11 @@ class Market extends React.Component {
 
     render() {
         const { visible } = this.state;
-        const { cost, image, name } = this.props.data;
-        const description = (
+        const { cost, description, imageUrl, name } = this.props.data;
+        const itemdescription = (
             <div>
-                <Tag color={TAG_COLOR}>{cost}</Tag>
-                {DEFAULT_DESCRIPTION}
+                <Tag color={TAG_COLOR}>{`#${cost}`}</Tag>
+                {`${description.substring(0, 30)}...`}
             </div>
         );
         const actions = [<Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />];
@@ -40,11 +40,15 @@ class Market extends React.Component {
             <div>
                 <Card
                     actions={actions}
-                    cover={<img className={CARD_IMAGE} src={image} />}
+                    cover={<img className={CARD_IMAGE} src={imageUrl} />}
                     hoverable
                     key={name}
                 >
-                    <Meta avatar={<Avatar src={image} />} title={name} description={description} />
+                    <Meta
+                        avatar={<Avatar src={imageUrl} />}
+                        title={name}
+                        description={itemdescription}
+                    />
                 </Card>
                 <MarketModal
                     data={this.props.data}
