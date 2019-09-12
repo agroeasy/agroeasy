@@ -1,0 +1,45 @@
+.header {
+  background: url("/slideb.jpg");
+  width: 100%;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.body {
+  transition: background-color 1s ease;
+  background-color: white;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.body:hover {
+  background-color: #e6e1e1;
+}
+
+.icon {
+  color: #106021;
+  height: 200px;
+  width: 350px;
+  padding-top: 50px;
+  font-size: 150px;
+}
+
+.body:hover .icon {
+  -webkit-transform: scale(1.6);
+  -ms-transform: scale(1.6);
+  transform: scale(1.6);
+}
+
+.text {
+  width: 900px;
+  height: 100%;
+  font-size: 90%;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 60px;
+}
