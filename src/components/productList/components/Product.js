@@ -30,7 +30,7 @@ class Product extends React.Component {
 
         const productDescription = (tag, description) => (
             <div>
-                <Tag color={TAG_COLOR}>{tag}</Tag>
+                <Tag color={TAG_COLOR}>{`#${tag}`}</Tag>
                 {description}
             </div>
         );
@@ -38,18 +38,24 @@ class Product extends React.Component {
 
         return (
             <div>
-                <Card
-                    actions={actions}
-                    cover={<img className={CARD_IMAGE} src={imageUrl} />}
-                    hoverable
-                    key={name}
-                >
-                    <Meta
-                        avatar={<Avatar src={imageUrl} />}
-                        title={name}
-                        description={productDescription(cost, description)}
-                    />
-                </Card>
+                <div>
+                    <Card
+                        actions={actions}
+                        cover={<img className={CARD_IMAGE} src={imageUrl} />}
+                        hoverable
+                        key={name}
+                    >
+                        <Meta
+                            avatar={<Avatar src={imageUrl} />}
+                            title={name}
+                            description={productDescription(cost, description)}
+                            style={{
+                                backgroundColor: '#f7fcfc',
+                                height: '20vh',
+                            }}
+                        />
+                    </Card>
+                </div>
                 <ProductModal
                     data={this.props.data}
                     handleCancel={this.handleCancel}

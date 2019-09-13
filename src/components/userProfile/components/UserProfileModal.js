@@ -77,7 +77,6 @@ const UserProfileModal = Form.create({ name: FORM_IN_MODAL })(
                 <Modal
                     centered={true}
                     visible={visible}
-                    // width={MODAL_WIDTH}
                     title={EDIT_USER_PROFILE}
                     okText={UPDATE}
                     onCancel={onCancel}

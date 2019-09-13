@@ -1,9 +1,8 @@
 import _pick from 'lodash.pick';
 import mongodb from 'mongodb';
-import { INTERNAL_SERVER_ERROR, getStatusText, PROCESSING } from 'http-status-codes';
-const uuidv4 = require('uuid/v4');
-const algoliasearch = require('algoliasearch');
-
+import { INTERNAL_SERVER_ERROR, getStatusText } from 'http-status-codes';
+import algoliasearch from 'algoliasearch';
+import cloudinary from 'cloudinary';
 import CONSTANTS from './constants';
 import models from '../../db/models/';
 
@@ -95,6 +94,23 @@ export default {
                 body,
                 params: { id: _id },
             } = req;
+            const { imageId } = await Product.findById(_id);
+
+            //REMOVE PRODUCTS WITH NO IMAGE
+            // const found = await Product.find();
+            // const deltthem = await found.map(product => {
+            //     if (product.imageId == null || product.imageId == undefined) {
+            //         return product._id;
+            //     }
+            // });
+
+            // await Product.deleteMany({ _id: { $in: deltthem } });
+
+            // remove image
+            cloudinary.uploader.destroy(imageId, result => {
+                console.log(result);
+            });
+
             await Product.findByIdAndDelete(_id, body);
             return res.json({ message: PRODUCT_DELETED, success: true });
         } catch (err) {

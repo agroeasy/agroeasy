@@ -9,6 +9,8 @@ export const PROFILE = '/profile/';
 /** @constant */
 export const MARKET_TEXT = 'Market';
 
+export const BANNER_LINK = 'learn-more';
+
 /** @constant */
 export const LOGO = {
     AVATAR: 'home-avatar',

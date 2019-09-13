@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Product from './Product';
-import CarouselImages from '../../productList/components/Carousel';
 import { getSearchProducts } from '../../home/selectors';
 import { PRODUCT_LIST_CLASSNAME } from '../constants';
 
@@ -43,18 +42,15 @@ class ProductList extends React.Component {
 
     render() {
         const { productList } = this.state;
-        const { path } = this.props;
         return (
             <React.Fragment>
-                {path !== '/home' && <CarouselImages />}
-
                 <List
                     bordered
                     className={PRODUCT_LIST_CLASSNAME}
                     dataSource={productList}
                     loading={productList.length <= 0 && true}
                     pagination={{ pageSize: 12 }}
-                    grid={{ gutter: 9, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
+                    grid={{ gutter: 12, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
                     renderItem={item => (
                         <List.Item>
                             <Product data={item} />

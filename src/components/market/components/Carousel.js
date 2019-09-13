@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel } from 'antd';
+
 import { CAROUSEL_DATA } from '../constants';
 
 //this is the carousel component
