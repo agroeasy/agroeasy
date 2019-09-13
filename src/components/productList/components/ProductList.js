@@ -50,7 +50,7 @@ class ProductList extends React.Component {
                     dataSource={productList}
                     loading={productList.length <= 0 && true}
                     pagination={{ pageSize: 12 }}
-                    grid={{ gutter: 9, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
+                    grid={{ gutter: 12, lg: 3, md: 3, sm: 2, xs: 1, xxl: 3 }}
                     renderItem={item => (
                         <List.Item>
                             <Product data={item} />

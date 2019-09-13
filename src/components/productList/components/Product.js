@@ -38,13 +38,7 @@ class Product extends React.Component {
 
         return (
             <div>
-                <div
-                    style={{
-                        height: '50vh',
-                        textAlign: 'left',
-                        width: '100%',
-                    }}
-                >
+                <div>
                     <Card
                         actions={actions}
                         cover={<img className={CARD_IMAGE} src={imageUrl} />}
@@ -58,9 +52,7 @@ class Product extends React.Component {
                             style={{
                                 backgroundColor: '#f7fcfc',
                                 height: '20vh',
-                                width: '100%',
                             }}
-                            hoverable
                         />
                     </Card>
                 </div>
