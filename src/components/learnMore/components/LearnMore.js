@@ -21,7 +21,7 @@ class LearnMore extends React.Component {
     render() {
         return (
             <div>
-                <div className="header"></div>
+                <div className="header" />
                 {learnMore}
             </div>
         );
