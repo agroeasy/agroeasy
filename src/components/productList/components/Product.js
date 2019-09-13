@@ -30,7 +30,7 @@ class Product extends React.Component {
 
         const productDescription = (tag, description) => (
             <div>
-                <Tag color={TAG_COLOR}>{tag}</Tag>
+                <Tag color={TAG_COLOR}>{`#${tag}`}</Tag>
                 {description}
             </div>
         );

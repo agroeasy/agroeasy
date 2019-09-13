@@ -52,6 +52,7 @@
     "cookies-js": "^1.2.3",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
+    "elasticsearch": "^16.3.0",
     "emailjs": "^2.2.0",
     "express": "^4.16.3",
     "express-session": "^1.16.1",
