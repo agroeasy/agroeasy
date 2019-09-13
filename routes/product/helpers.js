@@ -96,6 +96,16 @@ export default {
             } = req;
             const { imageId } = await Product.findById(_id);
 
+            //REMOVE PRODUCTS WITH NO IMAGE
+            // const found = await Product.find();
+            // const deltthem = await found.map(product => {
+            //     if (product.imageId == null || product.imageId == undefined) {
+            //         return product._id;
+            //     }
+            // });
+
+            // await Product.deleteMany({ _id: { $in: deltthem } });
+
             // remove image
             cloudinary.uploader.destroy(imageId, result => {
                 console.log(result);

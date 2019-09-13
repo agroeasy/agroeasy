@@ -38,18 +38,32 @@ class Product extends React.Component {
 
         return (
             <div>
-                <Card
-                    actions={actions}
-                    cover={<img className={CARD_IMAGE} src={imageUrl} />}
-                    hoverable
-                    key={name}
+                <div
+                    style={{
+                        height: '50vh',
+                        textAlign: 'left',
+                        width: '100%',
+                    }}
                 >
-                    <Meta
-                        avatar={<Avatar src={imageUrl} />}
-                        title={name}
-                        description={productDescription(cost, description)}
-                    />
-                </Card>
+                    <Card
+                        actions={actions}
+                        cover={<img className={CARD_IMAGE} src={imageUrl} />}
+                        hoverable
+                        key={name}
+                    >
+                        <Meta
+                            avatar={<Avatar src={imageUrl} />}
+                            title={name}
+                            description={productDescription(cost, description)}
+                            style={{
+                                backgroundColor: '#f7fcfc',
+                                height: '20vh',
+                                width: '100%',
+                            }}
+                            hoverable
+                        />
+                    </Card>
+                </div>
                 <ProductModal
                     data={this.props.data}
                     handleCancel={this.handleCancel}
