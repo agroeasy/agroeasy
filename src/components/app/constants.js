@@ -8,15 +8,26 @@ export const PROFILE = '/profile/';
 
 /** @constant */
 export const MARKET_TEXT = 'Market';
+export const HOME_TEXT = 'Home';
 
 export const BANNER_LINK = 'learn-more';
 
 /** @constant */
+export const STRINGS = {
+    CENTER: 'center',
+    FLEX: 'flex',
+    LARGE: 'large',
+    MIDDLE: 'middle',
+};
+
+/** @constant */
 export const LOGO = {
+    AGROESY_LOGO: '/AgroeasyLogo.png',
     AVATAR: 'home-avatar',
     SHAPE: 'square',
+    SHOPING_CART_LOGO: 'shopping-cart.svg',
     SIZE: 'large',
-    SOURCE: '/AgroeasyLogo.png',
+    WIDTH: '180px',
 };
 
 /** @constant */
@@ -137,3 +148,21 @@ export const BANNER_CLASSNAMES = {
 export const VALID_SIGNOUT = 'You have been signed out';
 
 export const SIGN_URL = '/api/signin';
+
+export const BANNER2_TEXTS = {
+    BEST_PRICE: 'BEST PRICE',
+    GUARANTEE: 'GUARANTEE',
+    SECOND_TEXT: 'If you find a lower price elsewhere, we will match it.',
+    THIRD_TEXT_1: ` Be sure to be among the first to know about latest products in the market 
+                    and their locations. So now you can worry less about the cost of `,
+    THIRD_TEXT_2: 'the products and spend more time shopping.',
+};
+
+export const PROCUCT_CATEGORIIES = [
+    {title: 'POULTRY & LIVESTOCK'},
+    {title: 'FOODSTUFFS'},
+    {title: 'SPICES'},
+    {title: 'FRUITS'},
+    {title: 'VEGETABLE'},
+    {title: 'OTHERS'},
+];

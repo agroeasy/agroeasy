@@ -21,7 +21,7 @@ h4 {
 
 .banner {
     height: auto;
-    background-color: #106021; 
+    background-color: #106021 !important; 
     padding: 50px; 
     text-align: center; 
     color: white;
@@ -72,8 +72,90 @@ h4 {
 
 .banner button {
     color: white;
-    background-color: #106021;
     float: right;
     margin-right: 100px;
     margin-top: 40px;
 }
+
+.nav2-header {
+    background: rgba(245, 245, 245, 0.78);
+    z-index: 1;
+    margin-top: 63px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.navbar2-main-div {
+    background-color: #E0E0E0;
+}
+
+.avatar-container {
+    background-color: #285432;
+  }
+  
+  .home-avatar {
+    width: 40px;
+    height: 60px;
+    margin-left: 25%; 
+    margin-right: 25%; 
+    width: 50%;
+
+  }
+  .avatar-container2  { 
+    padding-top: 23px; 
+    padding-bottom: 23px;
+  }
+
+  .logo-container2  {
+    padding-top: 23px; 
+    padding-bottom: 23px;
+  }
+  .search-container {
+    display: flex;
+    justify-content: center;
+  } 
+
+  .cart-avatar {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+  }
+/* banner2 styles */
+  .banner2-container {
+    background-color: #800000; 
+    opacity: 0.7;
+  }
+  .banner2-container div { 
+      padding-bottom: 15px; 
+      padding-top: 22px; 
+    }
+
+  .banner2-container div h1, h5, h6 {
+      color: whitesmoke;
+      text-align: center;
+      line-height: 18px;
+  }
+   
+  .banner2-container div h1 span { color: grey; }
+  .banner2-container div h1 { font-size: 47px; }
+  .banner2-container div h5 { font-size: 20px; }
+  .banner2-container div h6 { font-size: 14px; font-weight: normal; }
+
+  /* product category */
+  .list-category {
+      width: 80%;
+      margin: 0 10%;
+      background-color: #F2F2F2; 
+  }
+
+  .list-item-meta {
+      text-align: center;
+  }
+  .list-item-meta * {
+      color: #106021;
+      font-weight: 700;
+      margin-top: 10px;
+  }
+  

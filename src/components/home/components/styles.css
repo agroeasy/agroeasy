@@ -59,6 +59,7 @@ ul li {
  this is for Navbar.js and home.js
   */
 .main-nav {
+  background-color: #285432;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -71,15 +72,10 @@ ul li {
   transform: translateY(-50%);
 }
 
-.avatar-container {
-  background-color: #001529 !important;
-}
 
-.home-avatar {
-  width: 55px;
-}
 
 .left-nav-menu {
+  background-color: #285432 !important;
   position: relative;
   float: right;
   top: 50%;
@@ -101,30 +97,11 @@ ul li {
   background-image: linear-gradient(rgba(0, 0, 0, 0.336), rgba(0, 0, 0, 0.281)),
     url(/fpimg.jpg);
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background-size: cover;
   color: white;
   text-align: center;
-}
-
-.sm-img {
-  margin-top: 100px;
-}
-
-.sm-img h1 {
-  color: #dcdcdc;
-  font-size: 43px;
-}
-
-.sm-img h4 {
-  text-align: center;
-  color: #dcdcdc;
-  font-size: 21px;
-}
-.sm-img h5 {
-  color: #dcdcdc;
-  font-size: 17px;
-  font-style: italic;
+  opacity: 0.9;
 }
 
 .wrapper {
@@ -218,11 +195,6 @@ img {
 .linkItems {
   color: grey !important;
   font-size: 13px;
-}
-
-/** search.js */
-.search {
-  margin-top: 70px;
 }
 
 .select-category {
