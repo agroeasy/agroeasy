@@ -9,7 +9,6 @@ const { Meta } = Card;
 const {
     ACTIONS: { INFO_CIRCLE },
     CARD_IMAGE,
-    DEFAULT_DESCRIPTION,
     TAG_COLOR,
 } = PRODUCT;
 
@@ -27,29 +26,36 @@ class Product extends React.Component {
 
     render() {
         const { visible } = this.state;
-        const { cost, image, name } = this.props.data;
-        const description = tag => (
+        const { cost, description, imageUrl, name } = this.props.data;
+
+        const productDescription = (tag, description) => (
             <div>
-                <Tag color={TAG_COLOR}>{tag}</Tag>
-                {DEFAULT_DESCRIPTION}
+                <Tag color={TAG_COLOR}>{`#${tag}`}</Tag>
+                {description}
             </div>
         );
         const actions = [<Icon key={INFO_CIRCLE} type={INFO_CIRCLE} onClick={this.showModal} />];
 
         return (
             <div>
-                <Card
-                    actions={actions}
-                    cover={<img className={CARD_IMAGE} src={image} />}
-                    hoverable
-                    key={name}
-                >
-                    <Meta
-                        avatar={<Avatar src={image} />}
-                        title={name}
-                        description={description(cost)}
-                    />
-                </Card>
+                <div>
+                    <Card
+                        actions={actions}
+                        cover={<img className={CARD_IMAGE} src={imageUrl} />}
+                        hoverable
+                        key={name}
+                    >
+                        <Meta
+                            avatar={<Avatar src={imageUrl} />}
+                            title={name}
+                            description={productDescription(cost, description)}
+                            style={{
+                                backgroundColor: '#f7fcfc',
+                                height: '20vh',
+                            }}
+                        />
+                    </Card>
+                </div>
                 <ProductModal
                     data={this.props.data}
                     handleCancel={this.handleCancel}

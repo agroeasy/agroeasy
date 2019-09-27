@@ -11,11 +11,13 @@ const {
     productDelete,
     productUpdate,
     updateOrCreateItem,
+    productsWithRelatedProducers,
 } = helpers;
 
 router.get('/findAll', allProductsDetails);
 router.get('/producerId/:id', getProductsByUserId);
 router.get('/:id', productDetails);
+router.post('/productsWithRelatedProducers', productsWithRelatedProducers);
 
 router.post('/create', productCreate);
 

@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 import { Button, Icon } from 'antd';
 
-import { BANNER_CLASSNAMES, BANNER_DATA, BANNER_HEADING, LEARN_MORE } from '../constants';
+import {
+    BANNER_CLASSNAMES,
+    BANNER_DATA,
+    BANNER_HEADING,
+    LEARN_MORE,
+    BANNER_LINK,
+} from '../constants';
 
 const { BANNER, BANNER_FLEX, BANNER_CARD, BANNER_ICON, BANNER_COLOR } = BANNER_CLASSNAMES;
 
@@ -12,7 +19,7 @@ const banners = BANNER_DATA.map(({ key, icon, header, body }) => (
             <Icon type={icon} />
         </div>
         <h3 className={BANNER_COLOR}>{header}</h3>
-        <h5 className={BANNER_COLOR}>{body}</h5>
+        <h5 className="banner_body">{body}</h5>
     </div>
 ));
 
@@ -22,7 +29,9 @@ class Banner extends Component {
             <div className={BANNER}>
                 <h2>{BANNER_HEADING}</h2>
                 <div className={BANNER_FLEX}>{banners}</div>
-                <Button>{LEARN_MORE}</Button>
+                <Link to={BANNER_LINK}>
+                    <Button>{LEARN_MORE}</Button>
+                </Link>
             </div>
         );
     }

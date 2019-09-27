@@ -32,11 +32,10 @@ const generateDescription = data => {
 };
 
 // React Component used to render the product detail information in a 'Modal'
-class ProductModal extends React.Component {
+class MarketModal extends React.Component {
     render() {
         const { data, handleCancel, visible } = this.props;
         const { imageUrl, title } = data;
-
         const actions = [
             <Icon key={SHOPPING} type={SHOPPING} />,
             <Icon key={SHOPPING_CART} type={SHOPPING_CART} />,
@@ -44,7 +43,6 @@ class ProductModal extends React.Component {
 
         return (
             <Modal
-                centered={true}
                 cancelText={CANCEL}
                 closable={false}
                 destroyOnClose
@@ -62,10 +60,10 @@ class ProductModal extends React.Component {
     }
 }
 
-ProductModal.propTypes = {
+MarketModal.propTypes = {
     data: PropTypes.object,
     handleCancel: PropTypes.func,
     visible: PropTypes.bool,
 };
 
-export default ProductModal;
+export default MarketModal;

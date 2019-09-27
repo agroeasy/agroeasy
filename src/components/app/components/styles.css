@@ -38,11 +38,11 @@ h4 {
 }
 
 .banner_card {
-  width: 220px;
-  display: block;
-  text-align: center;
-  padding: 15px;
-  color: white;
+    width: 250px; 
+    display: block; 
+    text-align: center;
+    padding: 15px;
+    color: white;
 }
 
 .banner_icon {
@@ -62,6 +62,11 @@ h4 {
 
 .banner_color {
   color: white;
+}
+
+.banner_body {
+    font-size: 15px;
+    color: white;
 }
 
 .banner button {
