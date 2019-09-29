@@ -79,7 +79,7 @@ h4 {
 
 .nav2-header {
     background: rgba(245, 245, 245, 0.78);
-    z-index: 1;
+    /* z-index: 1; */
     margin-top: 63px;
     display: flex;
     flex-direction: row;
@@ -92,15 +92,14 @@ h4 {
 }
 
 .avatar-container {
-    background-color: #285432;
+    background-color: #285432 !important;
   }
   
   .home-avatar {
-    width: 40px;
-    height: 60px;
+    height: 28%;
     margin-left: 25%; 
     margin-right: 25%; 
-    width: 50%;
+    width: 38%;
 
   }
   .avatar-container2  { 
@@ -147,15 +146,46 @@ h4 {
   .list-category {
       width: 80%;
       margin: 0 10%;
-      background-color: #F2F2F2; 
+      background-color: #E0E0E0; 
   }
 
-  .list-item-meta {
-      text-align: center;
-  }
   .list-item-meta * {
       color: #106021;
       font-weight: 700;
       margin-top: 10px;
+      text-align: center;
+  }
+
+  .right-nav-menu {
+    position: relative;
+    float: left;
+    top: 50%;
+    transform: translateY(-50%);
   }
   
+  .left-nav-menu {
+    background-color: #285432 !important;
+    position: relative;
+    float: right;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* mobile view css */
+  @media screen and (max-width: 700px) {
+    .nav2-header {
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-content: center;
+        margin-top: 55px;
+    }
+  
+    .list-item-meta * {
+     font-size: 12px;
+     line-height: 5px;
+    }
+    .banner2-container div h1 { font-size: 28px; }
+    .banner2-container div h5 { font-size: 14px; }
+    .banner2-container div h6 { font-size: 12px; font-weight: normal; }
+  }

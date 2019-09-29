@@ -65,22 +65,6 @@ ul li {
   z-index: 1;
 }
 
-.right-nav-menu {
-  position: relative;
-  float: left;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-
-
-.left-nav-menu {
-  background-color: #285432 !important;
-  position: relative;
-  float: right;
-  top: 50%;
-  transform: translateY(-50%);
-}
 .user-avatar-drop-down {
   background-color: #f56a00;
   float: right;
@@ -90,6 +74,9 @@ ul li {
 @media only screen and (max-width: 700px) {
   .ant-menu-dark {
     margin-left: -15%;
+  }
+  .bg-img {
+    height: 50%;
   }
 }
 
@@ -181,6 +168,14 @@ img {
   margin-top: 5px;
 }
 
+.search-input {
+  width: 650px;
+}
+@media screen and (max-width: 800px) {
+  .search-input {
+      width: 340px;
+  }
+}
 /* Location.js */
 .main-div {
   margin-top: 20px;

@@ -30,7 +30,7 @@ class Banner extends Component {
                 <h2>{BANNER_HEADING}</h2>
                 <div className={BANNER_FLEX}>{banners}</div>
                 <Link to={BANNER_LINK}>
-                    <Button>{LEARN_MORE}</Button>
+                    <Button style={{ backgroundColor: '#106021' }}>{LEARN_MORE}</Button>
                 </Link>
             </div>
         );

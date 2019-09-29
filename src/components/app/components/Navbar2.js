@@ -37,7 +37,7 @@ class Navbar2 extends React.Component {
                 <List
                     className="list-category"
                     bordered={true}
-                    grid={{ gutter: 16, lg: 6, md: 3, sm: 2, xl: 6, xs: 1 }}
+                    grid={{ gutter: 16, lg: 6, md: 3, sm: 2, xl: 6, xs: 2 }}
                     dataSource={PROCUCT_CATEGORIIES}
                     renderItem={item => {
                         const { title } = item;

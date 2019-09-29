@@ -42,7 +42,7 @@ class SearchItems extends React.Component {
         return (
             <Row>
                 <Col span={11}>
-                    <InputGroup size={LARGE} style={{ width: '650px' }} compact>
+                    <InputGroup size={LARGE} className="search-input" compact>
                         <Select
                             className="select-category"
                             placeholder="Select Category"

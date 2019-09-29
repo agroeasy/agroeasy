@@ -27,7 +27,6 @@ export const LOGO = {
     SHAPE: 'square',
     SHOPING_CART_LOGO: 'shopping-cart.svg',
     SIZE: 'large',
-    WIDTH: '180px',
 };
 
 /** @constant */
