@@ -18,16 +18,15 @@ const removeItem = (items, id) => {
 
 const clearCart = items => ({});
 
-const quantityChange = (row, action, items) => {
-    const updatedItem = { ...items };
-    //get object by key/id
+const quantityChange = items => {
+    // const updatedItem = { ...items };
 
-    if (action === 'add') {
-        item.quantity[type] += 1;
+    if ('add') {
+        items.quantity += 1;
     } else {
-        item.quantity[type] -= 1;
+        items.quantity -= 1;
     }
-    return updatedItem;
+    return { ...items };
 };
 
 export default (state = { ...initialState }, action) => {

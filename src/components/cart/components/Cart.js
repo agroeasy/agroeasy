@@ -21,7 +21,10 @@ class Cart extends Component {
         removeItem(payload);
     };
 
-    handleQuantityChange = (row, action) => {};
+    handleQuantityChange = () => {
+        const { quantityChange } = this.props.actions;
+        quantityChange();
+    };
 
     handleClearCart = () => {
         const { clearCart } = this.props.actions;
@@ -30,6 +33,7 @@ class Cart extends Component {
 
     render() {
         const { cart } = this.props;
+        console.log(cart);
         const values = Object.values(cart);
 
         return (
