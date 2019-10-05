@@ -67,6 +67,7 @@ h4 {
 
 .banner_body {
     font-size: 15px;
+    font-weight: normal;
     color: white;
 }
 
@@ -75,6 +76,13 @@ h4 {
     float: right;
     margin-right: 100px;
     margin-top: 40px;
+}
+
+.main-nav {
+  background-color: #285432;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .nav2-header {
@@ -172,7 +180,7 @@ h4 {
   }
 
   /* mobile view css */
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 768px) {
     .nav2-header {
         display: flex;
         flex-direction: column;
@@ -188,4 +196,11 @@ h4 {
     .banner2-container div h1 { font-size: 28px; }
     .banner2-container div h5 { font-size: 14px; }
     .banner2-container div h6 { font-size: 12px; font-weight: normal; }
+  }
+ 
+  .btn-learn-more {
+    color: black !important;
+    background-color: #fcc200;
+    font-weight: 700;
+    width: 120px;
   }
